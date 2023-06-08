@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document("Users")
-public class User {
+public class GolfUser {
         @Id
         private String id;
         private String username;

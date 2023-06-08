@@ -39,7 +39,7 @@ jobs:
           path: backend/src/main/resources/static
       - name: Build with maven
         working-directory: backend
-        run: mvn -B package --file backend/pom.xml
+        run: mvn -B package
       - uses: actions/upload-artifact@v2
         with:
           name: GolfApp.jar

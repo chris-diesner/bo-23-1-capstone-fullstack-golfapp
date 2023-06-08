@@ -1,5 +1,6 @@
-FROM openjdk:19
+FROM openjdk:17
 
 EXPOSE 8080
-ADD /backend/target/app.jar app.jar
-CMD [ "sh", "-c", "java -jar /app.jar"]
+LABEL maintainer="chr.diesner@mailbox.org"
+ADD /backend/target/GolfApp.jar GolfApp.jar
+CMD [ "sh", "-c", "java -jar /GolfApp.jar"]

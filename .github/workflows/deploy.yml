@@ -16,7 +16,6 @@ jobs:
       - name: Build Frontend
         working-directory: frontend
         run: |
-          cd frontend
           npm install
           npm run build
       - uses: actions/upload-artifact@v2

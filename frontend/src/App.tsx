@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>GolfApp</h1>
         <Routes>
           <Route path={"/"} element={<Home/>}/>
           <Route element={<ProtectedRoutes user={user}/>}>

@@ -13,7 +13,7 @@ function Login(props:Props) {
     function loginOnSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         props.login(username, password).then(() => {
-            navigate("/");
+            navigate("/golfapp");
         });
     }
 

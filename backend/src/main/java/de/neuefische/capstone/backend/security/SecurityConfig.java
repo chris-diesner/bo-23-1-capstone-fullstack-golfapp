@@ -2,6 +2,7 @@ package de.neuefische.capstone.backend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,10 +16,14 @@ import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
+
+
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
@@ -29,11 +34,18 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(requestHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
-                .httpBasic(Customizer.withDefaults())
-                .authorizeHttpRequests()
-                .requestMatchers("/user").authenticated()
-                .requestMatchers("/user/**").permitAll()
-                .anyRequest().authenticated()
-                .and().build();
+                .httpBasic(basic -> basic.authenticationEntryPoint(
+                        (request, response, authException) ->
+                                response.sendError(
+                                        HttpStatus.UNAUTHORIZED.value(),
+                                        HttpStatus.UNAUTHORIZED.getReasonPhrase()
+                                )))
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers(
+                            ("/app/**")).authenticated();
+                    auth.anyRequest().permitAll();
+                })
+                .build();
     }
+
 }

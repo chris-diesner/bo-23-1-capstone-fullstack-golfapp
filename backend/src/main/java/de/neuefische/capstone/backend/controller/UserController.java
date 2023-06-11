@@ -30,9 +30,4 @@ public class UserController {
         return userService.registerUser(username, password);
     }
 
-    @PostMapping("/login")
-    String login() {
-        return SecurityContextHolder.getContext().getAuthentication().getName();
-    }
-
 }

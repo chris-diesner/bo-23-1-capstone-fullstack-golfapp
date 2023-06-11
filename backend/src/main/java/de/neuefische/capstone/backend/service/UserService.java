@@ -29,10 +29,6 @@ public class UserService implements UserDetailsService {
     }
 
     public GolfUser registerUser(String username, String password) {
-        Optional<GolfUser> existingUser = repo.findUserByUsername(username);
-        if (existingUser != null) {
-            throw new IllegalArgumentException("User already exists");
-        }
 
         String encodedPassword = passwordEncoder.encode(password);
         GolfUser newUser = new GolfUser(uuidService.generateUUID(), username, encodedPassword);

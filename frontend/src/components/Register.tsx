@@ -14,7 +14,7 @@ function Register(props: Props) {
     function registerOnSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         props.register(username, password).then(() => {
-            navigate("/login");
+            navigate("/");
         });
     }
 

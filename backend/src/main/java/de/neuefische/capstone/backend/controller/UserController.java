@@ -15,15 +15,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/user")
-    public String getUserFromEverywhere() {
-        System.out.println(SecurityContextHolder.getContext());
-        return SecurityContextHolder
-                .getContext()
-                .getAuthentication()
-                .getName();
-    }
-
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public GolfUser registerUser(@RequestParam String username, @RequestParam String password) {

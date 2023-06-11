@@ -4,7 +4,6 @@ import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 

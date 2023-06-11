@@ -7,7 +7,7 @@ import Register from "./components/Register";
 
 
 function App() {
-  const {register, user} = UserHook()
+  const {register} = UserHook()
 
   return (
     <div className="App">

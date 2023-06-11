@@ -5,7 +5,7 @@ export default function UserHook() {
     const [user, setUser] = useState<string>();
 
     function register(username: string, password: string) {
-        return axios.post("/api/user/register", null, {
+        return axios.post("/api/user/register", undefined, {
             params: {
                 username: username,
                 password: password,

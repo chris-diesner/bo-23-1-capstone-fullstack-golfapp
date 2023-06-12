@@ -11,10 +11,8 @@ class GenerateUUIDServiceTest {
 
     @Test
     void testGenerateUUID_returns_uuid() {
-        // when
         String actualUUID = generateUUID.generateUUID();
 
-        // then
         assertNotNull(actualUUID);
     }
 

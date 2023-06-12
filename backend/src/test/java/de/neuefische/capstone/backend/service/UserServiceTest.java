@@ -5,9 +5,12 @@ import de.neuefische.capstone.backend.repo.UserRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -44,4 +47,19 @@ class UserServiceTest {
         verify(passwordEncoder, times(1)).encode(password);
         verify(uuidService, times(1)).generateUUID();
     }
+
+    @Test
+    void loadUserByUsername_whenUserDoesNotExist_shouldThrowException() {
+        UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
+
+        String username = "nonexistent";
+        when(userRepo.findUserByUsername(username)).thenReturn(Optional.empty());
+
+        assertThrows(UsernameNotFoundException.class, () -> {
+            userService.loadUserByUsername(username);
+        });
+
+        verify(userRepo, times(1)).findUserByUsername(username);
+    }
+
 }

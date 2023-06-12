@@ -5,6 +5,7 @@ import de.neuefische.capstone.backend.repo.UserRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -58,6 +59,25 @@ class UserServiceTest {
         assertThrows(UsernameNotFoundException.class, () -> {
             userService.loadUserByUsername(username);
         });
+
+        verify(userRepo, times(1)).findUserByUsername(username);
+    }
+
+    @Test
+    void loadUserByUsername_whenUserExists_shouldReturnUserDetails() {
+        UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
+
+        String username = "test";
+        String password = "password";
+        GolfUser user = new GolfUser(uuidService.generateUUID(), username, password);
+        when(userRepo.findUserByUsername(username)).thenReturn(Optional.of(user));
+
+        UserDetails userDetails = userService.loadUserByUsername(username);
+
+        assertNotNull(userDetails);
+        assertEquals(username, userDetails.getUsername());
+        assertEquals(password, userDetails.getPassword());
+        assertTrue(userDetails.getAuthorities().isEmpty());
 
         verify(userRepo, times(1)).findUserByUsername(username);
     }

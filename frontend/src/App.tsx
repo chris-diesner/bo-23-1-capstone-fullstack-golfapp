@@ -4,6 +4,8 @@ import {Route, Routes} from "react-router-dom";
 import UserHook from "./components/hooks/UserHook";
 import Home from "./components/Home";
 import Register from "./components/Register";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {

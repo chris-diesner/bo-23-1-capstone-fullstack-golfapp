@@ -3,8 +3,6 @@ package de.neuefische.capstone.backend.service;
 import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.repo.UserRepo;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,19 +12,16 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@AutoConfigureMockMvc
 class UserServiceTest {
 
     UserRepo userRepo = mock(UserRepo.class);
     PasswordEncoder passwordEncoder = mock(PasswordEncoder.class);
     UUIDService uuidService = mock(UUIDService.class);
+    UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
 
 
     @Test
     void registerUser_shouldCreateAndReturnNewUser() {
-
-        UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
 
         String username = "test";
         String password = "password";

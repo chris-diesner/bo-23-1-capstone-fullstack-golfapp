@@ -13,7 +13,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerTest {
+class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -21,7 +21,7 @@ public class UserControllerTest {
     @Test
     @DirtiesContext
     @WithMockUser
-    public void registerUser_shouldReturnIsCreated_andShouldReturnUser() throws Exception {
+    void registerUser_shouldReturnIsCreated_andShouldReturnUser() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/user/register")
                         .param("username", "test")

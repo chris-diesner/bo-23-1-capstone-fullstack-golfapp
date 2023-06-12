@@ -15,7 +15,10 @@ function Register(props: Props) {
         e.preventDefault();
         props.register(username, password).then(() => {
             navigate("/");
-        });
+        })
+            .catch((error) => {
+                console.log("Registration failed:", error);
+            })
     }
 
     function onChangeHandlerUsername(e: ChangeEvent<HTMLInputElement>) {

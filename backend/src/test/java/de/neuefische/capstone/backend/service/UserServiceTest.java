@@ -2,7 +2,6 @@ package de.neuefische.capstone.backend.service;
 
 import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.repo.UserRepo;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -53,10 +52,17 @@ class UserServiceTest {
 
     @Test
     void registerUser_whenUsernameAlreadyExists_shouldThrowException() {
-        String username = "existing_username";
+        String username = "test@test.com";
         String password = "password";
+        String encodedPassword = "encodedPassword";
+        String generatedUUID = "generatedUUID";
+        GolfUser newUser = new GolfUser(generatedUUID, username, encodedPassword);
 
-        GolfUser existingUser = new GolfUser("1", username, password);
+        when(passwordEncoder.encode(password)).thenReturn(encodedPassword);
+        when(uuidService.generateUUID()).thenReturn(generatedUUID);
+        when(userRepo.save(newUser)).thenReturn(newUser);
+
+        GolfUser existingUser = userService.registerUser(username, password);
         when(userRepo.findUserByUsername(username)).thenReturn(Optional.of(existingUser));
 
         assertThrows(IllegalArgumentException.class, () -> {

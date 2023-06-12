@@ -9,8 +9,14 @@ In the frontend directory, you can run:
 ### `npm start`
 
 ## Setup MongoDB
-Set env variable MONGO_DB_CONNECTION_STRING to the address of your local database (e.g. mongodb://localhost:27017)
+Set env variable MONGODB_URI to the address of your local database (e.g. mongodb://localhost:27017)
 
+## Change Log
+
+```md
+12.06.2023
+(1) You can now register as a user on the site by assigning a "username" and a "password".
+```
 
 ## Description 
 An app for golfers to keep track of scores hole by hole and per course. The app would address both total score and quota scores for the user. Additional stretch features are mapping and range estimation

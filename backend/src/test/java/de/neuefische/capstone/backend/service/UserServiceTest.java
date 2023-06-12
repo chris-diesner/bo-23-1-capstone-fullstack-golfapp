@@ -2,13 +2,12 @@ package de.neuefische.capstone.backend.service;
 
 import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.repo.UserRepo;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -19,10 +18,8 @@ class UserServiceTest {
     UUIDService uuidService = mock(UUIDService.class);
     UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
 
-
     @Test
     void registerUser_shouldCreateAndReturnNewUser() {
-
         String username = "test@test.com";
         String password = "password";
         String encodedPassword = "encodedPassword";
@@ -45,8 +42,30 @@ class UserServiceTest {
     }
 
     @Test
+    void registerUser_whenEmailIsInvalid_shouldThrowException() {
+        String username = "invalid_email";
+        String password = "password";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            userService.registerUser(username, password);
+        });
+    }
+
+    @Test
+    void registerUser_whenUsernameAlreadyExists_shouldThrowException() {
+        String username = "existing_username";
+        String password = "password";
+
+        GolfUser existingUser = new GolfUser("1", username, password);
+        when(userRepo.findUserByUsername(username)).thenReturn(Optional.of(existingUser));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            userService.registerUser(username, password);
+        });
+    }
+
+    @Test
     void loadUserByUsername_whenUserDoesNotExist_shouldThrowException() {
-        UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
 
         String username = "nonexistent";
         when(userRepo.findUserByUsername(username)).thenReturn(Optional.empty());
@@ -60,7 +79,6 @@ class UserServiceTest {
 
     @Test
     void loadUserByUsername_whenUserExists_shouldReturnUserDetails() {
-        UserService userService = new UserService(userRepo, passwordEncoder, uuidService);
 
         String username = "test";
         String password = "password";

@@ -16,7 +16,7 @@
     <properties>
         <sonar.organization>chris-diesner-1</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

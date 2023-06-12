@@ -23,7 +23,7 @@ class UserServiceTest {
     @Test
     void registerUser_shouldCreateAndReturnNewUser() {
 
-        String username = "test";
+        String username = "test@test.com";
         String password = "password";
         String encodedPassword = "encodedPassword";
         String generatedUUID = "generatedUUID";

@@ -24,12 +24,12 @@ class UserControllerTest {
     void registerUser_shouldReturnIsCreated_andShouldReturnUser() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/user/register")
-                        .param("username", "test")
+                        .param("username", "test@test.com")
                         .param("password", "test")
                         .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNotEmpty())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("test"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("test@test.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.password").isNotEmpty());
     }
 }

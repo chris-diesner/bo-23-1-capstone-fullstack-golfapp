@@ -16,6 +16,10 @@ Set env variable MONGODB_URI to the address of your local database (e.g. mongodb
 ```md
 12.06.2023
 (1) You can now register as a user on the site by assigning a "username" and a "password".
+(2) The username now must be a valid email address.
+(3) Password matcher included
+(4) The password must be at least 6 characters long.
+(5) Checks if username is already registered in the database.
 ```
 
 ## Description 

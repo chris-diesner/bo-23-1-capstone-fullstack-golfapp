@@ -18,5 +18,10 @@ export default function UserHook() {
         return axios.post("/api/user/login", undefined, {auth: {username, password}})
             .then((response) => setUser(response.data))
     }
-    return {register,login, user};
+
+    function logout() {
+        return axios.post("/api/user/logout")
+            .then(() => setUser(undefined));
+    }
+    return {register,login, logout, user};
 }

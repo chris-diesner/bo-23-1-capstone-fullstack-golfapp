@@ -20,7 +20,7 @@ export default function UserHook() {
     }
 
     function logout() {
-        return axios.post("/api/user/logout")
+        return axios.get("/api/user/logout")
             .then(() => setUser(undefined));
     }
     return {register,login, logout, user};

@@ -10,8 +10,10 @@ function Home() {
             <ul>
                 <li>Added a Register Page</li>
                 <li>Email & Password Validation</li>
+                <li>Added a Login Page</li>
             </ul>
             <button onClick={() => window.location.href = "/register"}>Register</button>
+            <button onClick={() => window.location.href = "/login"}>Login</button>
             <br/>
         </div>
     );

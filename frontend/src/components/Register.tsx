@@ -34,7 +34,7 @@ function Register(props: Props) {
         }
         props.register(username, password)
             .then(() => {
-                navigate("/");
+                navigate("/Login");
             })
             .catch((error) => {
                 console.log("Registration failed:", error);

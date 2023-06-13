@@ -15,7 +15,7 @@ function Login(props:Props) {
         e.preventDefault()
         props.login(username, password)
             .then(() => {
-                navigate("/UserMainPage")
+                navigate("/golfapp")
             })
     }
 

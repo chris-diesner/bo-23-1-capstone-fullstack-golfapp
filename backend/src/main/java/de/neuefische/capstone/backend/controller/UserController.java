@@ -22,7 +22,7 @@ public class UserController {
         return userService.registerUser(username, password);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }

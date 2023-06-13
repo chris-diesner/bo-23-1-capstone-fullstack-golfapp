@@ -100,5 +100,4 @@ class UserServiceTest {
 
         verify(userRepo, times(1)).findUserByUsername(username);
     }
-
 }

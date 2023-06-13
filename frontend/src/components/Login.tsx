@@ -17,6 +17,9 @@ function Login(props:Props) {
             .then(() => {
                 navigate("/golfapp")
             })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     function onChangeHandlerUsername(e: ChangeEvent<HTMLInputElement>) {

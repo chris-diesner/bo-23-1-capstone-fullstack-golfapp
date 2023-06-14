@@ -11,9 +11,8 @@ function Home() {
                     <br/>
                     <h5>What' new:</h5>
                     <ul>
-                        <li>Added a Register Page</li>
-                        <li>Email & Password Validation</li>
-                        <li>Added a Login Page</li>
+                        <li>Basic Design</li>
+                        <li>Display Error / Success Messages</li>
                     </ul>
                 </div>
                 <div className="btn-group">

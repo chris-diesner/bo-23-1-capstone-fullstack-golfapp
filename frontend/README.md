@@ -14,6 +14,10 @@ Set env variable MONGODB_URI to the address of your local database (e.g. mongodb
 ## Change Log
 
 ```md
+14.06.2023
+(1) Basic design added
+(2) Display error messages from backend
+
 12.06.2023
 (1) You can now register as a user on the site by assigning a "username" and a "password".
 (2) The username now must be a valid email address.

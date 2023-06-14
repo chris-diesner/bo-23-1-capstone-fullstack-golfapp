@@ -46,11 +46,7 @@ function Register(props: Props) {
                 }, 5000);
             })
             .catch((error) => {
-                if (error.response && error.response.data && error.response.data.message) {
-                    setError(`Registration failed: ${error.response.data.message}`);
-                } else {
-                    setError('Registration failed');
-                }
+                setError(`Registration failed: ${error?.response?.data?.message ?? 'Registration failed'}`);
                 setShowErrorToast(true);
             });
     }

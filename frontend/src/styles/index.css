@@ -2,7 +2,6 @@ body {
     height: 900px;
     margin: 0 auto;
     background-image: url("../media/background/bg_main_001.jpg");
-    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

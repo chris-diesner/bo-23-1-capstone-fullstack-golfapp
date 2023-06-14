@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import '../styles/Login.css'
-import {Button, Container, Form} from "react-bootstrap";
+import {Button, Container, Form, Toast} from "react-bootstrap";
 
 type Props = {
     login: (username: string, password: string) => Promise<void>
@@ -10,15 +10,21 @@ type Props = {
 function Login(props: Props) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [showSuccessToast, setShowSuccessToast] = useState(false)
+    const [showErrorToast, setShowErrorToast] = useState(false)
     const navigate = useNavigate();
 
     function loginOnSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         props.login(username, password)
             .then(() => {
+                setShowSuccessToast(true)
+                setTimeout(() => {
                 navigate("/golfapp")
+                }, 5000)
             })
             .catch((err) => {
+                setShowErrorToast(true)
                 console.log(err)
             })
     }
@@ -54,6 +60,20 @@ function Login(props: Props) {
                     </div>
                 </div>
             </Container>
+            <div className="toast-container middle-center">
+                <Toast show={showSuccessToast} onClose={() => setShowSuccessToast(false)} bg={'success'} className="success-toast" autohide={true} delay={5000}>
+                    <Toast.Header closeButton={false}>
+                        <strong>Success</strong>
+                    </Toast.Header>
+                    <Toast.Body>Login successful - you will forwarded shortly</Toast.Body>
+                </Toast>
+                <Toast show={showErrorToast} onClose={() => setShowErrorToast(false)} bg={'danger'} className="error-toast" autohide={true} delay={5000}>
+                    <Toast.Header closeButton={false}>
+                        <strong>Error</strong>
+                    </Toast.Header>
+                    <Toast.Body>Username or Password invalid</Toast.Body>
+                </Toast>
+            </div>
         </div>
     );
 }

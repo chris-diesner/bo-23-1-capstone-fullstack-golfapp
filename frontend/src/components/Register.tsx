@@ -20,7 +20,7 @@ function Register(props: Props) {
     }, [password, confirmPassword]);
 
     useEffect(() => {
-        setPasswordValid(password.length >= 6);
+        setPasswordValid(password.length >= 6 && password.length <= 20);
     }, [password]);
 
     function registerOnSubmit(e: FormEvent<HTMLFormElement>) {
@@ -74,6 +74,9 @@ function Register(props: Props) {
                                 <Form.Label>Confirm Passwort</Form.Label>
                                 <Form.Control type="password" onChange={onChangeHandlerConfirmPassword}
                                               placeholder="Password"/>
+                                <Form.Text id="passwordHelpBlock" muted>
+                                    Your password must be 6-20 characters long.
+                                </Form.Text>
                             </Form.Group>
                             <Button className="registerButton" type="submit">
                                 Login

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import axios from "axios";
 
 export default function UserHook() {
@@ -14,5 +14,14 @@ export default function UserHook() {
             .then((response) => setUser(response.data));
     }
 
-    return { register, user };
+    function login(username: string, password: string) {
+        return axios.post("/api/user/login", undefined, {auth: {username, password}})
+            .then((response) => setUser(response.data))
+    }
+
+    function logout() {
+        return axios.get("/api/user/logout")
+            .then(() => setUser(undefined));
+    }
+    return {register,login, logout, user};
 }

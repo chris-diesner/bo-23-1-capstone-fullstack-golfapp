@@ -1,20 +1,26 @@
 import React from 'react';
 import '../styles/Home.css';
+import {Container} from "react-bootstrap";
 
 function Home() {
     return (
-        <div className="Home">
-            <h3>Welcome To My GolfApp (WIP)</h3>
-            <br/>
-            <h5>What' new:</h5>
-            <ul>
-                <li>Added a Register Page</li>
-                <li>Email & Password Validation</li>
-                <li>Added a Login Page</li>
-            </ul>
-            <button onClick={() => window.location.href = "/register"}>Register</button>
-            <button onClick={() => window.location.href = "/login"}>Login</button>
-            <br/>
+        <div className="HomeContainer">
+            <Container className="d-flex flex-column justify-content-center">
+                <div className="HomeContent">
+                    <h3>Welcome To My GolfApp (WIP)</h3>
+                    <br/>
+                    <h5>What' new:</h5>
+                    <ul>
+                        <li>Added a Register Page</li>
+                        <li>Email & Password Validation</li>
+                        <li>Added a Login Page</li>
+                    </ul>
+                </div>
+                <div className="btn-group">
+                    <a href="/register" className="btn btn-primary">Sign Up</a>
+                    <a href="/login" className="btn btn-primary">Login</a>
+                </div>
+            </Container>
         </div>
     );
 }

@@ -14,7 +14,8 @@ function Register(props: Props) {
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [passwordValid, setPasswordValid] = useState(true);
     const [error, setError] = useState<string>('');
-    const [showErrorToast, setShowErrorToast] = useState(false); // Zustand für das Anzeigen des Toasts
+    const [showSuccessToast, setShowSuccessToast] = useState(false);
+    const [showErrorToast, setShowErrorToast] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,7 +40,10 @@ function Register(props: Props) {
         }
         props.register(username, password)
             .then(() => {
-                navigate('/Login');
+                setShowSuccessToast(true);
+                setTimeout(() => {
+                    navigate('/Login');
+                }, 5000);
             })
             .catch((error) => {
                 if (error.response && error.response.data && error.response.data.message) {
@@ -93,7 +97,13 @@ function Register(props: Props) {
                 </div>
             </Container>
             <div className="toast-container middle-center">
-                <Toast show={showErrorToast} onClose={() => setShowErrorToast(false)} className="error-toast" autohide={true} delay={5000}>
+                <Toast show={showSuccessToast} onClose={() => setShowSuccessToast(false)} bg={'success'} className="success-toast" autohide={true} delay={5000}>
+                    <Toast.Header closeButton={false}>
+                        <strong>Success</strong>
+                    </Toast.Header>
+                    <Toast.Body>Registration successful - you will forwarded shortly</Toast.Body>
+                </Toast>
+                <Toast show={showErrorToast} onClose={() => setShowErrorToast(false)} bg={'danger'} className="error-toast" autohide={true} delay={5000}>
                     <Toast.Header closeButton={false}>
                         <strong>Error</strong>
                     </Toast.Header>

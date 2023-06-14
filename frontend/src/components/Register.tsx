@@ -92,16 +92,14 @@ function Register(props: Props) {
                     </div>
                 </div>
             </Container>
-            <Toast show={showErrorToast}
-                   onClose={() => setShowErrorToast(false)}
-                   className="error-toast"
-                   autohide={true}
-                   delay={5000}>
-                <Toast.Header closeButton={false}>
-                    <strong>Error</strong>
-                </Toast.Header>
-                <Toast.Body>{error}</Toast.Body>
-            </Toast>
+            <div className="toast-container middle-center">
+                <Toast show={showErrorToast} onClose={() => setShowErrorToast(false)} className="error-toast" autohide={true} delay={5000}>
+                    <Toast.Header closeButton={false}>
+                        <strong>Error</strong>
+                    </Toast.Header>
+                    <Toast.Body>{error}</Toast.Body>
+                </Toast>
+            </div>
         </div>
     );
 }

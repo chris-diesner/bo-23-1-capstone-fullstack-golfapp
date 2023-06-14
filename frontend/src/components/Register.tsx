@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form, Toast } from 'react-bootstrap';
 
 type Props = {
     register: (username: string, password: string) => Promise<void>;
@@ -13,7 +13,8 @@ function Register(props: Props) {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [passwordValid, setPasswordValid] = useState(true);
-    const [error, setError] = useState<string>(''); // State für Fehlermeldung
+    const [error, setError] = useState<string>('');
+    const [showErrorToast, setShowErrorToast] = useState(false); // Zustand für das Anzeigen des Toasts
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,10 +29,12 @@ function Register(props: Props) {
         e.preventDefault();
         if (!passwordsMatch) {
             setError('Passwords do not match');
+            setShowErrorToast(true);
             return;
         }
         if (!passwordValid) {
             setError('Password must be at least 6 characters long');
+            setShowErrorToast(true);
             return;
         }
         props.register(username, password)
@@ -44,6 +47,7 @@ function Register(props: Props) {
                 } else {
                     setError('Registration failed');
                 }
+                setShowErrorToast(true);
             });
     }
 
@@ -81,7 +85,6 @@ function Register(props: Props) {
                                     Your password must be 6-20 characters long.
                                 </Form.Text>
                             </Form.Group>
-                            {error && <p>{error}</p>}
                             <Button className="registerButton" type="submit">
                                 Login
                             </Button>
@@ -89,6 +92,16 @@ function Register(props: Props) {
                     </div>
                 </div>
             </Container>
+            <Toast show={showErrorToast}
+                   onClose={() => setShowErrorToast(false)}
+                   className="error-toast"
+                   autohide={true}
+                   delay={5000}>
+                <Toast.Header closeButton={false}>
+                    <strong>Error</strong>
+                </Toast.Header>
+                <Toast.Body>{error}</Toast.Body>
+            </Toast>
         </div>
     );
 }

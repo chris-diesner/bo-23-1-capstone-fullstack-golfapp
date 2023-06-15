@@ -21,7 +21,7 @@ function UserMainPage(props:Props) {
     }
 
     function userDetailsOnClick() {
-        navigate("/userdetails")
+        navigate("/golfapp/userdetails")
     }
 
     return (

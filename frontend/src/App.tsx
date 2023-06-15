@@ -19,7 +19,7 @@ function App() {
                 <Route path={"/"} element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user}/>}>
                     <Route path={"/golfapp"} element={<UserMainPage logout={logout}/>}/>
-                    <Route path={"/userdetails"} element={<UserDetails />}/>
+                    <Route path={"/golfapp/userdetails"} element={<UserDetails />}/>
                 </Route>
                 <Route path="/register" element={<Register register={register}/>}/>
                 <Route path="/login" element={<Login login={login}/>}/>

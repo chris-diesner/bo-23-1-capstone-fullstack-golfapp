@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Button, Container, Form} from "react-bootstrap";
 import '../../styles/UserDetails.css'
 import UserHook from "../hooks/UserHook";
 
-function UserDetails() {
+type Props = {
+    getUserDetails: () => Promise<void>
+}
+
+function UserDetails(props:Props) {
     const {userDetails} = UserHook()
+
+    useEffect(() => {
+        props.getUserDetails();
+    }, []);
     function editUserOnSubmit() {
 
     }
@@ -29,7 +37,7 @@ function UserDetails() {
                     <div className="UserDetailsForm">
                         <Form onSubmit={editUserOnSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>{userDetails?.username}</Form.Label>
+                                <Form.Label>Email</Form.Label>
                                 <Form.Control type="email" value={userDetails?.username} onChange={onChangeHandlerUsername}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">

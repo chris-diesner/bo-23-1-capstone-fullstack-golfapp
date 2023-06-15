@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 
@@ -9,10 +9,16 @@ export default function UserHook() {
     function getUserDetails(): Promise<void> {
         axios
             .get("/api/user/details/"+user)
-            .then((response) => response.data)
-            .then((data) => {
-                setUserDetails(data);
-                console.log(data)
+            .then((response) => {
+                const golfUser: GolfUser = {
+                    id: response.data.id,
+                    username: response.data.username,
+                    firstName: response.data.firstName,
+                    lastName: response.data.lastName,
+                    handicap: response.data.handicap,
+                    profilePicture: response.data.profilePicture,
+                };
+                setUserDetails(golfUser);
             })
             .catch((error) => console.log(error));
         return Promise.resolve();

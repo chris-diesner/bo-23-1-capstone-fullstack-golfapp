@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 
@@ -23,6 +23,9 @@ export default function UserHook() {
             .catch((error) => console.log(error));
         return Promise.resolve();
     }
+    useEffect(() => {
+        console.log(userDetails);
+    }, [userDetails]);
 
     function register(username: string, password: string) {
         return axios.post("/api/user/register", undefined, {

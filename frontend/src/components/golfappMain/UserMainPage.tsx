@@ -8,7 +8,7 @@ type Props = {
     getUserDetails: () => Promise<void>
 }
 
-function UserMainPage(props:Props) {
+function UserMainPage(props: Props) {
     const navigate = useNavigate();
 
     function logoutOnClick() {
@@ -22,9 +22,13 @@ function UserMainPage(props:Props) {
     }
 
     function userDetailsOnClick() {
-        props.getUserDetails().then(()=>{
+        props.getUserDetails()
+            .then(() => {
             navigate("/golfapp/userdetails")
         })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return (

@@ -8,8 +8,12 @@ function UserDetails() {
     const { userDetails, getUserDetails, user } = userHook;
 
     useEffect(() => {
-        getUserDetails();
+        getUserDetails()
+            .catch((error) => {
+                console.log(error);
+            });
     }, [user]);
+
 
     function editUserOnSubmit() {
 

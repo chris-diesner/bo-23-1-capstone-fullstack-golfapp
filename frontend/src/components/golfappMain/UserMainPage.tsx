@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/UserMainPage.css'
 import {useNavigate} from "react-router-dom";
+import {Container} from "react-bootstrap";
 
 type Props = {
     logout: () => Promise<void>
@@ -19,11 +20,19 @@ function UserMainPage(props:Props) {
             })
     }
     return (
-        <div className="UserMainTop">
-            <h1>UserMainPage (WIP)</h1>
-            <br/>
-            <h5>What' new:</h5>
-            <button onClick={logoutOnClick}>Logout</button>
+        <div className="UserMainContainer">
+            <Container className="d-flex flex-column justify-content-center">
+                <div className="UserMainContent">
+                    <h3>Welcome To My GolfApp (WIP)</h3>
+                    <br/>
+                    <h5>What' new:</h5>
+                    <ul>
+                        <li>Added a Register Page</li>
+                        <li>Email & Password Validation</li>
+                        <li>Added a Login Page</li>
+                    </ul>
+                </div>
+            </Container>
         </div>
     );
 }

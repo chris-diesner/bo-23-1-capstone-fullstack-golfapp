@@ -1,10 +1,21 @@
-.UserMainTop {
+.UserMainContainer {
+    display: flex;
     background: floralwhite;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
+}
+.UserMainContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    width: 100%;
 }

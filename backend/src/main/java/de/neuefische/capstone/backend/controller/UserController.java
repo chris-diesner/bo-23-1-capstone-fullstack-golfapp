@@ -6,6 +6,7 @@ import de.neuefische.capstone.backend.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,12 @@ public class UserController {
     @GetMapping("/details/{username}")
     public GolfUser getUserDetails(@PathVariable String username) {
         return userService.getUserDetails(username);
+    }
+
+    @PostMapping("/user/edit")
+    public ResponseEntity<GolfUser> editUserDetails(@RequestBody GolfUser golfUser) {
+        GolfUser updatedUser = userService.editUserDetails(golfUser);
+        return ResponseEntity.ok(updatedUser);
     }
 
     @PostMapping("/login")

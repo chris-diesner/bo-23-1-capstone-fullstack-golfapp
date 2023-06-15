@@ -39,7 +39,7 @@ function UserDetails() {
         <div className="UserDetailsContainer">
             <Container className="d-flex flex-column justify-content-center">
                 <div className="RegisterContent">
-                    <h3>Sign Up</h3>
+                    <h3>Your Profile</h3>
                     <div className="UserDetailsForm">
                         <Form onSubmit={editUserOnSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">

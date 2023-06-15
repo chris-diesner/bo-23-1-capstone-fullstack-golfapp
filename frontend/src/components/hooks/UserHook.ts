@@ -21,7 +21,7 @@ export default function UserHook() {
         getCurrentUser().then((currentUser) => {
             setUser(currentUser);
         });
-    }, []);
+    }, [user]);
 
     function getUserDetails(): Promise<void> {
         return axios
@@ -35,10 +35,8 @@ export default function UserHook() {
                     handicap: response.data.handicap,
                     profilePicture: response.data.profilePicture,
                 };
-                console.log(golfUser);
                 setUserDetails(golfUser);
             })
-            .then(() => console.log(userDetails))
             .catch((error) => console.log(error));
     }
 

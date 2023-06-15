@@ -19,3 +19,8 @@
     align-items: center;
     width: 100%;
 }
+.UserDetailsForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

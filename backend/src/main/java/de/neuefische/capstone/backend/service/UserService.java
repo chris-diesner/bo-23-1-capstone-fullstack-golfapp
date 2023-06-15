@@ -31,18 +31,18 @@ public class UserService implements UserDetailsService {
         return new User(user.getUsername(), user.getPassword(), List.of());
     }
 
-    public GolfUserDTO registerUser(GolfUser user) {
-        user.setId(uuidService.generateUUID());
+    public GolfUserDTO registerUser(GolfUser golfUser) {
+        golfUser.setId(uuidService.generateUUID());
 
-        if (!isEmailValid(user.getUsername())) {
+        if (!isEmailValid(golfUser.getUsername())) {
             throw new IllegalArgumentException("Email is not valid");
         }
 
-        if (repo.findUserByUsername(user.getUsername()).isPresent()) {
+        if (repo.findUserByUsername(golfUser.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        GolfUser tempUser = repo.save(user.withPassword(encodedPassword));
+        String encodedPassword = passwordEncoder.encode(golfUser.getPassword());
+        GolfUser tempUser = repo.save(golfUser.withPassword(encodedPassword));
         return new GolfUserDTO(tempUser.getUsername());
 
     }
@@ -54,10 +54,12 @@ public class UserService implements UserDetailsService {
         return matcher.matches();
     }
 
-
     public GolfUser getUserDetails(String username) {
         Optional<GolfUser> optionalUser = repo.findUserByUsername(username);
         return optionalUser.orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
+    public GolfUser editUserDetails(GolfUser golfUser) {
+        return repo.save(golfUser);
+    }
 }

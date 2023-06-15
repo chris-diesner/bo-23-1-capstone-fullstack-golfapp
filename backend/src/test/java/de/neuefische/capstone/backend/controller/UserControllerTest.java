@@ -31,15 +31,14 @@ class UserControllerTest {
     @Test
     @DirtiesContext
     @WithMockUser
-    void registerUser_shouldReturnIsCreated_andShouldReturnUser() throws Exception {
+    void registerUser_shouldReturnIsCreated_andShouldReturnUserDTO() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/user/register")
                         .param("username", "test@test.com")
                         .param("password", "test")
                         .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("test@test.com"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.password").isNotEmpty());
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("test@test.com"));
     }
 
     @Test

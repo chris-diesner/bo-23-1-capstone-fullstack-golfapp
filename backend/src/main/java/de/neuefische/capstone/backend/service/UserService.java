@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
         }
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         GolfUser tempUser = repo.save(user.withPassword(encodedPassword));
-        return new GolfUserDTO(tempUser.getUsername(), tempUser.getPassword());
+        return new GolfUserDTO(tempUser.getUsername());
 
     }
 

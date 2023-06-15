@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GolfUserDTO {
     private String username;
-    private String password;
 }

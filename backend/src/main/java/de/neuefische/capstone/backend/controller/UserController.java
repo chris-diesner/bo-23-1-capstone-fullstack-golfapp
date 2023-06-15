@@ -1,6 +1,7 @@
 package de.neuefische.capstone.backend.controller;
 
 import de.neuefische.capstone.backend.model.GolfUser;
+import de.neuefische.capstone.backend.model.GolfUserDTO;
 import de.neuefische.capstone.backend.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,12 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public GolfUser registerUser(@RequestParam String username, @RequestParam String password) {
-        return userService.registerUser(username, password);
+    public GolfUserDTO registerUser(@RequestParam String username, @RequestParam String password) {
+        GolfUser user = GolfUser.builder()
+                .username(username)
+                .password(password)
+                .build();
+        return userService.registerUser(user);
     }
 
     @PostMapping("/login")

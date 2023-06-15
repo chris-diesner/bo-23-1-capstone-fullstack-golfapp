@@ -1,8 +1,8 @@
 package de.neuefische.capstone.backend.service;
 
 import de.neuefische.capstone.backend.model.GolfUser;
+import de.neuefische.capstone.backend.model.GolfUserDTO;
 import de.neuefische.capstone.backend.repo.UserRepo;
-import jakarta.validation.constraints.Email;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,19 +30,20 @@ public class UserService implements UserDetailsService {
         return new User(user.getUsername(), user.getPassword(), List.of());
     }
 
-    public GolfUser registerUser(String username, String password) {
+    public GolfUserDTO registerUser(GolfUser user) {
+        user.setId(uuidService.generateUUID());
 
-        if (!isEmailValid(username)) {
+        if (!isEmailValid(user.getUsername())) {
             throw new IllegalArgumentException("Email is not valid");
         }
 
-        if (repo.findUserByUsername(username).isPresent()) {
+        if (repo.findUserByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        GolfUser tempUser = repo.save(user.withPassword(encodedPassword));
+        return new GolfUserDTO(tempUser.getUsername(), tempUser.getPassword());
 
-        String encodedPassword = passwordEncoder.encode(password);
-        GolfUser newUser = new GolfUser(uuidService.generateUUID(), username, encodedPassword);
-        return repo.save(newUser);
     }
 
     private boolean isEmailValid(String email) {

@@ -38,7 +38,6 @@ class UserControllerTest {
                         .param("password", "test")
                         .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNotEmpty())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("test@test.com"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.password").isNotEmpty());
     }

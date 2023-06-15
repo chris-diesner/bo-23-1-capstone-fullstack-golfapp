@@ -1,8 +1,10 @@
 import React from 'react';
 import {Button, Container, Form} from "react-bootstrap";
 import '../../styles/UserDetails.css'
+import UserHook from "../hooks/UserHook";
 
 function UserDetails() {
+    const {userDetails} = UserHook()
     function editUserOnSubmit() {
 
     }
@@ -27,8 +29,8 @@ function UserDetails() {
                     <div className="UserDetailsForm">
                         <Form onSubmit={editUserOnSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>E-Mail Adresse</Form.Label>
-                                <Form.Control type="email" onChange={onChangeHandlerUsername} placeholder="Email" />
+                                <Form.Label>{userDetails?.username}</Form.Label>
+                                <Form.Control type="email" value={userDetails?.username} onChange={onChangeHandlerUsername}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Passwort</Form.Label>

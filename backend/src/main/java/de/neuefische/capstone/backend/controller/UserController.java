@@ -27,6 +27,11 @@ public class UserController {
         return userService.registerUser(user);
     }
 
+    @GetMapping("/details/{username}")
+    public GolfUser getUserDetails(@PathVariable String username) {
+        return userService.getUserDetails(username);
+    }
+
     @PostMapping("/login")
     public String login() {
         return SecurityContextHolder.getContext().getAuthentication().getName();

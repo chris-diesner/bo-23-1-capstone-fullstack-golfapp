@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,4 +53,11 @@ public class UserService implements UserDetailsService {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+
+    public GolfUser getUserDetails(String username) {
+        Optional<GolfUser> optionalUser = repo.findUserByUsername(username);
+        return optionalUser.orElseThrow(() -> new IllegalArgumentException("User not found"));
+    }
+
 }

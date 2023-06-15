@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import UserDetails from "./components/golfappMain/UserDetails";
 
 function App() {
-    const {login, logout, register, user} = UserHook()
+    const {login, logout, register, getUserDetails, user} = UserHook()
 
     return (
         <div className="App">
@@ -18,7 +18,7 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user}/>}>
-                    <Route path={"/golfapp"} element={<UserMainPage logout={logout}/>}/>
+                    <Route path={"/golfapp"} element={<UserMainPage logout={logout} getUserDetails={getUserDetails} />}/>
                     <Route path={"/golfapp/userdetails"} element={<UserDetails />}/>
                 </Route>
                 <Route path="/register" element={<Register register={register}/>}/>

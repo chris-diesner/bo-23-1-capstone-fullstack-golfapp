@@ -5,6 +5,7 @@ import {Container} from "react-bootstrap";
 
 type Props = {
     logout: () => Promise<void>
+    getUserDetails: () => Promise<void>
 }
 
 function UserMainPage(props:Props) {
@@ -21,7 +22,9 @@ function UserMainPage(props:Props) {
     }
 
     function userDetailsOnClick() {
-        navigate("/golfapp/userdetails")
+        props.getUserDetails().then(()=>{
+            navigate("/golfapp/userdetails")
+        })
     }
 
     return (

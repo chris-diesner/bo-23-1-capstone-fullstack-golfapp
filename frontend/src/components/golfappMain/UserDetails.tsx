@@ -3,16 +3,14 @@ import {Button, Container, Form} from "react-bootstrap";
 import '../../styles/UserDetails.css'
 import UserHook from "../hooks/UserHook";
 
-type Props = {
-    getUserDetails: () => Promise<void>
-}
-
-function UserDetails(props:Props) {
-    const {userDetails} = UserHook()
+function UserDetails() {
+    const userHook = UserHook();
+    const { userDetails, getUserDetails } = userHook;
 
     useEffect(() => {
-        props.getUserDetails();
+        getUserDetails();
     }, []);
+
     function editUserOnSubmit() {
 
     }
@@ -21,11 +19,15 @@ function UserDetails(props:Props) {
 
     }
 
-    function onChangeHandlerPassword() {
+    function onChangeHandlerFirstName() {
 
     }
 
-    function onChangeHandlerConfirmPassword() {
+    function onChangeHandlerLastName() {
+
+    }
+
+    function onChangeHandlerHandicap() {
 
     }
 
@@ -40,18 +42,22 @@ function UserDetails(props:Props) {
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="email" value={userDetails?.username} onChange={onChangeHandlerUsername}/>
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Passwort</Form.Label>
-                                <Form.Control type="password" onChange={onChangeHandlerPassword} placeholder="Password" />
+                            <Form.Group className="mb-3" controlId="formBasicName">
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control type="firstName" value={userDetails?.firstName} onChange={onChangeHandlerFirstName} />
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Confirm Passwort</Form.Label>
-                                <Form.Control type="password" onChange={onChangeHandlerConfirmPassword} placeholder="Password" />
+                            <Form.Group className="mb-3" controlId="formBasicName">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control type="lastName" value={userDetails?.lastName} onChange={onChangeHandlerLastName} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicNumber">
+                                <Form.Label>Your Handicap</Form.Label>
+                                <Form.Control type="handicap" value={userDetails?.handicap} onChange={onChangeHandlerHandicap} />
                                 <Form.Text id="passwordHelpBlock" muted>
-                                    Your password must be 6-20 characters long.
+                                    Update your personal information
                                 </Form.Text>
                             </Form.Group>
-                            <Button className="registerButton" type="submit">
+                            <Button className="saveButton" type="submit">
                                 Save
                             </Button>
                         </Form>

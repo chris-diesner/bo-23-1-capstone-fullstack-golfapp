@@ -27,6 +27,15 @@ public class UserController {
         return userService.registerUser(user);
     }
 
+    @GetMapping("/me2")
+    public String getMeFromEverywhere(){
+        System.out.println(SecurityContextHolder.getContext());
+        return SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+    }
+
     @GetMapping("/details/{username}")
     public GolfUser getUserDetails(@PathVariable String username) {
         return userService.getUserDetails(username);

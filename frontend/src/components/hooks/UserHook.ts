@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 
@@ -7,8 +7,8 @@ export default function UserHook() {
     const [userDetails, setUserDetails] = useState<GolfUser | null>(null);
 
     function getUserDetails(): Promise<void> {
-        axios
-            .get("/api/user/details/"+user)
+        return axios
+            .get("/api/user/details/" + user)
             .then((response) => {
                 const golfUser: GolfUser = {
                     id: response.data.id,
@@ -18,14 +18,14 @@ export default function UserHook() {
                     handicap: response.data.handicap,
                     profilePicture: response.data.profilePicture,
                 };
+                console.log(golfUser);
                 setUserDetails(golfUser);
+
             })
+            .then(()=>console.log(userDetails))
             .catch((error) => console.log(error));
-        return Promise.resolve();
     }
-    useEffect(() => {
-        console.log(userDetails);
-    }, [userDetails]);
+
 
     function register(username: string, password: string) {
         return axios.post("/api/user/register", undefined, {

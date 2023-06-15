@@ -5,11 +5,11 @@ import UserHook from "../hooks/UserHook";
 
 function UserDetails() {
     const userHook = UserHook();
-    const { userDetails, getUserDetails } = userHook;
+    const { userDetails, getUserDetails, user } = userHook;
 
     useEffect(() => {
         getUserDetails();
-    }, []);
+    }, [user]);
 
     function editUserOnSubmit() {
 

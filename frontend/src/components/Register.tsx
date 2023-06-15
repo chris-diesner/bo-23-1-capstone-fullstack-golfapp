@@ -86,7 +86,7 @@ function Register(props: Props) {
                                 </Form.Text>
                             </Form.Group>
                             <Button className="registerButton" type="submit">
-                                Login
+                                Sign Up
                             </Button>
                         </Form>
                     </div>

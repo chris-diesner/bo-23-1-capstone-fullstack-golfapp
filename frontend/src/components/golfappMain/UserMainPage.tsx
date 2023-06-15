@@ -19,8 +19,14 @@ function UserMainPage(props:Props) {
                 console.log(err)
             })
     }
+
+    function userDetailsOnClick() {
+        navigate("/userdetails")
+    }
+
     return (
         <div className="UserMainContainer">
+            <button onClick={userDetailsOnClick}>User Details</button>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="UserMainContent">
                     <h3>Welcome To My GolfApp (WIP)</h3>

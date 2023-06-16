@@ -98,7 +98,7 @@ class UserControllerTest {
     @Test
     @DirtiesContext
     @WithMockUser
-    public void testGetMeFromEverywhere() throws Exception {
+    void testGetMeFromEverywhere() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/user/me2"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("user"));
@@ -107,7 +107,7 @@ class UserControllerTest {
     @Test
     @DirtiesContext
     @WithMockUser
-    public void testEditUserDetails() throws Exception {
+    void testEditUserDetails() throws Exception {
         GolfUser testUser = new GolfUser();
         testUser.setUsername("testuser");
         testUser.setFirstName("test1");

@@ -93,22 +93,22 @@ function UserDetails(props: Props) {
                         <Form onSubmit={editUserOnSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" value={userDetails?.username}
+                                <Form.Control type="email" defaultValue={userDetails?.username}
                                               onChange={onChangeHandlerUsername}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control type="text" value={userDetails?.firstName}
+                                <Form.Control type="text" defaultValue={userDetails?.firstName}
                                               onChange={onChangeHandlerFirstName}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="text" value={userDetails?.lastName}
+                                <Form.Control type="text" defaultValue={userDetails?.lastName}
                                               onChange={onChangeHandlerLastName}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicNumber">
                                 <Form.Label>Your Handicap</Form.Label>
-                                <Form.Control type="text" value={userDetails?.handicap}
+                                <Form.Control type="text" defaultValue={userDetails?.handicap}
                                               onChange={onChangeHandlerHandicap}/>
                                 <Form.Text id="userDeailsHelperBlock" muted>
                                     Update your personal information

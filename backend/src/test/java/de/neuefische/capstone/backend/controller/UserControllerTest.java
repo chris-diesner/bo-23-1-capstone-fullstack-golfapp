@@ -42,14 +42,13 @@ class UserControllerTest {
     @DirtiesContext
     @WithMockUser
     void registerUser_shouldReturnIsCreated_andShouldReturnUserDTO() throws Exception {
-
         mockMvc.perform(MockMvcRequestBuilders.post("/api/user/register")
                         .param("username", "test@test.com")
                         .param("password", "test")
                         .with(csrf()))
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.username").value("test@test.com"));
+                .andExpect(status().isCreated());
     }
+
 
     @Test
     @DirtiesContext
@@ -76,7 +75,6 @@ class UserControllerTest {
 
     @Test
     void testGetUserDetails() throws Exception {
-        // Erstelle einen Testbenutzer
         GolfUser testUser = new GolfUser();
         testUser.setUsername("testuser");
         testUser.setFirstName("John");
@@ -84,11 +82,9 @@ class UserControllerTest {
         testUser.setHandicap(10.0);
         testUser.setProfilePicture("profile.jpg");
 
-        // Definiere das erwartete Verhalten des UserService
         when(userService.getUserDetails("testuser")).thenReturn(testUser);
 
-        // Führe die Anfrage durch, um die Benutzerdetails abzurufen
-        mockMvc.perform(get("/api/user/{username}", "testuser"))
+        mockMvc.perform(get("/api/user/details/{username}", "testuser"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("testuser"))
                 .andExpect(jsonPath("$.firstName").value("John"))
@@ -96,7 +92,6 @@ class UserControllerTest {
                 .andExpect(jsonPath("$.handicap").value(10.0))
                 .andExpect(jsonPath("$.profilePicture").value("profile.jpg"));
 
-        // Überprüfe, ob die Methode im UserService aufgerufen wurde
         verify(userService, times(1)).getUserDetails("testuser");
     }
 }

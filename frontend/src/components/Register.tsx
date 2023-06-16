@@ -2,7 +2,6 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import '../styles/Register.css';
 import {Button, Container, Form, Toast} from 'react-bootstrap';
-import validator from "validator";
 
 type Props = {
     register: (username: string, password: string) => Promise<void>;

@@ -53,7 +53,7 @@ export default function UserHook() {
 
     function editUserDetails(userId: string, updatedUserDetails: GolfUser): Promise<void> {
         return axios
-            .post("/api/user/details/" + userId, updatedUserDetails)
+            .put("/api/user/details/" + userId, updatedUserDetails)
 
             .then((response) => {
                 const golfUser: GolfUser = {

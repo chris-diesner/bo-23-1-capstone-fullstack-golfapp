@@ -19,3 +19,9 @@
     align-items: center;
     width: 100%;
 }
+.UserMainHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

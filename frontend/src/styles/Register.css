@@ -24,3 +24,9 @@
     flex-direction: column;
     width: 100%;
 }
+.RegisterHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

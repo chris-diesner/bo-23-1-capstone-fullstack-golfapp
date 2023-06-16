@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import UserDetails from "./components/golfappMain/UserDetails";
 
 function App() {
-    const {login, logout, register, getUserDetails, user} = UserHook()
+    const {login, logout, register, getUserDetails, editUserDetails, user} = UserHook()
 
     return (
         <div className="App">

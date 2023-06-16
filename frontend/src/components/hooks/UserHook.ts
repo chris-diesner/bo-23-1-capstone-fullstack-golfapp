@@ -51,6 +51,24 @@ export default function UserHook() {
             .then((response) => setUser(response.data));
     }
 
+    function editUserDetails(userId: string, updatedUserDetails: GolfUser): Promise<void> {
+        return axios
+            .post("/api/user/details/" + userId, updatedUserDetails)
+
+            .then((response) => {
+                const golfUser: GolfUser = {
+                    id: response.data.id,
+                    username: response.data.username,
+                    firstName: response.data.firstName,
+                    lastName: response.data.lastName,
+                    handicap: response.data.handicap,
+                    profilePicture: response.data.profilePicture,
+                };
+                setUserDetails(golfUser);
+            })
+            .catch((error) => console.log(error));
+    }
+
     function login(username: string, password: string) {
         return axios
             .post("/api/user/login", undefined, { auth: { username, password } })
@@ -61,5 +79,5 @@ export default function UserHook() {
         return axios.get("/api/user/logout").then(() => setUser(undefined));
     }
 
-    return { register, login, logout, user, userDetails, getUserDetails };
+    return { register, login, logout, user, userDetails, getUserDetails, editUserDetails };
 }

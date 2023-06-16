@@ -42,9 +42,9 @@ public class UserController {
         return userService.getUserDetails(username);
     }
 
-    @PostMapping("/user/edit")
-    public ResponseEntity<GolfUser> editUserDetails(@RequestBody GolfUser golfUser) {
-        GolfUser updatedUser = userService.editUserDetails(golfUser);
+    @PostMapping("/user/details/{userId}")
+    public ResponseEntity<GolfUser> editUserDetails(@PathVariable String userId, @RequestBody GolfUser golfUser) {
+        GolfUser updatedUser = userService.editUserDetails(userId, golfUser);
         return ResponseEntity.ok(updatedUser);
     }
 

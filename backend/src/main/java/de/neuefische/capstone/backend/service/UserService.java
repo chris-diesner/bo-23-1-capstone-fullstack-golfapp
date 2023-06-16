@@ -59,7 +59,18 @@ public class UserService implements UserDetailsService {
         return optionalUser.orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
-    public GolfUser editUserDetails(GolfUser golfUser) {
-        return repo.save(golfUser);
+    public GolfUser editUserDetails(String userId, GolfUser golfUser) throws UsernameNotFoundException{
+        Optional<GolfUser> optionalUser = repo.findById(userId);
+        if (optionalUser.isPresent()) {
+            GolfUser existingUser = optionalUser.get();
+            existingUser.setUsername(golfUser.getUsername());
+            existingUser.setFirstName(golfUser.getFirstName());
+            existingUser.setLastName(golfUser.getLastName());
+            existingUser.setHandicap(golfUser.getHandicap());
+            return repo.save(existingUser);
+        } else {
+            throw new  IllegalArgumentException("User not found");
+        }
     }
+
 }

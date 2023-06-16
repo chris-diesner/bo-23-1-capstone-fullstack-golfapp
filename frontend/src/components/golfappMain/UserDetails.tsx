@@ -3,7 +3,7 @@ import {Button, Container, Form} from "react-bootstrap";
 import '../../styles/UserDetails.css'
 import UserHook from "../hooks/UserHook";
 import {GolfUser} from "../../models/GolfUser";
-import userDetails from "./UserDetails";
+import validator from "validator";
 
 type Props = {
     editUserDetails: (id: string, golfUser: GolfUser) => Promise<void>;
@@ -94,7 +94,9 @@ function UserDetails(props: Props) {
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="email" defaultValue={userDetails?.username}
-                                              onChange={onChangeHandlerUsername}/>
+                                              onChange={onChangeHandlerUsername}
+                                              isInvalid={!validator.isEmail(userDetails?.username || '')}
+                                              required/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>First Name</Form.Label>
@@ -109,7 +111,8 @@ function UserDetails(props: Props) {
                             <Form.Group className="mb-3" controlId="formBasicNumber">
                                 <Form.Label>Your Handicap</Form.Label>
                                 <Form.Control type="text" defaultValue={userDetails?.handicap}
-                                              onChange={onChangeHandlerHandicap}/>
+                                              onChange={onChangeHandlerHandicap}
+                                              pattern="[0-9]*[.]?[0-9]*"/>
                                 <Form.Text id="userDeailsHelperBlock" muted>
                                     Update your personal information
                                 </Form.Text>

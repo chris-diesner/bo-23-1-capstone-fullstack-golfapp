@@ -39,7 +39,7 @@ public class SecurityConfig {
                                 )))
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(
-                            ("/golfapp/**")).authenticated();
+                            ("/api/user/golfapp/**")).authenticated();
                     auth.anyRequest().permitAll();
                 })
                 .build();

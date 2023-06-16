@@ -92,6 +92,9 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
+                        <excludes>
+                            <exclude>**/UserService.java</exclude>
+                        </excludes>
                     </excludes>
                 </configuration>
             </plugin>

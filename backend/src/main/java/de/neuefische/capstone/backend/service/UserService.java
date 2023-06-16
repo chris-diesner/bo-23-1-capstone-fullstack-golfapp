@@ -47,7 +47,7 @@ public class UserService implements UserDetailsService {
 
     }
 
-    private boolean isEmailValid(String email) {
+    public boolean isEmailValid(String email) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);

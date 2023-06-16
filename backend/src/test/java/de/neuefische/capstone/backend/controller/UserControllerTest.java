@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.service.UserService;
 import jakarta.servlet.http.HttpSession;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -88,8 +87,8 @@ class UserControllerTest {
         mockMvc.perform(get("/api/user/details/{username}", "testuser"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("testuser"))
-                .andExpect(jsonPath("$.firstName").value("John"))
-                .andExpect(jsonPath("$.lastName").value("Doe"))
+                .andExpect(jsonPath("$.firstName").value("test1"))
+                .andExpect(jsonPath("$.lastName").value("test2"))
                 .andExpect(jsonPath("$.handicap").value(10.0))
                 .andExpect(jsonPath("$.profilePicture").value("profile.jpg"));
 
@@ -132,12 +131,10 @@ class UserControllerTest {
         GolfUser registeredUser = objectMapper.readValue(postResponseContent, GolfUser.class);
         registeredUser.setId("testId");
 
-        // Aktualisierte Werte für den Benutzer
-        registeredUser.setFirstName("John");
-        registeredUser.setLastName("Doe");
+        registeredUser.setFirstName("bla");
+        registeredUser.setLastName("blubb");
         registeredUser.setHandicap(5.0);
 
-        // Mocken Sie den editUserDetails-Serviceaufruf
         when(userService.editUserDetails(eq("testId"), any(GolfUser.class))).thenReturn(registeredUser);
 
         mockMvc.perform(MockMvcRequestBuilders.put("/api/user/details/" + registeredUser.getId())
@@ -145,14 +142,14 @@ class UserControllerTest {
                         .with(csrf())
                         .content("""
                             {
-                                "firstName": "John",
-                                "lastName": "Doe",
+                                "firstName": "bla",
+                                "lastName": "blubb",
                                 "handicap": 5
                             }
                             """))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("John"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.lastName").value("Doe"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("bla"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.lastName").value("blubb"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.handicap").value(5.0));
     }
 

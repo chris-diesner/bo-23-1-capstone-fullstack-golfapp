@@ -98,17 +98,17 @@ function UserDetails(props: Props) {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control type="firstName" value={userDetails?.firstName}
+                                <Form.Control type="text" value={userDetails?.firstName}
                                               onChange={onChangeHandlerFirstName}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="lastName" value={userDetails?.lastName}
+                                <Form.Control type="text" value={userDetails?.lastName}
                                               onChange={onChangeHandlerLastName}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicNumber">
                                 <Form.Label>Your Handicap</Form.Label>
-                                <Form.Control type="handicap" value={userDetails?.handicap}
+                                <Form.Control type="text" value={userDetails?.handicap}
                                               onChange={onChangeHandlerHandicap}/>
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Update your personal information

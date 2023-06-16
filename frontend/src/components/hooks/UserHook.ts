@@ -55,18 +55,8 @@ export default function UserHook() {
         return axios
             .put("/api/user/details/" + userId, updatedUserDetails)
 
-            .then((response) => {
-                const golfUser: GolfUser = {
-                    id: response.data.id,
-                    username: response.data.username,
-                    firstName: response.data.firstName,
-                    lastName: response.data.lastName,
-                    handicap: response.data.handicap,
-                    profilePicture: response.data.profilePicture,
-                };
-                setUserDetails(golfUser);
-            })
-            .catch((error) => console.log(error));
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error))
     }
 
     function login(username: string, password: string) {

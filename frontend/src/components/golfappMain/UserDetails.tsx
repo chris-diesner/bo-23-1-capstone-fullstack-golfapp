@@ -110,7 +110,7 @@ function UserDetails(props: Props) {
                                 <Form.Label>Your Handicap</Form.Label>
                                 <Form.Control type="text" value={userDetails?.handicap}
                                               onChange={onChangeHandlerHandicap}/>
-                                <Form.Text id="passwordHelpBlock" muted>
+                                <Form.Text id="userDeailsHelperBlock" muted>
                                     Update your personal information
                                 </Form.Text>
                             </Form.Group>

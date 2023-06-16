@@ -30,7 +30,6 @@ public class UserController {
 
     @GetMapping("/me2")
     public String getMeFromEverywhere(){
-        System.out.println(SecurityContextHolder.getContext());
         return SecurityContextHolder
                 .getContext()
                 .getAuthentication()

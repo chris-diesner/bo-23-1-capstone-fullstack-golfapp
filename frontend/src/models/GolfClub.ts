@@ -1,7 +1,7 @@
 import {GolfCourse} from "./GolfCourse";
 
 export type GolfClub = {
-    clubId: string
+    clubID: string
     clubName: string
     city: string
     state: string

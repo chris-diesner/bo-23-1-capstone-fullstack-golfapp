@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import {GolfClub} from "../../models/GolfClub";
+import axios from "axios";
 
 type Props = {
     logout: () => Promise<void>
 }
 function GolfClubFind(props:Props) {
     const navigate = useNavigate();
+    const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
 
+    const getClubs = () => {
+        axios.get("/api/golfapp/clubs").then((response) => {
+            setGolfClubs(response.data);
+        })
+    }
 
+    useEffect(getClubs, [])
 
     function onClickLogout() {
         props.logout()
@@ -41,14 +50,13 @@ function GolfClubFind(props:Props) {
                         </svg>
                     </div>
                     <br/>
-                    <h5>What' new:</h5>
-                    <ul>
-                        <li>Added a Register Page</li>
-                        <li>Email & Password Validation</li>
-                        <li>Added a Login Page</li>
-                        <li>Added a User Details Page</li>
-                        <li>Profile can be updated</li>
-                    </ul>
+                    {golfClubs.map((golfClub) => (
+                        <div key={golfClub.clubID}>
+                            <h2>{golfClub.clubName}</h2>
+                            <p>City: {golfClub.city}</p>
+                            <p>State: {golfClub.state}</p>
+                        </div>
+                    ))}
                 </div>
             </Container>
         </div>

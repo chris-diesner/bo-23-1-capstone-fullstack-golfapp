@@ -3,11 +3,13 @@ import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {GolfClub} from "../../models/GolfClub";
 import axios from "axios";
+import '../../styles/GolfClubFind.css'
 
 type Props = {
     logout: () => Promise<void>
 }
-function GolfClubFind(props:Props) {
+
+function GolfClubFind(props: Props) {
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
 
@@ -30,10 +32,10 @@ function GolfClubFind(props:Props) {
     }
 
     return (
-        <div className="UserMainContainer">
+        <div className="GolfClubFindContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="UserMainContent">
-                    <div className="UserDetailsHeader">
+                <div className="GolfClubFindContent">
+                    <div className="GolfClubFindHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -50,13 +52,32 @@ function GolfClubFind(props:Props) {
                         </svg>
                     </div>
                     <br/>
-                    {golfClubs.map((golfClub) => (
-                        <div key={golfClub.clubID}>
-                            <h2>{golfClub.clubName}</h2>
-                            <p>City: {golfClub.city}</p>
-                            <p>State: {golfClub.state}</p>
+                    <div className="GolfClubList">
+                        {golfClubs.map((golfClub) => (
+                            <div key={golfClub.clubID} className="GolfClubBody" onClick={() => window.history.back()}>
+                                <div className="GolfClubHeader">
+                                    <div>{golfClub.clubName}</div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                             fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                            <path
+                                                d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="GolfClubSubHeader">
+                                    <div className="GolfClubSubHeaderLeft">
+                                        City: {golfClub.city}
+                                    </div>
+                                    <div className="GolfClubSubHeaderRigt">
+                                        Holes: {golfClub.courses.length}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="GolfClubSpacer">
                         </div>
-                    ))}
+                    </div>
                 </div>
             </Container>
         </div>

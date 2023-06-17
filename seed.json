@@ -94,5 +94,30 @@
                 "tees": null
             }
         ]
+    },
+    {
+        "clubID": "1245403085186",
+        "clubName": "GC Prenden",
+        "city": "Prenden",
+        "state": "D",
+        "country": "Germany",
+        "address": "Waldweg 3",
+        "timestampUpdated": "1626358479",
+        "courses": [
+            {
+                "courseID": "0111089293311168",
+                "courseName": "Hunter's Nine (9)",
+                "numHoles": 9,
+                "timestampUpdated": "1626332972",
+                "hasGPS": 1
+            },
+            {
+                "courseID": "0121089292871823",
+                "courseName": "Prenden Pines (18)",
+                "numHoles": 18,
+                "timestampUpdated": "1626358479",
+                "hasGPS": 1
+            }
+        ]
     }
 ]

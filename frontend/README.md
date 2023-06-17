@@ -10,11 +10,16 @@ In the frontend directory, you can run:
 
 ## Setup MongoDB
 Set env variable MONGODB_URI to the address of your local database (e.g. mongodb://localhost:27017)
+Setup a new Collection called "Clubs"
+Import a small list of golf clubs into the database (a seed.json file is provided in the root directory)
 
 ## Change Log
 
 ```md
-16.03.2023
+17.06.2023
+(1) You can now have a look of a list of all golf clubs stored in the database
+
+16.06.2023
 (1) Added a editable user details page
 (2) NavButtons included
 

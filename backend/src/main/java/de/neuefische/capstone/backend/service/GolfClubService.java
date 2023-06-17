@@ -3,7 +3,6 @@ package de.neuefische.capstone.backend.service;
 import de.neuefische.capstone.backend.model.GolfClub;
 import de.neuefische.capstone.backend.repo.GolfClubRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

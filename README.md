@@ -19,7 +19,7 @@ Import a small list of golf clubs into the database (a seed.json file is provide
 17.06.2023
 (1) You can now have a look of a list of all golf clubs stored in the database
 
-16.06.2023
+16.06.2023 
 (1) Added a editable user details page
 (2) NavButtons included
 

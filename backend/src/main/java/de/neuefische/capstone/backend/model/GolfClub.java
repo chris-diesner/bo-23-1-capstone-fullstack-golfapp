@@ -15,7 +15,6 @@ import java.util.List;
 @Builder
 @Document("Clubs")
 public class GolfClub {
-    @Id
     private String clubID;
     private String clubName;
     private String city;

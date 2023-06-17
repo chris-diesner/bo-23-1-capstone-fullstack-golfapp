@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @Document("Courses")
 public class GolfCourse {
-    @Id
     private String courseID;
     private String courseName;
     private int numHoles;

@@ -1,28 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {GolfClub} from "../../models/GolfClub";
+import {GolfCourse} from "../../models/GolfCourse";
 import axios from "axios";
-import '../../styles/GolfClubFind.css'
+import {Container} from "react-bootstrap";
 
 type Props = {
     logout: () => Promise<void>
 }
 
-function GolfClubFind(props: Props) {
+function GolfCourseSelect(props:Props) {
     const navigate = useNavigate();
-    const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
+    const [golfCourses, setGolfCourses] = useState<GolfCourse[]>([])
 
-    const getClubs = () => {
-        axios.get("/api/golfapp/clubs").then((response) => {
-            setGolfClubs(response.data);
+    const getCourseByCourseID = () => {
+        axios.get("/api/golfapp/courses/{clubID}").then((response) => {
+            setGolfCourses(response.data);
         })
             .catch((err) => {
                 console.log(err)
             })
     }
 
-    useEffect(getClubs, [])
+    useEffect(getCourseByCourseID, [])
 
     function onClickLogout() {
         props.logout()
@@ -34,23 +33,18 @@ function GolfClubFind(props: Props) {
             })
     }
 
-
-    function onClickSelectClub() {
-        navigate("/golfapp/clubs/courses")
-    }
-
     return (
-        <div className="GolfClubFindContainer">
+        <div className="GolfCourseContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="GolfClubFindContent">
-                    <div className="GolfClubFindHeader">
+                <div className="GolfCourseContent">
+                    <div className="GolfCourseHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path
                                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
-                        <h3>Nearby Golf Clubs</h3>
+                        <h3> Golf Courses</h3>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
                             <path fill-rule="evenodd"
@@ -60,11 +54,11 @@ function GolfClubFind(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <div className="GolfClubList">
-                        {golfClubs.map((golfClub) => (
-                            <div key={golfClub.clubID} className="GolfClubBody" onClick={onClickSelectClub}>
-                                <div className="GolfClubHeader">
-                                    <div>{golfClub.clubName}</div>
+                    <div className="GolfCourseList">
+                        {golfCourses.map((golfCourse) => (
+                            <div key={golfCourse.courseID} className="GolfCourseBody" onClick={() => window.history.back()}>
+                                <div className="GolfCourseHeader">
+                                    <div>{golfCourse.courseName}</div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                              fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
@@ -73,17 +67,17 @@ function GolfClubFind(props: Props) {
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="GolfClubSubHeader">
-                                    <div className="GolfClubSubHeaderLeft">
-                                        City: {golfClub.city}
+                                <div className="GolfCourseSubHeader">
+                                    <div className="GolfCourseSubHeaderLeft">
+                                        City: {golfCourse.numHoles}
                                     </div>
-                                    <div className="GolfClubSubHeaderRigt">
-                                        Holes: {golfClub.courses.length}
+                                    <div className="GolfCourseSubHeaderRigt">
+                                        Holes: {golfCourse.courseID}
                                     </div>
                                 </div>
                             </div>
                         ))}
-                        <div className="GolfClubSpacer">
+                        <div className="GolfCourseSpacer">
                         </div>
                     </div>
                 </div>
@@ -92,4 +86,4 @@ function GolfClubFind(props: Props) {
     );
 }
 
-export default GolfClubFind;
+export default GolfCourseSelect;

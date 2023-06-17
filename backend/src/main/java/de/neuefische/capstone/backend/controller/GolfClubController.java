@@ -17,7 +17,7 @@ public class GolfClubController {
 
     private final GolfClubService golfClubService;
 
-    @GetMapping("/club/{id}")
+    @GetMapping("/club/{clubID}")
     public GolfClub getGolfClubByClubID(@PathVariable String clubID) {
         return golfClubService.getGolfClubByClubID(clubID);
     }

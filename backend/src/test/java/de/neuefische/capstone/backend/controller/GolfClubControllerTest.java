@@ -34,10 +34,6 @@ class GolfClubControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void getGolfClubByClubID_shouldReturn200OK_shouldReturnEmptyList() throws Exception {
-    }
-
-    @Test
     void getAllGolfClubs_shouldReturn200OK_shouldReturnEmptyList() throws Exception {
         mockMvc.perform(get("/api/golfapp/clubs"))
                 .andExpect(status().isOk())

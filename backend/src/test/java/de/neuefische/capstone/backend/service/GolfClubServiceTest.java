@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class GolfClubServiceTest {
+class GolfClubServiceTest {
 
     private GolfClubRepo golfClubRepo;
     private GolfClubService golfClubService;
@@ -26,7 +26,7 @@ public class GolfClubServiceTest {
     }
 
     @Test
-    public void testGetGolfClubByClubID() {
+    void testGetGolfClubByClubID() {
         String clubID = "123";
         GolfClub expectedClub = new GolfClub();
         expectedClub.setClubID(clubID);
@@ -36,7 +36,7 @@ public class GolfClubServiceTest {
     }
 
     @Test
-    public void testGetAllGolfClubs() {
+    void testGetAllGolfClubs() {
         List<GolfClub> expectedClubs = Arrays.asList(new GolfClub(), new GolfClub());
         when(golfClubRepo.findAll()).thenReturn(expectedClubs);
         List<GolfClub> actualClubs = golfClubService.getAllGolfClubs();

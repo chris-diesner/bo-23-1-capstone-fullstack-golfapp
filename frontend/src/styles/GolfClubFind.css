@@ -45,6 +45,10 @@
     padding: 5px;
     margin-bottom: 5px;
 }
+.GolfClubBody:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
 .GolfClubHeader {
     display: flex;
     align-content: flex-start;

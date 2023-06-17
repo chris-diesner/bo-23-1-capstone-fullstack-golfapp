@@ -7,7 +7,7 @@ export default function GolfAppHooks() {
 
     useEffect(()=> {
         function getAllGolfClubs() {
-            return axios.get("/api/golfclub")
+            return axios.get("/api/golfapp/clubs")
                 .then((response) => {
                     return response.data;
                 })

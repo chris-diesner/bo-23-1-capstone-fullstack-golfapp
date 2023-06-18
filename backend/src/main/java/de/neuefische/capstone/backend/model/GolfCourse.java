@@ -12,11 +12,29 @@ import java.util.List;
 @AllArgsConstructor
 @Document("Courses")
 public class GolfCourse {
+    private String apiRequestsLeft;
+    private String clubID;
+    private String clubName;
+    private String address;
+    private String postalCode;
+    private String city;
+    private String state;
+    private String country;
+    private String latitude;
+    private String longitude;
+    private String website;
+    private String telephone;
     private String courseID;
     private String courseName;
-    private int numHoles;
+    private String numHoles;
     private String timestampUpdated;
-    private int hasGPS;
+    private String hasGPS;
+    private String measure;
+    private List<Integer> parsMen;
+    private List<Integer> indexesMen;
+    private List<Integer> parsWomen;
+    private List<Integer> indexesWomen;
+    private int numTees;
     private List<GolfTee> tees;
 }
 

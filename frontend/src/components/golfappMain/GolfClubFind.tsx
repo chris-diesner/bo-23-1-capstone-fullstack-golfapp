@@ -12,6 +12,7 @@ type Props = {
 function GolfClubFind(props: Props) {
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
+    const [selectedClub, setSelectedClub] = useState<GolfClub[]>([])
 
     const getClubs = () => {
         axios.get("/api/golfapp/clubs").then((response) => {
@@ -35,7 +36,8 @@ function GolfClubFind(props: Props) {
     }
 
 
-    function onClickSelectClub() {
+    const onClickSelectClub = (golfClub: GolfClub[]) => {
+        setSelectedClub([golfClub])
         navigate("/golfapp/clubs/courses")
     }
 
@@ -62,7 +64,7 @@ function GolfClubFind(props: Props) {
                     <br/>
                     <div className="GolfClubList">
                         {golfClubs.map((golfClub) => (
-                            <div key={golfClub.clubID} className="GolfClubBody" onClick={onClickSelectClub}>
+                            <div key={golfClub.clubID} className="GolfClubBody" onClick={() => onClickSelectClub(golfClub)}>
                                 <div className="GolfClubHeader">
                                     <div>{golfClub.clubName}</div>
                                     <div>

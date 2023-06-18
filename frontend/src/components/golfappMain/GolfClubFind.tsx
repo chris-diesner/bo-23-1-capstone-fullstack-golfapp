@@ -4,16 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { GolfClub } from "../../models/GolfClub";
 import axios from "axios";
 import '../../styles/GolfClubFind.css'
+import {GolfCourse} from "../../models/GolfCourse";
 
 type Props = {
     logout: () => Promise<void>
-    onSelectedClub: (club: GolfClub) => void
+    getGolfCourse: (courses: GolfCourse) => Promise<void>
 }
 
 function GolfClubFind(props: Props) {
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
-    const [selectedClub, setSelectedClub] = useState<GolfClub | null>(null)
+    const [selectedCourses, setSelectedCourses] = useState<GolfCourse[] | null>(null)
 
     const getClubs = () => {
         axios.get("/api/golfapp/clubs").then((response) => {
@@ -36,10 +37,9 @@ function GolfClubFind(props: Props) {
             })
     }
 
-    const onClickSelectClub = (club: GolfClub) => {
-        setSelectedClub(club)
-        props.onSelectedClub(club)
-        navigate("/golfapp/clubs/courses")
+    const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
+        setSelectedCourses(courses)
+        console.log(courses)
     }
 
     return (
@@ -65,7 +65,7 @@ function GolfClubFind(props: Props) {
                     <br />
                     <div className="GolfClubList">
                         {golfClubs.map((golfClub) => (
-                            <div key={golfClub.clubID} className="GolfClubBody" onClick={() => onClickSelectClub(golfClub)}>
+                            <div key={golfClub.clubID} className="GolfClubBody" onClick={() => onClickSelectCoursesBySelectedClub(golfClub.courses)}>
                                 <div className="GolfClubHeader">
                                     <div>{golfClub.clubName}</div>
                                     <div>

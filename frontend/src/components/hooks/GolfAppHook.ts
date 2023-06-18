@@ -3,7 +3,7 @@ import {useState} from "react";
 import {GolfClub} from "../../models/GolfClub";
 import {GolfCourse} from "../../models/GolfCourse";
 
-export default function GolfClubHook() {
+export default function GolfAppHook() {
     const [golfClub, setGolfClub] = useState<GolfClub | null>(null)
     const [golfCourse, setGolfCourse] = useState<GolfCourse | null>(null)
 
@@ -31,9 +31,9 @@ export default function GolfClubHook() {
             .catch((error) => console.log(error));
     }
 
-    function getGolfCourse(clubID: string): Promise<void> {
+    function getGolfCourse(courses: GolfCourse): Promise<void> {
         return axios
-            .get("/api/golfapp/course" + clubID)
+            .get("/api/golfapp/course" + courses.courseID)
             .then((response) => {
                 const golfCourse: GolfCourse = {
                     courseID: response.data.courseID,

@@ -10,7 +10,6 @@ import {setCourses} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
-    getGolfCourse: (courses: GolfCourse) => Promise<void>
 }
 
 function GolfClubFind(props: Props) {

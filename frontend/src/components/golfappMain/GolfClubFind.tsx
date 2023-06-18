@@ -7,6 +7,7 @@ import '../../styles/GolfClubFind.css'
 
 type Props = {
     logout: () => Promise<void>
+    onSelectedClub: (club: GolfClub) => void
 }
 
 function GolfClubFind(props: Props) {
@@ -35,8 +36,9 @@ function GolfClubFind(props: Props) {
             })
     }
 
-    const onClickSelectClub = (golfClub: GolfClub) => {
-        setSelectedClub(golfClub)
+    const onClickSelectClub = (club: GolfClub) => {
+        setSelectedClub(club)
+        props.onSelectedClub(club)
         navigate("/golfapp/clubs/courses")
     }
 

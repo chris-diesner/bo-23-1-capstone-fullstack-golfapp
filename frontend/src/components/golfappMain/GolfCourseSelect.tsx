@@ -56,7 +56,7 @@ function GolfCourseSelect(props:Props) {
                     <br/>
                     <div className="GolfCourseList">
                         {golfCourses.map((golfCourse) => (
-                            <div key={golfCourse.courseID} className="GolfCourseBody" onClick={() => window.history.back()}>
+                            <div key={golfCourse.courseID} className="GolfCourseBody">
                                 <div className="GolfCourseHeader">
                                     <div>{golfCourse.courseName}</div>
                                     <div>

@@ -15,7 +15,6 @@ type Props = {
 function GolfClubFind(props: Props) {
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
-    const [selectedCourses, setSelectedCourses] = useState<GolfCourse[] | null>(null)
     const dispatch = useDispatch()
 
     const getClubs = () => {

@@ -5,6 +5,8 @@ import { GolfClub } from "../../models/GolfClub";
 import axios from "axios";
 import '../../styles/GolfClubFind.css'
 import {GolfCourse} from "../../models/GolfCourse";
+import {useDispatch} from "react-redux";
+import {setCourses} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -15,6 +17,7 @@ function GolfClubFind(props: Props) {
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
     const [selectedCourses, setSelectedCourses] = useState<GolfCourse[] | null>(null)
+    const dispatch = useDispatch()
 
     const getClubs = () => {
         axios.get("/api/golfapp/clubs").then((response) => {
@@ -38,7 +41,7 @@ function GolfClubFind(props: Props) {
     }
 
     const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
-        setSelectedCourses(courses)
+        dispatch(setCourses(courses))
         console.log(courses)
     }
 

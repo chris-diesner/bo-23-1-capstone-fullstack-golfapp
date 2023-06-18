@@ -45,10 +45,6 @@ function GolfClubFind(props: Props) {
         console.log(courses)
     }
 
-    useEffect(() => {
-        console.log(selectedCourses);
-    }, [selectedCourses]);
-
     return (
         <div className="GolfClubFindContainer">
             <Container className="d-flex flex-column justify-content-center">

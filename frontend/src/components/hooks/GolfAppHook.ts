@@ -1,11 +1,13 @@
 import axios from "axios";
 import {useState} from "react";
 import {GolfClub} from "../../models/GolfClub";
+import {GolfCourse} from "../../models/GolfCourse";
 
 export default function GolfClubHook() {
-    const [golfClub, setGolfClub] = useState<GolfClub | null>(null);
+    const [golfClub, setGolfClub] = useState<GolfClub | null>(null)
+    const [golfCourse, setGolfCourse] = useState<GolfCourse | null>(null)
 
-    function getGolfClub(): Promise<void> {
+    function getGolfClubs(): Promise<void> {
         return axios
             .get("/api/golfapp/clubs")
             .then((response) => {
@@ -29,8 +31,27 @@ export default function GolfClubHook() {
             .catch((error) => console.log(error));
     }
 
+    function getGolfCourse(clubID: string): Promise<void> {
+        return axios
+            .get("/api/golfapp/course" + clubID)
+            .then((response) => {
+                const golfCourse: GolfCourse = {
+                    courseID: response.data.courseID,
+                    courseName: response.data.courseName,
+                    numHoles: response.data.numHoles,
+                    timestampUpdated: response.data.timestampUpdated,
+                    hasGPS: response.data.hasGPS,
+                    tees: response.data.tees,
+                };
+                setGolfCourse(golfCourse);
+            })
+            .catch((error) => console.log(error));
+    }
+
     return {
         golfClub,
-        getGolfClub
+        getGolfClubs,
+        golfCourse,
+        getGolfCourse
     };
 }

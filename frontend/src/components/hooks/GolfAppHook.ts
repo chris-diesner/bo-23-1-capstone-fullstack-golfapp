@@ -5,7 +5,7 @@ import {GolfClub} from "../../models/GolfClub";
 export default function GolfClubHook() {
     const [golfClub, setGolfClub] = useState<GolfClub | null>(null);
 
-    function getGolfClub(clubID: string): Promise<void> {
+    function getGolfClub(): Promise<void> {
         return axios
             .get("/api/golfapp/clubs")
             .then((response) => {

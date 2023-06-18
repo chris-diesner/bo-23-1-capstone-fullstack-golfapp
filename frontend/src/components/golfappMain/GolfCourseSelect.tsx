@@ -12,18 +12,18 @@ type Props = {
 function GolfCourseSelect(props:Props) {
     const navigate = useNavigate();
     const [golfCourses, setGolfCourses] = useState<GolfCourse[]>([])
-    const setCourses = useSelector((state:any) => state.selectedCourses)
-
-    console.log(setCourses)
+    const selectedCourses = useSelector((state:any) => state.selectedCourses)
+    const courseIDs = selectedCourses.map((course:GolfCourse) => course.courseID)
     const getCourseByCourseID = () => {
-        axios.get("/api/golfapp/courses/{clubID}").then((response) => {
-            setGolfCourses(response.data);
-        })
-            .catch((err) => {
-                console.log(err)
+        courseIDs.forEach((courseID: string) => {
+            axios.get("/api/golfapp/course/" + courseID).then((response) => {
+                setGolfCourses(response.data);
             })
+                .catch((err) => {
+                    console.log(err)
+                })
+        })
     }
-
     useEffect(getCourseByCourseID, [])
 
     function onClickLogout() {

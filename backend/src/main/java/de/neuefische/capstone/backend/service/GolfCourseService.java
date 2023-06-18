@@ -5,6 +5,8 @@ import de.neuefische.capstone.backend.repo.GolfCourseRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class GolfCourseService {
@@ -12,6 +14,7 @@ public class GolfCourseService {
     private final GolfCourseRepo golfCourseRepo;
 
     public GolfCourse getGolfCourseByCourseID(String courseID) {
-        return golfCourseRepo.findGolfCourseByCourseID(courseID).orElseThrow();
+        Optional<GolfCourse> optionalGolfCourse = golfCourseRepo.findGolfCourseByCourseID(courseID);
+        return optionalGolfCourse.orElseThrow(() -> new IllegalArgumentException("Course not found"));
     }
 }

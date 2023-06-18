@@ -1,8 +1,8 @@
-import {GolfCourse} from "../models/GolfCourse";
+import { GolfCourse } from "../models/GolfCourse";
 
-const initialState: GolfCourse[] | null = null;
+const initialState: GolfCourse[] = [];
 
-const golfClubReducer = (state = initialState, action: any) => {
+const selectedCoursesReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'SET_COURSES':
             return action.payload;
@@ -11,4 +11,4 @@ const golfClubReducer = (state = initialState, action: any) => {
     }
 };
 
-export default golfClubReducer;
+export default selectedCoursesReducer;

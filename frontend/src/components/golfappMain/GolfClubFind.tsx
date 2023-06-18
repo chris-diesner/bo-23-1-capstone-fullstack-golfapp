@@ -43,6 +43,7 @@ function GolfClubFind(props: Props) {
     const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
         dispatch(setCourses(courses))
         console.log(courses)
+        navigate("/golfapp/clubs/courses")
     }
 
     return (

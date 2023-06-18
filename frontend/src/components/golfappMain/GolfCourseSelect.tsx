@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {GolfCourse} from "../../models/GolfCourse";
 import axios from "axios";
 import {Container} from "react-bootstrap";
+import {useSelector} from "react-redux";
 
 type Props = {
     logout: () => Promise<void>
@@ -11,7 +12,9 @@ type Props = {
 function GolfCourseSelect(props:Props) {
     const navigate = useNavigate();
     const [golfCourses, setGolfCourses] = useState<GolfCourse[]>([])
+    const setCourses = useSelector((state:any) => state.selectedCourses)
 
+    console.log(setCourses)
     const getCourseByCourseID = () => {
         axios.get("/api/golfapp/courses/{clubID}").then((response) => {
             setGolfCourses(response.data);

@@ -14,6 +14,10 @@ Set env variable MONGODB_URI to the address of your local database (e.g. mongodb
 ## Change Log
 
 ```md
+16.03.2023
+(1) Added a editable user details page
+(2) NavButtons included
+
 14.06.2023
 (1) Basic design added
 (2) Display error messages from backend

@@ -1,4 +1,4 @@
-.RegisterContainer {
+.UserDetailsContainer {
     display: flex;
     background: floralwhite;
     width: 80%;
@@ -12,19 +12,19 @@
     box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);
     border-radius: 10px;
 }
-.RegisterContent {
+.UserDetailsContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.RegisterForm {
+.UserDetailsForm {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.RegisterHeader {
+.UserDetailsHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

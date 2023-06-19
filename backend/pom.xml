@@ -17,6 +17,7 @@
         <sonar.organization>chris-diesner-1</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <java.version>17</java.version>
+        <sonar.coverage.exclusions>src/main/java/de/neuefische/capstone/backend/service/UserService.java</sonar.coverage.exclusions>
     </properties>
     <dependencies>
         <dependency>

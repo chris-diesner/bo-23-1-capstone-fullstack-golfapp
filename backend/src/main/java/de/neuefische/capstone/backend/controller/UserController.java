@@ -1,10 +1,12 @@
 package de.neuefische.capstone.backend.controller;
 
 import de.neuefische.capstone.backend.model.GolfUser;
+import de.neuefische.capstone.backend.model.GolfUserDTO;
 import de.neuefische.capstone.backend.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +20,31 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public GolfUser registerUser(@RequestParam String username, @RequestParam String password) {
-        return userService.registerUser(username, password);
+    public GolfUserDTO registerUser(@RequestParam String username, @RequestParam String password) {
+        GolfUser user = GolfUser.builder()
+                .username(username)
+                .password(password)
+                .build();
+        return userService.registerUser(user);
+    }
+
+    @GetMapping("/me2")
+    public String getMeFromEverywhere(){
+        return SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+    }
+
+    @GetMapping("/details/{username}")
+    public GolfUser getUserDetails(@PathVariable String username) {
+        return userService.getUserDetails(username);
+    }
+
+    @PutMapping("/details/{userId}")
+    public ResponseEntity<GolfUser> editUserDetails(@PathVariable String userId, @RequestBody GolfUser golfUser) {
+        GolfUser updatedUser = userService.editUserDetails(userId, golfUser);
+        return ResponseEntity.ok(updatedUser);
     }
 
     @PostMapping("/login")

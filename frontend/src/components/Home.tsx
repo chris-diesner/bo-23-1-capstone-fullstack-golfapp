@@ -13,6 +13,7 @@ function Home() {
                     <ul>
                         <li>Basic Design</li>
                         <li>Display Error / Success Messages</li>
+                        <li>Update your Profile</li>
                     </ul>
                 </div>
                 <div className="btn-group">

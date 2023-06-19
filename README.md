@@ -11,9 +11,11 @@ In the frontend directory, you can run:
 ## Setup MongoDB
 Set env variable MONGODB_URI to the address of your local database (e.g. mongodb://localhost:27017)
 
+
 ## Change Log
 
 ```md
+
 14.06.2023
 (1) Basic design added
 (2) Display error messages from backend

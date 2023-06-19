@@ -1,0 +1,123 @@
+[
+    {
+        "clubID": "648d66739b6468096da829ec",
+        "clubName": "Pebble Beach Golf Links",
+        "city": "Pebble Beach",
+        "state": "CA",
+        "country": "USA",
+        "address": "1700 17 Mile Drive",
+        "postalCode": "93953",
+        "latitude": "36.584532",
+        "longitude": "-121.964661",
+        "website": "www.pebblebeach.com",
+        "telephone": "(800) 654-9300",
+        "timestampUpdated": "1672862167",
+        "courses": [
+            {
+                "courseID": "012141520658891108829",
+                "courseName": "Pebble Beach",
+                "numHoles": 18,
+                "timestampUpdated": "1672862167",
+                "hasGPS": 1,
+                "tees": null
+            },
+            {
+                "courseID": "011141520658921417047",
+                "courseName": "The Hay",
+                "numHoles": 9,
+                "timestampUpdated": "1672862025",
+                "hasGPS": 0,
+                "tees": null
+            }
+        ]
+    },
+    {
+        "clubID": "648da89f90b8eb8116b0b34f",
+        "clubName": "Pebble Beach Golf Links",
+        "city": "Pebble Beach",
+        "state": "CA",
+        "country": "USA",
+        "address": "1700 17 Mile Drive",
+        "postalCode": "93953",
+        "latitude": "36.584532",
+        "longitude": "-121.964661",
+        "website": "www.pebblebeach.com",
+        "telephone": "(800) 654-9300",
+        "timestampUpdated": "1672862167",
+        "courses": [
+            {
+                "courseID": "012141520658891108829",
+                "courseName": "Pebble Beach",
+                "numHoles": 18,
+                "timestampUpdated": "1672862167",
+                "hasGPS": 1,
+                "tees": null
+            },
+            {
+                "courseID": "011141520658921417047",
+                "courseName": "The Hay",
+                "numHoles": 9,
+                "timestampUpdated": "1672862025",
+                "hasGPS": 0,
+                "tees": null
+            }
+        ]
+    },
+    {
+        "clubID": "648da8a890b8eb8116b0b350",
+        "clubName": "Pebble Beach Golf Links",
+        "city": "Pebble Beach",
+        "state": "CA",
+        "country": "USA",
+        "address": "1700 17 Mile Drive",
+        "postalCode": "93953",
+        "latitude": "36.584532",
+        "longitude": "-121.964661",
+        "website": "www.pebblebeach.com",
+        "telephone": "(800) 654-9300",
+        "timestampUpdated": "1672862167",
+        "courses": [
+            {
+                "courseID": "012141520658891108829",
+                "courseName": "Pebble Beach",
+                "numHoles": 18,
+                "timestampUpdated": "1672862167",
+                "hasGPS": 1,
+                "tees": null
+            },
+            {
+                "courseID": "011141520658921417047",
+                "courseName": "The Hay",
+                "numHoles": 9,
+                "timestampUpdated": "1672862025",
+                "hasGPS": 0,
+                "tees": null
+            }
+        ]
+    },
+    {
+        "clubID": "1245403085186",
+        "clubName": "GC Prenden",
+        "city": "Prenden",
+        "state": "D",
+        "country": "Germany",
+        "address": "Waldweg 3",
+        "timestampUpdated": "1626358479",
+        "courses": [
+            {
+                "courseID": "0111089293311168",
+                "courseName": "Hunter's Nine (9)",
+                "numHoles": 9,
+                "timestampUpdated": "1626332972",
+                "hasGPS": 1
+            },
+            {
+                "courseID": "0121089292871823",
+                "courseName": "Prenden Pines (18)",
+                "numHoles": 18,
+                "timestampUpdated": "1626358479",
+                "hasGPS": 1
+            }
+        ]
+    }
+]

@@ -5,8 +5,6 @@ import UserHook from "../hooks/UserHook";
 import {GolfUser} from "../../models/GolfUser";
 import validator from "validator";
 import {useNavigate} from "react-router-dom";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 type Props = {
     editUserDetails: (id: string, golfUser: GolfUser) => Promise<void>;

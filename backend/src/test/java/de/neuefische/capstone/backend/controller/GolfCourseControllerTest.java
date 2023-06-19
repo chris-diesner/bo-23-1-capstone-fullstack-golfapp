@@ -24,18 +24,14 @@ class GolfCourseControllerTest {
     private GolfCourseService golfCourseService;
 
     @Test
-    public void testGetGolfCourseByCourseID() throws Exception {
-        // Mock GolfCourse data
+    void testGetGolfCourseByCourseID_shouldReturn200OK_shouldReturnTestCourse() throws Exception {
         GolfCourse mockGolfCourse = new GolfCourse();
         mockGolfCourse.setCourseID("123");
         mockGolfCourse.setCourseName("Test Course");
-        // Mock the service method
         when(golfCourseService.getGolfCourseByCourseID("123")).thenReturn(mockGolfCourse);
 
-        // Perform GET request
         mockMvc.perform(MockMvcRequestBuilders.get("/api/golfapp/course/123")
                         .contentType(MediaType.APPLICATION_JSON))
-                // Assert response
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.courseID").value("123"))

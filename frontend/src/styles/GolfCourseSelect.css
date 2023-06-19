@@ -19,12 +19,6 @@
     align-items: center;
     width: 100%;
 }
-.GolfCourseHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
 .GolfCourseList {
     display: flex;
     flex-direction: column;

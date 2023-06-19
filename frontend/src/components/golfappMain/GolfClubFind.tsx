@@ -83,7 +83,7 @@ function GolfClubFind(props: Props) {
                                         City: {golfClub.city}
                                     </div>
                                     <div className="GolfClubSubHeaderRigt">
-                                        Holes: {golfClub.courses.length}
+                                        Courses: {golfClub.courses.length}
                                     </div>
                                 </div>
                             </div>

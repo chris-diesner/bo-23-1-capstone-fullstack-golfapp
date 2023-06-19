@@ -17,8 +17,13 @@ function GolfCourseSelect(props:Props) {
     const getCourseByCourseID = () => {
         courseIDs.forEach((courseID: string) => {
             axios.get("/api/golfapp/course/" + courseID).then((response) => {
-                setGolfCourses(response.data);
-            })
+                const data = response.data;
+
+                if (Array.isArray(data)) {
+                    setGolfCourses(data);
+                } else {
+                    setGolfCourses([data]);
+                }            })
                 .catch((err) => {
                     console.log(err)
                 })

@@ -17,20 +17,16 @@ function GolfCourseSelect(props:Props) {
     const courseIDs = selectedCourses.map((course:GolfCourse) => course.courseID)
 
     const getCourseByCourseID = () => {
-        courseIDs.forEach((courseID: string) => {
-            axios.get("/api/golfapp/course/" + courseID).then((response) => {
-                const data = response.data;
-
-                if (Array.isArray(data)) {
-                    setGolfCourses(data);
-                } else {
-                    setGolfCourses([data]);
-                }            })
-                .catch((err) => {
-                    console.log(err)
-                })
-        })
+        Promise.all(courseIDs.map((courseID: string) => axios.get("/api/golfapp/course/" + courseID)))
+            .then((responses) => {
+                const golfCoursesData = responses.map((response) => response.data).flat();
+                setGolfCourses(golfCoursesData);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
+
     useEffect(getCourseByCourseID, [])
 
     function onClickLogout() {

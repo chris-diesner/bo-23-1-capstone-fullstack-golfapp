@@ -4,6 +4,7 @@ import {GolfCourse} from "../../models/GolfCourse";
 import axios from "axios";
 import {Container} from "react-bootstrap";
 import {useSelector} from "react-redux";
+import '../../styles/GolfCourseSelect.css'
 
 type Props = {
     logout: () => Promise<void>

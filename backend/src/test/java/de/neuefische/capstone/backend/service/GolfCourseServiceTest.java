@@ -23,12 +23,24 @@ class GolfCourseServiceTest {
     }
 
     @Test
-    void getGolfCourseByCourseID() {
+    void getGolfCourseByCourseID_ReturnCourse() {
         String courseID = "123";
         GolfCourse expectedCourse = new GolfCourse();
         expectedCourse.setCourseID(courseID);
         when(golfCourseRepo.findGolfCourseByCourseID(courseID)).thenReturn(Optional.of(expectedCourse));
         GolfCourse actualCourse = golfCourseService.getGolfCourseByCourseID(courseID);
         assertEquals(expectedCourse, actualCourse);
+    }
+
+    @Test
+    void testGetGolfCourseByCourseID_ReturnCourseNotFound() {
+        when(golfCourseRepo.findGolfCourseByCourseID("123")).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                golfCourseService.getGolfCourseByCourseID("123"));
+
+        String expectedMessage = "Course not found";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 }

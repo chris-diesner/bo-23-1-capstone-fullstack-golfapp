@@ -1,9 +1,27 @@
 export type GolfCourse = {
+    apiRequestsLeft: string;
+    clubID: string;
+    clubName: string;
+    address: string;
+    postalCode: string;
+    city: string;
+    state: string;
+    country: string;
+    latitude: string;
+    longitude: string;
+    website: string;
+    telephone: string;
     courseID: string;
     courseName: string;
-    numHoles: number;
+    numHoles: string;
     timestampUpdated: string;
-    hasGPS: number;
+    hasGPS: string;
+    measure: string;
+    parsMen: number[];
+    indexesMen: number[];
+    parsWomen: number[];
+    indexesWomen: number[];
+    numTees: number;
     tees: GolfTee[];
 };
 

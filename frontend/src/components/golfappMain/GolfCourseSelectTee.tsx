@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {GolfCourse, GolfTee} from "../../models/GolfCourse";
+import {GolfTee} from "../../models/GolfCourse";
 import '../../styles/GolfCourseSelectTee.css'
 
 type Props = {
     logout: () => Promise<void>
 }
+
 function GolfCourseSelectTee(props:Props) {
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse);
     const navigate = useNavigate();
@@ -17,7 +18,6 @@ function GolfCourseSelectTee(props:Props) {
             navigate('/login');
         });
     }
-    console.log(golfCourse)
 
     return (
         <div className="GolfTeeContainer">
@@ -55,10 +55,18 @@ function GolfCourseSelectTee(props:Props) {
                                 </div>
                                 <div className="GolfTeeSubHeader">
                                     <div className="GolfTeeSubHeaderLeft">
-                                        Holes:
+                                        {tee.courseRatingMen !== null || tee.courseRatingWomen !== null ? (
+                                            tee.courseRatingMen || tee.courseRatingWomen
+                                        ) : (
+                                            "N/A"
+                                        )} /
+                                        {tee.slopeMen !== null || tee.slopeWomen !== null ? (
+                                            tee.slopeMen || tee.slopeWomen
+                                        ) : (
+                                            "N/A"
+                                        )}
                                     </div>
                                     <div className="GolfTeeSubHeaderRight">
-                                        Par:
                                     </div>
                                 </div>
                             </div>

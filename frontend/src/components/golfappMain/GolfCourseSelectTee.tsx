@@ -1,60 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { GolfCourse } from "../../models/GolfCourse";
-import axios from "axios";
-import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import '../../styles/GolfCourseSelect.css'
+import React, {useEffect, useState} from 'react';
+import {Container} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {GolfCourse, GolfTee} from "../../models/GolfCourse";
+import '../../styles/GolfCourseSelectTee.css'
 
 type Props = {
     logout: () => Promise<void>
+    golfCourse: GolfCourse
 }
-
-function GolfCourseSelect(props: Props) {
+function GolfCourseSelectTee(props:Props) {
+    const { golfCourse } = props;
     const navigate = useNavigate();
-    const [golfCourses, setGolfCourses] = useState<GolfCourse[]>([])
-    const selectedCourses = useSelector((state: any) => state.selectedCourses)
-    const courseIDs = selectedCourses.map((course: GolfCourse) => course.courseID)
-
-    const getCourseByCourseID = () => {
-        Promise.all(courseIDs.map((courseID: string) => axios.get("/api/golfapp/course/" + courseID)))
-            .then((responses) => {
-                const golfCoursesData = responses.map((response) => response.data).flat();
-                setGolfCourses(golfCoursesData);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }
-
-    useEffect(getCourseByCourseID, [])
 
     function onClickLogout() {
-        props.logout()
-            .then(() => {
-                navigate("/")
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
-    function onClickNavTee(golfCourse: GolfCourse) {
-        navigate("/golfapp/clubs/courses/tees", { state: { golfCourse } });
+        props.logout().then(() => {
+            navigate('/login');
+        });
     }
 
     return (
-        <div className="GolfCourseContainer">
+        <div className="GolfTeeContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="GolfCourseContent">
-                    <div className="GolfCourseHeader">
+                <div className="GolfTeeContent">
+                    <div className="GolfTeeHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path
                                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
-                        <h6>{golfCourses.find((course) => course.clubName)?.clubName}</h6>
+                        <h6>{golfCourse.courseName}</h6>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
                             <path fill-rule="evenodd"
@@ -64,11 +40,11 @@ function GolfCourseSelect(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <div className="GolfCourseList">
-                        {golfCourses.map((golfCourse) => (
-                            <div key={golfCourse.courseID} className="GolfCourseBody" onClick={() => onClickNavTee(golfCourse)}>
-                                <div className="GolfCourseHeader">
-                                    <div>{golfCourse.courseName}</div>
+                    <div className="GolfTeeList">
+                        {golfCourse.tees && golfCourse.tees.map((tee: GolfTee) => (
+                            <div key={tee.teeID} className="GolfCourseBody">
+                                <div className="GolfTeeHeader">
+                                    <div>{tee.teeName}</div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                              fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
@@ -77,16 +53,17 @@ function GolfCourseSelect(props: Props) {
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="GolfCourseSubHeader">
-                                    <div className="GolfCourseSubHeaderLeft">
-                                        Holes: {golfCourse.numHoles}
+                                <div className="GolfTeeSubHeader">
+                                    <div className="GolfTeeSubHeaderLeft">
+                                        Holes:
                                     </div>
-                                    <div className="GolfCourseSubHeaderRigt">
+                                    <div className="GolfTeeSubHeaderRight">
+                                        Par:
                                     </div>
                                 </div>
                             </div>
                         ))}
-                        <div className="GolfCourseSpacer">
+                        <div className="GolfTeeSpacer">
                         </div>
                     </div>
                 </div>
@@ -95,4 +72,4 @@ function GolfCourseSelect(props: Props) {
     );
 }
 
-export default GolfCourseSelect;
+export default GolfCourseSelectTee;

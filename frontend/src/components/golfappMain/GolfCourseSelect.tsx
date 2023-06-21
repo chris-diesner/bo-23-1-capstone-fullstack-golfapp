@@ -5,6 +5,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import '../../styles/GolfCourseSelect.css'
+import {setGolfCourse} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -41,6 +42,7 @@ function GolfCourseSelect(props: Props) {
     }
 
     function onClickNavTee(golfCourse: GolfCourse) {
+        dispatch(setGolfCourse(golfCourse))
         navigate("/golfapp/clubs/courses/tees");
         console.log(golfCourse)
     }

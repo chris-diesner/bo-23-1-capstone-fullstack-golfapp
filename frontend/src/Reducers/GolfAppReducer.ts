@@ -7,7 +7,7 @@ interface AppState {
 
 const initialState: AppState = {
     courses: [],
-    selectedGolfCourse: null,
+    selectedGolfCourse: null
 };
 
 const golfAppReducer = (state = initialState, action: any) => {

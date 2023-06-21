@@ -41,7 +41,7 @@ function GolfCourseSelectTee(props:Props) {
                     </div>
                     <br/>
                     <div className="GolfTeeList">
-                        {golfCourse.tees && golfCourse.tees.map((tee: GolfTee) => (
+                        {golfCourse?.tees?.map((tee: GolfTee) => (
                             <div key={tee.teeID} className="GolfCourseBody">
                                 <div className="GolfTeeHeader">
                                     <div>{tee.teeName}</div>

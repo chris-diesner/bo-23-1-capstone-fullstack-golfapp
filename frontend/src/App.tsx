@@ -15,7 +15,6 @@ import GolfCourseSelectTee from "./components/golfappMain/GolfCourseSelectTee";
 
 function App() {
     const {login, logout, register, getUserDetails, editUserDetails, user} = UserHook()
-    const golfCourse = window.history.state?.golfCourse
     return (
         <div className="App">
             <h1>GolfApp</h1>
@@ -26,7 +25,7 @@ function App() {
                     <Route path={"/golfapp/userdetails"} element={<UserDetails logout={logout} editUserDetails={editUserDetails}/>}/>
                     <Route path={"/golfapp/clubs"} element={<GolfClubFind logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses"} element={<GolfCourseSelect logout={logout}/>}/>
-                    <Route path={"/golfapp/clubs/courses/tees"} element={<GolfCourseSelectTee golfCourse={golfCourse || {}} logout={logout}/>}/>
+                    <Route path={"/golfapp/clubs/courses/tees"} element={<GolfCourseSelectTee logout={logout}/>}/>
                 </Route>
                 <Route path="/register" element={<Register register={register}/>}/>
                 <Route path="/login" element={<Login login={login}/>}/>

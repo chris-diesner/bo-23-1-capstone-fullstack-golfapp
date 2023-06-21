@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import golfAppReducer from "./GolfAppReducer";
 
 const rootReducer = combineReducers({
-    selectedCourses: golfAppReducer,
+    golfApp: golfAppReducer,
 });
 
 export default rootReducer;

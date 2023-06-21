@@ -1,14 +1,30 @@
 import { GolfCourse } from "../models/GolfCourse";
 
-const initialState: GolfCourse[] = [];
+interface AppState {
+    courses: GolfCourse[];
+    selectedGolfCourse: GolfCourse | null;
+}
 
-const selectedCoursesReducer = (state = initialState, action: any) => {
+const initialState: AppState = {
+    courses: [],
+    selectedGolfCourse: null,
+};
+
+const golfAppReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'SET_COURSES':
-            return action.payload;
+            return {
+                ...state,
+                courses: action.payload,
+            };
+        case 'SET_GOLF_COURSE':
+            return {
+                ...state,
+                selectedGolfCourse: action.payload,
+            };
         default:
             return state;
     }
 };
 
-export default selectedCoursesReducer;
+export default golfAppReducer;

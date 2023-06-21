@@ -6,3 +6,9 @@ export const setCourses = (courses: GolfCourse[]) => {
         payload: courses,
     };
 };
+export const setGolfCourse = (golfCourse: GolfCourse) => {
+    return {
+        type: 'SET_GOLF_COURSE',
+        payload: golfCourse,
+    };
+};

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { GolfCourse } from "../../models/GolfCourse";
 import axios from "axios";
 import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import '../../styles/GolfCourseSelect.css'
 
 type Props = {
@@ -13,8 +13,9 @@ type Props = {
 function GolfCourseSelect(props: Props) {
     const navigate = useNavigate();
     const [golfCourses, setGolfCourses] = useState<GolfCourse[]>([])
-    const selectedCourses = useSelector((state: any) => state.selectedCourses)
+    const selectedCourses = useSelector((state: any) => state.golfApp.courses)
     const courseIDs = selectedCourses.map((course: GolfCourse) => course.courseID)
+    const dispatch = useDispatch()
 
     const getCourseByCourseID = () => {
         Promise.all(courseIDs.map((courseID: string) => axios.get("/api/golfapp/course/" + courseID)))
@@ -40,7 +41,8 @@ function GolfCourseSelect(props: Props) {
     }
 
     function onClickNavTee(golfCourse: GolfCourse) {
-        navigate("/golfapp/clubs/courses/tees", { state: { golfCourse } });
+        navigate("/golfapp/clubs/courses/tees");
+        console.log(golfCourse)
     }
 
     return (

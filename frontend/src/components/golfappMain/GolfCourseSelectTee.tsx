@@ -7,10 +7,9 @@ import '../../styles/GolfCourseSelectTee.css'
 
 type Props = {
     logout: () => Promise<void>
-    golfCourse: GolfCourse
 }
 function GolfCourseSelectTee(props:Props) {
-    const { golfCourse } = props;
+    const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse);
     const navigate = useNavigate();
 
     function onClickLogout() {
@@ -18,6 +17,7 @@ function GolfCourseSelectTee(props:Props) {
             navigate('/login');
         });
     }
+    console.log(golfCourse)
 
     return (
         <div className="GolfTeeContainer">

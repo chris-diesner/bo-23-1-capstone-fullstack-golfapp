@@ -11,15 +11,17 @@ import org.springframework.stereotype.Service;
 public class ScorecardService {
     private final ScorecardRepo scorecardRepo;
     private final UUIDService uuidService;
+    private final DateService dateService;
 
-    public Scorecard saveScorecard(ScorecardDTO scorecard) {
-        Scorecard newScorecard = new Scorecard(uuidService.generateUUID().toString(),
-                scorecard.getUserId(),
-                scorecard.getGolfCourseId(),
-                scorecard.getPlayers(),
-                scorecard.getDate(),
-                scorecard.getScores(),
-                scorecard.getTotalScore());
+    public Scorecard saveScorecard(ScorecardDTO scorecardDTO) {
+        Scorecard newScorecard = new Scorecard();
+        newScorecard.setScorecardId(uuidService.generateUUID());
+        newScorecard.setUserId(scorecardDTO.getUserId());
+        newScorecard.setGolfCourseId(scorecardDTO.getGolfCourseId());
+        newScorecard.setPlayers(scorecardDTO.getPlayers());
+        newScorecard.setDate(dateService.currentDate());
+        newScorecard.setScores(scorecardDTO.getScores());
+        newScorecard.setTotalScore(scorecardDTO.getTotalScore());
         return scorecardRepo.save(newScorecard);
     }
 }

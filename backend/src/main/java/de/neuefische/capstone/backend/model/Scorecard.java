@@ -19,7 +19,8 @@ public class Scorecard {
     private String userId;
     private String golfCourseId;
     private List<String> players;
-    private Date date;
+    private String date;
     private List<Score> scores;
     private int totalScore;
+
 }

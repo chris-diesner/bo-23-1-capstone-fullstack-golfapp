@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import useScorecardHook from "../hooks/ScorecardHook";
 
 type Props = {
     logout: () => Promise<void>
@@ -10,6 +11,8 @@ function GolfCourseSelectPlayer(props:Props) {
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
+    const { saveScorecard, loading, error } = useScorecardHook()
+
     function onClickLogout() {
         props.logout().then(() => {
             navigate("/login")
@@ -18,13 +21,15 @@ function GolfCourseSelectPlayer(props:Props) {
 
     function onClickStartRound() {
         const scorecardDTO = {
-            userId: golfCourse?.userId ?? "",
+            userId: "12",
             golfCourseId: golfCourse?.golfCourseId ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
             scores: [],
             totalScore: 0,
         }
+        saveScorecard(scorecardDTO)
+            .catch((error) => console.error("Error saving scorecard", error))
     }
 
     function onPlayerNameChange(index: number, name: string) {

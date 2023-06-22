@@ -10,7 +10,7 @@ class DateServiceTest {
 
     @Test
     void when_CurrentDate_returnStringWithRightFormat() {
-        //Given
+
         assertTrue(dateService.currentDate().matches("\\d{4}-\\d{2}-\\d{2}"));
     }
 }

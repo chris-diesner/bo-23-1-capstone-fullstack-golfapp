@@ -9,14 +9,18 @@ type Props = {
     logout: () => Promise<void>
 }
 
-function GolfCourseSelectTee(props:Props) {
-    const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse);
+function GolfCourseSelectTee(props: Props) {
+    const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse);
     const navigate = useNavigate();
 
     function onClickLogout() {
         props.logout().then(() => {
             navigate('/login');
         });
+    }
+
+    function onClickSelectPlayer() {
+        navigate('/golfapp/clubs/courses/tees/round');
     }
 
     return (
@@ -42,7 +46,7 @@ function GolfCourseSelectTee(props:Props) {
                     <br/>
                     <div className="GolfTeeList">
                         {golfCourse?.tees?.map((tee: GolfTee) => (
-                            <div key={tee.teeID} className="GolfCourseBody">
+                            <div key={tee.teeID} className="GolfCourseBody" onClick={onClickSelectPlayer}>
                                 <div className="GolfTeeHeader">
                                     <div>{tee.teeName}</div>
                                     <div>

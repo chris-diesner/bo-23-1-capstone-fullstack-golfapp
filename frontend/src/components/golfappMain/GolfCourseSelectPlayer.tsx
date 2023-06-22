@@ -57,7 +57,6 @@ function GolfCourseSelectPlayer(props:Props) {
                     </div>
                     <br/>
                     <div className="GolfSelectPlayerList">
-                        {/* Player inputs */}
                         {players.map((player, index) => (
                             <div key={index} className="input-group">
                                 <span className="input-group-text">First and last name</span>
@@ -70,7 +69,6 @@ function GolfCourseSelectPlayer(props:Props) {
                                 />
                             </div>
                         ))}
-                        {/* Start Round button */}
                         <Button onClick={onClickStartRound}>Start Round</Button>
                     </div>
                 </div>

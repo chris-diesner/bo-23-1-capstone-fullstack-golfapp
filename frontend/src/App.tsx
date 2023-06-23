@@ -11,6 +11,7 @@ import UserDetails from "./components/golfappMain/UserDetails";
 import GolfClubFind from "./components/golfappMain/GolfClubFind";
 import GolfCourseSelect from "./components/golfappMain/GolfCourseSelect";
 import GolfCourseSelectTee from "./components/golfappMain/GolfCourseSelectTee";
+import GolfCourseSelectPlayer from "./components/golfappMain/GolfCourseSelectPlayer";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                     <Route path={"/golfapp/clubs"} element={<GolfClubFind logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses"} element={<GolfCourseSelect logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses/tees"} element={<GolfCourseSelectTee logout={logout}/>}/>
+                    <Route path={"/golfapp/clubs/courses/tees/round"} element={<GolfCourseSelectPlayer logout={logout}/>}/>
                 </Route>
                 <Route path="/register" element={<Register register={register}/>}/>
                 <Route path="/login" element={<Login login={login}/>}/>

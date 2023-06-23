@@ -10,11 +10,15 @@ In the frontend directory, you can run:
 
 ## Setup MongoDB
 Set env variable MONGODB_URI to the address of your local database (e.g. mongodb://localhost:27017)
+Import the database dump from the files "*.json" into your local database.
 
 
 ## Change Log
 
 ```md
+23.06.2023
+(1) Once you select a golf course were you wish to play..
+(2) ...you can now initialize a new scorecard for your round.
 
 14.06.2023
 (1) Basic design added

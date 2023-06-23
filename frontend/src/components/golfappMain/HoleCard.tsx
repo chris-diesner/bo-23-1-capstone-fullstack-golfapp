@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
 import { Container } from "react-bootstrap";
-import { Score } from "./Scorecard";
+import { Score } from "../../models/Scorecard";
+import { useSelector } from "react-redux";
+import {GolfTee} from "../../models/GolfCourse";
 
 type Props = {
-    hole: any;
-    score: Score | null;
-    onSaveScore: (holeNumber: number, newScore: Score) => void;
+    score: Score
 };
 
 function HoleCard(props: Props) {
-    const { hole, score, onSaveScore } = props;
-    const [holeScore, setHoleScore] = useState<Score | null>(score);
+    const { score } = props;
+    const [holeScore, setHoleScore] = useState<Score>(score);
+    const selectedTee = useSelector((state: any) => state.golfApp.golfTee)
+    const scorecard = useSelector((state: any) => state.golfApp.scorecard)
+
+    // Finde das GolfTee-Objekt basierend auf der holeNumber
+    const holeNumber = holeScore?.holeNumber || 0;
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
+        const { name, value, type, checked } = event.target;
+        const inputValue = type === 'checkbox' ? checked : value;
 
         setHoleScore((prevScore) => ({
             ...prevScore,
-            [name]: value,
+            [name]: inputValue
         }));
     };
 
     const handleSave = () => {
-        onSaveScore(hole.holeNumber, holeScore!); // Annahme: holeScore ist nicht null
+        // Führe hier die gewünschte Aktion zum Speichern der Score-Daten aus
     };
 
     return (
@@ -30,27 +36,27 @@ function HoleCard(props: Props) {
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
                     <div className="HoleHeader">
-                        <h6>Hole {hole.holeNumber}</h6>
+                        <h6>Hole {holeNumber}</h6>
                     </div>
                     <br />
                     <div className="HoleForm">
                         <div className="form-group">
-                            <label htmlFor={`totalStrokes_${hole.holeNumber}`}>Total Strokes:</label>
+                            <label htmlFor={`totalStrokes_${holeNumber}`}>Total Strokes:</label>
                             <input
                                 type="number"
                                 className="form-control"
-                                id={`totalStrokes_${hole.holeNumber}`}
+                                id={`totalStrokes_${holeNumber}`}
                                 name="totalStrokes"
                                 value={holeScore?.totalStrokes || ""}
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor={`totalPutts_${hole.holeNumber}`}>Total Putts:</label>
+                            <label htmlFor={`totalPutts_${holeNumber}`}>Total Putts:</label>
                             <input
                                 type="number"
                                 className="form-control"
-                                id={`totalPutts_${hole.holeNumber}`}
+                                id={`totalPutts_${holeNumber}`}
                                 name="totalPutts"
                                 value={holeScore?.totalPutts || ""}
                                 onChange={handleInputChange}
@@ -60,12 +66,12 @@ function HoleCard(props: Props) {
                             <input
                                 type="checkbox"
                                 className="form-check-input"
-                                id={`fairwayHit_${hole.holeNumber}`}
+                                id={`fairwayHit_${holeNumber}`}
                                 name="fairwayHit"
                                 checked={holeScore?.fairwayHit || false}
                                 onChange={handleInputChange}
                             />
-                            <label className="form-check-label" htmlFor={`fairwayHit_${hole.holeNumber}`}>
+                            <label className="form-check-label" htmlFor={`fairwayHit_${holeNumber}`}>
                                 Fairway Hit
                             </label>
                         </div>

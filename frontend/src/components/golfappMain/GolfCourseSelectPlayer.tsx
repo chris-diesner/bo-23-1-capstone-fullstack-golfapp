@@ -14,6 +14,7 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
+    const selectedTee = useSelector((state:any) => state.golfApp.golfTee)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
@@ -38,17 +39,12 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: golfCourse?.tees.reduce((scores: {}[], tee:GolfTee) => {
-                const lengths = Object.keys(tee).filter((key) => key.startsWith('length'));
-                const numHoles = lengths.length;
-                const holeScores = Array.from({ length: numHoles }, (_, index) => ({
-                    holeNumber: index + 1,
-                    totalStrokes: 0,
-                    totalPutts: 0,
-                    fairwayHit: false
-                }));
-                return scores.concat(holeScores);
-            }, []) || [],
+            scores: Array.from({ length: 18 }, (_, index) => ({
+                holeNumber: index + 1,
+                totalStrokes: 0,
+                totalPutts: 0,
+                fairwayHit: false
+            })),
             totalScore: 0,
         };
         saveScorecard(scorecardDTO)

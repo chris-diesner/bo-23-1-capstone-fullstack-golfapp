@@ -1,4 +1,4 @@
-import {GolfCourse} from "../models/GolfCourse";
+import {GolfCourse, GolfTee} from "../models/GolfCourse";
 import {Scorecard} from "../models/Scorecard";
 
 export const setCourses = (courses: GolfCourse[]) => {
@@ -19,3 +19,9 @@ export const setScorecard = (scorecard: Scorecard) => {
         payload: scorecard,
     };
 };
+export const setGolfTee = (golfTee: GolfTee) => {
+    return {
+        type: 'SET_GOLF_TEE',
+        payload: golfTee,
+    };
+}

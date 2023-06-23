@@ -5,6 +5,8 @@ import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
 import {setScorecard} from "../../Actions/GolfAppActions";
+import {Score} from "../../models/Scorecard";
+import {GolfTee} from "../../models/GolfCourse";
 
 type Props = {
     logout: () => Promise<void>
@@ -36,15 +38,26 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: [],
+            scores: golfCourse?.tees.reduce((scores: {}[], tee:GolfTee) => {
+                const lengths = Object.keys(tee).filter((key) => key.startsWith('length'));
+                const numHoles = lengths.length;
+                const holeScores = Array.from({ length: numHoles }, (_, index) => ({
+                    holeNumber: index + 1,
+                    totalStrokes: 0,
+                    totalPutts: 0,
+                    fairwayHit: false
+                }));
+                return scores.concat(holeScores);
+            }, []) || [],
             totalScore: 0,
-        }
+        };
         saveScorecard(scorecardDTO)
             .then((scorecard) => {
-                dispatch(setScorecard(scorecard))
-                console.log("Scorecard saved", scorecard)
+                dispatch(setScorecard(scorecard));
+                console.log("Scorecard saved", scorecard);
+                navigate("/golfapp/clubs/courses/tees/round/scorecard");
             })
-            .catch((error) => console.error("Error saving scorecard", error))
+            .catch((error) => console.error("Error saving scorecard", error));
     }
 
     function onPlayerNameChange(index: number, name: string) {

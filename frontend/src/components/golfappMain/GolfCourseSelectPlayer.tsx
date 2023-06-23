@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
+import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -14,6 +15,7 @@ function GolfCourseSelectPlayer(props:Props) {
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
+    const dispatch = useDispatch()
 
     function onClickLogout() {
         props.logout().then(() => {
@@ -38,6 +40,10 @@ function GolfCourseSelectPlayer(props:Props) {
             totalScore: 0,
         }
         saveScorecard(scorecardDTO)
+            .then((scorecard) => {
+                dispatch(setScorecard(scorecard))
+                console.log("Scorecard saved", scorecard)
+            })
             .catch((error) => console.error("Error saving scorecard", error))
     }
 

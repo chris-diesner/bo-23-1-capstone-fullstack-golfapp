@@ -1,13 +1,16 @@
 import { GolfCourse } from "../models/GolfCourse";
+import {Scorecard} from "../models/Scorecard";
 
 interface AppState {
     courses: GolfCourse[];
     selectedGolfCourse: GolfCourse | null;
+    scorecard: Scorecard | null;
 }
 
 const initialState: AppState = {
     courses: [],
-    selectedGolfCourse: null
+    selectedGolfCourse: null,
+    scorecard: null
 };
 
 const golfAppReducer = (state = initialState, action: any) => {
@@ -21,6 +24,11 @@ const golfAppReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 selectedGolfCourse: action.payload,
+            };
+        case 'SET_SCORECARD':
+            return {
+                ...state,
+                scorecard: action.payload,
             };
         default:
             return state;

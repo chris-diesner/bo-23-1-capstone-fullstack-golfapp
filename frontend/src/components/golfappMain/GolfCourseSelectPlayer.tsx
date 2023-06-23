@@ -13,7 +13,7 @@ function GolfCourseSelectPlayer(props:Props) {
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
-    const { saveScorecard, loading, error } = useScorecardHook()
+    const { saveScorecard } = useScorecardHook()
 
     function onClickLogout() {
         props.logout().then(() => {

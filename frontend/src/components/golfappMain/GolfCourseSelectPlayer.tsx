@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
+import UserHook from "../hooks/UserHook";
 
 type Props = {
     logout: () => Promise<void>
 }
 function GolfCourseSelectPlayer(props:Props) {
+    const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
@@ -19,9 +21,16 @@ function GolfCourseSelectPlayer(props:Props) {
         })
     }
 
+    useEffect(() => {
+        getUserDetails()
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [user])
+
     function onClickStartRound() {
         const scorecardDTO = {
-            userId: "12",
+            userId: userDetails?.id ?? "",
             golfCourseId: golfCourse?.golfCourseId ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),

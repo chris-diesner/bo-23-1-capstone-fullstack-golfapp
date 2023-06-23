@@ -31,7 +31,7 @@ function GolfCourseSelectPlayer(props:Props) {
     function onClickStartRound() {
         const scorecardDTO = {
             userId: userDetails?.id ?? "",
-            golfCourseId: golfCourse?.golfCourseId ?? "",
+            golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
             scores: [],

@@ -8,7 +8,6 @@ type Props = {
 };
 
 function Scorecard(props: Props) {
-    const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
 

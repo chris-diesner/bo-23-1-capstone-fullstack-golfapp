@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HoleCard from "./HoleCard";
-import { Score } from "../../models/Scorecard";
 
 type Props = {
     logout: () => Promise<void>

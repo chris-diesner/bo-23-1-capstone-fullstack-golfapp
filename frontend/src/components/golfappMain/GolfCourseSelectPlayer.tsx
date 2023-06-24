@@ -5,8 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
 import {setScorecard} from "../../Actions/GolfAppActions";
-import {Score} from "../../models/Scorecard";
-import {GolfTee} from "../../models/GolfCourse";
 
 type Props = {
     logout: () => Promise<void>
@@ -14,7 +12,6 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
-    const selectedTee = useSelector((state:any) => state.golfApp.golfTee)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()

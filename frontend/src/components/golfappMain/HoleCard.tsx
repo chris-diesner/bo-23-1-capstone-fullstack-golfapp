@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container } from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,6 +15,10 @@ function HoleCard(props: Props) {
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setHoleScore({ ...score });
+    }, [score]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = event.target;

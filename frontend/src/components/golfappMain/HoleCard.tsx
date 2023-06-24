@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container } from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
-import { useSelector } from "react-redux";
-import { GolfTee } from "../../models/GolfCourse";
+import { useSelector, useDispatch } from "react-redux";
+import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     score: Score;
@@ -11,9 +11,10 @@ type Props = {
 
 function HoleCard(props: Props) {
     const { score, holeNumber } = props;
-    const [holeScore, setHoleScore] = useState<Score>(score);
+    const [holeScore, setHoleScore] = useState<Score>({ ...score });
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
+    const dispatch = useDispatch();
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = event.target;
@@ -21,8 +22,24 @@ function HoleCard(props: Props) {
 
         setHoleScore((prevScore) => ({
             ...prevScore,
-            [name]: inputValue
+            [name]: inputValue,
+            holeNumber: holeNumber
         }));
+    };
+
+    const handleSave = () => {
+        const updatedScores = {
+            ...scorecard.scores,
+            [props.holeNumber -1]: holeScore
+        };
+
+        const updatedScorecard = {
+            ...scorecard,
+            scores: updatedScores
+        };
+
+        dispatch(setScorecard(updatedScorecard));
+        console.log("Scorecard saved", updatedScorecard);
     };
 
     return (
@@ -69,7 +86,9 @@ function HoleCard(props: Props) {
                                 Fairway Hit
                             </label>
                         </div>
-
+                        <button className="btn btn-primary" onClick={handleSave}>
+                            Save
+                        </button>
                     </div>
                 </div>
             </Container>

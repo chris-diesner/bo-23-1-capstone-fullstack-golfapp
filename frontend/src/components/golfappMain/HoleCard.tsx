@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import { Container } from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
 import { useSelector } from "react-redux";
-import {GolfTee} from "../../models/GolfCourse";
+import { GolfTee } from "../../models/GolfCourse";
 
 type Props = {
-    score: Score
+    score: Score;
+    holeNumber: number;
 };
 
 function HoleCard(props: Props) {
-    const { score } = props;
+    const { score, holeNumber } = props;
     const [holeScore, setHoleScore] = useState<Score>(score);
-    const selectedTee = useSelector((state: any) => state.golfApp.golfTee)
-    const scorecard = useSelector((state: any) => state.golfApp.scorecard)
-
-    // Finde das GolfTee-Objekt basierend auf der holeNumber
-    const holeNumber = holeScore?.holeNumber || 0;
+    const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
+    const scorecard = useSelector((state: any) => state.golfApp.scorecard);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = event.target;
@@ -25,10 +23,6 @@ function HoleCard(props: Props) {
             ...prevScore,
             [name]: inputValue
         }));
-    };
-
-    const handleSave = () => {
-        // Führe hier die gewünschte Aktion zum Speichern der Score-Daten aus
     };
 
     return (
@@ -75,9 +69,7 @@ function HoleCard(props: Props) {
                                 Fairway Hit
                             </label>
                         </div>
-                        <button className="btn btn-primary" onClick={handleSave}>
-                            Save
-                        </button>
+
                     </div>
                 </div>
             </Container>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HoleCard from "./HoleCard";
@@ -20,6 +20,9 @@ function Scorecard(props: Props) {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex - 1);
     };
 
+    const hasNextHole = currentHoleIndex < 17
+    const hasPrevHole = currentHoleIndex > 0;
+
     return (
         <div className="ScorecardContainer">
             <Container className="d-flex flex-column justify-content-center">
@@ -32,10 +35,10 @@ function Scorecard(props: Props) {
                         <HoleCard score={scorecard.scores[currentHoleIndex]} holeNumber={currentHoleIndex + 1} />
 
                         <div className="d-flex justify-content-between">
-                            <Button variant="primary" onClick={handlePrevHole} disabled={currentHoleIndex === 0}>
+                            <Button variant="primary" onClick={handlePrevHole} disabled={!hasPrevHole}>
                                 Previous Hole
                             </Button>
-                            <Button variant="primary" onClick={handleNextHole} disabled={currentHoleIndex === scorecard.scores.length - 1}>
+                            <Button variant="primary" onClick={handleNextHole} disabled={!hasNextHole}>
                                 Next Hole
                             </Button>
                         </div>

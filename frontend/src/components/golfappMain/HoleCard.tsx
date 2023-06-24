@@ -12,6 +12,7 @@ type Props = {
 function HoleCard(props: Props) {
     const { score, holeNumber } = props;
     const [holeScore, setHoleScore] = useState<Score>({ ...score });
+    const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ function HoleCard(props: Props) {
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
                     <div className="HoleHeader">
-                        <h6>Hole {holeNumber}, {selectedTee && selectedTee[`length${holeNumber}`]}m</h6>
+                        <h6>Hole {holeNumber}, {selectedTee && selectedTee[`length${holeNumber}`]}m, Par: {golfCourse.parsMen[props.holeNumber -1]}</h6>
                     </div>
                     <br />
                     <div className="HoleForm">

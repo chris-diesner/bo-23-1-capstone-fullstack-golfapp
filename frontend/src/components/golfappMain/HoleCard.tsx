@@ -30,7 +30,7 @@ function HoleCard(props: Props) {
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
                     <div className="HoleHeader">
-                        <h6>Hole {holeNumber}</h6>
+                        <h6>Hole {holeNumber}, {selectedTee && selectedTee[`length${holeNumber}`]}m</h6>
                     </div>
                     <br />
                     <div className="HoleForm">

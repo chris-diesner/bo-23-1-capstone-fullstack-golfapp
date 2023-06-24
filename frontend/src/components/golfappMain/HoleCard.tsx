@@ -33,16 +33,12 @@ function HoleCard(props: Props) {
     };
 
     const handleSave = () => {
-        const updatedScores = {
-            ...scorecard.scores,
-            [props.holeNumber -1]: holeScore
-        };
-
+        const updatedScores = [...scorecard.scores];
+        updatedScores[props.holeNumber - 1] = holeScore;
         const updatedScorecard = {
             ...scorecard,
-            scores: updatedScores
+            scores: updatedScores,
         };
-
         dispatch(setScorecard(updatedScorecard));
         console.log("Scorecard saved", updatedScorecard);
     };

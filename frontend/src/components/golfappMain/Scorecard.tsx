@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HoleCard from "./HoleCard";
+import useScorecardHook from "../hooks/ScorecardHook";
 
 type Props = {
     logout: () => Promise<void>
@@ -10,6 +11,7 @@ type Props = {
 function Scorecard(props: Props) {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
+    const { editScorecard } = useScorecardHook();
 
     const handleNextHole = () => {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex + 1);
@@ -19,8 +21,17 @@ function Scorecard(props: Props) {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex - 1);
     };
 
+    const isLastHole = currentHoleIndex === 17
     const hasNextHole = currentHoleIndex < 17
     const hasPrevHole = currentHoleIndex > 0;
+
+    function handleSaveScorecard() {
+        editScorecard(scorecard)
+            .then(() => {
+                console.log("Scorecard saved");
+            })
+            .catch((error) => console.error("Error saving scorecard", error));
+    }
 
     return (
         <div className="ScorecardContainer">
@@ -37,9 +48,15 @@ function Scorecard(props: Props) {
                             <Button variant="primary" onClick={handlePrevHole} disabled={!hasPrevHole}>
                                 Previous Hole
                             </Button>
-                            <Button variant="primary" onClick={handleNextHole} disabled={!hasNextHole}>
-                                Next Hole
-                            </Button>
+                            {isLastHole ? (
+                                <Button variant="primary" onClick={handleSaveScorecard}>
+                                    Save Scorecard
+                                </Button>
+                            ) : (
+                                <Button variant="primary" onClick={handleNextHole} disabled={!hasNextHole}>
+                                    Next Hole
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>

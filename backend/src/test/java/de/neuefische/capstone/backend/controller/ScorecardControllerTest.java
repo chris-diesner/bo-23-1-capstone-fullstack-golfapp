@@ -132,7 +132,7 @@ class ScorecardControllerTest {
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
-                                                             "date": "%s",
+                                                             "date": "2023-06-25",
                                                              "scores": [
                                                                  {
                                                                      "holeNumber": 1,
@@ -153,7 +153,7 @@ class ScorecardControllerTest {
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
-                                                             "date": "%s",
+                                                             "date": "2023-06-25",
                                                              "scores": [
                                                                  {
                                                                      "holeNumber": 1,
@@ -164,6 +164,6 @@ class ScorecardControllerTest {
                                                              ],
                                                              "totalScore": 46
                                                          }
-                        """.formatted(dateService.currentDate())));
+                        """));
     }
 }

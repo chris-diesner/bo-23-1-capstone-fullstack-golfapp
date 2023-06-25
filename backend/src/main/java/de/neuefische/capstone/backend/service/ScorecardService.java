@@ -6,6 +6,8 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ScorecardService {
@@ -23,5 +25,22 @@ public class ScorecardService {
         newScorecard.setScores(scorecardDTO.getScores());
         newScorecard.setTotalScore(scorecardDTO.getTotalScore());
         return scorecardRepo.save(newScorecard);
+    }
+
+    public Scorecard editScorecard(String scorecardId, Scorecard scorecard) {
+        Optional<Scorecard> optionalScorecard = scorecardRepo.findById(scorecardId);
+        if (optionalScorecard.isPresent()) {
+            Scorecard existingScorecard = optionalScorecard.get();
+            existingScorecard.setScorecardId(scorecard.getScorecardId());
+            existingScorecard.setUserId(scorecard.getUserId());
+            existingScorecard.setGolfCourseId(scorecard.getGolfCourseId());
+            existingScorecard.setPlayers(scorecard.getPlayers());
+            existingScorecard.setDate(scorecard.getDate());
+            existingScorecard.setScores(scorecard.getScores());
+            existingScorecard.setTotalScore(scorecard.getTotalScore());
+            return scorecardRepo.save(existingScorecard);
+        } else {
+            throw new IllegalArgumentException("Scorecard not found");
+        }
     }
 }

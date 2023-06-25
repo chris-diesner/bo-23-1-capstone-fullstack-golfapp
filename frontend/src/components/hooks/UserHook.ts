@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
-import { GolfUser } from "../../models/GolfUser";
+import {GolfUser} from "../../models/GolfUser";
+import {useDispatch} from "react-redux";
+import {clearAuthenticatedUser, setAuthenticatedUser} from "../../Actions/AuthActions";
 
 export default function UserHook() {
     const [user, setUser] = useState<string>();
     const [userDetails, setUserDetails] = useState<GolfUser | null>(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         function getCurrentUser() {
@@ -61,13 +64,19 @@ export default function UserHook() {
 
     function login(username: string, password: string) {
         return axios
-            .post("/api/user/login", undefined, { auth: { username, password } })
-            .then((response) => setUser(response.data));
+            .post("/api/user/login", undefined, {auth: {username, password}})
+            .then((response) => {
+                dispatch(setAuthenticatedUser(response.data))
+                setUser(response.data)
+            })
     }
 
     function logout() {
-        return axios.get("/api/user/logout").then(() => setUser(undefined));
+        return axios.get("/api/user/logout").then(() => {
+            dispatch(clearAuthenticatedUser())
+            setUser(undefined)
+        })
     }
 
-    return { register, login, logout, user, userDetails, getUserDetails, editUserDetails };
+    return {register, login, logout, user, userDetails, getUserDetails, editUserDetails};
 }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { Container } from "react-bootstrap";
-import { Score } from "../../models/Scorecard";
-import { useSelector, useDispatch } from "react-redux";
+import {Container} from "react-bootstrap";
+import {Score} from "../../models/Scorecard";
+import {useSelector, useDispatch} from "react-redux";
 import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
@@ -10,19 +10,19 @@ type Props = {
 };
 
 function HoleCard(props: Props) {
-    const { score, holeNumber } = props;
-    const [holeScore, setHoleScore] = useState<Score>({ ...score });
-    const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
+    const {score, holeNumber} = props;
+    const [holeScore, setHoleScore] = useState<Score>({...score});
+    const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse)
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setHoleScore({ ...score });
+        setHoleScore({...score});
     }, [score]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = event.target;
+        const {name, value, type, checked} = event.target;
         const inputValue = type === 'checkbox' ? checked : value;
 
         setHoleScore((prevScore) => ({
@@ -48,9 +48,12 @@ function HoleCard(props: Props) {
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
                     <div className="HoleHeader">
-                        <h6>Hole {holeNumber}, {selectedTee && selectedTee[`length${holeNumber}`]}m, Par: {golfCourse.parsMen[props.holeNumber -1]}</h6>
+                        <h6>
+                            Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]}m, Par:{" "}
+                            {golfCourse.parsMen[props.holeNumber - 1]}
+                        </h6>
                     </div>
-                    <br />
+                    <br/>
                     <div className="HoleForm">
                         <div className="form-group">
                             <label htmlFor={`totalStrokes_${holeNumber}`}>Total Strokes:</label>

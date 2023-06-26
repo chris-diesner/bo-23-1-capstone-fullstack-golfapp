@@ -6,7 +6,6 @@ interface AppState {
     selectedGolfCourse: GolfCourse | null;
     scorecard: Scorecard | null;
     golfTee: GolfTee | null;
-    playFrontNine: boolean;
     playBackNine: boolean;
 }
 
@@ -15,8 +14,7 @@ const initialState: AppState = {
     selectedGolfCourse: null,
     scorecard: null,
     golfTee: null,
-    playFrontNine: false,
-    playBackNine: false,
+    playBackNine: true,
 };
 
 const golfAppReducer = (state = initialState, action: any) => {
@@ -40,11 +38,6 @@ const golfAppReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 golfTee: action.payload,
-            };
-        case "SET_PLAY_FRONT_NINE":
-            return {
-                ...state,
-                playFrontNine: action.payload,
             };
         case "SET_PLAY_BACK_NINE":
             return {

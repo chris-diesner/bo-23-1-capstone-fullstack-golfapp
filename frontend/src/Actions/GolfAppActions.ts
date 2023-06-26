@@ -29,13 +29,6 @@ export const setGolfTee = (golfTee: GolfTee) => {
     };
 };
 
-export const setPlayFrontNine = (playFrontNine: boolean) => {
-    return {
-        type: "SET_PLAY_FRONT_NINE",
-        payload: playFrontNine,
-    };
-};
-
 export const setPlayBackNine = (playBackNine: boolean) => {
     return {
         type: "SET_PLAY_BACK_NINE",

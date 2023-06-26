@@ -1,9 +1,10 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {GolfTee} from "../../models/GolfCourse";
 import '../../styles/GolfCourseSelectTee.css'
+import {setGolfTee} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -12,6 +13,7 @@ type Props = {
 function GolfCourseSelectTee(props: Props) {
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function onClickLogout() {
         props.logout().then(() => {
@@ -19,7 +21,9 @@ function GolfCourseSelectTee(props: Props) {
         });
     }
 
-    function onClickSelectPlayer() {
+    function onClickSelectPlayer(tee: GolfTee) {
+        dispatch(setGolfTee(tee))
+        console.log("Selected tee", tee);
         navigate('/golfapp/clubs/courses/tees/round');
     }
 
@@ -46,7 +50,7 @@ function GolfCourseSelectTee(props: Props) {
                     <br/>
                     <div className="GolfTeeList">
                         {golfCourse?.tees?.map((tee: GolfTee) => (
-                            <div key={tee.teeID} className="GolfCourseBody" onClick={onClickSelectPlayer}>
+                            <div key={tee.teeID} className="GolfCourseBody" onClick={() => onClickSelectPlayer(tee)}>
                                 <div className="GolfTeeHeader">
                                     <div>{tee.teeName}</div>
                                     <div>

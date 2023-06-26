@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
+import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -14,6 +15,7 @@ function GolfCourseSelectPlayer(props:Props) {
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
+    const dispatch = useDispatch()
 
     function onClickLogout() {
         props.logout().then(() => {
@@ -34,11 +36,21 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: [],
+            scores: Array.from({ length: 18 }, (_, index) => ({
+                holeNumber: index + 1,
+                totalStrokes: 0,
+                totalPutts: 0,
+                fairwayHit: false
+            })),
             totalScore: 0,
-        }
+        };
         saveScorecard(scorecardDTO)
-            .catch((error) => console.error("Error saving scorecard", error))
+            .then((scorecard) => {
+                dispatch(setScorecard(scorecard));
+                console.log("Scorecard saved", scorecard);
+                navigate("/golfapp/clubs/courses/tees/round/scorecard");
+            })
+            .catch((error) => console.error("Error saving scorecard", error));
     }
 
     function onPlayerNameChange(index: number, name: string) {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import {Scorecard} from "../../models/Scorecard";
 
 type ScorecardDTO = {
     userId: string
@@ -11,23 +12,44 @@ type ScorecardDTO = {
 };
 
 const useScorecardHook = () => {
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const saveScorecard = async (scorecardDTO: ScorecardDTO) => {
         try {
             setLoading(true);
             setError('');
-            await axios.post('/api/golfapp/scorecard', scorecardDTO);
+            const response = await axios.post('/api/golfapp/scorecard', scorecardDTO);
+            const createdScorecard = response.data;
             console.log('Scorecard saved successfully.');
+            return createdScorecard;
         } catch (error) {
             console.error('Error:', error);
             setError('Something went wrong.');
+            throw error;
         } finally {
             setLoading(false);
         }
     };
-    return { loading, error, saveScorecard };
+
+    const editScorecard = async (scorecard: Scorecard) => {
+        try {
+            setLoading(true);
+            setError('');
+            const response = await axios.put('/api/golfapp/scorecard/' + scorecard.scorecardId, scorecard);
+            const editedScorecard = response.data;
+            console.log('Scorecard edited successfully.');
+            return editedScorecard;
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Something went wrong.');
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    return { loading, error, saveScorecard, editScorecard };
 };
 
 export default useScorecardHook;

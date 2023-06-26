@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -49,5 +50,46 @@ class ScorecardServiceTest {
         verify(dateService, times(1)).currentDate();
         verify(scorecardRepo, times(1)).save(any(Scorecard.class));
         assertEquals(savedScorecard, result);
+    }
+
+    @Test
+    void testEditScorecard_existingScorecard() {
+        String scorecardId = "testScorecardId";
+        Scorecard existingScorecard = new Scorecard();
+        existingScorecard.setScorecardId(scorecardId);
+
+        Scorecard updatedScorecard = new Scorecard();
+        updatedScorecard.setScorecardId(scorecardId);
+        updatedScorecard.setUserId("testUserId");
+        updatedScorecard.setGolfCourseId("testGolfCourseId");
+
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.of(existingScorecard));
+        when(scorecardRepo.save(existingScorecard)).thenReturn(updatedScorecard);
+
+        Scorecard result = scorecardService.editScorecard(scorecardId, updatedScorecard);
+
+        assertNotNull(result);
+        assertEquals(scorecardId, result.getScorecardId());
+
+        verify(scorecardRepo, times(1)).findById(scorecardId);
+        verify(scorecardRepo, times(1)).save(existingScorecard);
+    }
+
+    @Test
+    void testEditScorecard_nonExistingScorecard() {
+        String scorecardId = "testScorecardId";
+        Scorecard updatedScorecard = new Scorecard();
+        updatedScorecard.setScorecardId(scorecardId);
+        updatedScorecard.setUserId("testUserId");
+        updatedScorecard.setGolfCourseId("testGolfCourseId");
+
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.empty());
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            scorecardService.editScorecard(scorecardId, updatedScorecard);
+        });
+
+        verify(scorecardRepo, times(1)).findById(scorecardId);
+        verify(scorecardRepo, never()).save(any());
     }
 }

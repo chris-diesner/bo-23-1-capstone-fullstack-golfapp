@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
-import {setScorecard} from "../../Actions/GolfAppActions";
+import {setPlayBackNine, setPlayFrontNine, setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -12,6 +12,8 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
+    const playFrontNine = useSelector((state:any) => state.golfApp.playFrontNine)
+    const playBackNine = useSelector((state:any) => state.golfApp.playBackNine)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
@@ -51,6 +53,13 @@ function GolfCourseSelectPlayer(props:Props) {
                 navigate("/golfapp/clubs/courses/tees/round/scorecard");
             })
             .catch((error) => console.error("Error saving scorecard", error));
+    }
+
+    function onPlayFrontNineChange(e: React.ChangeEvent<HTMLInputElement>) {
+        dispatch(setPlayFrontNine(e.target.checked))
+    }
+    function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
+        dispatch(setPlayBackNine(e.target.checked))
     }
 
     function onPlayerNameChange(index: number, name: string) {
@@ -95,6 +104,30 @@ function GolfCourseSelectPlayer(props:Props) {
                                 />
                             </div>
                         ))}
+                        <div className="form-check">
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                checked={playFrontNine}
+                                onChange={onPlayFrontNineChange}
+                                id="playFrontNine"
+                            />
+                            <label className="form-check-label" htmlFor="playFrontNine">
+                                Play Front Nine
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                checked={playBackNine}
+                                onChange={onPlayBackNineChange}
+                                id="playBackNine"
+                            />
+                            <label className="form-check-label" htmlFor="playBackNine">
+                                Play Back Nine
+                            </label>
+                        </div>
                         <Button onClick={onClickStartRound}>Start Round</Button>
                     </div>
                 </div>

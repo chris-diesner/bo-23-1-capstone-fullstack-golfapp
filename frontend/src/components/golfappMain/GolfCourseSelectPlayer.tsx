@@ -100,18 +100,20 @@ function GolfCourseSelectPlayer(props:Props) {
                                 />
                             </div>
                         ))}
-                        <div className="form-check">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                checked={playBackNine}
-                                onChange={onPlayBackNineChange}
-                                id="playBackNine"
-                            />
-                            <label className="form-check-label" htmlFor="playBackNine">
-                                Play Back Nine
-                            </label>
-                        </div>
+                        {golfCourse?.numHoles === "9" && (
+                            <div className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    checked={playBackNine}
+                                    onChange={onPlayBackNineChange}
+                                    id="playBackNine"
+                                />
+                                <label className="form-check-label" htmlFor="playBackNine">
+                                    Play Back Nine
+                                </label>
+                            </div>
+                        )}
                         <Button onClick={onClickStartRound}>Start Round</Button>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HoleCard from "./HoleCard";
 import useScorecardHook from "../hooks/ScorecardHook";
+import {useNavigate} from "react-router-dom";
 
 type Props = {
     logout: () => Promise<void>
@@ -13,6 +14,7 @@ function Scorecard(props: Props) {
     const playBackNine = useSelector((state: any) => state.golfApp.playBackNine);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
     const { editScorecard } = useScorecardHook();
+    const navigate = useNavigate()
 
     const handleNextHole = () => {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex + 1);
@@ -30,6 +32,7 @@ function Scorecard(props: Props) {
         editScorecard(scorecard)
             .then(() => {
                 console.log("Scorecard saved");
+                navigate("/golfapp/finalscorecard");
             })
             .catch((error) => console.error("Error saving scorecard", error));
     }

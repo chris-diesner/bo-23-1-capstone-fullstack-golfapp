@@ -37,12 +37,7 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: Array.from({ length: 18 }, (_, index) => ({
-                holeNumber: index + 1,
-                totalStrokes: 0,
-                totalPutts: 0,
-                fairwayHit: false
-            })),
+            scores: [],
             totalScore: 0,
         };
         saveScorecard(scorecardDTO)

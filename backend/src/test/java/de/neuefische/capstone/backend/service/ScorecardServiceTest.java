@@ -70,6 +70,7 @@ class ScorecardServiceTest {
 
         assertNotNull(result);
         assertEquals(scorecardId, result.getScorecardId());
+        assertEquals("testUserId", result.getUserId());
 
         verify(scorecardRepo, times(1)).findById(scorecardId);
         verify(scorecardRepo, times(1)).save(existingScorecard);

@@ -1,13 +1,13 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import useScorecardHook from "./hooks/ScorecardHook";
+import useScorecardHook from "../hooks/ScorecardHook";
 import {Container, Table} from "react-bootstrap";
 
 type Props = {
     logout: () => Promise<void>
 }
 
-function EvaluationRound(props: Props) {
+function EvaluationCard(props: Props) {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse);
     const {editScorecard} = useScorecardHook();
@@ -77,4 +77,4 @@ function EvaluationRound(props: Props) {
     );
 }
 
-export default EvaluationRound;
+export default EvaluationCard;

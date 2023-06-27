@@ -95,4 +95,12 @@ class ScorecardServiceTest {
         verify(scorecardRepo, times(1)).findById(scorecardId);
         verify(scorecardRepo, never()).save(any());
     }
+
+    @Test
+    void testDeleteScorecard_existingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.existsById(scorecardId)).thenReturn(true);
+        assertEquals("Scorecard deleted!", scorecardService.deleteScorecard(scorecardId));
+        verify(scorecardRepo, times(1)).deleteById(scorecardId);
+    }
 }

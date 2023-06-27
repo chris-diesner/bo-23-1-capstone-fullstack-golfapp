@@ -23,4 +23,9 @@ public class ScorecardController {
         Scorecard updatedScorecard = scorecardService.editScorecard(scorecardId, scorecard);
         return ResponseEntity.ok(updatedScorecard);
     }
+
+    @DeleteMapping("/scorecard/{scorecardId}")
+    public String deleteScorecard(@PathVariable String scorecardId) {
+        return scorecardService.deleteScorecard(scorecardId);
+    }
 }

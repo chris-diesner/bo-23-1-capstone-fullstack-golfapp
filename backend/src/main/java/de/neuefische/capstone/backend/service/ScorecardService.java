@@ -6,6 +6,7 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -42,6 +43,14 @@ public class ScorecardService {
         existingScorecard.setPlayBackNine(scorecard.isPlayBackNine());
 
         return scorecardRepo.save(existingScorecard);
+    }
+
+    public String deleteScorecard(String scorecardId) {
+        if (!scorecardRepo.existsById(scorecardId)) {
+            throw new NoSuchElementException("Scorecard not found");
+        }
+        scorecardRepo.deleteById(scorecardId);
+        return "Scorecard deleted!";
     }
 
 }

@@ -109,6 +109,9 @@ class ScorecardServiceTest {
     void testDeleteScorecard_nonExistingScorecard() {
         String scorecardId = "testScorecardId";
         when(scorecardRepo.existsById(scorecardId)).thenReturn(false);
+        assertThrows(NoSuchElementException.class, () -> {
+            scorecardService.deleteScorecard(scorecardId);
+        });
         verify(scorecardRepo, never()).deleteById(scorecardId);
     }
 

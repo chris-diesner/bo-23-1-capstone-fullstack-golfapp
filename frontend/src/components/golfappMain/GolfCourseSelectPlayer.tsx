@@ -37,7 +37,17 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: [],
+            scores: playBackNine ? Array.from({ length: 18 }, (_, index) => ({
+                holeNumber: index + 1,
+                totalStrokes: 0,
+                totalPutts: 0,
+                fairwayHit: false
+            })) : Array.from({ length: 9 }, (_, index) => ({
+                holeNumber: index + 1,
+                totalStrokes: 0,
+                totalPutts: 0,
+                fairwayHit: false
+            })),
             totalScore: 0,
             playBackNine: playBackNine
         };
@@ -49,6 +59,7 @@ function GolfCourseSelectPlayer(props:Props) {
             })
             .catch((error) => console.error("Error saving scorecard", error));
     }
+
 
     function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
         setPlayBackNine(e.target.checked)

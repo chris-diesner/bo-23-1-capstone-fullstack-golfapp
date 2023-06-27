@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
-import {setPlayBackNine, setScorecard} from "../../Actions/GolfAppActions";
+import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -12,7 +12,7 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
-    const playBackNine = useSelector((state:any) => state.golfApp.playBackNine)
+    const [playBackNine, setPlayBackNine] = useState<boolean>(true)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
@@ -39,7 +39,7 @@ function GolfCourseSelectPlayer(props:Props) {
             date: new Date().toISOString(),
             scores: [],
             totalScore: 0,
-            playBackNine: playBackNine.playBackNine
+            playBackNine: playBackNine
         };
         saveScorecard(scorecardDTO)
             .then((scorecard) => {
@@ -51,7 +51,7 @@ function GolfCourseSelectPlayer(props:Props) {
     }
 
     function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
-        dispatch(setPlayBackNine(e.target.checked))
+        setPlayBackNine(e.target.checked)
     }
 
     function onPlayerNameChange(index: number, name: string) {

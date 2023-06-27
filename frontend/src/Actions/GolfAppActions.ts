@@ -28,10 +28,3 @@ export const setGolfTee = (golfTee: GolfTee) => {
         payload: golfTee,
     };
 };
-
-export const setPlayBackNine = (playBackNine: boolean) => {
-    return {
-        type: "SET_PLAY_BACK_NINE",
-        payload: playBackNine,
-    };
-};

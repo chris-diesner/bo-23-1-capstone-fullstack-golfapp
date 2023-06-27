@@ -15,7 +15,7 @@ function TableBackNine(props:Props) {
             <thead>
             <tr>
                 <th>#</th>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => (
                     <th key={index}>{score.holeNumber}</th>
                 ))}
                 <th>Out</th>
@@ -24,46 +24,45 @@ function TableBackNine(props:Props) {
             <tbody>
             <tr>
                 <td></td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => (
                     <td key={index}>{score.totalStrokes}</td>
                 ))}
-                <td>Total</td>
+                <td>{scorecard?.scores.slice(9, 18).reduce((sum: number, score: Score) => sum + parseInt(String(score.totalStrokes)), 0)}</td>
             </tr>
             <tr>
                 <td></td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => {
+                {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => {
                     const totalStrokes = score.totalStrokes;
                     const par = golfCourse?.parsMen[index];
                     const diff = totalStrokes - par;
-                    const cumulativeDiff = scorecard?.scores
-                        .slice(10, index + 1)
-                        .reduce((sum:number, currScore:any) => sum + (currScore.totalStrokes - golfCourse?.parsMen[currScore.holeNumber - 1]), 0);
                     return (
                         <td key={index}>
                             {diff}
                         </td>
-
                     );
                 })}
-                <td>Total: </td>
+                <td>{(scorecard?.scores.slice(9, 18).reduce((sum: number, score: Score) => sum + parseInt(String(score.totalStrokes)), 0))
+                    -
+                    (golfCourse?.parsMen.slice(9, 18).reduce((sum: number, par: number) => sum + par, 0))} </td>
+
             </tr>
             <tr>
                 <td>Par</td>
-                {golfCourse?.parsMen.slice(10, 18).map((par: number, index: number) => (
+                {golfCourse?.parsMen.slice(9, 18).map((par: number, index: number) => (
                     <td key={index}>{par}</td>
                 ))}
-                <td></td>
+                <td>{golfCourse?.parsMen.slice(9, 18).reduce((sum: number, par: number) => sum + par, 0)}</td>
             </tr>
             <tr>
                 <td>Putts:</td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => (
                     <td key={index}>{score.totalPutts}</td>
                 ))}
                 <td></td>
             </tr>
             <tr>
                 <td>Fairways:</td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => (
                     <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
                 ))}
                 <td></td>

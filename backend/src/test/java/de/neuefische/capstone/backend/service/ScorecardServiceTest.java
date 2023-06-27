@@ -30,6 +30,7 @@ class ScorecardServiceTest {
         scorecardDTO.setDate("2021-07-01");
         scorecardDTO.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
         scorecardDTO.setTotalScore(45);
+        scorecardDTO.setPlayBackNine(false);
 
         Scorecard savedScorecard = new Scorecard();
         savedScorecard.setScorecardId("testScorecardID");
@@ -39,6 +40,7 @@ class ScorecardServiceTest {
         savedScorecard.setDate("2021-07-01");
         savedScorecard.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
         savedScorecard.setTotalScore(45);
+        savedScorecard.setPlayBackNine(false);
 
         when(uuidService.generateUUID()).thenReturn("testScorecardID");
         when(dateService.currentDate()).thenReturn("2021-07-01");

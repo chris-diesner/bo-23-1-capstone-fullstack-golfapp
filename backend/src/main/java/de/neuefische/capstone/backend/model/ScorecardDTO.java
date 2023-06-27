@@ -17,5 +17,5 @@ public class ScorecardDTO {
         private String date;
         private List<Score> scores;
         private int totalScore;
-
+        private boolean playBackNine;
 }

@@ -36,7 +36,7 @@ function TableBackNine(props:Props) {
                     const par = golfCourse?.parsMen[index];
                     const diff = totalStrokes - par;
                     const cumulativeDiff = scorecard?.scores
-                        .slice(0, index + 1)
+                        .slice(10, index + 1)
                         .reduce((sum:number, currScore:any) => sum + (currScore.totalStrokes - golfCourse?.parsMen[currScore.holeNumber - 1]), 0);
                     return (
                         <td key={index}>
@@ -52,30 +52,21 @@ function TableBackNine(props:Props) {
                 {golfCourse?.parsMen.slice(10, 18).map((par: number, index: number) => (
                     <td key={index}>{par}</td>
                 ))}
-            </tr>
-            <tr>
                 <td></td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
-                    <td key={index}>{score.totalPutts}</td>
-                ))}
-            </tr>
-            <tr>
-                <td></td>
-                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
-                    <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
-                ))}
             </tr>
             <tr>
                 <td>Putts:</td>
-                {Array.from({ length: scorecard?.scores.length }).map((_, index) => (
-                    <td key={index}>{/* Calculate putts */}</td>
+                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                    <td key={index}>{score.totalPutts}</td>
                 ))}
+                <td></td>
             </tr>
             <tr>
                 <td>Fairways:</td>
-                {Array.from({ length: scorecard?.scores.length }).map((_, index) => (
-                    <td key={index}>{/* Calculate fairways */}</td>
+                {scorecard?.scores.slice(10, 18).map((score: Score, index: number) => (
+                    <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
                 ))}
+                <td></td>
             </tr>
             </tbody>
         </Table>

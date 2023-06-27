@@ -51,30 +51,21 @@ function TableFrontNine(props:Props) {
                 {golfCourse?.parsMen.slice(0, 9).map((par: number, index: number) => (
                     <td key={index}>{par}</td>
                 ))}
-            </tr>
-            <tr>
                 <td></td>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <td key={index}>{score.totalPutts}</td>
-                ))}
-            </tr>
-            <tr>
-                <td></td>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
-                ))}
             </tr>
             <tr>
                 <td>Putts:</td>
-                {Array.from({ length: scorecard?.scores.length }).map((_, index) => (
-                    <td key={index}>{/* Calculate putts */}</td>
+                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                    <td key={index}>{score.totalPutts}</td>
                 ))}
+                <td></td>
             </tr>
             <tr>
                 <td>Fairways:</td>
-                {Array.from({ length: scorecard?.scores.length }).map((_, index) => (
-                    <td key={index}>{/* Calculate fairways */}</td>
+                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                    <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
                 ))}
+                <td></td>
             </tr>
             </tbody>
         </Table>

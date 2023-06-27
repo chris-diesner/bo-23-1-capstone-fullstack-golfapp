@@ -11,7 +11,6 @@ type Props = {
 
 function Scorecard(props: Props) {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
-    const playBackNine = useSelector((state: any) => state.golfApp.playBackNine);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
     const { editScorecard } = useScorecardHook();
     const navigate = useNavigate()
@@ -24,8 +23,8 @@ function Scorecard(props: Props) {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex - 1);
     };
 
-    const isLastHole = playBackNine ? currentHoleIndex === 17 : currentHoleIndex === 8;
-    const hasNextHole = playBackNine ? currentHoleIndex < 17 : currentHoleIndex < 8;
+    const isLastHole = scorecard.playBackNine ? currentHoleIndex === 17 : currentHoleIndex === 8;
+    const hasNextHole = scorecard.playBackNine ? currentHoleIndex < 17 : currentHoleIndex < 8;
     const hasPrevHole = currentHoleIndex > 0;
 
     function handleSaveScorecard() {

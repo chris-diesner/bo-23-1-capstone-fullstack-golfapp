@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
-import {setPlayBackNine, setScorecard} from "../../Actions/GolfAppActions";
+import {setScorecard} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -12,7 +12,6 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
-    const playBackNine = useSelector((state:any) => state.golfApp.playBackNine)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
     const { saveScorecard } = useScorecardHook()
@@ -37,7 +36,12 @@ function GolfCourseSelectPlayer(props:Props) {
             golfCourseId: golfCourse?.courseID ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: [],
+            scores: Array.from({ length: 18 }, (_, index) => ({
+                holeNumber: index + 1,
+                totalStrokes: 0,
+                totalPutts: 0,
+                fairwayHit: false
+            })),
             totalScore: 0,
         };
         saveScorecard(scorecardDTO)
@@ -47,10 +51,6 @@ function GolfCourseSelectPlayer(props:Props) {
                 navigate("/golfapp/clubs/courses/tees/round/scorecard");
             })
             .catch((error) => console.error("Error saving scorecard", error));
-    }
-
-    function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
-        dispatch(setPlayBackNine(e.target.checked))
     }
 
     function onPlayerNameChange(index: number, name: string) {
@@ -95,20 +95,6 @@ function GolfCourseSelectPlayer(props:Props) {
                                 />
                             </div>
                         ))}
-                        {golfCourse?.numHoles === "9" && (
-                            <div className="form-check">
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    checked={playBackNine}
-                                    onChange={onPlayBackNineChange}
-                                    id="playBackNine"
-                                />
-                                <label className="form-check-label" htmlFor="playBackNine">
-                                    Play Back Nine
-                                </label>
-                            </div>
-                        )}
                         <Button onClick={onClickStartRound}>Start Round</Button>
                     </div>
                 </div>

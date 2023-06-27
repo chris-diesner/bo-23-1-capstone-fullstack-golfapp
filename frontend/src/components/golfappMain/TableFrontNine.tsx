@@ -15,7 +15,7 @@ function TableFrontNine(props:Props) {
             <tr>
                 <th>#</th>
                 {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <th key={index}>{score.holeNumber}</th>
+                    <th key={score.holeNumber}>{score.holeNumber}</th>
                 ))}
                 <th>{scorecard?.playBackNine ? 'In' : 'Out'}</th>
             </tr>
@@ -24,7 +24,7 @@ function TableFrontNine(props:Props) {
             <tr>
                 <td></td>
                 {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <td key={index}>{score.totalStrokes}</td>
+                    <td key={score.holeNumber}>{score.totalStrokes}</td>
                 ))}
                 <td>{scorecard?.scores.slice(0, 9).reduce((sum: number, score: Score) => sum + parseInt(String(score.totalStrokes)), 0)}</td>
             </tr>
@@ -35,7 +35,7 @@ function TableFrontNine(props:Props) {
                     const par = golfCourse?.parsMen[index];
                     const diff = totalStrokes - par;
                     return (
-                        <td key={index}>
+                        <td key={score.holeNumber}>
                             {diff}
                         </td>
                     );
@@ -54,14 +54,14 @@ function TableFrontNine(props:Props) {
             <tr>
                 <td>Putts:</td>
                 {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <td key={index}>{score.totalPutts}</td>
+                    <td key={score.holeNumber}>{score.totalPutts}</td>
                 ))}
                 <td></td>
             </tr>
             <tr>
                 <td>Fairways:</td>
                 {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
-                    <td key={index}>{score.fairwayHit ? 'Yes' : 'No'}</td>
+                    <td key={score.holeNumber}>{score.fairwayHit ? 'Yes' : 'No'}</td>
                 ))}
                 <td></td>
             </tr>

@@ -1,8 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
-import {Container, Table} from "react-bootstrap";
-import {Score} from "../../models/Scorecard";
+import {Container} from "react-bootstrap";
 import TableFrontNine from "./TableFrontNine";
 import TableBackNine from "./TableBackNine";
 

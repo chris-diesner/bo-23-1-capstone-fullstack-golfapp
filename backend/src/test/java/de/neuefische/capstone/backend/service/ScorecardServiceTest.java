@@ -7,7 +7,7 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
-import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -102,5 +102,32 @@ class ScorecardServiceTest {
         when(scorecardRepo.existsById(scorecardId)).thenReturn(true);
         assertEquals("Scorecard deleted!", scorecardService.deleteScorecard(scorecardId));
         verify(scorecardRepo, times(1)).deleteById(scorecardId);
+    }
+
+    @Test
+    void testDeleteScorecard_nonExistingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.existsById(scorecardId)).thenReturn(false);
+        verify(scorecardRepo, never()).deleteById(scorecardId);
+    }
+
+    @Test
+    void testGetScorecardById_existingScorecard() {
+        String scorecardId = "testScorecardId";
+        Scorecard scorecard = new Scorecard();
+        scorecard.setScorecardId(scorecardId);
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.of(scorecard));
+        assertEquals(scorecard, scorecardService.getScorecardById(scorecardId));
+        verify(scorecardRepo, times(1)).findById(scorecardId);
+    }
+
+    @Test
+    void testGetScorecardById_nonExistingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.empty());
+        assertThrows(NoSuchElementException.class, () -> {
+            scorecardService.getScorecardById(scorecardId);
+        });
+        verify(scorecardRepo, times(1)).findById(scorecardId);
     }
 }

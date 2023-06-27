@@ -47,7 +47,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 45
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
                                                          }
                                 """)
                         .with(csrf()))
@@ -68,7 +69,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 45
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
                                                          }
                         """.formatted(dateService.currentDate())));
     }
@@ -94,7 +96,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 45
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
                                                          }
                                 """)
                         .with(csrf()))
@@ -115,7 +118,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 45
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
                                                          }
                         """.formatted(dateService.currentDate())))
                 .andReturn();
@@ -141,7 +145,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 46
+                                                             "totalScore": 46,
+                                                             "playBackNine": false
                                                          }
                                 """)
                         .with(csrf()))
@@ -162,7 +167,8 @@ class ScorecardControllerTest {
                                                                      "fairwayHit": true
                                                                  }
                                                              ],
-                                                             "totalScore": 46
+                                                             "totalScore": 46,
+                                                             "playBackNine": false
                                                          }
                         """));
     }

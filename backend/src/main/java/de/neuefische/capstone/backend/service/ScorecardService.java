@@ -24,6 +24,7 @@ public class ScorecardService {
         newScorecard.setDate(dateService.currentDate());
         newScorecard.setScores(scorecardDTO.getScores());
         newScorecard.setTotalScore(scorecardDTO.getTotalScore());
+        newScorecard.setPlayBackNine(scorecardDTO.isPlayBackNine());
         return scorecardRepo.save(newScorecard);
     }
 
@@ -38,6 +39,7 @@ public class ScorecardService {
         existingScorecard.setDate(scorecard.getDate());
         existingScorecard.setScores(scorecard.getScores());
         existingScorecard.setTotalScore(scorecard.getTotalScore());
+        existingScorecard.setPlayBackNine(scorecard.isPlayBackNine());
 
         return scorecardRepo.save(existingScorecard);
     }

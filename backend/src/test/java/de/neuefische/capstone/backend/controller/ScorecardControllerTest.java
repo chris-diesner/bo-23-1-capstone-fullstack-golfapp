@@ -311,5 +311,159 @@ class ScorecardControllerTest {
                         """.formatted(dateService.currentDate())));
     }
 
+    @Test
+    @DirtiesContext
+    void getScorecardByUserId_shouldReturnScorecardAnd200OK() throws Exception {
+        MvcResult postScorecard = mockMvc.perform(post("/api/golfapp/scorecard")
+                        .contentType("application/json")
+                        .content("""
+                                                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                                """)
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                        """.formatted(dateService.currentDate())))
+                .andReturn();
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        Scorecard scorecard = objectMapper.readValue(postScorecard.getResponse().getContentAsString(), Scorecard.class);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/golfapp/scorecard/user/" + scorecard.getUserId())
+                        .contentType("application/json")
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        [{
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }]
+                        """.formatted(dateService.currentDate())));
+    }
+
+    @Test
+    @DirtiesContext
+    void getListOfScorecardsByUserId_shouldReturnScorecardAnd200OK() throws Exception {
+        MvcResult postScorecard = mockMvc.perform(post("/api/golfapp/scorecard")
+                        .contentType("application/json")
+                        .content("""
+                                                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                                """)
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                        """.formatted(dateService.currentDate())))
+                .andReturn();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Scorecard scorecard = objectMapper.readValue(postScorecard.getResponse().getContentAsString(), Scorecard.class);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/golfapp/scorecard/user/" + scorecard.getUserId())
+                        .contentType("application/json")
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        [{
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseId": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }]
+                        """.formatted(dateService.currentDate())));
+    }
 }

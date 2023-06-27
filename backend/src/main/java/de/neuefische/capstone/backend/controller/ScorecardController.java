@@ -29,6 +29,11 @@ public class ScorecardController {
         return scorecardService.getScorecardById(scorecardId);
     }
 
+    @GetMapping("/scorecard/user/{userId}")
+    public Iterable<Scorecard> getScorecardsByUserId(@PathVariable String userId) {
+        return scorecardService.getScorecardsByUserId(userId);
+    }
+
     @DeleteMapping("/scorecard/{scorecardId}")
     public String deleteScorecard(@PathVariable String scorecardId) {
         return scorecardService.deleteScorecard(scorecardId);

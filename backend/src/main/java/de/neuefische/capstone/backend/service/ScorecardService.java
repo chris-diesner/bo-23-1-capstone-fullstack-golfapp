@@ -6,6 +6,7 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -59,6 +60,10 @@ public class ScorecardService {
         }
         scorecardRepo.deleteById(scorecardId);
         return "Scorecard deleted!";
+    }
+
+    public List<Scorecard> getScorecardsByUserId(String userId) {
+        return scorecardRepo.findByUserId(userId);
     }
 
 }

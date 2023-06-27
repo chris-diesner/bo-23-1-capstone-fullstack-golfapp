@@ -7,6 +7,7 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -129,5 +130,15 @@ class ScorecardServiceTest {
             scorecardService.getScorecardById(scorecardId);
         });
         verify(scorecardRepo, times(1)).findById(scorecardId);
+    }
+
+    @Test
+    void testGetScorecardByUserId_existingScorecard() {
+        String userId = "testUserId";
+        Scorecard scorecard = new Scorecard();
+        scorecard.setUserId(userId);
+        when(scorecardRepo.findByUserId(userId)).thenReturn(List.of(scorecard));
+        assertEquals(List.of(scorecard), scorecardService.getScorecardsByUserId(userId));
+        verify(scorecardRepo, times(1)).findByUserId(userId);
     }
 }

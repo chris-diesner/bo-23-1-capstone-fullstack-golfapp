@@ -7,7 +7,8 @@ import de.neuefische.capstone.backend.repo.ScorecardRepo;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
-import java.util.Date;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,8 @@ class ScorecardServiceTest {
     void saveScorecard() {
         ScorecardDTO scorecardDTO = new ScorecardDTO();
         scorecardDTO.setUserId("testPlayerID");
-        scorecardDTO.setGolfCourseId("testCourseID");
+        scorecardDTO.setGolfCourseName("testCourseID");
+        scorecardDTO.setGolfClubName("testClubID");
         scorecardDTO.setPlayers(Collections.singletonList("testPlayerID"));
         scorecardDTO.setDate("2021-07-01");
         scorecardDTO.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
@@ -35,7 +37,8 @@ class ScorecardServiceTest {
         Scorecard savedScorecard = new Scorecard();
         savedScorecard.setScorecardId("testScorecardID");
         savedScorecard.setUserId("testPlayerID");
-        savedScorecard.setGolfCourseId("testCourseID");
+        savedScorecard.setGolfCourseName("testCourseID");
+        savedScorecard.setGolfClubName("testClubID");
         savedScorecard.setPlayers(Collections.singletonList("testPlayerID"));
         savedScorecard.setDate("2021-07-01");
         savedScorecard.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
@@ -63,7 +66,7 @@ class ScorecardServiceTest {
         Scorecard updatedScorecard = new Scorecard();
         updatedScorecard.setScorecardId(scorecardId);
         updatedScorecard.setUserId("testUserId");
-        updatedScorecard.setGolfCourseId("testGolfCourseId");
+        updatedScorecard.setGolfCourseName("testGolfCourseId");
 
         when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.of(existingScorecard));
         when(scorecardRepo.save(existingScorecard)).thenReturn(updatedScorecard);
@@ -84,7 +87,7 @@ class ScorecardServiceTest {
         Scorecard updatedScorecard = new Scorecard();
         updatedScorecard.setScorecardId(scorecardId);
         updatedScorecard.setUserId("testUserId");
-        updatedScorecard.setGolfCourseId("testGolfCourseId");
+        updatedScorecard.setGolfCourseName("testGolfCourseId");
 
         when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.empty());
 
@@ -94,5 +97,15 @@ class ScorecardServiceTest {
 
         verify(scorecardRepo, times(1)).findById(scorecardId);
         verify(scorecardRepo, never()).save(any());
+    }
+
+    @Test
+    void testGetScorecardByUserId_existingScorecard() {
+        String userId = "testUserId";
+        Scorecard scorecard = new Scorecard();
+        scorecard.setUserId(userId);
+        when(scorecardRepo.findByUserId(userId)).thenReturn(List.of(scorecard));
+        assertEquals(List.of(scorecard), scorecardService.getScorecardsByUserId(userId));
+        verify(scorecardRepo, times(1)).findByUserId(userId);
     }
 }

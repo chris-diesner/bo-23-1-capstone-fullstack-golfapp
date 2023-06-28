@@ -23,4 +23,9 @@ public class ScorecardController {
         Scorecard updatedScorecard = scorecardService.editScorecard(scorecardId, scorecard);
         return ResponseEntity.ok(updatedScorecard);
     }
+
+    @GetMapping("/scorecard/user/{userId}")
+    public Iterable<Scorecard> getScorecardsByUserId(@PathVariable String userId) {
+        return scorecardService.getScorecardsByUserId(userId);
+    }
 }

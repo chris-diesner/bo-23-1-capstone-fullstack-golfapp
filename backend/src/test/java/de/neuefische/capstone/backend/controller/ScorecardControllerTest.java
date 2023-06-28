@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -34,7 +35,7 @@ class ScorecardControllerTest {
                         .content("""
                                                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -56,7 +57,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -83,7 +84,7 @@ class ScorecardControllerTest {
                         .content("""
                                                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -105,7 +106,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -132,7 +133,7 @@ class ScorecardControllerTest {
                         .content("""
                                                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -154,7 +155,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -171,5 +172,83 @@ class ScorecardControllerTest {
                                                              "playBackNine": false
                                                          }
                         """));
+    }
+
+    @Test
+    @DirtiesContext
+    void getListOfScorecardsByUserId_shouldReturnScorecardAnd200OK() throws Exception {
+        MvcResult postScorecard = mockMvc.perform(post("/api/golfapp/scorecard")
+                        .contentType("application/json")
+                        .content("""
+                                                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseName": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                                """)
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseName": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }
+                        """.formatted(dateService.currentDate())))
+                .andReturn();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Scorecard scorecard = objectMapper.readValue(postScorecard.getResponse().getContentAsString(), Scorecard.class);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/golfapp/scorecard/user/" + scorecard.getUserId())
+                        .contentType("application/json")
+                        .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        [{
+                                                             "userId": "testPlayerID",
+                                                             "golfCourseName": "testCourseID",
+                                                             "players": [
+                                                                 "testPlayerID"
+                                                             ],
+                                                             "date": "%s",
+                                                             "scores": [
+                                                                 {
+                                                                     "holeNumber": 1,
+                                                                     "totalStrokes": 5,
+                                                                     "totalPutts": 2,
+                                                                     "fairwayHit": true
+                                                                 }
+                                                             ],
+                                                             "totalScore": 45,
+                                                             "playBackNine": false
+                                                         }]
+                        """.formatted(dateService.currentDate())));
     }
 }

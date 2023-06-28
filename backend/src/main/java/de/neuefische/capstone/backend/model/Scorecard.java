@@ -16,7 +16,8 @@ public class Scorecard {
     @Id
     private String scorecardId;
     private String userId;
-    private String golfCourseId;
+    private String golfCourseName;
+    private String golfClubName;
     private List<String> players;
     private String date;
     private List<Score> scores;

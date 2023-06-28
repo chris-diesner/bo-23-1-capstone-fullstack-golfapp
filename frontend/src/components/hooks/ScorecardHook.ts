@@ -4,7 +4,8 @@ import {Scorecard} from "../../models/Scorecard";
 
 type ScorecardDTO = {
     userId: string
-    golfCourseId: string
+    golfCourseName: string
+    golfClubName: string
     players: string[]
     date: string
     scores: any[]
@@ -49,7 +50,23 @@ const useScorecardHook = () => {
         }
     }
 
-    return { loading, error, saveScorecard, editScorecard };
-};
+    const getScorecardsByUserId = async (userId: string | undefined) => {
+        try {
+            setLoading(true);
+            setError('');
+            const response = await axios.get('/api/golfapp/scorecard/user/' + userId);
+            const scorecards = response.data;
+            console.log('Scorecards fetched successfully.');
+            return scorecards;
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Something went wrong.');
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
 
+    return {loading, error, saveScorecard, editScorecard, getScorecardsByUserId}
+}
 export default useScorecardHook;

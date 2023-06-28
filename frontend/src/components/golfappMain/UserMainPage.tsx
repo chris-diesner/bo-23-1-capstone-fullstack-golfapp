@@ -49,6 +49,7 @@ function UserMainPage(props: Props) {
                     <br/>
                     <h5>What' new:</h5>
                     <button onClick={() => navigate("/golfapp/clubs")}>Clubs</button>
+                    <button onClick={() => navigate("/golfapp/rounds")}>Rounds</button>
                     <ul>
                         <li>Added a Register Page</li>
                         <li>Email & Password Validation</li>

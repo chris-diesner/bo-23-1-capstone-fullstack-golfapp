@@ -35,13 +35,18 @@ function HoleCard(props: Props) {
     const handleSave = () => {
         const updatedScores = [...scorecard.scores];
         updatedScores[props.holeNumber - 1] = holeScore;
+
+        const totalStrokesRound = updatedScores.reduce((sum, score) => sum + parseInt(score.totalStrokes), 0);
         const updatedScorecard = {
             ...scorecard,
             scores: updatedScores,
+            totalScore: totalStrokesRound,
         };
+
         dispatch(setScorecard(updatedScorecard));
         console.log("Scorecard saved", updatedScorecard);
     };
+
 
     return (
         <div className="HoleContainer">

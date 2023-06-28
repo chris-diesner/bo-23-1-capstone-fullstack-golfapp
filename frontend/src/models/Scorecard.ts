@@ -6,6 +6,7 @@ export type Scorecard = {
     date: string;
     scores: Score[];
     totalScore: number;
+    playBackNine: boolean;
 }
 
 export type Score = {
@@ -22,4 +23,5 @@ export type ScorecardDTO = {
     date: string;
     scores: Score[];
     totalScore: number;
+    playBackNine: boolean;
 }

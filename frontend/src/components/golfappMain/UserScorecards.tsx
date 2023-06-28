@@ -4,6 +4,10 @@ import {Container} from "react-bootstrap";
 import {Scorecard} from "../../models/Scorecard";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
+import {useDispatch, useSelector} from "react-redux";
+import {setGolfCourse, setScorecard} from "../../Actions/GolfAppActions";
+import axios from "axios";
+import scorecard from "./Scorecard";
 
 type Props = {
     logout: () => Promise<void>
@@ -13,6 +17,18 @@ function UserScorecards(props:Props) {
     const navigate = useNavigate();
     const[scorecards, setScorecards] = useState<Scorecard[]>([])
     const { loading, error, getScorecardsByUserId } = useScorecardHook();
+    const dispatch = useDispatch();
+    const scorecard = useSelector((state: any) => state.golfApp.scorecard);
+
+    const fetchGolfCourse = async () => {
+        axios
+            .get("/api/golfapp/course/" + scorecard.golfCourseId)
+            .then((response) => {
+                dispatch(setGolfCourse(response.data));
+                console.log("Golf course fetched successfully." + response.data);
+            })
+            .catch((error) => console.error("Error fetching golf course", error));
+    };
 
 
     useEffect(() => {
@@ -26,16 +42,30 @@ function UserScorecards(props:Props) {
                         const scorecardsData = await getScorecardsByUserId(userDetails?.id);
                         setScorecards(scorecardsData);
                         console.log('Scorecards fetched successfully.');
+
                     } catch (error) {
                         console.error('Error:', error);
                     }
                 };
 
+
                 if (userDetails?.id) {
                     fetchScorecards();
                 }
-            });
+            })
     }, [userDetails?.id, user]);
+
+    async function handleOnClickScorecard(scorecard: Scorecard) {
+        try {
+            dispatch(setScorecard(scorecard));
+            await fetchGolfCourse();
+            navigate(`/golfapp/round/${scorecard.scorecardId}`);
+        } catch (error) {
+            console.error('Fehler beim Ausführen von handleOnClickScorecard:', error);
+        }
+    }
+
+
 
     function onClickLogout() {
         props.logout()
@@ -74,7 +104,7 @@ function UserScorecards(props:Props) {
                             <div>{error}</div>
                         ) : (
                             scorecards.map((scorecard) => (
-                                <div key={scorecard.scorecardId} className="UserScorecardBody">
+                                <div key={scorecard.scorecardId} className="UserScorecardBody" onClick={() => handleOnClickScorecard(scorecard)}>
                                     <div className="GolfClubHeader">
                                         <div>{scorecard.golfClubName}</div>
                                         <div>

@@ -21,6 +21,7 @@ public class ScorecardService {
         Scorecard newScorecard = new Scorecard();
         newScorecard.setScorecardId(uuidService.generateUUID());
         newScorecard.setUserId(scorecardDTO.getUserId());
+        newScorecard.setGolfCourseId(scorecardDTO.getGolfCourseId());
         newScorecard.setGolfCourseName(scorecardDTO.getGolfCourseName());
         newScorecard.setGolfClubName(scorecardDTO.getGolfClubName());
         newScorecard.setPlayers(scorecardDTO.getPlayers());
@@ -37,6 +38,7 @@ public class ScorecardService {
 
         existingScorecard.setScorecardId(scorecard.getScorecardId());
         existingScorecard.setUserId(scorecard.getUserId());
+        existingScorecard.setGolfCourseId(scorecard.getGolfCourseId());
         existingScorecard.setGolfCourseName(scorecard.getGolfCourseName());
         existingScorecard.setGolfClubName(scorecard.getGolfClubName());
         existingScorecard.setPlayers(scorecard.getPlayers());

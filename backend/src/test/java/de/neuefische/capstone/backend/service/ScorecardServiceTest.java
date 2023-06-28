@@ -26,6 +26,7 @@ class ScorecardServiceTest {
     void saveScorecard() {
         ScorecardDTO scorecardDTO = new ScorecardDTO();
         scorecardDTO.setUserId("testPlayerID");
+        scorecardDTO.setGolfCourseId("testCourseID");
         scorecardDTO.setGolfCourseName("testCourseID");
         scorecardDTO.setGolfClubName("testClubID");
         scorecardDTO.setPlayers(Collections.singletonList("testPlayerID"));
@@ -37,6 +38,7 @@ class ScorecardServiceTest {
         Scorecard savedScorecard = new Scorecard();
         savedScorecard.setScorecardId("testScorecardID");
         savedScorecard.setUserId("testPlayerID");
+        savedScorecard.setGolfCourseId("testCourseID");
         savedScorecard.setGolfCourseName("testCourseID");
         savedScorecard.setGolfClubName("testClubID");
         savedScorecard.setPlayers(Collections.singletonList("testPlayerID"));

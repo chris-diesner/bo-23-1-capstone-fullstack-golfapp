@@ -12,6 +12,7 @@ import java.util.List;
 public class ScorecardDTO {
 
         private String userId;
+        private String golfCourseId;
         private String golfCourseName;
         private String golfClubName;
         private List<String> players;

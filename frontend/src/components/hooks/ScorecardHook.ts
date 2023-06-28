@@ -4,6 +4,7 @@ import {Scorecard} from "../../models/Scorecard";
 
 type ScorecardDTO = {
     userId: string
+    golfCourseId: string
     golfCourseName: string
     golfClubName: string
     players: string[]
@@ -84,7 +85,7 @@ const useScorecardHook = () => {
         }
     }
 
-    const deleteScorecard = async (scorecardId: string) => {
+    const deleteScorecard = async (scorecardId: string | undefined) => {
         try {
             setLoading(true);
             setError('');

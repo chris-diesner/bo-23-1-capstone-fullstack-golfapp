@@ -34,6 +34,7 @@ function GolfCourseSelectPlayer(props:Props) {
     function onClickStartRound() {
         const scorecardDTO = {
             userId: userDetails?.id ?? "",
+            golfCourseId: golfCourse?.courseID ?? "",
             golfCourseName: golfCourse?.courseName ?? "",
             golfClubName: golfCourse?.clubName ?? "",
             players: players.filter((player) => player !== ""),
@@ -60,7 +61,6 @@ function GolfCourseSelectPlayer(props:Props) {
             })
             .catch((error) => console.error("Error saving scorecard", error));
     }
-
 
     function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
         setPlayBackNine(e.target.checked)

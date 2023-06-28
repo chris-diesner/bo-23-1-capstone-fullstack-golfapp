@@ -26,6 +26,7 @@ class ScorecardServiceTest {
     void saveScorecard() {
         ScorecardDTO scorecardDTO = new ScorecardDTO();
         scorecardDTO.setUserId("testPlayerID");
+        scorecardDTO.setGolfCourseId("testCourseID");
         scorecardDTO.setGolfCourseName("testCourseID");
         scorecardDTO.setGolfClubName("testClubID");
         scorecardDTO.setPlayers(Collections.singletonList("testPlayerID"));
@@ -37,6 +38,7 @@ class ScorecardServiceTest {
         Scorecard savedScorecard = new Scorecard();
         savedScorecard.setScorecardId("testScorecardID");
         savedScorecard.setUserId("testPlayerID");
+        savedScorecard.setGolfCourseId("testCourseID");
         savedScorecard.setGolfCourseName("testCourseID");
         savedScorecard.setGolfClubName("testClubID");
         savedScorecard.setPlayers(Collections.singletonList("testPlayerID"));
@@ -97,6 +99,44 @@ class ScorecardServiceTest {
 
         verify(scorecardRepo, times(1)).findById(scorecardId);
         verify(scorecardRepo, never()).save(any());
+    }
+
+    @Test
+    void testDeleteScorecard_existingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.existsById(scorecardId)).thenReturn(true);
+        assertEquals("Scorecard deleted!", scorecardService.deleteScorecard(scorecardId));
+        verify(scorecardRepo, times(1)).deleteById(scorecardId);
+    }
+
+    @Test
+    void testDeleteScorecard_nonExistingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.existsById(scorecardId)).thenReturn(false);
+        assertThrows(NoSuchElementException.class, () -> {
+            scorecardService.deleteScorecard(scorecardId);
+        });
+        verify(scorecardRepo, never()).deleteById(scorecardId);
+    }
+
+    @Test
+    void testGetScorecardById_existingScorecard() {
+        String scorecardId = "testScorecardId";
+        Scorecard scorecard = new Scorecard();
+        scorecard.setScorecardId(scorecardId);
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.of(scorecard));
+        assertEquals(scorecard, scorecardService.getScorecardById(scorecardId));
+        verify(scorecardRepo, times(1)).findById(scorecardId);
+    }
+
+    @Test
+    void testGetScorecardById_nonExistingScorecard() {
+        String scorecardId = "testScorecardId";
+        when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.empty());
+        assertThrows(NoSuchElementException.class, () -> {
+            scorecardService.getScorecardById(scorecardId);
+        });
+        verify(scorecardRepo, times(1)).findById(scorecardId);
     }
 
     @Test

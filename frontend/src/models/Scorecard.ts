@@ -1,6 +1,7 @@
 export type Scorecard = {
     scorecardId: string;
     userId: string;
+    golfCourseId: string;
     golfCourseName: string;
     golfClubName: string;
     players: string[];
@@ -19,6 +20,7 @@ export type Score = {
 
 export type ScorecardDTO = {
     userId: string;
+    golfCourseId: string;
     golfCourseName: string;
     golfClubName: string;
     players: string[];

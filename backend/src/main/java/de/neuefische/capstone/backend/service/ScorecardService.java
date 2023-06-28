@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +21,7 @@ public class ScorecardService {
         Scorecard newScorecard = new Scorecard();
         newScorecard.setScorecardId(uuidService.generateUUID());
         newScorecard.setUserId(scorecardDTO.getUserId());
+        newScorecard.setGolfCourseId(scorecardDTO.getGolfCourseId());
         newScorecard.setGolfCourseName(scorecardDTO.getGolfCourseName());
         newScorecard.setGolfClubName(scorecardDTO.getGolfClubName());
         newScorecard.setPlayers(scorecardDTO.getPlayers());
@@ -35,6 +38,7 @@ public class ScorecardService {
 
         existingScorecard.setScorecardId(scorecard.getScorecardId());
         existingScorecard.setUserId(scorecard.getUserId());
+        existingScorecard.setGolfCourseId(scorecard.getGolfCourseId());
         existingScorecard.setGolfCourseName(scorecard.getGolfCourseName());
         existingScorecard.setGolfClubName(scorecard.getGolfClubName());
         existingScorecard.setPlayers(scorecard.getPlayers());
@@ -44,6 +48,22 @@ public class ScorecardService {
         existingScorecard.setPlayBackNine(scorecard.isPlayBackNine());
 
         return scorecardRepo.save(existingScorecard);
+    }
+
+    public Scorecard getScorecardById(String scorecardId) {
+        Optional<Scorecard> optionalScorecard = scorecardRepo.findById(scorecardId);
+        if (optionalScorecard.isEmpty()) {
+            throw new NoSuchElementException("Scorecard not found");
+        }
+        return optionalScorecard.get();
+    }
+
+    public String deleteScorecard(String scorecardId) {
+        if (!scorecardRepo.existsById(scorecardId)) {
+            throw new NoSuchElementException("Scorecard not found");
+        }
+        scorecardRepo.deleteById(scorecardId);
+        return "Scorecard deleted!";
     }
 
     public List<Scorecard> getScorecardsByUserId(String userId) {

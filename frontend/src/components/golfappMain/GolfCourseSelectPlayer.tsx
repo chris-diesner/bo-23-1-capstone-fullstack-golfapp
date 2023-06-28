@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import UserHook from "../hooks/UserHook";
 import {setScorecard} from "../../Actions/GolfAppActions";
+import '../../styles/GolfCourseSelectPlayer.css'
 
 type Props = {
     logout: () => Promise<void>
@@ -98,7 +99,7 @@ function GolfCourseSelectPlayer(props:Props) {
                     <div className="GolfSelectPlayerList">
                         {players.map((player, index) => (
                             <div key={index} className="input-group">
-                                <span className="input-group-text">First and last name</span>
+                                <span className="input-group-text">Player</span>
                                 <input
                                     type="text"
                                     aria-label="First name"

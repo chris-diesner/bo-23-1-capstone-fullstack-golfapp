@@ -1,4 +1,4 @@
-.UserMainContainer {
+.ScorecardContainer {
     display: flex;
     background: floralwhite;
     width: 80%;
@@ -12,29 +12,23 @@
     box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);
     border-radius: 10px;
 }
-.UserMainContent{
+.ScorecardContent{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.UserMainHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-.UserMainList {
+.ScorecardList {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.UserMainListItem {
+.ScorecardBody {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -45,13 +39,24 @@
     padding: 5px;
     margin-bottom: 5px;
 }
-.UserMainListItem:hover {
+.ScorecardBody:hover {
     background: #f0f0f0;
     cursor: pointer;
 }
-.ItemHeader {
+.ScorecardHeader {
     display: flex;
     align-content: flex-start;
     justify-content: space-between;
     width: 100%;
+}
+.ScorecardSubHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: x-small;
+    color: darkgrey;
+}
+.ScorecardSpacer {
+    height: 8px;
 }

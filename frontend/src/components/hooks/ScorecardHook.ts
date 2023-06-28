@@ -67,6 +67,40 @@ const useScorecardHook = () => {
         }
     }
 
-    return {loading, error, saveScorecard, editScorecard, getScorecardsByUserId}
+    const getScorecardById = async (scorecardId: string) => {
+        try {
+            setLoading(true);
+            setError('');
+            const response = await axios.get('/api/golfapp/scorecard/' + scorecardId);
+            const scorecard = response.data;
+            console.log('Scorecard fetched successfully.');
+            return scorecard;
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Something went wrong.');
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    const deleteScorecard = async (scorecardId: string) => {
+        try {
+            setLoading(true);
+            setError('');
+            const response = await axios.delete('/api/golfapp/scorecard/' + scorecardId);
+            const scorecard = response.data;
+            console.log('Scorecard deleted successfully.');
+            return scorecard;
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Something went wrong.');
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    return {loading, error, saveScorecard, editScorecard, getScorecardById, getScorecardsByUserId, deleteScorecard}
 }
 export default useScorecardHook;

@@ -182,7 +182,7 @@ class ScorecardControllerTest {
                         .content("""
                                                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -204,7 +204,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -241,7 +241,7 @@ class ScorecardControllerTest {
                         .content("""
                                                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -263,7 +263,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],
@@ -292,7 +292,7 @@ class ScorecardControllerTest {
                 .andExpect(content().json("""
                         {
                                                              "userId": "testPlayerID",
-                                                             "golfCourseId": "testCourseID",
+                                                             "golfCourseName": "testCourseID",
                                                              "players": [
                                                                  "testPlayerID"
                                                              ],

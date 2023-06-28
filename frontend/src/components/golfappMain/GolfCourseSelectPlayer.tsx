@@ -61,7 +61,6 @@ function GolfCourseSelectPlayer(props:Props) {
             .catch((error) => console.error("Error saving scorecard", error));
     }
 
-
     function onPlayBackNineChange(e: React.ChangeEvent<HTMLInputElement>) {
         setPlayBackNine(e.target.checked)
     }

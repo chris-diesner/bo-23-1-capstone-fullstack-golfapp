@@ -26,7 +26,8 @@ class ScorecardServiceTest {
     void saveScorecard() {
         ScorecardDTO scorecardDTO = new ScorecardDTO();
         scorecardDTO.setUserId("testPlayerID");
-        scorecardDTO.setGolfCourseId("testCourseID");
+        scorecardDTO.setGolfCourseName("testCourseID");
+        scorecardDTO.setGolfClubName("testClubID");
         scorecardDTO.setPlayers(Collections.singletonList("testPlayerID"));
         scorecardDTO.setDate("2021-07-01");
         scorecardDTO.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
@@ -36,7 +37,8 @@ class ScorecardServiceTest {
         Scorecard savedScorecard = new Scorecard();
         savedScorecard.setScorecardId("testScorecardID");
         savedScorecard.setUserId("testPlayerID");
-        savedScorecard.setGolfCourseId("testCourseID");
+        savedScorecard.setGolfCourseName("testCourseID");
+        savedScorecard.setGolfClubName("testClubID");
         savedScorecard.setPlayers(Collections.singletonList("testPlayerID"));
         savedScorecard.setDate("2021-07-01");
         savedScorecard.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
@@ -64,7 +66,7 @@ class ScorecardServiceTest {
         Scorecard updatedScorecard = new Scorecard();
         updatedScorecard.setScorecardId(scorecardId);
         updatedScorecard.setUserId("testUserId");
-        updatedScorecard.setGolfCourseId("testGolfCourseId");
+        updatedScorecard.setGolfCourseName("testGolfCourseId");
 
         when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.of(existingScorecard));
         when(scorecardRepo.save(existingScorecard)).thenReturn(updatedScorecard);
@@ -85,7 +87,7 @@ class ScorecardServiceTest {
         Scorecard updatedScorecard = new Scorecard();
         updatedScorecard.setScorecardId(scorecardId);
         updatedScorecard.setUserId("testUserId");
-        updatedScorecard.setGolfCourseId("testGolfCourseId");
+        updatedScorecard.setGolfCourseName("testGolfCourseId");
 
         when(scorecardRepo.findById(scorecardId)).thenReturn(Optional.empty());
 

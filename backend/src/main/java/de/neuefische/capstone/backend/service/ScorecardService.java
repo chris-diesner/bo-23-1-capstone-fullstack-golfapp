@@ -7,8 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +19,8 @@ public class ScorecardService {
         Scorecard newScorecard = new Scorecard();
         newScorecard.setScorecardId(uuidService.generateUUID());
         newScorecard.setUserId(scorecardDTO.getUserId());
-        newScorecard.setGolfCourseId(scorecardDTO.getGolfCourseId());
+        newScorecard.setGolfCourseName(scorecardDTO.getGolfCourseName());
+        newScorecard.setGolfClubName(scorecardDTO.getGolfClubName());
         newScorecard.setPlayers(scorecardDTO.getPlayers());
         newScorecard.setDate(dateService.currentDate());
         newScorecard.setScores(scorecardDTO.getScores());
@@ -36,7 +35,8 @@ public class ScorecardService {
 
         existingScorecard.setScorecardId(scorecard.getScorecardId());
         existingScorecard.setUserId(scorecard.getUserId());
-        existingScorecard.setGolfCourseId(scorecard.getGolfCourseId());
+        existingScorecard.setGolfCourseName(scorecard.getGolfCourseName());
+        existingScorecard.setGolfClubName(scorecard.getGolfClubName());
         existingScorecard.setPlayers(scorecard.getPlayers());
         existingScorecard.setDate(scorecard.getDate());
         existingScorecard.setScores(scorecard.getScores());

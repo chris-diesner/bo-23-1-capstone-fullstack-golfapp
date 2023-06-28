@@ -48,8 +48,6 @@ function UserMainPage(props: Props) {
                     </div>
                     <br/>
                     <h5>What' new:</h5>
-                    <button onClick={() => navigate("/golfapp/clubs")}>Clubs</button>
-                    <button onClick={() => navigate("/golfapp/rounds")}>Rounds</button>
                     <ul>
                         <li>Added a Register Page</li>
                         <li>Email & Password Validation</li>
@@ -58,6 +56,32 @@ function UserMainPage(props: Props) {
                         <li>Profile can be updated</li>
                         <li>Added a Golf Club Overview Page</li>
                     </ul>
+                    <div className="UserMainList">
+                        <div className="UserMainListItem" onClick={() => navigate("/golfapp/clubs")}>
+                            <div className="ItemHeader">
+                                Find Clubs
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                     fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className="UserMainListItem" onClick={() => navigate("/golfapp/rounds")}>
+                            <div className="ItemHeader">
+                                Your Rounds
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                     fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </Container>
         </div>

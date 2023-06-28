@@ -49,7 +49,7 @@ const useScorecardHook = () => {
         }
     }
 
-    const getScorecardsByUserId = async (userId: string) => {
+    const getScorecardsByUserId = async (userId: string | undefined) => {
         try {
             setLoading(true);
             setError('');

@@ -4,7 +4,8 @@ import {Scorecard} from "../../models/Scorecard";
 
 type ScorecardDTO = {
     userId: string
-    golfCourseId: string
+    golfCourseName: string
+    golfClubName: string
     players: string[]
     date: string
     scores: any[]

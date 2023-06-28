@@ -63,7 +63,7 @@ function UserScorecards(props:Props) {
                             scorecards.map((scorecard) => (
                                 <div key={scorecard.scorecardId} className="UserScorecardBody">
                                     <div className="GolfClubHeader">
-                                        <div>{scorecard.scorecardId}</div>
+                                        <div>{scorecard.golfClubName}</div>
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                                  fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">

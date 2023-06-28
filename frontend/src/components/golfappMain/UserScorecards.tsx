@@ -7,7 +7,7 @@ import UserHook from "../hooks/UserHook";
 import {useDispatch, useSelector} from "react-redux";
 import {setGolfCourse, setScorecard} from "../../Actions/GolfAppActions";
 import axios from "axios";
-import scorecard from "./Scorecard";
+import '../../styles/UserScorecards.css'
 
 type Props = {
     logout: () => Promise<void>
@@ -87,7 +87,7 @@ function UserScorecards(props:Props) {
                             <path
                                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
-                        <h6>Scorecards</h6>
+                        <h6>Your Scorecards</h6>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
                             <path fill-rule="evenodd"
@@ -105,7 +105,7 @@ function UserScorecards(props:Props) {
                         ) : (
                             scorecards.map((scorecard) => (
                                 <div key={scorecard.scorecardId} className="UserScorecardBody" onClick={() => handleOnClickScorecard(scorecard)}>
-                                    <div className="GolfClubHeader">
+                                    <div className="UserScorecardHeader">
                                         <div>{scorecard.golfClubName}</div>
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -113,6 +113,13 @@ function UserScorecards(props:Props) {
                                                 <path
                                                     d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
                                             </svg>
+                                        </div>
+                                    </div>
+                                    <div className="UserScorecardSubHeader">
+                                        <div className="UserScorecardSubHeaderLeft">
+                                            Course: {scorecard.golfCourseName}
+                                        </div>
+                                        <div className="UserScorecardSubHeaderRigt">
                                         </div>
                                     </div>
                                 </div>

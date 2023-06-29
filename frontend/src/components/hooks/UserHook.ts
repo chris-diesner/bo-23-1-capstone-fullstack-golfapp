@@ -3,6 +3,7 @@ import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 import {useDispatch} from "react-redux";
 import {clearAuthenticatedUser, setAuthenticatedUser} from "../../Actions/AuthActions";
+import secureLocalStorage from "react-secure-storage";
 
 export default function UserHook() {
     const [user, setUser] = useState<string>();
@@ -66,16 +67,24 @@ export default function UserHook() {
         return axios
             .post("/api/user/login", undefined, {auth: {username, password}})
             .then((response) => {
-                dispatch(setAuthenticatedUser(response.data))
-                setUser(response.data)
+                if (response.status === 200) {
+                    secureLocalStorage.setItem("username", response.data.username)
+                }
+                else {
+                    secureLocalStorage.setItem("username", "Anonymous User.")
+                }
             })
+            .catch((error) => {
+                    console.log(error)
+                    secureLocalStorage.setItem("username", "Anonymous User.")
+                }
+            )
     }
 
     function logout() {
-        return axios.get("/api/user/logout").then(() => {
-            dispatch(clearAuthenticatedUser())
-            setUser(undefined)
-        })
+        return axios.get("/api/user/logout")
+            .then(() => secureLocalStorage.removeItem("username"))
+            .catch(error => console.log(error))
     }
 
     return {register, login, logout, user, userDetails, getUserDetails, editUserDetails};

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import secureLocalStorage from "react-secure-storage";
 
 type Props = {
     user: string | undefined
 }
 
 function ProtectedRoutes(props:Props) {
-    const authenticatedUser = useSelector((state: any) => state.auth.authenticatedUser);
-    const authenticated = authenticatedUser !== undefined && authenticatedUser !== 'anonymousUser';
-
+    const authenticatedUser = secureLocalStorage.getItem("username") !== "Anonymous User."
+        && typeof secureLocalStorage.getItem("username") === "string"
+    const authenticated = authenticatedUser
     return authenticated ? <Outlet /> : <Navigate to="/login" />;
 }
 

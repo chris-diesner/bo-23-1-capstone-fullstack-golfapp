@@ -1,5 +1,6 @@
 package de.neuefische.capstone.backend.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.neuefische.capstone.backend.model.GolfUser;
 import de.neuefische.capstone.backend.service.UserService;
@@ -17,6 +18,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
@@ -60,7 +64,9 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
         String response = result.getResponse().getContentAsString();
-        assertEquals("test@test.com", response);
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, String> jsonResponse = objectMapper.readValue(response, new TypeReference<Map<String, String>>() {});
+        assertEquals("test@test.com", jsonResponse.get("username"));
     }
 
     @Test

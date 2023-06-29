@@ -16,6 +16,7 @@ import Scorecard from "./components/golfappMain/Scorecard";
 import EvaluationCard from "./components/golfappMain/EvaluationCard";
 import UserScorecards from "./components/golfappMain/UserScorecards";
 import ScorecardById from "./components/golfappMain/ScorecardById";
+import UserStatistics from "./components/golfappMain/UserStatistics";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                     <Route path={"/golfapp/finalscorecard"} element={<EvaluationCard logout={logout}/>}/>
                     <Route path={"/golfapp/rounds"} element={<UserScorecards logout={logout}/>}/>
                     <Route path={"/golfapp/round/:id"} element={<ScorecardById logout={logout}/>}/>
+                    <Route path={"/golfapp/user/statistics"} element={<UserStatistics logout={logout}/>}/>
                 </Route>
                 <Route path="/register" element={<Register register={register}/>}/>
                 <Route path="/login" element={<Login login={login}/>}/>

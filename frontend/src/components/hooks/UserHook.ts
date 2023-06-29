@@ -2,7 +2,6 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 import {useDispatch} from "react-redux";
-import {clearAuthenticatedUser, setAuthenticatedUser} from "../../Actions/AuthActions";
 import secureLocalStorage from "react-secure-storage";
 
 export default function UserHook() {

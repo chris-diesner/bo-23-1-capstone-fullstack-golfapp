@@ -2,6 +2,7 @@ import React from 'react';
 import {Score} from "../../models/Scorecard";
 import {Table} from "react-bootstrap";
 import {useSelector} from "react-redux";
+import '../../styles/EvaluationCard.css'
 
 type Props = {
 

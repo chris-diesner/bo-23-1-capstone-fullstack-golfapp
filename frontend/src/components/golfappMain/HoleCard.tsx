@@ -63,24 +63,30 @@ function HoleCard(props: Props) {
                         <div className="form-group">
                             <label htmlFor={`totalStrokes_${holeNumber}`}>Total Strokes:</label>
                             <input
-                                type="number"
+                                type="range"
+                                min="1"
+                                max="14"
                                 className="form-control"
                                 id={`totalStrokes_${holeNumber}`}
                                 name="totalStrokes"
                                 value={holeScore?.totalStrokes || ""}
                                 onChange={handleInputChange}
                             />
+                            <span>{holeScore?.totalStrokes}</span>
                         </div>
                         <div className="form-group">
                             <label htmlFor={`totalPutts_${holeNumber}`}>Total Putts:</label>
                             <input
-                                type="number"
+                                type="range"
+                                min="1"
+                                max="7"
                                 className="form-control"
                                 id={`totalPutts_${holeNumber}`}
                                 name="totalPutts"
                                 value={holeScore?.totalPutts || ""}
                                 onChange={handleInputChange}
                             />
+                            <span>{holeScore?.totalPutts}</span>
                         </div>
                         <div className="form-check">
                             <input

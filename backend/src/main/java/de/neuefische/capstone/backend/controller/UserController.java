@@ -10,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/user")
@@ -48,8 +51,11 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login() {
-        return SecurityContextHolder.getContext().getAuthentication().getName();
+    public ResponseEntity<Map<String, String>> login() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Map<String, String> response = new HashMap<>();
+        response.put("username", email);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/logout")

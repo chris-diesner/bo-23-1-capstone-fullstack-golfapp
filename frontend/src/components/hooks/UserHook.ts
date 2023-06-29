@@ -7,7 +7,6 @@ import secureLocalStorage from "react-secure-storage";
 export default function UserHook() {
     const [user, setUser] = useState<string>();
     const [userDetails, setUserDetails] = useState<GolfUser | null>(null);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         function getCurrentUser() {

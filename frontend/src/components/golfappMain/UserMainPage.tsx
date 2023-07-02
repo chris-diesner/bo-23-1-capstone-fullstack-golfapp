@@ -2,7 +2,6 @@ import React from 'react';
 import '../../styles/UserMainPage.css'
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
-import MapContainer from "./MapContainer";
 
 type Props = {
     logout: () => Promise<void>
@@ -48,7 +47,6 @@ function UserMainPage(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <MapContainer/>
                     <h5>What' new:</h5>
                     <ul>
                         <li>Added a Register Page</li>

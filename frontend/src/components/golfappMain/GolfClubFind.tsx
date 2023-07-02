@@ -7,6 +7,7 @@ import '../../styles/GolfClubFind.css'
 import {GolfCourse} from "../../models/GolfCourse";
 import {useDispatch} from "react-redux";
 import {setCourses} from "../../Actions/GolfAppActions";
+import MapContainer from "./MapContainer";
 
 type Props = {
     logout: () => Promise<void>
@@ -65,6 +66,7 @@ function GolfClubFind(props: Props) {
                         </svg>
                     </div>
                     <br />
+                    <MapContainer/>
                     <div className="GolfClubList">
                         {golfClubs.map((golfClub) => (
                             <div key={golfClub.clubID} className="GolfClubBody" onClick={() => onClickSelectCoursesBySelectedClub(golfClub.courses)}>

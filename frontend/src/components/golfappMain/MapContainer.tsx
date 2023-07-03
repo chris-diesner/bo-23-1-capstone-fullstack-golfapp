@@ -1,5 +1,4 @@
 import {useLoadScript} from "@react-google-maps/api";
-import Map from "./ClubMap";
 import {GolfClub} from "../../models/GolfClub";
 import ClubMap from "./ClubMap";
 

@@ -1,12 +1,12 @@
-import React, { useState, useMemo, useCallback, useRef, useEffect } from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import React, {useState, useMemo, useCallback, useRef, useEffect} from "react";
+import {GoogleMap, Marker, MarkerClusterer} from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
-import { GolfClub } from "../../models/GolfClub";
-import { GolfCourse } from "../../models/GolfCourse";
-import { setCourses } from "../../Actions/GolfAppActions";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {GolfClub} from "../../models/GolfClub";
+import {GolfCourse} from "../../models/GolfCourse";
+import {setCourses} from "../../Actions/GolfAppActions";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -15,12 +15,12 @@ type Props = {
     golfClubs: GolfClub[];
 };
 
-export default function ClubMap({ golfClubs }: Props) {
+export default function ClubMap({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
     const [visibleClubs, setVisibleClubs] = useState<GolfClub[]>([]);
     const mapRef = useRef<ClubMap>();
     const center = useMemo<LatLngLiteral>(
-        () => ({ lat: 52.48658892646834, lng: 13.541720214410722 }),
+        () => ({lat: 52.48658892646834, lng: 13.541720214410722}),
         []
     );
     const dispatch = useDispatch();

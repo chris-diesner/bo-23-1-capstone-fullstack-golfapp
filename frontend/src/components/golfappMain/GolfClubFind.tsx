@@ -21,7 +21,7 @@ function GolfClubFind(props: Props) {
     const calculateLatLang = async (golfClub: GolfClub) => {
         const {address, city, country} = golfClub
         const encodedAddress = encodeURIComponent(`${address}, ${city}, ${country}`)
-        const apiKey = "AIzaSyCX06ThQINIbdH-nHkmJR0PHsXgxBjDhVg"
+        const apiKey = process.env.REACT_APP_GOOGLE_API_KEY ?? ''
 
         try {
             const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}`)

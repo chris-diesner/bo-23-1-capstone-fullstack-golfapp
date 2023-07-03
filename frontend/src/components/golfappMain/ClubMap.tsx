@@ -1,19 +1,19 @@
 import React, {useState, useMemo, useCallback, useRef} from "react";
-import {GoogleMap, Marker, useLoadScript, InfoWindow, Circle} from "@react-google-maps/api";
+import {GoogleMap, Marker, Circle} from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
 import {GolfClub} from "../../models/GolfClub";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
-type Map = google.maps.Map;
+type ClubMap = google.maps.Map;
 type Props = {
     golfClubs: GolfClub[]
 }
 
-export default function Map({golfClubs}: Props) {
+export default function ClubMap({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
-    const mapRef = useRef<Map>();
+    const mapRef = useRef<ClubMap>();
     const center = useMemo<LatLngLiteral>(() => ({lat: 52.48658892646834, lng: 13.541720214410722}), []);
     const options = useMemo<MapOptions>(
         () => ({
@@ -23,7 +23,7 @@ export default function Map({golfClubs}: Props) {
         }),
         []
     );
-    const onLoad = useCallback((map: Map) => {
+    const onLoad = useCallback((map: ClubMap) => {
         mapRef.current = map;
     }, []);
 

@@ -8,7 +8,7 @@ type PlacesProps = {
     setClubs: (position: google.maps.LatLngLiteral) => void;
 }
 export default function Places({setClubs}: PlacesProps) {
-    const {ready, value, setValue, suggestions: {status, data}, clearSuggestions} = usePlacesAutocomplete()
+    const {value, setValue, suggestions: {status, data}, clearSuggestions} = usePlacesAutocomplete()
 
     const handleSelect = async (select: string) => {
         setValue(select, false)

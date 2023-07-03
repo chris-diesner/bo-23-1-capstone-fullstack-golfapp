@@ -5,7 +5,6 @@ import HoleCard from "./HoleCard";
 import {useNavigate} from "react-router-dom";
 import '../../styles/Scorecard.css'
 import ScorecardHook from "../hooks/ScorecardHook";
-import MapContainer from "./MapContainer";
 
 type Props = {
     logout: () => Promise<void>

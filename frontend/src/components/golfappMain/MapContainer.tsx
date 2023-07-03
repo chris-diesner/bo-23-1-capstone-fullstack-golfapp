@@ -1,6 +1,7 @@
 import {useLoadScript} from "@react-google-maps/api";
-import Map from "../golfappMain/Map";
+import Map from "./ClubMap";
 import {GolfClub} from "../../models/GolfClub";
+import ClubMap from "./ClubMap";
 
 type Props = {
     golfClubs: GolfClub[]
@@ -11,5 +12,5 @@ export default function MapContainer({golfClubs}: Props) {
         libraries: ['places']
     })
     if (!isLoaded) return <div>Loading...</div>
-    return (<Map golfClubs={golfClubs}/>)
+    return (<ClubMap golfClubs={golfClubs}/>)
 }

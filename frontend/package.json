@@ -54,9 +54,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080",
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2",
-    "@types/google.maps": "^3.53.4"
-  }
+  "proxy": "http://localhost:8080"
 }

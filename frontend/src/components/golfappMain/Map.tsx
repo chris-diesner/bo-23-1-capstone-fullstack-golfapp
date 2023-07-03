@@ -2,12 +2,16 @@ import React, {useState, useMemo, useCallback, useRef} from "react";
 import {GoogleMap, Marker, useLoadScript, InfoWindow, Circle} from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
+import {GolfClub} from "../../models/GolfClub";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 type Map = google.maps.Map;
+type Props = {
+    golfClubs: GolfClub[]
+}
 
-export default function Map() {
+export default function Map({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
     const mapRef = useRef<Map>();
     const center = useMemo<LatLngLiteral>(() => ({lat: 52.48658892646834, lng: 13.541720214410722}), []);
@@ -24,6 +28,7 @@ export default function Map() {
     }, []);
 
     return (
+        console.log(golfClubs),
         <div className="MapContainer">
             <div className="Controls">
                 <h6>Controls</h6>
@@ -37,6 +42,9 @@ export default function Map() {
                 <GoogleMap zoom={13} center={center} mapContainerClassName="map-container" options={options}
                            onLoad={onLoad}>
                     <>
+                        {golfClubs.map((golfClub) => (
+                            <Marker key={golfClub.clubID} position={{ lat: parseFloat(golfClub.latitude), lng: parseFloat(golfClub.longitude) }} icon={Tee} />
+                        ))}
                         {clubs && <Marker position={clubs} icon={Tee}/>}
                     </>
                     <Circle center={center} radius={15000} options={closeOptions}/>

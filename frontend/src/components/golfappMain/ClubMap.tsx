@@ -1,8 +1,12 @@
 import React, {useState, useMemo, useCallback, useRef} from "react";
-import {GoogleMap, Marker, Circle} from "@react-google-maps/api";
+import {GoogleMap, Marker} from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
 import {GolfClub} from "../../models/GolfClub";
+import {GolfCourse} from "../../models/GolfCourse";
+import {setCourses} from "../../Actions/GolfAppActions";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -15,6 +19,8 @@ export default function ClubMap({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
     const mapRef = useRef<ClubMap>();
     const center = useMemo<LatLngLiteral>(() => ({lat: 52.48658892646834, lng: 13.541720214410722}), []);
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
@@ -26,6 +32,12 @@ export default function ClubMap({golfClubs}: Props) {
     const onLoad = useCallback((map: ClubMap) => {
         mapRef.current = map;
     }, []);
+
+    const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
+        dispatch(setCourses(courses))
+        console.log(courses)
+        navigate("/golfapp/clubs/courses")
+    }
 
     return (
         console.log(golfClubs),
@@ -47,41 +59,36 @@ export default function ClubMap({golfClubs}: Props) {
                         ))}
                         {clubs && <Marker position={clubs} icon={Tee}/>}
                     </>
-                    <Circle center={center} radius={15000} options={closeOptions}/>
-                    <Circle center={center} radius={30000} options={middleOptions}/>
-                    <Circle center={center} radius={45000} options={farOptions}/>
                 </GoogleMap>
+            </div>
+            <br/>
+            <div className="GolfClubList">
+                {golfClubs.map((golfClub) => (
+                    <div key={golfClub.clubID} className="GolfClubBody"
+                         onClick={() => onClickSelectCoursesBySelectedClub(golfClub.courses)}>
+                        <div className="GolfClubHeader">
+                            <div>{golfClub.clubName}</div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                     fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className="GolfClubSubHeader">
+                            <div className="GolfClubSubHeaderLeft">
+                                City: {golfClub.city}
+                            </div>
+                            <div className="GolfClubSubHeaderRigt">
+                                Courses: {golfClub.courses.length}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+                <div className="GolfClubSpacer">
+                </div>
             </div>
         </div>
     );
-}
-
-const defaultOptions = {
-    strokeOpacity: 0.5,
-    strokeWeight: 2,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-}
-const closeOptions = {
-    ...defaultOptions,
-    zIndex: 3,
-    fillOpacity: 0.05,
-    strokeColor: "rgb(29,203,51)",
-    fillColor: "rgb(29,203,51)",
-}
-const middleOptions = {
-    ...defaultOptions,
-    zIndex: 2,
-    fillOpacity: 0.05,
-    strokeColor: "rgb(255,250,7)",
-    fillColor: "rgb(255,250,7)",
-}
-const farOptions = {
-    ...defaultOptions,
-    zIndex: 1,
-    fillOpacity: 0.05,
-    strokeColor: "rgb(255,0,0)",
-    fillColor: "rgb(255,0,0)",
 }

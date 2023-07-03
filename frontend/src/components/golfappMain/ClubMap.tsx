@@ -1,31 +1,35 @@
-import React, {useState, useMemo, useCallback, useRef} from "react";
-import {GoogleMap, Marker} from "@react-google-maps/api";
+import React, { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
-import {GolfClub} from "../../models/GolfClub";
-import {GolfCourse} from "../../models/GolfCourse";
-import {setCourses} from "../../Actions/GolfAppActions";
-import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import { GolfClub } from "../../models/GolfClub";
+import { GolfCourse } from "../../models/GolfCourse";
+import { setCourses } from "../../Actions/GolfAppActions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 type ClubMap = google.maps.Map;
 type Props = {
-    golfClubs: GolfClub[]
-}
+    golfClubs: GolfClub[];
+};
 
-export default function ClubMap({golfClubs}: Props) {
+export default function ClubMap({ golfClubs }: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
+    const [visibleClubs, setVisibleClubs] = useState<GolfClub[]>([]);
     const mapRef = useRef<ClubMap>();
-    const center = useMemo<LatLngLiteral>(() => ({lat: 52.48658892646834, lng: 13.541720214410722}), []);
-    const dispatch = useDispatch()
+    const center = useMemo<LatLngLiteral>(
+        () => ({ lat: 52.48658892646834, lng: 13.541720214410722 }),
+        []
+    );
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
             disableDefaultUI: true,
-            clickableIcons: false
+            clickableIcons: false,
         }),
         []
     );
@@ -33,11 +37,35 @@ export default function ClubMap({golfClubs}: Props) {
         mapRef.current = map;
     }, []);
 
+    useEffect(() => {
+        const boundsChangedListener = mapRef.current?.addListener(
+            "bounds_changed",
+            () => {
+                const bounds = mapRef.current?.getBounds();
+                if (bounds) {
+                    const visibleClubs = golfClubs.filter((golfClub) =>
+                        bounds.contains({
+                            lat: parseFloat(golfClub.latitude),
+                            lng: parseFloat(golfClub.longitude),
+                        })
+                    );
+                    setVisibleClubs(visibleClubs);
+                }
+            }
+        );
+
+        return () => {
+            if (boundsChangedListener) {
+                google.maps.event.removeListener(boundsChangedListener);
+            }
+        };
+    }, [golfClubs]);
+
     const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
-        dispatch(setCourses(courses))
-        console.log(courses)
-        navigate("/golfapp/clubs/courses")
-    }
+        dispatch(setCourses(courses));
+        console.log(courses);
+        navigate("/golfapp/clubs/courses");
+    };
 
     return (
         console.log(golfClubs),
@@ -54,8 +82,14 @@ export default function ClubMap({golfClubs}: Props) {
                 <GoogleMap zoom={13} center={center} mapContainerClassName="map-container" options={options}
                            onLoad={onLoad}>
                     <>
-                        {golfClubs.map((golfClub) => (
-                            <Marker key={golfClub.clubID} position={{ lat: parseFloat(golfClub.latitude), lng: parseFloat(golfClub.longitude) }} icon={Tee} />
+                        {visibleClubs.map((golfClub) => (
+                            <Marker
+                                key={golfClub.clubID}
+                                position={{
+                                    lat: parseFloat(golfClub.latitude),
+                                    lng: parseFloat(golfClub.longitude),
+                                }}
+                                icon={Tee} />
                         ))}
                         {clubs && <Marker position={clubs} icon={Tee}/>}
                     </>
@@ -63,7 +97,7 @@ export default function ClubMap({golfClubs}: Props) {
             </div>
             <br/>
             <div className="GolfClubList">
-                {golfClubs.map((golfClub) => (
+                {visibleClubs.map((golfClub) => (
                     <div key={golfClub.clubID} className="GolfClubBody"
                          onClick={() => onClickSelectCoursesBySelectedClub(golfClub.courses)}>
                         <div className="GolfClubHeader">

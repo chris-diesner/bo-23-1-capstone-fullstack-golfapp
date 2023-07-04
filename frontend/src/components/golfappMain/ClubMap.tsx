@@ -1,5 +1,5 @@
 import React, {useState, useMemo, useCallback, useRef, useEffect} from "react";
-import {GoogleMap, Marker, MarkerClusterer} from "@react-google-maps/api";
+import {DirectionsRenderer, GoogleMap, Marker} from "@react-google-maps/api";
 import Places from "./Places";
 import Tee from "../../media/tee.png";
 import {GolfClub} from "../../models/GolfClub";
@@ -7,8 +7,10 @@ import {GolfCourse} from "../../models/GolfCourse";
 import {setCourses} from "../../Actions/GolfAppActions";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import Distance from "./Distance";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
+type DirectionsResult = google.maps.DirectionsResult;
 type MapOptions = google.maps.MapOptions;
 type ClubMap = google.maps.Map;
 type Props = {
@@ -17,6 +19,7 @@ type Props = {
 
 export default function ClubMap({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
+    const [directions, setDirections] = useState<DirectionsResult>();
     const [visibleClubs, setVisibleClubs] = useState<GolfClub[]>([]);
     const mapRef = useRef<ClubMap>();
     const center = useMemo<LatLngLiteral>(
@@ -67,6 +70,23 @@ export default function ClubMap({golfClubs}: Props) {
         navigate("/golfapp/clubs/courses");
     };
 
+    const fetchDirections = (clubs: LatLngLiteral) => {
+        if(!clubs) return
+        const directionsService = new google.maps.DirectionsService()
+        directionsService.route({
+            origin: center,
+            destination: clubs,
+            travelMode: google.maps.TravelMode.DRIVING
+        },
+            (result, status) => {
+                if(status === "OK" && result) {
+                    setDirections(result)
+                } else {
+                    console.error(`error fetching directions ${result}`)
+                }
+            })
+    }
+
     return (
         console.log(golfClubs),
         <div className="MapContainer">
@@ -77,11 +97,20 @@ export default function ClubMap({golfClubs}: Props) {
                     mapRef.current?.panTo(position)
                 }}
                 />
+                {!clubs && <p>Click on a marker to get directions</p>}
+                {directions && <Distance leg={directions.routes[0].legs[0]}/>}
             </div>
             <div className="Map">
                 <GoogleMap zoom={13} center={center} mapContainerClassName="map-container" options={options}
                            onLoad={onLoad}>
                     <>
+                        {directions && <DirectionsRenderer directions={directions} options={
+                            {polylineOptions: {
+                            zIndex: 50,
+                                strokeColor: "#1976D2",
+                                strokeWeight: 4}
+                            }
+                        }/>}
                         {visibleClubs.map((golfClub) => (
                             <Marker
                                 key={golfClub.clubID}
@@ -89,9 +118,20 @@ export default function ClubMap({golfClubs}: Props) {
                                     lat: parseFloat(golfClub.latitude),
                                     lng: parseFloat(golfClub.longitude),
                                 }}
-                                icon={Tee} />
+                                icon={Tee}
+                                onClick={() => {
+                                    const position: LatLngLiteral = {
+                                        lat: parseFloat(golfClub.latitude),
+                                        lng: parseFloat(golfClub.longitude)
+                                    };
+                                    fetchDirections(position);
+                                }}
+                            />
                         ))}
-                        {clubs && <Marker position={clubs} icon={Tee}/>}
+                        {clubs && <Marker position={clubs} icon={Tee}
+                                          onClick={() => {
+                                              fetchDirections(clubs);
+                                          }}/>}
                     </>
                 </GoogleMap>
             </div>

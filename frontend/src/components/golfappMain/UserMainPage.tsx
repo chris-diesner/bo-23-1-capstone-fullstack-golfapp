@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import '../../styles/UserMainPage.css'
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
-import axios from "axios";
 import UserHook from "../hooks/UserHook";
 
 type Props = {

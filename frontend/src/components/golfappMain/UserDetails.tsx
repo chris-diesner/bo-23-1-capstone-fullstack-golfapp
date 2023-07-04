@@ -25,6 +25,7 @@ function UserDetails(props: Props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [handicap, setHandicap] = useState('');
+    const [profilePicture, setProfilePicture] = useState<File | null>(null);
     const [showSuccessToast, setShowSuccessToast] = useState(false);
     const [showErrorToast, setShowErrorToast] = useState(false);
     const navigate = useNavigate();
@@ -91,6 +92,24 @@ function UserDetails(props: Props) {
         }));
     }
 
+    function onFileChange(e: ChangeEvent<HTMLInputElement>) {
+        const files = e.target.files;
+        if (files && files.length > 0) {
+            const file = files[0];
+            setProfilePicture(file);
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64String = reader.result as string;
+                setEditedUserDetails((prevDetails) => ({
+                    ...prevDetails,
+                    profilePicture: base64String,
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
     function onClickLogout() {
         props.logout()
             .then(() => {
@@ -130,6 +149,15 @@ function UserDetails(props: Props) {
                                               isInvalid={!validator.isEmail(userDetails?.username || '')}
                                               required
                                               disabled/>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicPicture">
+                                <Form.Label>Profile Picture</Form.Label>
+                                <Form.Control type="file" onChange={onFileChange} />
+                                {editedUserDetails.profilePicture && (
+                                    <div className="preview">
+                                        <img src={editedUserDetails.profilePicture} alt="Profile" width={150} height={150} />
+                                    </div>
+                                )}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label>First Name</Form.Label>

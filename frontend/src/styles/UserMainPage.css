@@ -64,3 +64,6 @@
     width: 100%;
     padding: 0.5rem;
 }
+.ProfilPicture {
+    border-radius: 50%;
+}

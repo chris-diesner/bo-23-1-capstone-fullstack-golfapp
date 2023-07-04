@@ -67,6 +67,7 @@ public class UserService implements UserDetailsService {
             existingUser.setFirstName(golfUser.getFirstName());
             existingUser.setLastName(golfUser.getLastName());
             existingUser.setHandicap(golfUser.getHandicap());
+            existingUser.setProfilePicture(golfUser.getProfilePicture());
             return repo.save(existingUser);
         } else {
             throw new  IllegalArgumentException("User not found");

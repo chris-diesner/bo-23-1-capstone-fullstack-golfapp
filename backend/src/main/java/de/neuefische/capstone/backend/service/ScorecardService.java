@@ -29,6 +29,9 @@ public class ScorecardService {
         newScorecard.setScores(scorecardDTO.getScores());
         newScorecard.setTotalScore(scorecardDTO.getTotalScore());
         newScorecard.setPlayBackNine(scorecardDTO.isPlayBackNine());
+        newScorecard.setCourseRating(scorecardDTO.getCourseRating());
+        newScorecard.setSlopeRating(scorecardDTO.getSlopeRating());
+        newScorecard.setCourseHandicap(scorecardDTO.getCourseHandicap());
         return scorecardRepo.save(newScorecard);
     }
 
@@ -46,6 +49,9 @@ public class ScorecardService {
         existingScorecard.setScores(scorecard.getScores());
         existingScorecard.setTotalScore(scorecard.getTotalScore());
         existingScorecard.setPlayBackNine(scorecard.isPlayBackNine());
+        existingScorecard.setCourseRating(scorecard.getCourseRating());
+        existingScorecard.setSlopeRating(scorecard.getSlopeRating());
+        existingScorecard.setCourseHandicap(scorecard.getCourseHandicap());
 
         return scorecardRepo.save(existingScorecard);
     }

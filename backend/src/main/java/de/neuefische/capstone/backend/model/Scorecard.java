@@ -24,4 +24,7 @@ public class Scorecard {
     private List<Score> scores;
     private int totalScore;
     private boolean playBackNine;
+    private double CourseRating;
+    private int SlopeRating;
+    private double CourseHandicap;
 }

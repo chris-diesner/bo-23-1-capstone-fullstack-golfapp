@@ -63,9 +63,11 @@ function GolfCourseSelectPlayer(props:Props) {
             scores: playBackNine
                 ? Array.from({ length: 18 }, (_, index) => {
                     const holeHCP = golfCourse.indexesMen[index];
-                    const personalPar = calculatedCourseHandicap % 18 === 0 && holeHCP === 1
-                        ? Math.floor(calculatedCourseHandicap / 18) + 1
-                        : Math.floor(calculatedCourseHandicap / 18);
+                    let personalPar = Math.floor(calculatedCourseHandicap / 18);
+
+                    if (calculatedCourseHandicap % 18 >= holeHCP) {
+                        personalPar += 1;
+                    }
 
                     return {
                         holeNumber: index + 1,
@@ -80,9 +82,11 @@ function GolfCourseSelectPlayer(props:Props) {
                 })
                 : Array.from({ length: 9 }, (_, index) => {
                     const holeHCP = golfCourse.indexesMen[index];
-                    const personalPar = calculatedCourseHandicap % 9 === 0 && holeHCP === 1
-                        ? Math.floor(calculatedCourseHandicap / 9) + 1
-                        : Math.floor(calculatedCourseHandicap / 9);
+                    let personalPar = Math.floor(calculatedCourseHandicap / 9);
+
+                    if (calculatedCourseHandicap % 9 >= holeHCP) {
+                        personalPar += 1;
+                    }
 
                     return {
                         holeNumber: index + 1,

@@ -20,9 +20,9 @@ public class ScorecardDTO {
         private List<Score> scores;
         private int totalScore;
         private boolean playBackNine;
-        private double CourseRating;
-        private int SlopeRating;
-        private double CourseHandicap;
+        private double courseRating;
+        private int slopeRating;
+        private double courseHandicap;
         private int coursePar;
         private String selectedTee;
 }

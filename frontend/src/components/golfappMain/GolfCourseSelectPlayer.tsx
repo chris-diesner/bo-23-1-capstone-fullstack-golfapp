@@ -13,6 +13,7 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
+    const selectedTee = useSelector((state:any) => state.golfApp.selectedTee)
     const [playBackNine, setPlayBackNine] = useState<boolean>(true)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
@@ -33,6 +34,21 @@ function GolfCourseSelectPlayer(props:Props) {
     }, [user])
 
     function onClickStartRound() {
+        const selectedTeeCourseRating = selectedTee?.teeName === "White" || selectedTee?.teeName === "Yellow"
+            ? selectedTee.courseRatingMen
+            : selectedTee?.teeName === "Red"
+                ? selectedTee.courseRatingWomen
+                : 0
+
+        const selectedTeeSlopeRating = selectedTee?.teeName === "White" || selectedTee?.teeName === "Yellow"
+            ? selectedTee.slopeMen
+            : selectedTee?.teeName === "Red"
+                ? selectedTee.slopeWomen
+                : 0
+        const calculatedCoursePar = playBackNine
+            ? golfCourse?.parsMen.slice(9).reduce((acc, curr) => acc + curr, 0)
+            : golfCourse?.parsMen.slice(0, 9).reduce((acc, curr) => acc + curr, 0);
+
         const scorecardDTO = {
             userId: userDetails?.id ?? "",
             golfCourseId: golfCourse?.courseID ?? "",
@@ -59,11 +75,11 @@ function GolfCourseSelectPlayer(props:Props) {
             })),
             totalScore: 0,
             playBackNine: playBackNine,
-            courseRating: 0,
-            slopeRating: 0,
+            courseRating: selectedTeeCourseRating,
+            slopeRating: selectedTeeSlopeRating,
             courseHandicap: 0,
-            coursePar: 0,
-            selectedTee: golfCourse.tees.teeName ?? ""
+            coursePar: calculatedCoursePar ?? 0,
+            selectedTee: selectedTee?.teeName ?? ""
         };
         saveScorecard(scorecardDTO)
             .then((scorecard) => {

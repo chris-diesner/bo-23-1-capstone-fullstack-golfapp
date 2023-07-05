@@ -33,6 +33,7 @@ public class ScorecardService {
         newScorecard.setSlopeRating(scorecardDTO.getSlopeRating());
         newScorecard.setCourseHandicap(scorecardDTO.getCourseHandicap());
         newScorecard.setCoursePar(scorecardDTO.getCoursePar());
+        newScorecard.setSelectedTee(scorecardDTO.getSelectedTee());
         return scorecardRepo.save(newScorecard);
     }
 
@@ -54,6 +55,7 @@ public class ScorecardService {
         existingScorecard.setSlopeRating(scorecard.getSlopeRating());
         existingScorecard.setCourseHandicap(scorecard.getCourseHandicap());
         existingScorecard.setCoursePar(scorecard.getCoursePar());
+        existingScorecard.setSelectedTee(scorecard.getSelectedTee());
 
         return scorecardRepo.save(existingScorecard);
     }

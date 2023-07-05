@@ -24,4 +24,5 @@ public class ScorecardDTO {
         private int SlopeRating;
         private double CourseHandicap;
         private int coursePar;
+        private String selectedTee;
 }

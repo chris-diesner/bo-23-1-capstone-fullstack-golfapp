@@ -28,4 +28,5 @@ public class Scorecard {
     private int slopeRating;
     private double courseHandicap;
     private int coursePar;
+    private String selectedTee;
 }

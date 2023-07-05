@@ -44,15 +44,26 @@ function GolfCourseSelectPlayer(props:Props) {
                 holeNumber: index + 1,
                 totalStrokes: 0,
                 totalPutts: 0,
-                fairwayHit: false
+                fairwayHit: false,
+                stablefordGross: 0,
+                stablefordNet: 0,
+                personalPar: 0
             })) : Array.from({ length: 9 }, (_, index) => ({
                 holeNumber: index + 1,
                 totalStrokes: 0,
                 totalPutts: 0,
-                fairwayHit: false
+                fairwayHit: false,
+                stablefordGross: 0,
+                stablefordNet: 0,
+                personalPar: 0
             })),
             totalScore: 0,
-            playBackNine: playBackNine
+            playBackNine: playBackNine,
+            courseRating: 0,
+            slopeRating: 0,
+            courseHandicap: 0,
+            coursePar: 0,
+            selectedTee: golfCourse.tees.teeName ?? ""
         };
         saveScorecard(scorecardDTO)
             .then((scorecard) => {

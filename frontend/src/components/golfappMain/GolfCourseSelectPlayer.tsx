@@ -46,8 +46,10 @@ function GolfCourseSelectPlayer(props:Props) {
                 ? selectedTee.slopeWomen
                 : 0
         const calculatedCoursePar = playBackNine
-            ? golfCourse?.parsMen.slice(9).reduce((acc, curr) => acc + curr, 0)
-            : golfCourse?.parsMen.slice(0, 9).reduce((acc, curr) => acc + curr, 0);
+            ? golfCourse?.parsMen.slice(9).reduce((acc:number, curr:number) => acc + curr, 0)
+            : golfCourse?.parsMen.slice(0, 9).reduce((acc:number, curr:number) => acc + curr, 0);
+
+        const calculatedCourseHandicap = selectedTeeCourseRating * (selectedTeeSlopeRating / 113);
 
         const scorecardDTO = {
             userId: userDetails?.id ?? "",
@@ -77,7 +79,7 @@ function GolfCourseSelectPlayer(props:Props) {
             playBackNine: playBackNine,
             courseRating: selectedTeeCourseRating,
             slopeRating: selectedTeeSlopeRating,
-            courseHandicap: 0,
+            courseHandicap: calculatedCourseHandicap,
             coursePar: calculatedCoursePar ?? 0,
             selectedTee: selectedTee?.teeName ?? ""
         };

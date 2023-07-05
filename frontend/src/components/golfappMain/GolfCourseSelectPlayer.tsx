@@ -13,7 +13,7 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
-    const selectedTee = useSelector((state:any) => state.golfApp.selectedTee)
+    const selectedTee = useSelector((state:any) => state.golfApp.golfTee)
     const [playBackNine, setPlayBackNine] = useState<boolean>(true)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
@@ -46,10 +46,12 @@ function GolfCourseSelectPlayer(props:Props) {
                 ? selectedTee.slopeWomen
                 : 0
         const calculatedCoursePar = playBackNine
-            ? golfCourse?.parsMen.slice(9).reduce((acc:number, curr:number) => acc + curr, 0)
+            ? golfCourse?.parsMen.slice(0, 18).reduce((acc:number, curr:number) => acc + curr, 0)
             : golfCourse?.parsMen.slice(0, 9).reduce((acc:number, curr:number) => acc + curr, 0);
 
-        const calculatedCourseHandicap = selectedTeeCourseRating * (selectedTeeSlopeRating / 113);
+        const calculatedCourseHandicap = Math.round(
+            ((userDetails?.handicap ?? 0) * (selectedTeeSlopeRating / 113)) + (selectedTeeCourseRating - calculatedCoursePar)
+        );
 
         const scorecardDTO = {
             userId: userDetails?.id ?? "",

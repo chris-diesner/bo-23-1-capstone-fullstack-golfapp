@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {Container} from "react-bootstrap";
-import {Score} from "../../models/Scorecard";
-import {useSelector, useDispatch} from "react-redux";
-import {setScorecard} from "../../Actions/GolfAppActions";
+import React, { useEffect, useState } from 'react';
+import { Container } from "react-bootstrap";
+import { Score } from "../../models/Scorecard";
+import { useSelector, useDispatch } from "react-redux";
+import { setScorecard } from "../../Actions/GolfAppActions";
 
 type Props = {
     score: Score;
@@ -10,19 +10,19 @@ type Props = {
 };
 
 function HoleCard(props: Props) {
-    const {score, holeNumber} = props;
-    const [holeScore, setHoleScore] = useState<Score>({...score});
+    const { score, holeNumber } = props;
+    const [holeScore, setHoleScore] = useState<Score>({ ...score });
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse)
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setHoleScore({...score});
+        setHoleScore({ ...score });
     }, [score]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value, type, checked} = event.target;
+        const { name, value, type, checked } = event.target;
         const inputValue = type === 'checkbox' ? checked : value;
 
         setHoleScore((prevScore) => ({
@@ -30,6 +30,41 @@ function HoleCard(props: Props) {
             [name]: inputValue,
             holeNumber: holeNumber
         }));
+    };
+
+    const calculateStableford = (score: Score, par: number) => {
+        const strokes = score.totalStrokes;
+        const netScore = strokes - score.personalPar;
+
+        if (strokes === 0) {
+            return 0; // No score, no points
+        }
+
+        if (netScore >= par + 2) {
+            return 0; // No points, net double bogey or worse
+        }
+
+        if (netScore === par + 1) {
+            return 1; // 1 point, net bogey
+        }
+
+        if (netScore === par) {
+            return 2; // 2 points, net par
+        }
+
+        if (netScore === par - 1) {
+            return 3; // 3 points, net birdie
+        }
+
+        if (netScore === par - 2) {
+            return 4; // 4 points, net eagle
+        }
+
+        if (netScore <= par - 3) {
+            return 5; // 5 points, net albatross or better
+        }
+
+        return 0; // Default to 0 points
     };
 
     const handleSave = () => {
@@ -47,6 +82,9 @@ function HoleCard(props: Props) {
         console.log("Scorecard saved", updatedScorecard);
     };
 
+    const par = golfCourse.parsMen[props.holeNumber - 1];
+    const stablefordGross = calculateStableford(holeScore, par);
+    const stablefordNet = calculateStableford(holeScore, holeScore.personalPar + par);
 
     return (
         <div className="HoleContainer">
@@ -54,11 +92,12 @@ function HoleCard(props: Props) {
                 <div className="GolfSelectPlayerContent">
                     <div className="HoleHeader">
                         <h6>
-                            Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]}m, Par:{" "}
-                            {golfCourse.parsMen[props.holeNumber - 1]}
+                            Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]} {golfCourse.measure}, Par:{" "}
+                            {par}, HCP: {golfCourse.indexesMen[props.holeNumber - 1]},
+                            Personal Par: {holeScore?.personalPar + par}
                         </h6>
                     </div>
-                    <br/>
+                    <br />
                     <div className="HoleForm">
                         <div className="form-group">
                             <label htmlFor={`totalStrokes_${holeNumber}`}>Total Strokes:</label>
@@ -100,6 +139,12 @@ function HoleCard(props: Props) {
                             <label className="form-check-label" htmlFor={`fairwayHit_${holeNumber}`}>
                                 Fairway Hit
                             </label>
+                        </div>
+                        <div>
+                            Stableford Gross: {stablefordGross}
+                        </div>
+                        <div>
+                            Stableford Net: {stablefordNet}
                         </div>
                         <button className="btn btn-primary" onClick={handleSave}>
                             Save

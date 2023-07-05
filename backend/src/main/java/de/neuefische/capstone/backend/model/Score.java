@@ -15,4 +15,5 @@ public class Score {
     private int stablefordGross;
     private int stablefordNet;
     private int personalPar;
+    private int holeHCP;
 }

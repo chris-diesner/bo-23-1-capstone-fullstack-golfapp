@@ -60,23 +60,41 @@ function GolfCourseSelectPlayer(props:Props) {
             golfClubName: golfCourse?.clubName ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: playBackNine ? Array.from({ length: 18 }, (_, index) => ({
-                holeNumber: index + 1,
-                totalStrokes: 0,
-                totalPutts: 0,
-                fairwayHit: false,
-                stablefordGross: 0,
-                stablefordNet: 0,
-                personalPar: 0
-            })) : Array.from({ length: 9 }, (_, index) => ({
-                holeNumber: index + 1,
-                totalStrokes: 0,
-                totalPutts: 0,
-                fairwayHit: false,
-                stablefordGross: 0,
-                stablefordNet: 0,
-                personalPar: 0
-            })),
+            scores: playBackNine
+                ? Array.from({ length: 18 }, (_, index) => {
+                    const holeHCP = golfCourse.indexesMen[index];
+                    const personalPar = calculatedCourseHandicap % 18 === 0 && holeHCP === 1
+                        ? Math.floor(calculatedCourseHandicap / 18) + 1
+                        : Math.floor(calculatedCourseHandicap / 18);
+
+                    return {
+                        holeNumber: index + 1,
+                        totalStrokes: 0,
+                        totalPutts: 0,
+                        fairwayHit: false,
+                        stablefordGross: 0,
+                        stablefordNet: 0,
+                        personalPar: personalPar,
+                        holeHCP: holeHCP
+                    };
+                })
+                : Array.from({ length: 9 }, (_, index) => {
+                    const holeHCP = golfCourse.indexesMen[index];
+                    const personalPar = calculatedCourseHandicap % 9 === 0 && holeHCP === 1
+                        ? Math.floor(calculatedCourseHandicap / 9) + 1
+                        : Math.floor(calculatedCourseHandicap / 9);
+
+                    return {
+                        holeNumber: index + 1,
+                        totalStrokes: 0,
+                        totalPutts: 0,
+                        fairwayHit: false,
+                        stablefordGross: 0,
+                        stablefordNet: 0,
+                        personalPar: personalPar,
+                        holeHCP: holeHCP
+                    };
+                }),
             totalScore: 0,
             playBackNine: playBackNine,
             courseRating: selectedTeeCourseRating,

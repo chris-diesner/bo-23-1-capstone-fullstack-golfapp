@@ -24,6 +24,7 @@ export type Score = {
     stablefordGross: number;
     stablefordNet: number;
     personalPar: number;
+    holeHCP: number;
 }
 
 export type ScorecardDTO = {

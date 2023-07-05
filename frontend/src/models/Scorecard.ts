@@ -9,6 +9,10 @@ export type Scorecard = {
     scores: Score[];
     totalScore: number;
     playBackNine: boolean;
+    courseRating: number;
+    slopeRating: number;
+    courseHandicap: number;
+    coursePar: number;
 }
 
 export type Score = {
@@ -28,4 +32,8 @@ export type ScorecardDTO = {
     scores: Score[];
     totalScore: number;
     playBackNine: boolean;
+    courseRating: number;
+    slopeRating: number;
+    courseHandicap: number;
+    coursePar: number;
 }

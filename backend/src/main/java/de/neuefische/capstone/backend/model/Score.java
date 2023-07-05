@@ -14,4 +14,5 @@ public class Score {
     private boolean fairwayHit;
     private int stablefordGross;
     private int stablefordNet;
+    private int personalPar;
 }

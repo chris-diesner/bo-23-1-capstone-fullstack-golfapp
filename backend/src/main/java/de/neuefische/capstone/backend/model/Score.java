@@ -12,4 +12,8 @@ public class Score {
     private int totalStrokes;
     private int totalPutts;
     private boolean fairwayHit;
+    private int stablefordGross;
+    private int stablefordNet;
+    private int personalPar;
+    private int holeHCP;
 }

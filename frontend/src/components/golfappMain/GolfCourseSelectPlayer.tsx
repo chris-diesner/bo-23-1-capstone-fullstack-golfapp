@@ -13,6 +13,7 @@ type Props = {
 function GolfCourseSelectPlayer(props:Props) {
     const {userDetails, getUserDetails, user} = UserHook()
     const golfCourse = useSelector((state:any) => state.golfApp.selectedGolfCourse)
+    const selectedTee = useSelector((state:any) => state.golfApp.golfTee)
     const [playBackNine, setPlayBackNine] = useState<boolean>(true)
     const navigate = useNavigate()
     const [players, setPlayers] = useState<string[]>(["", "", ""])
@@ -33,6 +34,25 @@ function GolfCourseSelectPlayer(props:Props) {
     }, [user])
 
     function onClickStartRound() {
+        const selectedTeeCourseRating = selectedTee?.teeName === "White" || selectedTee?.teeName === "Yellow"
+            ? selectedTee.courseRatingMen
+            : selectedTee?.teeName === "Red"
+                ? selectedTee.courseRatingWomen
+                : 0
+
+        const selectedTeeSlopeRating = selectedTee?.teeName === "White" || selectedTee?.teeName === "Yellow"
+            ? selectedTee.slopeMen
+            : selectedTee?.teeName === "Red"
+                ? selectedTee.slopeWomen
+                : 0
+        const calculatedCoursePar = playBackNine
+            ? golfCourse?.parsMen.slice(0, 18).reduce((acc:number, curr:number) => acc + curr, 0)
+            : golfCourse?.parsMen.slice(0, 9).reduce((acc:number, curr:number) => acc + curr, 0);
+
+        const calculatedCourseHandicap = Math.round(
+            ((userDetails?.handicap ?? 0) * (selectedTeeSlopeRating / 113)) + (selectedTeeCourseRating - calculatedCoursePar)
+        );
+
         const scorecardDTO = {
             userId: userDetails?.id ?? "",
             golfCourseId: golfCourse?.courseID ?? "",
@@ -40,19 +60,52 @@ function GolfCourseSelectPlayer(props:Props) {
             golfClubName: golfCourse?.clubName ?? "",
             players: players.filter((player) => player !== ""),
             date: new Date().toISOString(),
-            scores: playBackNine ? Array.from({ length: 18 }, (_, index) => ({
-                holeNumber: index + 1,
-                totalStrokes: 0,
-                totalPutts: 0,
-                fairwayHit: false
-            })) : Array.from({ length: 9 }, (_, index) => ({
-                holeNumber: index + 1,
-                totalStrokes: 0,
-                totalPutts: 0,
-                fairwayHit: false
-            })),
+            scores: playBackNine
+                ? Array.from({ length: 18 }, (_, index) => {
+                    const holeHCP = golfCourse.indexesMen[index];
+                    let personalPar = Math.floor(calculatedCourseHandicap / 18);
+
+                    if (calculatedCourseHandicap % 18 >= holeHCP) {
+                        personalPar += 1;
+                    }
+
+                    return {
+                        holeNumber: index + 1,
+                        totalStrokes: 0,
+                        totalPutts: 0,
+                        fairwayHit: false,
+                        stablefordGross: 0,
+                        stablefordNet: 0,
+                        personalPar: personalPar,
+                        holeHCP: holeHCP
+                    };
+                })
+                : Array.from({ length: 9 }, (_, index) => {
+                    const holeHCP = golfCourse.indexesMen[index];
+                    let personalPar = Math.floor(calculatedCourseHandicap / 9);
+
+                    if (calculatedCourseHandicap % 9 >= holeHCP) {
+                        personalPar += 1;
+                    }
+
+                    return {
+                        holeNumber: index + 1,
+                        totalStrokes: 0,
+                        totalPutts: 0,
+                        fairwayHit: false,
+                        stablefordGross: 0,
+                        stablefordNet: 0,
+                        personalPar: personalPar,
+                        holeHCP: holeHCP
+                    };
+                }),
             totalScore: 0,
-            playBackNine: playBackNine
+            playBackNine: playBackNine,
+            courseRating: selectedTeeCourseRating,
+            slopeRating: selectedTeeSlopeRating,
+            courseHandicap: calculatedCourseHandicap,
+            coursePar: calculatedCoursePar ?? 0,
+            selectedTee: selectedTee?.teeName ?? ""
         };
         saveScorecard(scorecardDTO)
             .then((scorecard) => {

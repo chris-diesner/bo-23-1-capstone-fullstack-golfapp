@@ -31,7 +31,7 @@ class ScorecardServiceTest {
         scorecardDTO.setGolfClubName("testClubID");
         scorecardDTO.setPlayers(Collections.singletonList("testPlayerID"));
         scorecardDTO.setDate("2021-07-01");
-        scorecardDTO.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
+        scorecardDTO.setScores(Collections.singletonList(new Score(1, 5, 2, true, 1, 1,1,1)));
         scorecardDTO.setTotalScore(45);
         scorecardDTO.setPlayBackNine(false);
 
@@ -43,7 +43,7 @@ class ScorecardServiceTest {
         savedScorecard.setGolfClubName("testClubID");
         savedScorecard.setPlayers(Collections.singletonList("testPlayerID"));
         savedScorecard.setDate("2021-07-01");
-        savedScorecard.setScores(Collections.singletonList(new Score(1, 5, 2, true)));
+        savedScorecard.setScores(Collections.singletonList(new Score(1, 5, 2, true, 1, 1, 1,1)));
         savedScorecard.setTotalScore(45);
         savedScorecard.setPlayBackNine(false);
 

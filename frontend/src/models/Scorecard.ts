@@ -9,6 +9,11 @@ export type Scorecard = {
     scores: Score[];
     totalScore: number;
     playBackNine: boolean;
+    courseRating: number;
+    slopeRating: number;
+    courseHandicap: number;
+    coursePar: number;
+    selectedTee: string;
 }
 
 export type Score = {
@@ -16,6 +21,10 @@ export type Score = {
     totalStrokes: number;
     totalPutts: number;
     fairwayHit: boolean;
+    stablefordGross: number;
+    stablefordNet: number;
+    personalPar: number;
+    holeHCP: number;
 }
 
 export type ScorecardDTO = {
@@ -28,4 +37,9 @@ export type ScorecardDTO = {
     scores: Score[];
     totalScore: number;
     playBackNine: boolean;
+    courseRating: number;
+    slopeRating: number;
+    courseHandicap: number;
+    coursePar: number;
+    selectedTee: string;
 }

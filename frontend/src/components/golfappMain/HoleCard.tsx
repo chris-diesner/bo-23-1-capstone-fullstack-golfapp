@@ -70,7 +70,10 @@ function HoleCard(props: Props) {
 
     const handleSave = () => {
         const updatedScores = [...scorecard.scores];
-        updatedScores[props.holeNumber - 1] = holeScore;
+        updatedScores[props.holeNumber - 1] = {
+            ...holeScore,
+            stablefordNet: calculateStableford(holeScore, golfCourse.parsMen[props.holeNumber - 1])
+        };
 
         const totalStrokesRound = updatedScores.reduce((sum, score) => sum + parseInt(score.totalStrokes), 0);
         const updatedScorecard = {
@@ -82,6 +85,7 @@ function HoleCard(props: Props) {
         dispatch(setScorecard(updatedScorecard));
         console.log("Scorecard saved", updatedScorecard);
     };
+
 
     const par = golfCourse.parsMen[props.holeNumber - 1];
     const stablefordNet = calculateStableford(holeScore, par);

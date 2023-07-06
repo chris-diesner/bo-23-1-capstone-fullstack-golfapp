@@ -54,6 +54,13 @@ function TableBackNine(props:Props) {
                 <td>{golfCourse?.parsMen.slice(0, 18).reduce((sum: number, par: number) => sum + par, 0)}</td>
             </tr>
             <tr>
+                <td>Net Points</td>
+                {scorecard?.scores.slice(9,18).map((score: Score, index: number) => (
+                    <td key={score.holeNumber}>{score.stablefordNet}</td>
+                ))}
+                <td>{scorecard?.scores.slice(9, 18).reduce((sum: number, score: Score) => sum + score.stablefordNet, 0)}</td>
+            </tr>
+            <tr>
                 <td>Putts:</td>
                 {scorecard?.scores.slice(9, 18).map((score: Score, index: number) => (
                     <td key={score.holeNumber}>{score.totalPutts}</td>

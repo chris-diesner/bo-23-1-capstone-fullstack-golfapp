@@ -22,12 +22,10 @@ export default function ClubMap({golfClubs}: Props) {
     const [directions, setDirections] = useState<DirectionsResult>();
     const [visibleClubs, setVisibleClubs] = useState<GolfClub[]>([]);
     const mapRef = useRef<ClubMap>();
-    const center = useMemo<LatLngLiteral>(
-        () => ({lat: 52.48658892646834, lng: 13.541720214410722}),
-        []
-    );
+    const [center, setCenter] = useState<LatLngLiteral | null>(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const defaultCenter = { lat: 51.1657, lng: 10.4515 };
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
@@ -38,6 +36,22 @@ export default function ClubMap({golfClubs}: Props) {
     );
     const onLoad = useCallback((map: ClubMap) => {
         mapRef.current = map;
+    }, []);
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    setCenter({ lat: latitude, lng: longitude });
+                },
+                (error) => {
+                    console.error("Error getting geolocation:", error);
+                }
+            );
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
     }, []);
 
     useEffect(() => {
@@ -74,7 +88,7 @@ export default function ClubMap({golfClubs}: Props) {
         if(!clubs) return
         const directionsService = new google.maps.DirectionsService()
         directionsService.route({
-            origin: center,
+            origin: center ?? "",
             destination: clubs,
             travelMode: google.maps.TravelMode.DRIVING
         },
@@ -101,7 +115,7 @@ export default function ClubMap({golfClubs}: Props) {
                 {directions && <Distance leg={directions.routes[0].legs[0]}/>}
             </div>
             <div className="Map">
-                <GoogleMap zoom={13} center={center} mapContainerClassName="map-container" options={options}
+                <GoogleMap zoom={10} center={center !== null ? center : defaultCenter} mapContainerClassName="map-container" options={options}
                            onLoad={onLoad}>
                     <>
                         {directions && <DirectionsRenderer directions={directions} options={

@@ -30,14 +30,27 @@ export default function CourseMap() {
         const zoomChangeBoundsListener = google.maps.event.addListenerOnce(
             map,
             "bounds_changed",
-            (function(this: google.maps.Map) {
-                if (this.getZoom()) {
-                    this.setZoom(16);
+            () => {
+                if (mapRef.current) {
+                    const marker1 = new google.maps.Marker({
+                        position: { lat: 52.7859645, lng: 13.5724521 },
+                        map: mapRef.current,
+                        icon: Tee
+                    });
+
+                    const marker2 = new google.maps.Marker({
+                        position: {
+                            lat: 52.78876430772261,
+                            lng: 13.570415971724204
+                        },
+                        map: mapRef.current,
+                        icon: Tee
+                    });
                 }
-            }).bind(map)
+            }
         );
 
-        setTimeout(function() {
+        setTimeout(() => {
             google.maps.event.removeListener(zoomChangeBoundsListener);
         }, 2000);
     }, []);
@@ -49,23 +62,7 @@ export default function CourseMap() {
                     options={options}
                     onLoad={onLoad}
                     mapContainerStyle={{ height: "450px", width: "220px" }}
-                >
-                    <>
-                        <Marker
-                            key={"blubb1"}
-                            position={{ lat: 52.7859645, lng: 13.5724521 }}
-                            icon={Tee}
-                        />
-                        <Marker
-                            key={"blubb2"}
-                            position={{
-                                lat: 52.78876430772261,
-                                lng: 13.570415971724204
-                            }}
-                            icon={Tee}
-                        />
-                    </>
-                </GoogleMap>
+                />
             </div>
         </div>
     );

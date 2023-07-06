@@ -120,6 +120,7 @@ function UserScorecards(props:Props) {
                                             Course: {scorecard.golfCourseName}
                                         </div>
                                         <div className="UserScorecardSubHeaderRigt">
+                                            Date: {scorecard.date}
                                         </div>
                                     </div>
                                 </div>

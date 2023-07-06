@@ -58,7 +58,7 @@ function TableBackNine(props:Props) {
                 {scorecard?.scores.slice(9,18).map((score: Score, index: number) => (
                     <td key={score.holeNumber}>{score.stablefordNet}</td>
                 ))}
-                <td>{scorecard?.scores.slice(9, 18).reduce((sum: number, score: Score) => sum + score.stablefordNet, 0)}</td>
+                <td>{scorecard?.scores.slice(0, 18).reduce((sum: number, score: Score) => sum + score.stablefordNet, 0)}</td>
             </tr>
             <tr>
                 <td>Putts:</td>

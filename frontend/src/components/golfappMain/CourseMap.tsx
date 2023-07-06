@@ -1,14 +1,14 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
-import {GoogleMap, Marker} from "@react-google-maps/api";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
 
 type CourseMap = google.maps.Map;
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
+
 export default function CourseMap() {
     const mapRef = useRef<CourseMap>();
     const [center, setCenter] = useState<LatLngLiteral | null>(null);
-    const defaultCenter = undefined;
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
@@ -16,35 +16,57 @@ export default function CourseMap() {
             clickableIcons: false,
             mapTypeId: "satellite"
         }),
-        [])
+        []
+    );
+
     const onLoad = useCallback((map: CourseMap) => {
         mapRef.current = map;
-    }, [])
 
-    /*useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setCenter({ lat: latitude, lng: longitude });
-                },
-                (error) => {
-                    console.error("Error getting geolocation:", error);
+        const bounds = new window.google.maps.LatLngBounds();
+        bounds.extend({ lat: 52.7859645, lng: 13.5724521 });
+        bounds.extend({ lat: 52.78876430772261, lng: 13.570415971724204 });
+        map.fitBounds(bounds);
+
+        const zoomChangeBoundsListener = google.maps.event.addListenerOnce(
+            map,
+            "bounds_changed",
+            (function(this: google.maps.Map) {
+                if (this.getZoom()) {
+                    this.setZoom(16);
                 }
-            );
-        } else {
-            console.error("Geolocation is not supported by this browser.");
-        }
-    }, []);*/
+            }).bind(map)
+        );
 
-    return (<div className="CourseMapContainer">
-        <div className="CourseMap" >
-            <GoogleMap zoom={17} center={{lat: 52.78876430772261, lng: 13.570415971724204}} options={options} onLoad={onLoad} mapContainerStyle={{height: "450px", width: "220px"}}>
-                <>
-                    <Marker key={"blubb"} position={{lat: 52.7859645, lng: 13.5724521}} icon={Tee}/>
-                    <Marker key={"blubb"} position={{lat: 52.78876430772261, lng: 13.570415971724204}} icon={Tee}/>
-                </>
-            </GoogleMap>
+        setTimeout(function() {
+            google.maps.event.removeListener(zoomChangeBoundsListener);
+        }, 2000);
+    }, []);
+
+    return (
+        <div className="CourseMapContainer">
+            <div className="CourseMap">
+                <GoogleMap
+                    options={options}
+                    onLoad={onLoad}
+                    mapContainerStyle={{ height: "450px", width: "220px" }}
+                >
+                    <>
+                        <Marker
+                            key={"blubb1"}
+                            position={{ lat: 52.7859645, lng: 13.5724521 }}
+                            icon={Tee}
+                        />
+                        <Marker
+                            key={"blubb2"}
+                            position={{
+                                lat: 52.78876430772261,
+                                lng: 13.570415971724204
+                            }}
+                            icon={Tee}
+                        />
+                    </>
+                </GoogleMap>
+            </div>
         </div>
-    </div>);
+    );
 }

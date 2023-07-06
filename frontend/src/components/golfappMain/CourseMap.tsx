@@ -19,13 +19,37 @@ export default function CourseMap() {
         []
     );
 
-    const onLoad = useCallback((map: CourseMap) => {
-        mapRef.current = map;
+    const getDistanceBetweenTwoPoints = (mk1: LatLngLiteral, mk2: LatLngLiteral) => {
+        const lat1 = mk1.lat
+        const lng1 = mk1.lng
+        const lat2 = mk2.lat
+        const lng2 = mk2.lng
 
-        const bounds = new window.google.maps.LatLngBounds();
-        bounds.extend({ lat: 52.7859645, lng: 13.5724521 });
-        bounds.extend({ lat: 52.78876430772261, lng: 13.570415971724204 });
-        map.fitBounds(bounds);
+        const R = 6371e3
+
+        const dLat = (Math.PI / 180) * (lat2 - lat1)
+        const dLng = (Math.PI / 180) * (lng2 - lng1)
+
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos((Math.PI / 180) * lat1) *
+            Math.cos((Math.PI / 180) * lat2) *
+            Math.sin(dLng / 2) *
+            Math.sin(dLng / 2)
+
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+        const distance = R * c
+
+        return distance
+    }
+
+    const onLoad = useCallback((map: CourseMap) => {
+        mapRef.current = map
+
+        const bounds = new window.google.maps.LatLngBounds()
+        bounds.extend({ lat: 52.7859645, lng: 13.5724521 })
+        bounds.extend({ lat: 52.78876430772261, lng: 13.570415971724204 })
+        map.fitBounds(bounds)
 
         const zoomChangeBoundsListener = google.maps.event.addListenerOnce(
             map,
@@ -36,7 +60,7 @@ export default function CourseMap() {
                         position: { lat: 52.7859645, lng: 13.5724521 },
                         map: mapRef.current,
                         icon: Tee
-                    });
+                    })
 
                     const marker2 = new google.maps.Marker({
                         position: {
@@ -45,15 +69,15 @@ export default function CourseMap() {
                         },
                         map: mapRef.current,
                         icon: Tee
-                    });
+                    })
                 }
             }
-        );
+        )
 
         setTimeout(() => {
-            google.maps.event.removeListener(zoomChangeBoundsListener);
-        }, 2000);
-    }, []);
+            google.maps.event.removeListener(zoomChangeBoundsListener)
+        }, 2000)
+    }, [])
 
     return (
         <div className="CourseMapContainer">
@@ -64,6 +88,11 @@ export default function CourseMap() {
                     mapContainerStyle={{ height: "450px", width: "220px" }}
                 />
             </div>
+            <div className="test-distance">
+                <br/>
+                <p>Distance: {Math.round(getDistanceBetweenTwoPoints({ lat: 52.7859645, lng: 13.5724521 }, { lat: 52.78876430772261, lng: 13.570415971724204 }))} m</p>
+            </div>
         </div>
+
     );
 }

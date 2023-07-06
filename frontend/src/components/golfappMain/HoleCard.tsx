@@ -33,39 +33,40 @@ function HoleCard(props: Props) {
     };
 
     const calculateStableford = (score: Score, par: number) => {
-        const strokes = score.totalStrokes;
+        const strokes = (score.totalStrokes);
         const netScore = strokes - score.personalPar;
 
         if (strokes === 0) {
-            return 0; // No score, no points
+            return 0;
         }
 
         if (netScore >= par + 2) {
-            return 0; // No points, net double bogey or worse
+            return 0;
         }
 
         if (netScore === par + 1) {
-            return 1; // 1 point, net bogey
+            return 1;
         }
 
         if (netScore === par) {
-            return 2; // 2 points, net par
+            return 2;
         }
 
         if (netScore === par - 1) {
-            return 3; // 3 points, net birdie
+            return 3;
         }
 
         if (netScore === par - 2) {
-            return 4; // 4 points, net eagle
+            return 4;
         }
 
         if (netScore <= par - 3) {
-            return 5; // 5 points, net albatross or better
+            return 5;
         }
 
-        return 0; // Default to 0 points
+        return 0;
     };
+
 
     const handleSave = () => {
         const updatedScores = [...scorecard.scores];
@@ -83,8 +84,7 @@ function HoleCard(props: Props) {
     };
 
     const par = golfCourse.parsMen[props.holeNumber - 1];
-    const stablefordGross = calculateStableford(holeScore, par);
-    const stablefordNet = calculateStableford(holeScore, holeScore.personalPar + par);
+    const stablefordNet = calculateStableford(holeScore, par);
 
     return (
         <div className="HoleContainer">
@@ -139,9 +139,6 @@ function HoleCard(props: Props) {
                             <label className="form-check-label" htmlFor={`fairwayHit_${holeNumber}`}>
                                 Fairway Hit
                             </label>
-                        </div>
-                        <div>
-                            Stableford Gross: {stablefordGross}
                         </div>
                         <div>
                             Stableford Net: {stablefordNet}

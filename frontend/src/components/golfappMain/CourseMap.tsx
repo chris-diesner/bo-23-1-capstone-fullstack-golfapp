@@ -1,16 +1,22 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState, useEffect } from "react";
 import { GoogleMap } from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
+import { useSelector } from "react-redux";
+import { Coordinates } from "../../models/CourseCoordinates";
 
 type CourseMap = google.maps.Map;
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
+type Props = {
+    holeNumber: number;
+};
 
-export default function CourseMap() {
+export default function CourseMap(props: Props) {
     const mapRef = useRef<CourseMap>();
     const polylineRef = useRef<google.maps.Polyline>();
     const [polylinePath, setPolylinePath] = useState<LatLngLiteral[]>([]);
     const [currentPosition, setCurrentPosition] = useState<LatLngLiteral | null>(null);
+    const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
 
     const options = useMemo<MapOptions>(
         () => ({
@@ -48,6 +54,52 @@ export default function CourseMap() {
         return R * c;
     };
 
+    const getCoordinatesForHole = (holeNumber: number): Coordinates | null => {
+        const filteredCoordinates = courseCoordinates?.coordinates.filter(
+            (coordinate: Coordinates) => coordinate.poi === "1" && coordinate.location === "2"
+        );
+
+        if (filteredCoordinates && filteredCoordinates.length > 0) {
+            const coordinatesForHole = filteredCoordinates.find(
+                (coordinate: Coordinates) => parseInt(coordinate.hole) === holeNumber
+            );
+            return coordinatesForHole || null;
+        }
+
+        return null;
+    };
+
+    useEffect(() => {
+        const coordinatesForHole = getCoordinatesForHole(props.holeNumber);
+
+        if (mapRef.current && coordinatesForHole) {
+            const marker1 = new google.maps.Marker({
+                position: { lat: coordinatesForHole.latitude, lng: coordinatesForHole.longitude },
+                map: mapRef.current,
+                icon: Tee
+            });
+
+            const path: LatLngLiteral[] = [
+                marker1.getPosition()!.toJSON(),
+                currentPosition || { lat: 0, lng: 0 }
+            ];
+
+            setPolylinePath(path);
+
+            polylineRef.current = new google.maps.Polyline({
+                path,
+                geodesic: true,
+                strokeColor: "#669DF6",
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            if (mapRef.current) {
+                polylineRef.current.setMap(mapRef.current);
+            }
+        }
+    }, [props.holeNumber]);
+
     const onLoad = useCallback((map: CourseMap) => {
         mapRef.current = map;
 
@@ -61,12 +113,6 @@ export default function CourseMap() {
             "bounds_changed",
             () => {
                 if (mapRef.current) {
-                    const marker1 = new google.maps.Marker({
-                        position: { lat: 52.7859645, lng: 13.5724521 },
-                        map: mapRef.current,
-                        icon: Tee
-                    });
-
                     navigator.geolocation.getCurrentPosition(
                         position => {
                             const { latitude, longitude } = position.coords;
@@ -79,7 +125,7 @@ export default function CourseMap() {
                             });
 
                             const path: LatLngLiteral[] = [
-                                marker1.getPosition()!.toJSON(),
+                                currentPosition,
                                 currentPosition
                             ];
 

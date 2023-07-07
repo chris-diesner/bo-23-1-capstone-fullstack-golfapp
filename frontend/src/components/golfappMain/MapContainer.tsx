@@ -6,9 +6,10 @@ import CourseMap from "./CourseMap";
 type Props = {
     golfClubs: GolfClub[];
     showClubMap: boolean;
+    holeNumber: number;
 };
 
-export default function MapContainer({ golfClubs, showClubMap }: Props) {
+export default function MapContainer({ golfClubs, showClubMap, holeNumber }: Props) {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY ?? "",
         libraries: ["places"],
@@ -16,5 +17,5 @@ export default function MapContainer({ golfClubs, showClubMap }: Props) {
 
     if (!isLoaded) return <div>Loading...</div>;
 
-    return showClubMap ? <ClubMap golfClubs={golfClubs} /> : <CourseMap />;
+    return showClubMap ? <ClubMap golfClubs={golfClubs} /> : <CourseMap holeNumber={holeNumber}/>;
 }

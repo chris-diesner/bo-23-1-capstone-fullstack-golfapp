@@ -95,7 +95,7 @@ function HoleCard(props: Props) {
         <div className="HoleContainer">
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
-                    <MapContainer showClubMap={false} golfClubs={[]}/>
+                    <MapContainer showClubMap={false} golfClubs={[]} holeNumber={holeNumber}/>
                     <div className="HoleHeader">
                         <h6>
                             Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]} {golfCourse.measure}, Par:{" "}

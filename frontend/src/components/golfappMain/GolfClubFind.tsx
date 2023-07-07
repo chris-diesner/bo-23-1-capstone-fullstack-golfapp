@@ -11,6 +11,7 @@ type Props = {
 }
 
 function GolfClubFind(props: Props) {
+    const holeNumber = 0
     const navigate = useNavigate();
     const [golfClubs, setGolfClubs] = useState<GolfClub[]>([])
 
@@ -81,7 +82,7 @@ function GolfClubFind(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <MapContainer golfClubs={golfClubs} showClubMap={true}/>
+                    <MapContainer golfClubs={golfClubs} showClubMap={true} holeNumber={holeNumber}/>
                 </div>
             </Container>
         </div>

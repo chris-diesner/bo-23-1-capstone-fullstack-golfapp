@@ -1,5 +1,6 @@
 import { GolfCourse, GolfTee } from "../models/GolfCourse";
 import { Scorecard } from "../models/Scorecard";
+import {CourseCoordinates} from "../models/CourseCoordinates";
 
 export const setCourses = (courses: GolfCourse[]) => {
     return {
@@ -28,3 +29,10 @@ export const setGolfTee = (golfTee: GolfTee) => {
         payload: golfTee,
     };
 };
+
+export const setCoordinates = (courseCoordinates: CourseCoordinates) => {
+    return {
+        type: "SET_COURSE_COORDINATES",
+        payload: courseCoordinates
+    }
+}

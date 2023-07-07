@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState, useEffect } from "react";
 import { GoogleMap, Polyline } from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
 
@@ -10,6 +10,7 @@ export default function CourseMap() {
     const mapRef = useRef<CourseMap>();
     const polylineRef = useRef<google.maps.Polyline>();
     const [polylinePath, setPolylinePath] = useState<LatLngLiteral[]>([]);
+    const [currentPosition, setCurrentPosition] = useState<LatLngLiteral | null>(null);
 
     const options = useMemo<MapOptions>(
         () => ({
@@ -21,7 +22,10 @@ export default function CourseMap() {
         []
     );
 
-    const getDistanceBetweenTwoPoints = (mk1: LatLngLiteral, mk2: LatLngLiteral) => {
+    const getDistanceBetweenTwoPoints = (
+        mk1: LatLngLiteral,
+        mk2: LatLngLiteral
+    ) => {
         const lat1 = mk1.lat;
         const lng1 = mk1.lng;
         const lat2 = mk2.lat;
@@ -63,31 +67,42 @@ export default function CourseMap() {
                         icon: Tee
                     });
 
-                    const marker2 = new google.maps.Marker({
-                        position: {
-                            lat: 52.78876430772261,
-                            lng: 13.570415971724204
+                    navigator.geolocation.getCurrentPosition(
+                        position => {
+                            const { latitude, longitude } = position.coords;
+                            const currentPosition = { lat: latitude, lng: longitude };
+
+                            const marker2 = new google.maps.Marker({
+                                position: currentPosition,
+                                map: mapRef.current,
+                                icon: Tee
+                            });
+
+                            const path: LatLngLiteral[] = [
+                                marker1.getPosition()!.toJSON(),
+                                currentPosition
+                            ];
+
+                            setPolylinePath(path);
+
+                            polylineRef.current = new google.maps.Polyline({
+                                path,
+                                geodesic: true,
+                                strokeColor: "#669DF6",
+                                strokeOpacity: 1.0,
+                                strokeWeight: 2
+                            });
+
+                            if (mapRef.current) {
+                                polylineRef.current.setMap(mapRef.current);
+                            }
+
+                            setCurrentPosition(currentPosition);
                         },
-                        map: mapRef.current,
-                        icon: Tee
-                    });
-
-                    const path: LatLngLiteral[] = [
-                        marker1.getPosition()!.toJSON(),
-                        marker2.getPosition()!.toJSON()
-                    ];
-
-                    setPolylinePath(path);
-
-                    polylineRef.current = new google.maps.Polyline({
-                        path,
-                        geodesic: true,
-                        strokeColor: "#669DF6",
-                        strokeOpacity: 1.0,
-                        strokeWeight: 2
-                    });
-
-                    polylineRef.current.setMap(mapRef.current);
+                        error => {
+                            console.error("Error getting current position:", error);
+                        }
+                    );
                 }
             }
         );
@@ -110,12 +125,14 @@ export default function CourseMap() {
                 <br />
                 <p>
                     Distance:{" "}
-                    {Math.round(
-                        getDistanceBetweenTwoPoints(
-                            { lat: 52.7859645, lng: 13.5724521 },
-                            { lat: 52.78876430772261, lng: 13.570415971724204 }
+                    {currentPosition
+                        ? Math.round(
+                            getDistanceBetweenTwoPoints(
+                                { lat: 52.7859645, lng: 13.5724521 },
+                                currentPosition
+                            )
                         )
-                    )}{" "}
+                        : ""}{" "}
                     m
                 </p>
             </div>

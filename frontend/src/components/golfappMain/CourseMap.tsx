@@ -238,6 +238,16 @@ export default function CourseMap(props: Props) {
         }, 2000);
     }, []);
 
+    const holeCoordinates = getCoordinatesForHole(props.holeNumber);
+
+    const distance =
+        currentPosition && holeCoordinates
+            ? Math.round(getDistanceBetweenTwoPoints(
+                { lat: holeCoordinates.latitude, lng: holeCoordinates.longitude },
+                currentPosition
+            ))
+            : null;
+
     return (
         <div className="CourseMapContainer">
             <div className="CourseMap">
@@ -250,16 +260,7 @@ export default function CourseMap(props: Props) {
             <div className="test-distance">
                 <br />
                 <p>
-                    Distance:{" "}
-                    {currentPosition
-                        ? Math.round(
-                            getDistanceBetweenTwoPoints(
-                                { lat: 52.7859645, lng: 13.5724521 },
-                                currentPosition
-                            )
-                        )
-                        : ""}{" "}
-                    m
+                    Distance: {distance ? `${distance} m` : ""}
                 </p>
             </div>
         </div>

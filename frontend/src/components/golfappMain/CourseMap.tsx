@@ -13,7 +13,8 @@ type Props = {
 
 export default function CourseMap(props: Props) {
     const mapRef = useRef<CourseMap>();
-    const polylineRef = useRef<google.maps.Polyline>();
+    const polylineRef = useRef<google.maps.Polyline | null>(null); // Ref for polyline
+    const marker1Ref = useRef<google.maps.Marker | null>(null);
     const [polylinePath, setPolylinePath] = useState<LatLngLiteral[]>([]);
     const [currentPosition, setCurrentPosition] = useState<LatLngLiteral | null>(null);
     const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
@@ -69,15 +70,29 @@ export default function CourseMap(props: Props) {
         return null;
     };
 
-    useEffect(() => {
+    const updateMap = useCallback(() => {
         const coordinatesForHole = getCoordinatesForHole(props.holeNumber);
 
         if (mapRef.current && coordinatesForHole) {
+            // Clear previous polyline if it exists
+            if (polylineRef.current) {
+                polylineRef.current.setMap(null);
+                polylineRef.current = null;
+            }
+
+            // Clear previous marker1 if it exists
+            if (marker1Ref.current) {
+                marker1Ref.current.setMap(null);
+                marker1Ref.current = null;
+            }
+
             const marker1 = new google.maps.Marker({
                 position: { lat: coordinatesForHole.latitude, lng: coordinatesForHole.longitude },
                 map: mapRef.current,
                 icon: Tee
             });
+
+            marker1Ref.current = marker1; // Save reference to marker1
 
             const path: LatLngLiteral[] = [
                 marker1.getPosition()!.toJSON(),
@@ -86,7 +101,7 @@ export default function CourseMap(props: Props) {
 
             setPolylinePath(path);
 
-            polylineRef.current = new google.maps.Polyline({
+            const polyline = new google.maps.Polyline({
                 path,
                 geodesic: true,
                 strokeColor: "#669DF6",
@@ -94,11 +109,17 @@ export default function CourseMap(props: Props) {
                 strokeWeight: 2
             });
 
+            polylineRef.current = polyline; // Save reference to polyline
+
             if (mapRef.current) {
-                polylineRef.current.setMap(mapRef.current);
+                polyline.setMap(mapRef.current);
             }
         }
-    }, [props.holeNumber]);
+    }, [props.holeNumber, currentPosition]);
+
+    useEffect(() => {
+        updateMap();
+    }, [updateMap])
 
     const onLoad = useCallback((map: CourseMap) => {
         mapRef.current = map;

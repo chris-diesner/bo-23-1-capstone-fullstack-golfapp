@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface GolfCourseRepo extends MongoRepository<GolfCourse, String> {
-    public Optional<GolfCourse> findGolfCourseByCourseID(String courseID);
+    Optional<GolfCourse> findGolfCourseByCourseID(String courseID);
 }

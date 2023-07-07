@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import {useCallback, useMemo, useRef} from "react";
+import {GoogleMap} from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
 
 type CourseMap = google.maps.Map;
@@ -8,7 +8,6 @@ type MapOptions = google.maps.MapOptions;
 
 export default function CourseMap() {
     const mapRef = useRef<CourseMap>();
-    const [center, setCenter] = useState<LatLngLiteral | null>(null);
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
@@ -38,9 +37,8 @@ export default function CourseMap() {
             Math.sin(dLng / 2)
 
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-        const distance = R * c
 
-        return distance
+        return R * c
     }
 
     const onLoad = useCallback((map: CourseMap) => {

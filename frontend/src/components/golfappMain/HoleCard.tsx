@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
 import { useSelector, useDispatch } from "react-redux";
 import { setScorecard } from "../../Actions/GolfAppActions";
-import CourseMapContainer from "./CourseMapContainer";
+import MapContainer from "./MapContainer";
 
 type Props = {
     score: Score;
@@ -95,7 +95,7 @@ function HoleCard(props: Props) {
         <div className="HoleContainer">
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
-                    <CourseMapContainer />
+                    <MapContainer showClubMap={false} golfClubs={[]}/>
                     <div className="HoleHeader">
                         <h6>
                             Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]} {golfCourse.measure}, Par:{" "}

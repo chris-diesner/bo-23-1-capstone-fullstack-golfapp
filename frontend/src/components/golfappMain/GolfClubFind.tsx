@@ -23,8 +23,7 @@ function GolfClubFind(props: Props) {
             const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}`)
             if (response.data.results && response.data.results.length > 0) {
                 const {lat, lng} = response.data.results[0].geometry.location
-                const updatedGolfClub = {...golfClub, latitude: lat, longitude: lng}
-                return updatedGolfClub
+                return {...golfClub, latitude: lat, longitude: lng}
             } else {
                 console.log("No results found")
             }
@@ -82,7 +81,7 @@ function GolfClubFind(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <MapContainer golfClubs={golfClubs}/>
+                    <MapContainer golfClubs={golfClubs} showClubMap={true}/>
                 </div>
             </Container>
         </div>

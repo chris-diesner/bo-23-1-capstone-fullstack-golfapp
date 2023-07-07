@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useRef, useState, useEffect } from "react";
-import { GoogleMap, Polyline } from "@react-google-maps/api";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { GoogleMap } from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
 
 type CourseMap = google.maps.Map;

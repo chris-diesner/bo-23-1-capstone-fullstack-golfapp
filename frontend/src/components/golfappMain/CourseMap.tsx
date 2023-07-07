@@ -13,8 +13,9 @@ type Props = {
 
 export default function CourseMap(props: Props) {
     const mapRef = useRef<CourseMap>();
-    const polylineRef = useRef<google.maps.Polyline | null>(null); // Ref for polyline
+    const polylineRef = useRef<google.maps.Polyline | null>(null);
     const marker1Ref = useRef<google.maps.Marker | null>(null);
+    const marker2Ref = useRef<google.maps.Marker | null>(null)
     const [polylinePath, setPolylinePath] = useState<LatLngLiteral[]>([]);
     const [currentPosition, setCurrentPosition] = useState<LatLngLiteral | null>(null);
     const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
@@ -74,13 +75,10 @@ export default function CourseMap(props: Props) {
         const coordinatesForHole = getCoordinatesForHole(props.holeNumber);
 
         if (mapRef.current && coordinatesForHole) {
-            // Clear previous polyline if it exists
             if (polylineRef.current) {
                 polylineRef.current.setMap(null);
                 polylineRef.current = null;
             }
-
-            // Clear previous marker1 if it exists
             if (marker1Ref.current) {
                 marker1Ref.current.setMap(null);
                 marker1Ref.current = null;
@@ -92,7 +90,7 @@ export default function CourseMap(props: Props) {
                 icon: Tee
             });
 
-            marker1Ref.current = marker1; // Save reference to marker1
+            marker1Ref.current = marker1;
 
             const path: LatLngLiteral[] = [
                 marker1.getPosition()!.toJSON(),
@@ -120,6 +118,28 @@ export default function CourseMap(props: Props) {
     useEffect(() => {
         updateMap();
     }, [updateMap])
+
+    useEffect(() => {
+        const watchId = navigator.geolocation.watchPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                const currentPosition = { lat: latitude, lng: longitude };
+
+                setCurrentPosition(currentPosition);
+
+                if (marker2Ref.current) {
+                    marker2Ref.current.setPosition(currentPosition);
+                }
+            },
+            (error) => {
+                console.error("Error getting current position:", error);
+            }
+        );
+
+        return () => {
+            navigator.geolocation.clearWatch(watchId);
+        };
+    }, []);
 
     const onLoad = useCallback((map: CourseMap) => {
         mapRef.current = map;

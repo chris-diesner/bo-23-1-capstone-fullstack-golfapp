@@ -2,6 +2,10 @@ import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import '../styles/Login.css'
 import {Button, Container, Form, Toast} from "react-bootstrap";
+import {useDispatch} from "react-redux";
+import {setUserDetails} from "../Actions/GolfAppActions";
+import axios from "axios";
+import {GolfUser} from "../models/GolfUser";
 
 type Props = {
     login: (username: string, password: string) => Promise<void>
@@ -13,20 +17,32 @@ function Login(props: Props) {
     const [showSuccessToast, setShowSuccessToast] = useState(false)
     const [showErrorToast, setShowErrorToast] = useState(false)
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function loginOnSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+        e.preventDefault();
         props.login(username, password)
             .then(() => {
-                setShowSuccessToast(true)
+                setShowSuccessToast(true);
                 setTimeout(() => {
-                navigate("/golfapp")
-                }, 5000)
+                    navigate("/golfapp");
+                }, 5000);
             })
-            .catch((err) => {
-                setShowErrorToast(true)
-                console.log(err)
-            })
+            .then(() => axios
+                .get("/api/user/details/" + username)
+                .then((response) => {
+                    const golfUser: GolfUser = {
+                        id: response.data.id,
+                        username: response.data.username,
+                        firstName: response.data.firstName,
+                        lastName: response.data.lastName,
+                        handicap: response.data.handicap,
+                        profilePicture: response.data.profilePicture,
+                    };
+                    dispatch(setUserDetails(golfUser));
+                })
+                .catch((error) => console.log(error))
+            );
     }
 
     function onChangeHandlerUsername(e: ChangeEvent<HTMLInputElement>) {

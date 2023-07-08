@@ -45,6 +45,7 @@ function UserDetails(props: Props) {
             .then(() => {
                 dispatch(setUserDetails(editedUserDetails))
                 setShowSuccessToast(true);
+                navigate("/golfapp")
             })
             .catch((error) => {
                 setShowErrorToast(true)

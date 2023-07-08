@@ -1,7 +1,6 @@
 import { GolfCourse, GolfTee } from "../models/GolfCourse";
 import { Scorecard } from "../models/Scorecard";
 import {CourseCoordinates} from "../models/CourseCoordinates";
-import userDetails from "../components/golfappMain/UserDetails";
 import {GolfUser} from "../models/GolfUser";
 
 export const setCourses = (courses: GolfCourse[]) => {

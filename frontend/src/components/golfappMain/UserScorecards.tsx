@@ -1,61 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
-import {Container} from "react-bootstrap";
-import {Scorecard} from "../../models/Scorecard";
-import useScorecardHook from "../hooks/ScorecardHook";
-import UserHook from "../hooks/UserHook";
-import {useDispatch, useSelector} from "react-redux";
-import {setGolfCourse, setScorecard} from "../../Actions/GolfAppActions";
-import axios from "axios";
-import '../../styles/UserScorecards.css'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Scorecard } from '../../models/Scorecard';
+import useScorecardHook from '../hooks/ScorecardHook';
+import { useDispatch, useSelector } from 'react-redux';
+import { setGolfCourse, setScorecard } from '../../Actions/GolfAppActions';
+import axios from 'axios';
+import '../../styles/UserScorecards.css';
 
 type Props = {
-    logout: () => Promise<void>
-}
-function UserScorecards(props:Props) {
-    const {userDetails, getUserDetails, user} = UserHook();
+    logout: () => Promise<void>;
+};
+
+function UserScorecards(props: Props) {
+    const userDetails = useSelector((state: any) => state.golfApp.userDetails);
     const navigate = useNavigate();
-    const[scorecards, setScorecards] = useState<Scorecard[]>([])
+    const [scorecards, setScorecards] = useState<Scorecard[]>([]);
     const { loading, error, getScorecardsByUserId } = useScorecardHook();
     const dispatch = useDispatch();
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
 
     const fetchGolfCourse = async () => {
         axios
-            .get("/api/golfapp/course/" + scorecard.golfCourseId)
+            .get('/api/golfapp/course/' + scorecard.golfCourseId)
             .then((response) => {
                 dispatch(setGolfCourse(response.data));
-                console.log("Golf course fetched successfully." + response.data);
+                console.log('Golf course fetched successfully.', response.data);
             })
-            .catch((error) => console.error("Error fetching golf course", error));
+            .catch((error) => console.error('Error fetching golf course', error));
     };
 
-
     useEffect(() => {
-        getUserDetails()
-            .catch((error) => {
-                console.log(error);
-            })
-            .then(() => {
-                const fetchScorecards = async () => {
-                    try {
-                        const scorecardsData = await getScorecardsByUserId(userDetails?.id);
-                        setScorecards(scorecardsData);
-                        console.log('Scorecards fetched successfully.');
+        const fetchScorecards = async () => {
+            try {
+                const scorecardsData = await getScorecardsByUserId(userDetails?.id);
+                setScorecards(scorecardsData);
+                console.log('Scorecards fetched successfully.');
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
-                    } catch (error) {
-                        console.error('Error:', error);
-                    }
-                };
+        if (userDetails?.id) {
+            fetchScorecards();
+        }
+    }, [userDetails?.id]);
 
-
-                if (userDetails?.id) {
-                    fetchScorecards();
-                }
-            })
-    }, [userDetails?.id, user]);
-
-    async function handleOnClickScorecard(scorecard: Scorecard) {
+    const handleOnClickScorecard = async (scorecard: Scorecard) => {
         try {
             dispatch(setScorecard(scorecard));
             await fetchGolfCourse();
@@ -63,19 +54,17 @@ function UserScorecards(props:Props) {
         } catch (error) {
             console.error('Fehler beim Ausführen von handleOnClickScorecard:', error);
         }
-    }
+    };
 
-
-
-    function onClickLogout() {
+    const onClickLogout = () => {
         props.logout()
             .then(() => {
-                navigate("/")
+                navigate('/');
             })
             .catch((err) => {
-                console.log(err)
-            })
-    }
+                console.log(err);
+            });
+    };
     return (
         <div className="UserScorecardContainer">
             <Container className="d-flex flex-column justify-content-center">
@@ -90,10 +79,8 @@ function UserScorecards(props:Props) {
                         <h6>Your Scorecards</h6>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
-                            <path fill-rule="evenodd"
-                                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                            <path fill-rule="evenodd"
-                                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                            <path d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                            <path d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
                     </div>
                     <br />

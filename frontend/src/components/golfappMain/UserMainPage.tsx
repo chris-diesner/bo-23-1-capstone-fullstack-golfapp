@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import '../../styles/UserMainPage.css'
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
-import UserHook from "../hooks/UserHook";
 import {useSelector} from "react-redux";
 
 type Props = {

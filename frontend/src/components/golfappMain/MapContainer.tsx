@@ -1,15 +1,21 @@
-import {useLoadScript} from "@react-google-maps/api";
-import {GolfClub} from "../../models/GolfClub";
+import { useLoadScript } from "@react-google-maps/api";
+import { GolfClub } from "../../models/GolfClub";
 import ClubMap from "./ClubMap";
+import CourseMap from "./CourseMap";
 
 type Props = {
-    golfClubs: GolfClub[]
-}
-export default function MapContainer({golfClubs}: Props) {
-    const {isLoaded} = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY ?? '',
-        libraries: ['places']
-    })
-    if (!isLoaded) return <div>Loading...</div>
-    return (<ClubMap golfClubs={golfClubs}/>)
+    golfClubs: GolfClub[];
+    showClubMap: boolean;
+    holeNumber: number;
+};
+
+export default function MapContainer({ golfClubs, showClubMap, holeNumber }: Props) {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY ?? "",
+        libraries: ["places"],
+    });
+
+    if (!isLoaded) return <div>Loading...</div>;
+
+    return showClubMap ? <ClubMap golfClubs={golfClubs} /> : <CourseMap holeNumber={holeNumber}/>;
 }

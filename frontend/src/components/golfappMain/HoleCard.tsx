@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
 import { useSelector, useDispatch } from "react-redux";
 import { setScorecard } from "../../Actions/GolfAppActions";
+import MapContainer from "./MapContainer";
 
 type Props = {
     score: Score;
@@ -15,6 +16,7 @@ function HoleCard(props: Props) {
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse)
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
+    const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -94,6 +96,9 @@ function HoleCard(props: Props) {
         <div className="HoleContainer">
             <Container className="d-flex flex-column justify-content-center">
                 <div className="GolfSelectPlayerContent">
+                    {courseCoordinates && (
+                        <MapContainer showClubMap={false} golfClubs={[]} holeNumber={holeNumber} />
+                    )}
                     <div className="HoleHeader">
                         <h6>
                             Hole {holeNumber}, {selectedTee?.[`length${holeNumber}`]} {golfCourse.measure}, Par:{" "}

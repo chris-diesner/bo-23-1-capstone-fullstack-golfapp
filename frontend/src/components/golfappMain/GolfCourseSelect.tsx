@@ -5,7 +5,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import '../../styles/GolfCourseSelect.css'
-import {setGolfCourse} from "../../Actions/GolfAppActions";
+import {setCoordinates, setGolfCourse} from "../../Actions/GolfAppActions";
 
 type Props = {
     logout: () => Promise<void>
@@ -42,9 +42,21 @@ function GolfCourseSelect(props: Props) {
     }
 
     function onClickNavTee(golfCourse: GolfCourse) {
-        dispatch(setGolfCourse(golfCourse))
+        dispatch(setGolfCourse(golfCourse));
+        try {
+            axios.get("/api/golfapp/coordinates/" + golfCourse.courseID)
+                .then((response) => {
+                    const courseCoordinates = response.data;
+                    dispatch(setCoordinates(courseCoordinates));
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } catch (error) {
+            console.log(error);
+        }
         navigate("/golfapp/clubs/courses/tees");
-        console.log(golfCourse)
+        console.log(golfCourse);
     }
 
     return (
@@ -61,10 +73,8 @@ function GolfCourseSelect(props: Props) {
                         <h6>{golfCourses.find((course) => course.clubName)?.clubName}</h6>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
-                            <path fill-rule="evenodd"
-                                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                            <path fill-rule="evenodd"
-                                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                            <path d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                            <path d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
                     </div>
                     <br/>

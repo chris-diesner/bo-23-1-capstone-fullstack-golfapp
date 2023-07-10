@@ -1,10 +1,11 @@
 import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {Button, Container, Form, Toast} from "react-bootstrap";
 import '../../styles/UserDetails.css'
-import UserHook from "../hooks/UserHook";
 import {GolfUser} from "../../models/GolfUser";
 import validator from "validator";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setUserDetails} from "../../Actions/GolfAppActions";
 
 type Props = {
     editUserDetails: (id: string, golfUser: GolfUser) => Promise<void>;
@@ -12,7 +13,7 @@ type Props = {
 }
 
 function UserDetails(props: Props) {
-    const {userDetails, getUserDetails, user} = UserHook();
+    const userDetails = useSelector((state: any) => state.golfApp.userDetails)
     const [editedUserDetails, setEditedUserDetails] = useState<GolfUser>({
         id: userDetails?.id ?? '',
         username: '',
@@ -29,13 +30,7 @@ function UserDetails(props: Props) {
     const [showSuccessToast, setShowSuccessToast] = useState(false);
     const [showErrorToast, setShowErrorToast] = useState(false);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        getUserDetails()
-            .catch((error) => {
-                console.log(error);
-            });
-    }, [user]);
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (userDetails) {
@@ -48,6 +43,7 @@ function UserDetails(props: Props) {
         e.preventDefault()
         props.editUserDetails(editedUserDetails.id, editedUserDetails)
             .then(() => {
+                dispatch(setUserDetails(editedUserDetails))
                 setShowSuccessToast(true);
             })
             .catch((error) => {

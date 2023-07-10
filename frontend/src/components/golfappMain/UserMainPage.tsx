@@ -1,25 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import '../../styles/UserMainPage.css'
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
-import UserHook from "../hooks/UserHook";
+import {useSelector} from "react-redux";
 
 type Props = {
     logout: () => Promise<void>
-    getUserDetails: () => Promise<void>
 }
 
 function UserMainPage(props: Props) {
-    const {userDetails, getUserDetails, user} = UserHook();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        getUserDetails()
-            .catch((error) => {
-                console.log(error);
-            });
-    }, [user]);
+    const userDetails = useSelector((state: any) => state.golfApp.userDetails)
 
     function onClickLogout() {
         props.logout()
@@ -32,13 +24,7 @@ function UserMainPage(props: Props) {
     }
 
     function userDetailsOnClick() {
-        props.getUserDetails()
-            .then(() => {
                 navigate("/golfapp/userdetails")
-            })
-            .catch((err) => {
-                console.log(err)
-            })
     }
 
     return (

@@ -2,41 +2,34 @@ import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Scorecard, Score} from '../../models/Scorecard';
 import useScorecardHook from '../hooks/ScorecardHook';
-import UserHook from '../hooks/UserHook';
 import {Container} from "react-bootstrap";
 import '../../styles/AppStyle.css';
+import {useSelector} from "react-redux";
 
 type Props = {
     logout: () => Promise<void>;
 };
 
 function UserStatistics(props: Props) {
-    const {userDetails, getUserDetails, user} = UserHook();
+    const userDetails = useSelector((state: any) => state.golfApp.userDetails)
     const navigate = useNavigate();
     const [scorecards, setScorecards] = useState<Scorecard[]>([]);
     const {loading, error, getScorecardsByUserId} = useScorecardHook();
 
     useEffect(() => {
-        getUserDetails()
-            .catch((error) => {
-                console.log(error);
-            })
-            .then(() => {
-                const fetchScorecards = async () => {
-                    try {
-                        const scorecardsData = await getScorecardsByUserId(userDetails?.id);
-                        setScorecards(scorecardsData);
-                        console.log('Scorecards fetched successfully.');
-                    } catch (error) {
-                        console.error('Error:', error);
-                    }
-                };
+        const fetchScorecards = async () => {
+            try {
+                const scorecardsData = await getScorecardsByUserId(userDetails?.id);
+                setScorecards(scorecardsData);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
-                if (userDetails?.id) {
-                    fetchScorecards();
-                }
-            });
-    }, [userDetails?.id, user]);
+        if (userDetails?.id) {
+            fetchScorecards();
+        }
+    }, [userDetails?.id]);
 
     const calculateAveragePutts = () => {
         if (scorecards.length === 0) return 0;

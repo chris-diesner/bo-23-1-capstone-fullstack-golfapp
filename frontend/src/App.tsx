@@ -20,14 +20,14 @@ import UserStatistics from "./components/golfappMain/UserStatistics";
 
 
 function App() {
-    const {login, logout, register, getUserDetails, editUserDetails, user} = UserHook()
+    const {login, logout, register, editUserDetails, user} = UserHook()
     return (
         <div className="App">
             <h1>GolfApp</h1>
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user}/>}>
-                    <Route path={"/golfapp"} element={<UserMainPage logout={logout} getUserDetails={getUserDetails} />}/>
+                    <Route path={"/golfapp"} element={<UserMainPage logout={logout} />}/>
                     <Route path={"/golfapp/userdetails"} element={<UserDetails logout={logout} editUserDetails={editUserDetails}/>}/>
                     <Route path={"/golfapp/clubs"} element={<GolfClubFind logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses"} element={<GolfCourseSelect logout={logout}/>}/>

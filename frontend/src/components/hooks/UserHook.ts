@@ -1,45 +1,10 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import axios from "axios";
 import {GolfUser} from "../../models/GolfUser";
 import secureLocalStorage from "react-secure-storage";
 
 export default function UserHook() {
     const [user, setUser] = useState<string>();
-    const [userDetails, setUserDetails] = useState<GolfUser | null>(null);
-
-    useEffect(() => {
-        function getCurrentUser() {
-            return axios.get("/api/user/me2")
-                .then((response) => {
-                    return response.data;
-                })
-                .catch((error) => {
-                    console.log(error);
-                    return null;
-                });
-        }
-
-        getCurrentUser().then((currentUser) => {
-            setUser(currentUser);
-        });
-    }, [user]);
-
-    function getUserDetails(): Promise<void> {
-        return axios
-            .get("/api/user/details/" + user)
-            .then((response) => {
-                const golfUser: GolfUser = {
-                    id: response.data.id,
-                    username: response.data.username,
-                    firstName: response.data.firstName,
-                    lastName: response.data.lastName,
-                    handicap: response.data.handicap,
-                    profilePicture: response.data.profilePicture,
-                };
-                setUserDetails(golfUser);
-            })
-            .catch((error) => console.log(error));
-    }
 
     function register(username: string, password: string) {
         return axios
@@ -84,5 +49,5 @@ export default function UserHook() {
             .catch(error => console.log(error))
     }
 
-    return {register, login, logout, user, userDetails, getUserDetails, editUserDetails};
+    return {register, login, logout, user, editUserDetails};
 }

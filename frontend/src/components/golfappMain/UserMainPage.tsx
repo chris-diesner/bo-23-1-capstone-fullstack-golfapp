@@ -1,9 +1,10 @@
 import React from 'react';
-import '../../styles/UserMainPage.css'
+import '../../styles/App.css'
 import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
 import {useSelector} from "react-redux";
+import Logo from "../../media/easySwing_logo.png";
 
 type Props = {
     logout: () => Promise<void>
@@ -24,16 +25,18 @@ function UserMainPage(props: Props) {
     }
 
     function userDetailsOnClick() {
-                navigate("/golfapp/userdetails")
+        navigate("/golfapp/userdetails")
     }
 
     return (
-        <div className="UserContainer">
-            <img src={userDetails?.profilePicture || userImage} className="ProfilPicture" width={150} height={150} alt="User Details" onClick={userDetailsOnClick}/>
-            <div className="UserMainContainer">
+        <div className="App-Page">
+            <header className="App-Header">
+                <img src={userDetails?.profilePicture || userImage} className="ProfilPicture" width={150} height={150}
+                     alt="User Details" onClick={userDetailsOnClick}/></header>
+            <div className="AppContainer">
                 <Container className="d-flex flex-column justify-content-center">
-                    <div className="UserMainContent">
-                        <div className="UserMainHeader">
+                    <div className="AppContent">
+                        <div className="AppHeader">
                             <div className="invisibleDiv"></div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                  className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
@@ -53,8 +56,8 @@ function UserMainPage(props: Props) {
                             <li>Profile can be updated</li>
                             <li>Added a Golf Club Overview Page</li>
                         </ul>
-                        <div className="UserMainList">
-                            <div className="UserMainListItem" onClick={() => navigate("/golfapp/clubs")}>
+                        <div className="AppList">
+                            <div className="AppListItem" onClick={() => navigate("/golfapp/clubs")}>
                                 <div className="ItemHeader">
                                     Find Clubs
                                 </div>
@@ -66,7 +69,7 @@ function UserMainPage(props: Props) {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="UserMainListItem" onClick={() => navigate("/golfapp/rounds")}>
+                            <div className="AppListItem" onClick={() => navigate("/golfapp/rounds")}>
                                 <div className="ItemHeader">
                                     Your Rounds
                                 </div>
@@ -78,7 +81,7 @@ function UserMainPage(props: Props) {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="UserMainListItem" onClick={() => navigate("/golfapp/user/statistics")}>
+                            <div className="AppListItem" onClick={() => navigate("/golfapp/user/statistics")}>
                                 <div className="ItemHeader">
                                     Statistics
                                 </div>

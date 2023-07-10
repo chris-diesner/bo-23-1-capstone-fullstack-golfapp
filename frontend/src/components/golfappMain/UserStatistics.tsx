@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {Scorecard, Score} from '../../models/Scorecard';
 import useScorecardHook from '../hooks/ScorecardHook';
 import {Container} from "react-bootstrap";
-import '../../styles/AppStyle.css';
+import '../../styles/App.css';
 import {useSelector} from "react-redux";
 
 type Props = {

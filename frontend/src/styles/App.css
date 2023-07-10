@@ -1,8 +1,11 @@
 .App {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    align-content: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    margin-top: 20%;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-top: 20px;
+    overflow: hidden;
 }
+

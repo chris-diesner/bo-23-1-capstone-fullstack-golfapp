@@ -102,7 +102,6 @@ function GolfCourseSelectPlayer(props:Props) {
         saveScorecard(scorecardDTO)
             .then((scorecard) => {
                 dispatch(setScorecard(scorecard));
-                console.log("Scorecard saved", scorecard);
                 navigate("/golfapp/clubs/courses/tees/round/scorecard");
             })
             .catch((error) => console.error("Error saving scorecard", error));

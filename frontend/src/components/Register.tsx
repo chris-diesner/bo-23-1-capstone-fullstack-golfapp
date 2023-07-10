@@ -67,7 +67,7 @@ function Register(props: Props) {
     return (
         <div className="App-Page">
             <header className="App-Header">
-                <img src={Logo}></img>
+                <img src={Logo} alt="Logo"></img>
             </header>
             <div className="AppContainer">
                 <Container className="d-flex flex-column justify-content-center">

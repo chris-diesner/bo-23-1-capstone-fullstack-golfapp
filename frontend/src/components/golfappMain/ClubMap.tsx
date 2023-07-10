@@ -80,7 +80,6 @@ export default function ClubMap({golfClubs}: Props) {
 
     const onClickSelectCoursesBySelectedClub = (courses: GolfCourse[]) => {
         dispatch(setCourses(courses));
-        console.log(courses);
         navigate("/golfapp/clubs/courses");
     };
 
@@ -102,7 +101,6 @@ export default function ClubMap({golfClubs}: Props) {
     }
 
     return (
-        console.log(golfClubs),
         <div className="MapContainer">
             <div className="Controls">
                 <Places setClubs={(position) => {

@@ -23,7 +23,6 @@ function App() {
     const {login, logout, register, editUserDetails, user} = UserHook()
     return (
         <div className="App">
-
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user}/>}>

@@ -85,7 +85,6 @@ function HoleCard(props: Props) {
         };
 
         dispatch(setScorecard(updatedScorecard));
-        console.log("Scorecard saved", updatedScorecard);
     };
 
 

@@ -2,12 +2,8 @@ import React from 'react';
 import {Score} from "../../models/Scorecard";
 import {Table} from "react-bootstrap";
 import {useSelector} from "react-redux";
-import '../../styles/EvaluationCard.css'
 
-type Props = {
-
-}
-function TableFrontNine(props:Props) {
+function TableFrontNine() {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard)
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse)
     return (
@@ -15,7 +11,7 @@ function TableFrontNine(props:Props) {
             <thead>
             <tr>
                 <th>#</th>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(0, 9).map((score: Score) => (
                     <th key={score.holeNumber}>{score.holeNumber}</th>
                 ))}
                 <th>{scorecard?.playBackNine ? 'In' : 'Out'}</th>
@@ -24,7 +20,7 @@ function TableFrontNine(props:Props) {
             <tbody>
             <tr>
                 <td></td>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(0, 9).map((score: Score) => (
                     <td key={score.holeNumber}>{score.totalStrokes}</td>
                 ))}
                 <td>{scorecard?.scores.slice(0, 9).reduce((sum: number, score: Score) => sum + parseInt(String(score.totalStrokes)), 0)}</td>
@@ -54,21 +50,21 @@ function TableFrontNine(props:Props) {
             </tr>
             <tr>
                 <td>Net Points</td>
-                {scorecard?.scores.slice(0,9).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(0,9).map((score: Score) => (
                     <td key={score.holeNumber}>{score.stablefordNet}</td>
                 ))}
                 <td>{scorecard?.scores.slice(0, 9).reduce((sum: number, score: Score) => sum + score.stablefordNet, 0)}</td>
             </tr>
             <tr>
                 <td>Putts:</td>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(0, 9).map((score: Score) => (
                     <td key={score.holeNumber}>{score.totalPutts}</td>
                 ))}
                 <td></td>
             </tr>
             <tr>
                 <td>Fairways:</td>
-                {scorecard?.scores.slice(0, 9).map((score: Score, index: number) => (
+                {scorecard?.scores.slice(0, 9).map((score: Score) => (
                     <td key={score.holeNumber}>{score.fairwayHit ? 'Yes' : 'No'}</td>
                 ))}
                 <td></td>

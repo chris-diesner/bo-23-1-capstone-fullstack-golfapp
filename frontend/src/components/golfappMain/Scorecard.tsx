@@ -6,11 +6,7 @@ import {useNavigate} from "react-router-dom";
 import '../../styles/Scorecard.css'
 import ScorecardHook from "../hooks/ScorecardHook";
 
-type Props = {
-    logout: () => Promise<void>
-};
-
-function Scorecard(props: Props) {
+function Scorecard() {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
     const navigate = useNavigate()

@@ -44,7 +44,6 @@ function EvaluationCard(props: Props) {
     function handleSaveScorecard() {
         editScorecard(scorecard)
             .then(() => {
-                console.log("Scorecard saved");
                 navigate("/golfapp");
             })
             .catch((error) => console.error("Error saving scorecard", error));

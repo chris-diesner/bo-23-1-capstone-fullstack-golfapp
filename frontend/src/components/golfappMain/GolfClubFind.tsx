@@ -37,10 +37,8 @@ function GolfClubFind(props: Props) {
         try {
             const response = await axios.get("/api/golfapp/clubs")
             const tempClub = response.data
-
             const updatedGolfClub = await Promise.all(tempClub.map(calculateLatLang))
             setGolfClubs(updatedGolfClub)
-            console.log(updatedGolfClub)
         } catch
             (err) {
             console.log(err)

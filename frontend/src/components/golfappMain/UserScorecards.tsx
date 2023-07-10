@@ -25,7 +25,6 @@ function UserScorecards(props: Props) {
             .get('/api/golfapp/course/' + scorecard.golfCourseId)
             .then((response) => {
                 dispatch(setGolfCourse(response.data));
-                console.log('Golf course fetched successfully.', response.data);
             })
             .catch((error) => console.error('Error fetching golf course', error));
     };

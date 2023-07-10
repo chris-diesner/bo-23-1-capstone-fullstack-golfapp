@@ -23,7 +23,6 @@ function GolfCourseSelectTee(props: Props) {
 
     function onClickSelectPlayer(tee: GolfTee) {
         dispatch(setGolfTee(tee))
-        console.log("Selected tee", tee);
         navigate('/golfapp/clubs/courses/tees/round');
     }
 

@@ -23,7 +23,6 @@ function App() {
     const {login, logout, register, editUserDetails, user} = UserHook()
     return (
         <div className="App">
-
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user}/>}>
@@ -33,7 +32,7 @@ function App() {
                     <Route path={"/golfapp/clubs/courses"} element={<GolfCourseSelect logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses/tees"} element={<GolfCourseSelectTee logout={logout}/>}/>
                     <Route path={"/golfapp/clubs/courses/tees/round"} element={<GolfCourseSelectPlayer logout={logout}/>}/>
-                    <Route path={"/golfapp/clubs/courses/tees/round/scorecard"} element={<Scorecard logout={logout}/>}/>
+                    <Route path={"/golfapp/clubs/courses/tees/round/scorecard"} element={<Scorecard />}/>
                     <Route path={"/golfapp/finalscorecard"} element={<EvaluationCard logout={logout}/>}/>
                     <Route path={"/golfapp/rounds"} element={<UserScorecards logout={logout}/>}/>
                     <Route path={"/golfapp/round/:id"} element={<ScorecardById logout={logout}/>}/>

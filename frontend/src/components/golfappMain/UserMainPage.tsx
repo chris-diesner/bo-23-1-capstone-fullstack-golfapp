@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
 import {useSelector} from "react-redux";
-import Logo from "../../media/easySwing_logo.png";
 
 type Props = {
     logout: () => Promise<void>

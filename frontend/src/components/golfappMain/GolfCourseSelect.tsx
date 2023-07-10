@@ -4,7 +4,7 @@ import { GolfCourse } from "../../models/GolfCourse";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
-import '../../styles/GolfCourseSelect.css'
+import '../../styles/App.css'
 import {setCoordinates, setGolfCourse} from "../../Actions/GolfAppActions";
 
 type Props = {
@@ -60,10 +60,10 @@ function GolfCourseSelect(props: Props) {
     }
 
     return (
-        <div className="GolfCourseContainer">
+        <div className="AppContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="GolfCourseContent">
-                    <div className="GolfCourseHeader">
+                <div className="AppContent">
+                    <div className="AppHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -78,10 +78,10 @@ function GolfCourseSelect(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <div className="GolfCourseList">
+                    <div className="AppList">
                         {golfCourses.map((golfCourse) => (
-                            <div key={golfCourse.courseID} className="GolfCourseBody" onClick={() => onClickNavTee(golfCourse)}>
-                                <div className="GolfCourseHeader">
+                            <div key={golfCourse.courseID} className="AppBody" onClick={() => onClickNavTee(golfCourse)}>
+                                <div className="AppHeader">
                                     <div>{golfCourse.courseName}</div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -91,16 +91,16 @@ function GolfCourseSelect(props: Props) {
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="GolfCourseSubHeader">
-                                    <div className="GolfCourseSubHeaderLeft">
+                                <div className="AppSubHeader">
+                                    <div className="AppSubHeaderLeft">
                                         Holes: {golfCourse.numHoles}
                                     </div>
-                                    <div className="GolfCourseSubHeaderRigt">
+                                    <div className="AppSubHeaderRigt">
                                     </div>
                                 </div>
                             </div>
                         ))}
-                        <div className="GolfCourseSpacer">
+                        <div className="AppSpacer">
                         </div>
                     </div>
                 </div>

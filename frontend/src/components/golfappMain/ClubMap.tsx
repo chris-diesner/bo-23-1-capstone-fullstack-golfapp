@@ -105,7 +105,6 @@ export default function ClubMap({golfClubs}: Props) {
         console.log(golfClubs),
         <div className="MapContainer">
             <div className="Controls">
-                <h6>Controls</h6>
                 <Places setClubs={(position) => {
                     setClubs(position)
                     mapRef.current?.panTo(position)
@@ -150,11 +149,11 @@ export default function ClubMap({golfClubs}: Props) {
                 </GoogleMap>
             </div>
             <br/>
-            <div className="GolfClubList">
+            <div className="AppList">
                 {visibleClubs.map((golfClub) => (
-                    <div key={golfClub.clubID} className="GolfClubBody"
+                    <div key={golfClub.clubID} className="AppBody"
                          onClick={() => onClickSelectCoursesBySelectedClub(golfClub.courses)}>
-                        <div className="GolfClubHeader">
+                        <div className="AppHeader">
                             <div>{golfClub.clubName}</div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -164,17 +163,17 @@ export default function ClubMap({golfClubs}: Props) {
                                 </svg>
                             </div>
                         </div>
-                        <div className="GolfClubSubHeader">
-                            <div className="GolfClubSubHeaderLeft">
+                        <div className="AppSubHeader">
+                            <div className="AppSubHeaderLeft">
                                 City: {golfClub.city}
                             </div>
-                            <div className="GolfClubSubHeaderRigt">
+                            <div className="AppSubHeaderRight">
                                 Courses: {golfClub.courses.length}
                             </div>
                         </div>
                     </div>
                 ))}
-                <div className="GolfClubSpacer">
+                <div className="AppSpacer">
                 </div>
             </div>
         </div>

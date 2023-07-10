@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {Button, Container, Form, Toast} from "react-bootstrap";
-import '../../styles/UserDetails.css'
+import '../../styles/App.css'
 import {GolfUser} from "../../models/GolfUser";
 import validator from "validator";
 import {useNavigate} from "react-router-dom";
@@ -118,10 +118,10 @@ function UserDetails(props: Props) {
     }
 
     return (
-        <div className="UserDetailsContainer">
+        <div className="AppContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="RegisterContent">
-                    <div className="UserDetailsHeader">
+                <div className="AppContent">
+                    <div className="AppHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -135,7 +135,7 @@ function UserDetails(props: Props) {
                             <path d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
                     </div>
-                    <div className="UserDetailsForm">
+                    <div className="AppForm">
                         <Form onSubmit={editUserOnSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>

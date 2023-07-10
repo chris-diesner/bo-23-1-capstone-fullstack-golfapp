@@ -3,7 +3,7 @@ import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {GolfTee} from "../../models/GolfCourse";
-import '../../styles/GolfCourseSelectTee.css'
+import '../../styles/App.css'
 import {setGolfTee} from "../../Actions/GolfAppActions";
 
 type Props = {
@@ -28,10 +28,10 @@ function GolfCourseSelectTee(props: Props) {
     }
 
     return (
-        <div className="GolfTeeContainer">
+        <div className="AppContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="GolfTeeContent">
-                    <div className="GolfTeeHeader">
+                <div className="AppContent">
+                    <div className="AppHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -46,10 +46,10 @@ function GolfCourseSelectTee(props: Props) {
                         </svg>
                     </div>
                     <br/>
-                    <div className="GolfTeeList">
+                    <div className="AppList">
                         {golfCourse?.tees?.map((tee: GolfTee) => (
-                            <div key={tee.teeID} className="GolfCourseBody" onClick={() => onClickSelectPlayer(tee)}>
-                                <div className="GolfTeeHeader">
+                            <div key={tee.teeID} className="AppBody" onClick={() => onClickSelectPlayer(tee)}>
+                                <div className="AppHeader">
                                     <div>{tee.teeName}</div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -59,8 +59,8 @@ function GolfCourseSelectTee(props: Props) {
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="GolfTeeSubHeader">
-                                    <div className="GolfTeeSubHeaderLeft">
+                                <div className="AppSubHeader">
+                                    <div className="AppSubHeaderLeft">
                                         {tee.courseRatingMen !== null || tee.courseRatingWomen !== null ? (
                                             tee.courseRatingMen || tee.courseRatingWomen
                                         ) : (
@@ -72,12 +72,12 @@ function GolfCourseSelectTee(props: Props) {
                                             "N/A"
                                         )}
                                     </div>
-                                    <div className="GolfTeeSubHeaderRight">
+                                    <div className="AppSubHeaderRight">
                                     </div>
                                 </div>
                             </div>
                         ))}
-                        <div className="GolfTeeSpacer">
+                        <div className="AppSpacer">
                         </div>
                     </div>
                 </div>

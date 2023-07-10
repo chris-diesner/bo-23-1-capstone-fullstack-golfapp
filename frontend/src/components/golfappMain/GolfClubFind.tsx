@@ -3,7 +3,7 @@ import {Container} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {GolfClub} from "../../models/GolfClub";
 import axios from "axios";
-import '../../styles/GolfClubFind.css'
+import '../../styles/App.css'
 import MapContainer from "./MapContainer";
 
 type Props = {
@@ -62,10 +62,10 @@ function GolfClubFind(props: Props) {
     }
 
     return (
-        <div className="GolfClubFindContainer">
+        <div className="AppContainer">
             <Container className="d-flex flex-column justify-content-center">
-                <div className="GolfClubFindContent">
-                    <div className="GolfClubFindHeader">
+                <div className="AppContent">
+                    <div className="AppHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-x-circle" viewBox="0 0 16 16" onClick={() => window.history.back()}>
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

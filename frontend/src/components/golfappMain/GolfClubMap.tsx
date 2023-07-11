@@ -17,7 +17,7 @@ type Props = {
     golfClubs: GolfClub[];
 };
 
-export default function ClubMap({golfClubs}: Props) {
+export default function GolfClubMap({golfClubs}: Props) {
     const [clubs, setClubs] = useState<LatLngLiteral>();
     const [directions, setDirections] = useState<DirectionsResult>();
     const [visibleClubs, setVisibleClubs] = useState<GolfClub[]>([]);

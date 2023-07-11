@@ -29,7 +29,7 @@ function GolfCourseSelect(props: Props) {
             });
     }
 
-    useEffect(getCourseByCourseID, [])
+    useEffect(getCourseByCourseID, [courseIDs])
 
     function onClickLogout() {
         props.logout()

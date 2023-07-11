@@ -43,6 +43,7 @@ function UserScorecards(props: Props) {
         if (userDetails?.id) {
             fetchScorecards();
         }
+        // eslint-disable-next-line
     }, [userDetails?.id]);
 
     const handleOnClickScorecard = async (scorecard: Scorecard) => {

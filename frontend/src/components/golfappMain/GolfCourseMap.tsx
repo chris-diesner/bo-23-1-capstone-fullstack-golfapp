@@ -11,15 +11,13 @@ type Props = {
     holeNumber: number;
 };
 
-export default function CourseMap(props: Props) {
+export default function GolfCourseMap(props: Props) {
     const mapRef = useRef<CourseMap>();
     const polylineRef = useRef<google.maps.Polyline | null>(null);
     const marker1Ref = useRef<google.maps.Marker | null>(null);
     const marker2Ref = useRef<google.maps.Marker | null>(null)
-    const [polylinePath, setPolylinePath] = useState<LatLngLiteral[]>([]);
     const [currentPosition, setCurrentPosition] = useState<LatLngLiteral | null>(null);
     const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
-
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "ebcaab6b93988501",
@@ -38,21 +36,16 @@ export default function CourseMap(props: Props) {
         const lng1 = mk1.lng;
         const lat2 = mk2.lat;
         const lng2 = mk2.lng;
-
         const R = 6371e3;
-
         const dLat = (Math.PI / 180) * (lat2 - lat1);
         const dLng = (Math.PI / 180) * (lng2 - lng1);
-
         const a =
             Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos((Math.PI / 180) * lat1) *
             Math.cos((Math.PI / 180) * lat2) *
             Math.sin(dLng / 2) *
             Math.sin(dLng / 2);
-
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
         return R * c;
     };
 
@@ -69,20 +62,17 @@ export default function CourseMap(props: Props) {
         const filteredCoordinates = courseCoordinates?.coordinates.filter(
             (coordinate: Coordinates) => coordinate.poi === "1" && coordinate.location === "2"
         );
-
         if (filteredCoordinates && filteredCoordinates.length > 0) {
             const coordinatesForHole = filteredCoordinates.find(
                 (coordinate: Coordinates) => parseInt(coordinate.hole) === holeNumber
             );
             return coordinatesForHole || null;
         }
-
         return null;
     };
 
     const updateMap = useCallback(() => {
         const coordinatesForHole = getCoordinatesForHole(props.holeNumber);
-
         if (mapRef.current && coordinatesForHole) {
             if (polylineRef.current) {
                 polylineRef.current.setMap(null);
@@ -92,7 +82,6 @@ export default function CourseMap(props: Props) {
                 marker1Ref.current.setMap(null);
                 marker1Ref.current = null;
             }
-
             const marker1 = new google.maps.Marker({
                 position: {
                     lat: coordinatesForHole.latitude,
@@ -101,16 +90,11 @@ export default function CourseMap(props: Props) {
                 map: mapRef.current,
                 icon: Tee,
             });
-
             marker1Ref.current = marker1;
-
             const path: LatLngLiteral[] = [
                 marker1.getPosition()!.toJSON(),
                 currentPosition || { lat: 0, lng: 0 },
             ];
-
-            setPolylinePath(path);
-
             const polyline = new google.maps.Polyline({
                 path,
                 geodesic: true,
@@ -124,19 +108,16 @@ export default function CourseMap(props: Props) {
             if (mapRef.current) {
                 polyline.setMap(mapRef.current);
             }
-
             const marker2 = new google.maps.Marker({
                 position: currentPosition || { lat: 0, lng: 0 },
                 map: mapRef.current,
                 icon: Tee,
             });
-
             marker2Ref.current = marker2;
-
             fitBoundsToMarkers();
         }
+        // eslint-disable-next-line
     }, [props.holeNumber, currentPosition]);
-
 
     useEffect(() => {
         updateMap();
@@ -151,9 +132,7 @@ export default function CourseMap(props: Props) {
             (position) => {
                 const { latitude, longitude } = position.coords;
                 const currentPosition = { lat: latitude, lng: longitude };
-
                 setCurrentPosition(currentPosition);
-
                 if (marker2Ref.current) {
                     marker2Ref.current.setPosition(currentPosition);
                 }
@@ -162,32 +141,26 @@ export default function CourseMap(props: Props) {
                 console.error("Error getting current position:", error);
             }
         );
-
         return () => {
             navigator.geolocation.clearWatch(watchId);
         };
-    }, []);
+        // eslint-disable-next-line
+    },[]);
 
     const onLoad = useCallback((map: CourseMap) => {
         mapRef.current = map;
-
         const bounds = new google.maps.LatLngBounds();
-
         if (marker1Ref.current) {
             bounds.extend(marker1Ref.current.getPosition()!);
         }
-
         if (marker2Ref.current) {
             bounds.extend(marker2Ref.current.getPosition()!);
         }
-
         if (bounds.isEmpty()) {
             bounds.extend({ lat: 52.7859645, lng: 13.5724521 });
             bounds.extend({ lat: 52.78876430772261, lng: 13.570415971724204 });
         }
-
         map.fitBounds(bounds);
-
         const zoomChangeBoundsListener = google.maps.event.addListenerOnce(
             map,
             "bounds_changed",
@@ -197,20 +170,16 @@ export default function CourseMap(props: Props) {
                         position => {
                             const { latitude, longitude } = position.coords;
                             const currentPosition = { lat: latitude, lng: longitude };
-
+                            // eslint-disable-next-line
                             const marker2 = new google.maps.Marker({
                                 position: currentPosition,
                                 map: mapRef.current,
                                 icon: Tee
                             });
-
                             const path: LatLngLiteral[] = [
                                 currentPosition,
                                 currentPosition
                             ];
-
-                            setPolylinePath(path);
-
                             polylineRef.current = new google.maps.Polyline({
                                 path,
                                 geodesic: true,
@@ -218,11 +187,9 @@ export default function CourseMap(props: Props) {
                                 strokeOpacity: 1.0,
                                 strokeWeight: 2
                             });
-
                             if (mapRef.current) {
                                 polylineRef.current.setMap(mapRef.current);
                             }
-
                             setCurrentPosition(currentPosition);
                         },
                         error => {
@@ -247,7 +214,6 @@ export default function CourseMap(props: Props) {
                 currentPosition
             ))
             : null;
-
     return (
         <div className="CourseMapContainer">
             <div className="CourseMap">

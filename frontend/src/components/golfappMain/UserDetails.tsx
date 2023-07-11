@@ -22,11 +22,6 @@ function UserDetails(props: Props) {
         handicap: 0,
         profilePicture: '',
     });
-    const [username, setUsername] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [handicap, setHandicap] = useState('');
-    const [profilePicture, setProfilePicture] = useState<File | null>(null);
     const [showSuccessToast, setShowSuccessToast] = useState(false);
     const [showErrorToast, setShowErrorToast] = useState(false);
     const navigate = useNavigate();
@@ -55,7 +50,6 @@ function UserDetails(props: Props) {
 
     function onChangeHandlerUsername(e: ChangeEvent<HTMLInputElement>) {
         const value = e.currentTarget.value;
-        setUsername(value);
         setEditedUserDetails((prevDetails) => ({
             ...prevDetails,
             username: value,
@@ -64,7 +58,6 @@ function UserDetails(props: Props) {
 
     function onChangeHandlerFirstName(e: ChangeEvent<HTMLInputElement>) {
         const value = e.currentTarget.value;
-        setFirstName(value);
         setEditedUserDetails((prevDetails) => ({
             ...prevDetails,
             firstName: value,
@@ -73,7 +66,6 @@ function UserDetails(props: Props) {
 
     function onChangeHandlerLastName(e: ChangeEvent<HTMLInputElement>) {
         const value = e.currentTarget.value;
-        setLastName(value);
         setEditedUserDetails((prevDetails) => ({
             ...prevDetails,
             lastName: value,
@@ -82,7 +74,6 @@ function UserDetails(props: Props) {
 
     function onChangeHandlerHandicap(e: ChangeEvent<HTMLInputElement>) {
         const value = parseFloat(e.currentTarget.value);
-        setHandicap(value.toString());
         setEditedUserDetails((prevDetails) => ({
             ...prevDetails,
             handicap: value,
@@ -93,7 +84,6 @@ function UserDetails(props: Props) {
         const files = e.target.files;
         if (files && files.length > 0) {
             const file = files[0];
-            setProfilePicture(file);
 
             const reader = new FileReader();
             reader.onloadend = () => {

@@ -29,6 +29,7 @@ function UserStatistics(props: Props) {
         if (userDetails?.id) {
             fetchScorecards();
         }
+        // eslint-disable-next-line
     }, [userDetails?.id]);
 
     const calculateAveragePutts = () => {

@@ -34,7 +34,6 @@ function UserStatistics(props: Props) {
 
     const calculateAveragePutts = () => {
         if (scorecards.length === 0) return 0;
-
         let totalPutts = 0;
         let totalHoles = 0;
 

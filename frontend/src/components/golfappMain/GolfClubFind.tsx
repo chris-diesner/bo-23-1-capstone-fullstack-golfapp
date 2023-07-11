@@ -47,7 +47,12 @@ function GolfClubFind(props: Props) {
 
     useEffect(() => {
         getClubs()
-    }, [])
+            .then(() => {
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
 
     function onClickLogout() {
         props.logout()

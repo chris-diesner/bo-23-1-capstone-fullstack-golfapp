@@ -29,11 +29,11 @@ function UserStatistics(props: Props) {
         if (userDetails?.id) {
             fetchScorecards();
         }
+        // eslint-disable-next-line
     }, [userDetails?.id]);
 
     const calculateAveragePutts = () => {
         if (scorecards.length === 0) return 0;
-
         let totalPutts = 0;
         let totalHoles = 0;
 

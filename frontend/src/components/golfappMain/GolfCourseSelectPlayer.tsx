@@ -60,7 +60,6 @@ function GolfCourseSelectPlayer(props:Props) {
                     if (calculatedCourseHandicap % 18 >= holeHCP) {
                         personalPar += 1;
                     }
-
                     return {
                         holeNumber: index + 1,
                         totalStrokes: 0,

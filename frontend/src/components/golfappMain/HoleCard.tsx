@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import { Score } from "../../models/Scorecard";
 import { useSelector, useDispatch } from "react-redux";
 import { setScorecard } from "../../Actions/GolfAppActions";
 import MapContainer from "./MapContainer";
+import {useNavigate} from "react-router-dom";
 
 type Props = {
     score: Score;
     holeNumber: number;
+    onNextHole: () => void;
+    onPrevHole: () => void;
+    hasNextHole: boolean;
+    hasPrevHole: boolean;
+    isLastHole: boolean;
 };
 
 function HoleCard(props: Props) {
-    const { score, holeNumber } = props;
+    const { score, holeNumber, onNextHole, onPrevHole, hasNextHole, hasPrevHole, isLastHole } = props;
     const [holeScore, setHoleScore] = useState<Score>({ ...score });
     const golfCourse = useSelector((state: any) => state.golfApp.selectedGolfCourse)
     const selectedTee = useSelector((state: any) => state.golfApp.golfTee);
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const courseCoordinates = useSelector((state: any) => state.golfApp.courseCoordinates);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(() => {
         setHoleScore({ ...score });
@@ -83,13 +90,22 @@ function HoleCard(props: Props) {
             scores: updatedScores,
             totalScore: totalStrokesRound,
         };
-
         dispatch(setScorecard(updatedScorecard));
     };
 
 
     const par = golfCourse.parsMen[props.holeNumber - 1];
     const stablefordNet = calculateStableford(holeScore, par);
+
+    function onNextHoleAndSave() {
+        handleSave()
+        onNextHole()
+    }
+
+    function handleSaveAndScoreCard() {
+        handleSave()
+        navigate("/golfapp/finalscorecard");
+    }
 
     return (
         <div className="HoleContainer">
@@ -105,7 +121,7 @@ function HoleCard(props: Props) {
                             Personal Par: {holeScore?.personalPar + par}
                         </h6>
                     </div>
-                    <br />
+                    <br/>
                     <div className="HoleForm">
                         <div className="form-group">
                             <label htmlFor={`totalStrokes_${holeNumber}`}>Total Strokes:</label>
@@ -151,9 +167,20 @@ function HoleCard(props: Props) {
                         <div>
                             Stableford Net: {stablefordNet}
                         </div>
-                        <button className="btn btn-primary" onClick={handleSave}>
-                            Save
-                        </button>
+                        <div className="d-flex justify-content-between">
+                            <Button variant="primary" onClick={onPrevHole} disabled={!hasPrevHole}>
+                                Previous Hole
+                            </Button>
+                            {isLastHole ? (
+                                <Button variant="primary" onClick={handleSaveAndScoreCard}>
+                                    Save Scorecard
+                                </Button>
+                            ) : (
+                                <Button variant="primary" onClick={onNextHoleAndSave} disabled={!hasNextHole}>
+                                    Next Hole
+                                </Button>
+                            )}
+                        </div>
                     </div>
                 </div>
             </Container>

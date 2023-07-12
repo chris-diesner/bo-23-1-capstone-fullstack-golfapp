@@ -3,13 +3,11 @@ import {useSelector} from "react-redux";
 import HoleCard from "./HoleCard";
 import {useNavigate} from "react-router-dom";
 import '../../styles/Scorecard.css'
-import ScorecardHook from "../hooks/ScorecardHook";
 
 function Scorecard() {
     const scorecard = useSelector((state: any) => state.golfApp.scorecard);
     const [currentHoleIndex, setCurrentHoleIndex] = useState(0);
     const navigate = useNavigate();
-    const {deleteScorecard} = ScorecardHook();
 
     const handleNextHole = () => {
         setCurrentHoleIndex((prevHoleIndex) => prevHoleIndex + 1);
@@ -25,12 +23,6 @@ function Scorecard() {
 
     function handleDisplayScorecard() {
         navigate("/golfapp/finalscorecard");
-    }
-
-    function handlerOnClickAbortRound(scorecardID: string) {
-        deleteScorecard(scorecardID).then(() =>
-            navigate("/golfapp/")
-        );
     }
 
     function handleNextHoleOrSave() {

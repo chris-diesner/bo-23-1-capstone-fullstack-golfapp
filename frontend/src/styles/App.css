@@ -6,6 +6,7 @@
     justify-content: space-evenly;
     text-align: center;
     overflow: hidden;
+    margin-top: 15px;
 }
 .App-Page {
     display: flex;

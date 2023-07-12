@@ -10,7 +10,7 @@ In the frontend directory, you can run:
 
 ## Setup MongoDB
 Set env variable MONGODB_URI to the address of your local database (e.g. mongodb://localhost:27017)
-Import the database dump from the files "*.json" into your local database.
+Import the database dump from the files "*.json" into your local database - name the collection as file names.
 
 
 ## Change Log

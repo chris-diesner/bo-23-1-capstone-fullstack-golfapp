@@ -1,123 +1,5164 @@
-[
+[{
+  "_id": {
+    "$oid": "648da89f90b8eb8116b0b34f"
+  },
+  "clubID": "141520610397251566",
+  "clubName": "Pebble Beach Golf Links",
+  "city": "Pebble Beach",
+  "state": "CA",
+  "country": "USA",
+  "address": "1700 17 Mile Drive",
+  "postalCode": "93953",
+  "latitude": "36.584532",
+  "longitude": "-121.964661",
+  "website": "www.pebblebeach.com",
+  "telephone": "(800) 654-9300",
+  "timestampUpdated": "1672862167",
+  "courses": [
     {
-        "clubID": "648d66739b6468096da829ec",
-        "clubName": "Pebble Beach Golf Links",
-        "city": "Pebble Beach",
-        "state": "CA",
-        "country": "USA",
-        "address": "1700 17 Mile Drive",
-        "postalCode": "93953",
-        "latitude": "36.584532",
-        "longitude": "-121.964661",
-        "website": "www.pebblebeach.com",
-        "telephone": "(800) 654-9300",
-        "timestampUpdated": "1672862167",
-        "courses": [
-            {
-                "courseID": "012141520658891108829",
-                "courseName": "Pebble Beach",
-                "numHoles": 18,
-                "timestampUpdated": "1672862167",
-                "hasGPS": 1,
-                "tees": null
-            },
-            {
-                "courseID": "011141520658921417047",
-                "courseName": "The Hay",
-                "numHoles": 9,
-                "timestampUpdated": "1672862025",
-                "hasGPS": 0,
-                "tees": null
-            }
-        ]
+      "courseID": "012141520658891108829",
+      "courseName": "Pebble Beach",
+      "numHoles": 18,
+      "timestampUpdated": "1672862167",
+      "hasGPS": 1
     },
     {
-        "clubID": "648da89f90b8eb8116b0b34f",
-        "clubName": "Pebble Beach Golf Links",
-        "city": "Pebble Beach",
-        "state": "CA",
-        "country": "USA",
-        "address": "1700 17 Mile Drive",
-        "postalCode": "93953",
-        "latitude": "36.584532",
-        "longitude": "-121.964661",
-        "website": "www.pebblebeach.com",
-        "telephone": "(800) 654-9300",
-        "timestampUpdated": "1672862167",
-        "courses": [
-            {
-                "courseID": "012141520658891108829",
-                "courseName": "Pebble Beach",
-                "numHoles": 18,
-                "timestampUpdated": "1672862167",
-                "hasGPS": 1,
-                "tees": null
-            },
-            {
-                "courseID": "011141520658921417047",
-                "courseName": "The Hay",
-                "numHoles": 9,
-                "timestampUpdated": "1672862025",
-                "hasGPS": 0,
-                "tees": null
-            }
-        ]
-    },
-    {
-        "clubID": "648da8a890b8eb8116b0b350",
-        "clubName": "Pebble Beach Golf Links",
-        "city": "Pebble Beach",
-        "state": "CA",
-        "country": "USA",
-        "address": "1700 17 Mile Drive",
-        "postalCode": "93953",
-        "latitude": "36.584532",
-        "longitude": "-121.964661",
-        "website": "www.pebblebeach.com",
-        "telephone": "(800) 654-9300",
-        "timestampUpdated": "1672862167",
-        "courses": [
-            {
-                "courseID": "012141520658891108829",
-                "courseName": "Pebble Beach",
-                "numHoles": 18,
-                "timestampUpdated": "1672862167",
-                "hasGPS": 1,
-                "tees": null
-            },
-            {
-                "courseID": "011141520658921417047",
-                "courseName": "The Hay",
-                "numHoles": 9,
-                "timestampUpdated": "1672862025",
-                "hasGPS": 0,
-                "tees": null
-            }
-        ]
-    },
-    {
-        "clubID": "1245403085186",
-        "clubName": "GC Prenden",
-        "city": "Prenden",
-        "state": "D",
-        "country": "Germany",
-        "address": "Waldweg 3",
-        "timestampUpdated": "1626358479",
-        "courses": [
-            {
-                "courseID": "0111089293311168",
-                "courseName": "Hunter's Nine (9)",
-                "numHoles": 9,
-                "timestampUpdated": "1626332972",
-                "hasGPS": 1
-            },
-            {
-                "courseID": "0121089292871823",
-                "courseName": "Prenden Pines (18)",
-                "numHoles": 18,
-                "timestampUpdated": "1626358479",
-                "hasGPS": 1
-            }
-        ]
+      "courseID": "011141520658921417047",
+      "courseName": "The Hay",
+      "numHoles": 9,
+      "timestampUpdated": "1672862025",
+      "hasGPS": 0
     }
-]
+  ]
+},
+{
+  "_id": {
+    "$oid": "648dc6dd9b6468096d81621a"
+  },
+  "clubID": "1245403085186",
+  "clubName": "GC Prenden",
+  "city": "Prenden",
+  "state": "D",
+  "country": "Germany",
+  "address": "Waldweg 3",
+  "timestampUpdated": "1626358479",
+  "courses": [
+    {
+      "courseID": "0111089293311168",
+      "courseName": "Hunter's Nine (9)",
+      "numHoles": 9,
+      "timestampUpdated": "1626332972",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121089292871823",
+      "courseName": "Prenden Pines (18)",
+      "numHoles": 18,
+      "timestampUpdated": "1626358479",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "648dc8fc9b6468096d85c001"
+  },
+  "clubID": "1151133064281",
+  "clubName": "Berlin Pankow",
+  "city": "Berlin",
+  "state": "BB",
+  "country": "Germany",
+  "address": "Blankenburger Pflasterweg 40",
+  "timestampUpdated": "1661167083",
+  "courses": [
+    {
+      "courseID": "0111634556040974450",
+      "courseName": "Kurzplatz 6 Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1634556357",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111240343901745",
+      "courseName": "Platz am Fließ",
+      "numHoles": 9,
+      "timestampUpdated": "1623200189",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121269868788174",
+      "courseName": "Sepp Maier Platz",
+      "numHoles": 18,
+      "timestampUpdated": "1661167083",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "648dcadc9b6468096d89e01b"
+  },
+  "clubID": "1397467227570271",
+  "clubName": "Golfpark Schlossgut Lenzfried",
+  "city": "Kempten",
+  "state": "BAY",
+  "country": "Germany",
+  "address": "Friedensweg 4",
+  "timestampUpdated": "1638006425",
+  "courses": [
+    {
+      "courseID": "0111397467227563751",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1638006425",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc5d"
+  },
+  "clubID": "1433411764995559",
+  "clubName": "Aachener Golfclub 1927 e.V.",
+  "city": "Aachen  ",
+  "state": "",
+  "country": "Germany",
+  "address": "Schurzelter Straße 300",
+  "timestampUpdated": "1622513417",
+  "courses": [
+    {
+      "courseID": "0121433411764990132",
+      "courseName": "18-Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1622513417",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc5e"
+  },
+  "clubID": "1340882677135381",
+  "clubName": "Abenberg",
+  "city": "Abenberg",
+  "state": "",
+  "country": "Germany",
+  "address": "Am Golfplatz 19",
+  "timestampUpdated": "1686230043",
+  "courses": [
+    {
+      "courseID": "0111242905901661",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121242905901661",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131242905901661",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221242905901661",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231242905901661",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331242905901661",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1686230043",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111403458542455",
+      "courseName": "Kurzplatz",
+      "numHoles": 9,
+      "timestampUpdated": "1622195766",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc5f"
+  },
+  "clubID": "1350243070985184",
+  "clubName": "acamed resort",
+  "city": "Neugattersleben",
+  "state": "",
+  "country": "Germany",
+  "address": "Brumbyer Str. 5",
+  "timestampUpdated": "1644952272",
+  "courses": [
+    {
+      "courseID": "0111350301153251900",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1644952272",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc60"
+  },
+  "clubID": "1150124339229",
+  "clubName": "Achimer Golfclub e.V.",
+  "city": "Achim",
+  "state": "Nds",
+  "country": "Germany",
+  "address": "Roedenbeckstrasse 55",
+  "timestampUpdated": "1622491809",
+  "courses": [
+    {
+      "courseID": "0121150122153073",
+      "courseName": "18 Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1622491809",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111150124339229",
+      "courseName": "9-Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1618417154",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc61"
+  },
+  "clubID": "1122381395984",
+  "clubName": "Allgäuer Golf und Landclub",
+  "city": "Ottobeuren",
+  "state": "BAY",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1622284121",
+  "courses": [
+    {
+      "courseID": "0121122381395984",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622284121",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc62"
+  },
+  "clubID": "1244528270873",
+  "clubName": "Altenstadt Golfplatz",
+  "city": "Altenstadt",
+  "state": "HE",
+  "country": "Germany",
+  "address": "Oppelshäuser Weg  5",
+  "timestampUpdated": "1644954802",
+  "courses": [
+    {
+      "courseID": "0111279227469112",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121279227469112",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131279227469112",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221279227469112",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231279227469112",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331279227469112",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644954802",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc63"
+  },
+  "clubID": "1316347642523",
+  "clubName": "Altmühlgolf",
+  "city": "Beilngries",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Ottmaringer Tal 1",
+  "timestampUpdated": "1618417196",
+  "courses": [
+    {
+      "courseID": "0111316349048413",
+      "courseName": "Altmühlgolf",
+      "numHoles": 9,
+      "timestampUpdated": "1618417196",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc64"
+  },
+  "clubID": "1219220710569",
+  "clubName": "Am Alten Fliess",
+  "city": "Bergheim - Fliesteden",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Am Alten Fliess 66",
+  "timestampUpdated": "1627050269",
+  "courses": [
+    {
+      "courseID": "0111242570444259",
+      "courseName": "Gelb + Gelb",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121242570444259",
+      "courseName": "Gelb + Rot",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131242570444259",
+      "courseName": "Gelb + Weiss",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221242570444259",
+      "courseName": "Rot + Rot",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231242570444259",
+      "courseName": "Rot + Weiss",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331242570444259",
+      "courseName": "Weiss + Weiss",
+      "numHoles": 18,
+      "timestampUpdated": "1627050269",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc65"
+  },
+  "clubID": "1127227499861",
+  "clubName": "Am Donner Kleve",
+  "city": "St. Michaelisdonn",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Alte Landstraße 1",
+  "timestampUpdated": "1622286695",
+  "courses": [
+    {
+      "courseID": "0121127227499861",
+      "courseName": "1-9",
+      "numHoles": 18,
+      "timestampUpdated": "1618417146",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0121331655895184",
+      "courseName": "18",
+      "numHoles": 18,
+      "timestampUpdated": "1622286695",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc66"
+  },
+  "clubID": "1247574941225",
+  "clubName": "Am Habsberg",
+  "city": "Velburg/Unterwiesenacker",
+  "state": "",
+  "country": "Germany",
+  "address": "Im Golfplatz 1",
+  "timestampUpdated": "1655759136",
+  "courses": [
+    {
+      "courseID": "0121247574941225",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1655759136",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc67"
+  },
+  "clubID": "1240550565820",
+  "clubName": "Am Hockenberg",
+  "city": "Seevetal",
+  "state": "",
+  "country": "Germany",
+  "address": "Am Hockenberg 100",
+  "timestampUpdated": "1622457174",
+  "courses": [
+    {
+      "courseID": "0121240550565820",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622457174",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc68"
+  },
+  "clubID": "1179516634156",
+  "clubName": "Am Klosterkamp",
+  "city": "Kamp-Lintfort",
+  "state": "Nrw",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1622462495",
+  "courses": [
+    {
+      "courseID": "0121312479016625",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622462495",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc69"
+  },
+  "clubID": "1229882894972",
+  "clubName": "Artland Golfclub",
+  "city": "Ankum",
+  "state": "NDS",
+  "country": "Germany",
+  "address": "Zum Golfplatz 23",
+  "timestampUpdated": "1660130532",
+  "courses": [
+    {
+      "courseID": "0121229882894972",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1660130532",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6a"
+  },
+  "clubID": "1242206487855",
+  "clubName": "Aschaffenburger Golf-Club e.V.",
+  "city": "Hösbach",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Am Heigenberg 30",
+  "timestampUpdated": "1622470947",
+  "courses": [
+    {
+      "courseID": "0121242206487855",
+      "courseName": "Aschaffenburger",
+      "numHoles": 18,
+      "timestampUpdated": "1622470947",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6b"
+  },
+  "clubID": "1182121048945",
+  "clubName": "Attighof Golf Club",
+  "city": "Waldsolms",
+  "state": "HE",
+  "country": "Germany",
+  "address": "Cleeberger Straße",
+  "timestampUpdated": "1683193286",
+  "courses": [
+    {
+      "courseID": "0121182121048945",
+      "courseName": "Attighof",
+      "numHoles": 18,
+      "timestampUpdated": "1683193286",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6c"
+  },
+  "clubID": "163680878820823",
+  "clubName": "B. A. Golfclub Sennelager",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1683553241",
+  "courses": [
+    {
+      "courseID": "0121680713734569362",
+      "courseName": "Forest Pines (valid from April 2023)",
+      "numHoles": 18,
+      "timestampUpdated": "1683553241",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6d"
+  },
+  "clubID": "1441616449650514",
+  "clubName": "B.A.Golfclub Sennelager",
+  "city": "Bad Lippspringe",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Senne 1",
+  "timestampUpdated": "1683549890",
+  "courses": [
+    {
+      "courseID": "0121442481951334632",
+      "courseName": "Forest Pine",
+      "numHoles": 18,
+      "timestampUpdated": "1644953079",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "011144248400498896",
+      "courseName": "Old Course",
+      "numHoles": 9,
+      "timestampUpdated": "1683549890",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6e"
+  },
+  "clubID": "1210007213091",
+  "clubName": "Bad Bevensen",
+  "city": "Altenmedingen OT",
+  "state": "Nds",
+  "country": "Germany",
+  "address": "Dorfstrasse 22",
+  "timestampUpdated": "1622614534",
+  "courses": [
+    {
+      "courseID": "0121210007213091",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622614534",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc6f"
+  },
+  "clubID": "1435770646265498",
+  "clubName": "Bad Bramstedt e.V.",
+  "city": "Bad Bramstedt",
+  "state": "Schleswig-Holstein",
+  "country": "Germany",
+  "address": "Hamburger Strasse 61",
+  "timestampUpdated": "1622616929",
+  "courses": [
+    {
+      "courseID": "0111435770646259742",
+      "courseName": "Bad Bramstedt",
+      "numHoles": 9,
+      "timestampUpdated": "1622616929",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc70"
+  },
+  "clubID": "1322520729117954",
+  "clubName": "BAD DRIBURGER GOLFCLUB",
+  "city": "Bad Driburg",
+  "state": "",
+  "country": "Germany",
+  "address": "Georg-Nave-Str. 24a",
+  "timestampUpdated": "1685630813",
+  "courses": [
+    {
+      "courseID": "0121322519442326",
+      "courseName": "BAD DRIBURG",
+      "numHoles": 18,
+      "timestampUpdated": "1685630813",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc71"
+  },
+  "clubID": "1424942980863126",
+  "clubName": "Bad Griesbach - Porsche Golfcourse",
+  "city": "Rotthalmünster",
+  "state": "BAY",
+  "country": "Germany",
+  "address": "An der Rottwiese 1",
+  "timestampUpdated": "1622792093",
+  "courses": [
+    {
+      "courseID": "0121424942980857261",
+      "courseName": "Beckenbauer",
+      "numHoles": 18,
+      "timestampUpdated": "1622791798",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121424941598319832",
+      "courseName": "Porsche Golf Course",
+      "numHoles": 18,
+      "timestampUpdated": "1622792093",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc72"
+  },
+  "clubID": "1216040700884",
+  "clubName": "Bad Saulgau",
+  "city": "Bad Saulgau",
+  "state": "",
+  "country": "Germany",
+  "address": "Koppelweg 103",
+  "timestampUpdated": "1622792838",
+  "courses": [
+    {
+      "courseID": "0121216040700884",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622792838",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc73"
+  },
+  "clubID": "1208441857257",
+  "clubName": "Bad Vilbeler Golfclub Lindenhof e.V.",
+  "city": "Bad Vilbel-Dortelweil",
+  "state": "Hes",
+  "country": "Germany",
+  "address": "Lindenhof",
+  "timestampUpdated": "1686993946",
+  "courses": [
+    {
+      "courseID": "0121208441857257",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1686993946",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc74"
+  },
+  "clubID": "1408397686725828",
+  "clubName": "Bad Wörishofen",
+  "city": "Rieden",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Schlingenerstr 27",
+  "timestampUpdated": "1622794427",
+  "courses": [
+    {
+      "courseID": "0121594721581545758",
+      "courseName": "18 Loch - New Course 2020",
+      "numHoles": 18,
+      "timestampUpdated": "1622794427",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121562743248913384",
+      "courseName": "Umbau 9 Loch Umbaukurs 2019",
+      "numHoles": 18,
+      "timestampUpdated": "1618417208",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc75"
+  },
+  "clubID": "1350132252735414",
+  "clubName": "Baden Golf & Country Club",
+  "city": "Östringen-Tiefenbach",
+  "state": "",
+  "country": "Germany",
+  "address": "Birkenhof",
+  "timestampUpdated": "1618417208",
+  "courses": [
+    {
+      "courseID": "0121161716721645",
+      "courseName": "Maisterschaftsplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1618417208",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc76"
+  },
+  "clubID": "1385656190879812",
+  "clubName": "Baden Hills",
+  "city": "Hügelsheim",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1686738305",
+  "courses": [
+    {
+      "courseID": "0121385656190873175",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1686738305",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111686128054290145",
+      "courseName": "back 9",
+      "numHoles": 9,
+      "timestampUpdated": "1686142973",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "01213610244314913",
+      "courseName": "baden-hills",
+      "numHoles": 18,
+      "timestampUpdated": "1618417149",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0111686126773266279",
+      "courseName": "front 9",
+      "numHoles": 9,
+      "timestampUpdated": "1686142551",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc77"
+  },
+  "clubID": "1396198276358479",
+  "clubName": "Baltic Hills Usedom",
+  "city": "Korswandt",
+  "state": "",
+  "country": "Germany",
+  "address": "Hauptstraße 10",
+  "timestampUpdated": "1644952842",
+  "courses": [
+    {
+      "courseID": "0121396198276351761",
+      "courseName": "Baltic Hills",
+      "numHoles": 18,
+      "timestampUpdated": "1644952842",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc78"
+  },
+  "clubID": "1176131660261",
+  "clubName": "Bavarian Golfclub München-Eicherloh",
+  "city": "Eicherloh",
+  "state": "",
+  "country": "Germany",
+  "address": "Vordere Moosstraße 19",
+  "timestampUpdated": "1622876993",
+  "courses": [
+    {
+      "courseID": "0121176131660261",
+      "courseName": "Home",
+      "numHoles": 18,
+      "timestampUpdated": "1622876993",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc79"
+  },
+  "clubID": "1185294855450",
+  "clubName": "Bayern Hohenpähl",
+  "city": "Pähl",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Am Hochschloss",
+  "timestampUpdated": "1622878026",
+  "courses": [
+    {
+      "courseID": "0121185294855450",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622878026",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7a"
+  },
+  "clubID": "1255093955568",
+  "clubName": "Beckenbauer Golf course",
+  "city": "Rotthalmünster",
+  "state": "BAY",
+  "country": "Germany",
+  "address": "An der Rottwiese 1",
+  "timestampUpdated": "1685344680",
+  "courses": [
+    {
+      "courseID": "0121255093955568",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1685344680",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7b"
+  },
+  "clubID": "1531408429298481",
+  "clubName": "Bergen-Hohne Golfclub",
+  "city": "Bergen",
+  "state": "",
+  "country": "Germany",
+  "address": "Panzerstrasse 1",
+  "timestampUpdated": "1622889873",
+  "courses": [
+    {
+      "courseID": "0121531408429294861",
+      "courseName": "O'Dwyer Course",
+      "numHoles": 18,
+      "timestampUpdated": "1622889873",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7c"
+  },
+  "clubID": "1276208317247",
+  "clubName": "Bergisch Land",
+  "city": "Wuppertal",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Siebeneicker Straße 386",
+  "timestampUpdated": "1622890285",
+  "courses": [
+    {
+      "courseID": "0121276208317154",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1622890285",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7d"
+  },
+  "clubID": "1188732522579",
+  "clubName": "Bergkramerhof",
+  "city": "Wolfratshausen",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Bergkramerhof 1",
+  "timestampUpdated": "1623126847",
+  "courses": [
+    {
+      "courseID": "0121188732522579",
+      "courseName": "18 Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1623126847",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7e"
+  },
+  "clubID": "1376328666382765",
+  "clubName": "Berlin Golf Club Berlin",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623220692",
+  "courses": [
+    {
+      "courseID": "0121376215370939",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623220692",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc7f"
+  },
+  "clubID": "1182150110250",
+  "clubName": "Berlin Open",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417133",
+  "courses": [
+    {
+      "courseID": "0121182150110250",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417133",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc81"
+  },
+  "clubID": "1185102278864",
+  "clubName": "Berlin Wannsee",
+  "city": "Berlin",
+  "state": "",
+  "country": "Germany",
+  "address": "Golfweg 22",
+  "timestampUpdated": "1623201688",
+  "courses": [
+    {
+      "courseID": "0121185102278864",
+      "courseName": "18-Loch-Meisterschaftsplatz ",
+      "numHoles": 18,
+      "timestampUpdated": "1623201688",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc82"
+  },
+  "clubID": "1126625165680",
+  "clubName": "Berliner Golfclub Stolper Heide",
+  "city": "Hohen Neuendorf OT Stolpe",
+  "state": "Brandenburg",
+  "country": "Germany",
+  "address": "Am Golfplatz 1",
+  "timestampUpdated": "1623213589",
+  "courses": [
+    {
+      "courseID": "0121303976934259",
+      "courseName": "Ostplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1623213023",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0121295828426388",
+      "courseName": "Westplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1623213589",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc83"
+  },
+  "clubID": "1223880536639",
+  "clubName": "Biblis-Wattenheim",
+  "city": "Biblis-Wattenheim",
+  "state": "Hes",
+  "country": "Germany",
+  "address": "Golfparkallee 2",
+  "timestampUpdated": "1677408774",
+  "courses": [
+    {
+      "courseID": "011167740848429697",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1677408774",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111191159416868",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121191159416868",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131191159416868",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221191159416868",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231191159416868",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331191159416868",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1630069186",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc84"
+  },
+  "clubID": "1344956123788525",
+  "clubName": "Bielefelder Golfclub",
+  "city": "Bielefeld",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Dornberger Straße 377",
+  "timestampUpdated": "1644948902",
+  "courses": [
+    {
+      "courseID": "0121344956085328",
+      "courseName": "Bielefeld Golfclub",
+      "numHoles": 18,
+      "timestampUpdated": "1644948902",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc85"
+  },
+  "clubID": "1249897828372",
+  "clubName": "Bitburger Land",
+  "city": "Wißmannsdorf",
+  "state": "",
+  "country": "Germany",
+  "address": "Zur Weilersheck 1",
+  "timestampUpdated": "1623155756",
+  "courses": [
+    {
+      "courseID": "0121249897828372",
+      "courseName": "Bitburger Land",
+      "numHoles": 18,
+      "timestampUpdated": "1623155756",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc86"
+  },
+  "clubID": "1494238056279046",
+  "clubName": "Blau-Weiß-Rot eV 1922",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417207",
+  "courses": [
+    {
+      "courseID": "0121494238056278676",
+      "courseName": "6-Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1618417207",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc87"
+  },
+  "clubID": "1217889482565",
+  "clubName": "Bochumer Golfclub",
+  "city": "Bochum",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Im Mailand",
+  "timestampUpdated": "1644769786",
+  "courses": [
+    {
+      "courseID": "0121217889482565",
+      "courseName": "1-18",
+      "numHoles": 18,
+      "timestampUpdated": "1644769786",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc88"
+  },
+  "clubID": "1162987977474",
+  "clubName": "Bregenzerwald",
+  "city": "Steibis",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623247030",
+  "courses": [
+    {
+      "courseID": "0121162987977474",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623247030",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc89"
+  },
+  "clubID": "1351107394758792",
+  "clubName": "Britisch Army Golf Club Hohne",
+  "city": "Bergen",
+  "state": "Niedersachsen",
+  "country": "Germany",
+  "address": "Panzerstraße 1",
+  "timestampUpdated": "1623219361",
+  "courses": [
+    {
+      "courseID": "0121351107394752334",
+      "courseName": "Loch 1-18",
+      "numHoles": 18,
+      "timestampUpdated": "1623219361",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8a"
+  },
+  "clubID": "1313525674849",
+  "clubName": "Brückhausen",
+  "city": "Alverskirchen",
+  "state": "Nrw",
+  "country": "Germany",
+  "address": "Holling 4",
+  "timestampUpdated": "1648826763",
+  "courses": [
+    {
+      "courseID": "0121313525674846",
+      "courseName": "Brückhausen",
+      "numHoles": 18,
+      "timestampUpdated": "1648826763",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8b"
+  },
+  "clubID": "1250579660065",
+  "clubName": "Brunstorf",
+  "city": "Brunstorf",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Am Golfplatz 1",
+  "timestampUpdated": "1685039948",
+  "courses": [
+    {
+      "courseID": "0121262807491969",
+      "courseName": "Championship Course",
+      "numHoles": 18,
+      "timestampUpdated": "1685039948",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111250417117777",
+      "courseName": "Süd",
+      "numHoles": 9,
+      "timestampUpdated": "1628064733",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8c"
+  },
+  "clubID": "1331388036465648",
+  "clubName": "Buchenhof Hetzbach",
+  "city": "Beerfelden",
+  "state": "D",
+  "country": "Germany",
+  "address": "Ritterstrasse 8",
+  "timestampUpdated": "1623138289",
+  "courses": [
+    {
+      "courseID": "0111331388036459057",
+      "courseName": "Buchenhof Hetzbach",
+      "numHoles": 9,
+      "timestampUpdated": "1623138289",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8d"
+  },
+  "clubID": "1187287650026",
+  "clubName": "Burgdorfer Golfclub",
+  "city": "Burgdorf",
+  "state": "Nds",
+  "country": "Germany",
+  "address": "Waldstr",
+  "timestampUpdated": "1623138591",
+  "courses": [
+    {
+      "courseID": "0121187287650026",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623138591",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8e"
+  },
+  "clubID": "1091039614595",
+  "clubName": "CGC Chiemsee Golf Club",
+  "city": "Prien",
+  "state": "Ba",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623234470",
+  "courses": [
+    {
+      "courseID": "0121091039614595",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623234470",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc8f"
+  },
+  "clubID": "1238952586223",
+  "clubName": "Chieming",
+  "city": "Chieming",
+  "state": "Ba",
+  "country": "Germany",
+  "address": "Kötzing 1",
+  "timestampUpdated": "1623235023",
+  "courses": [
+    {
+      "courseID": "0121238952586223",
+      "courseName": "Chieming",
+      "numHoles": 18,
+      "timestampUpdated": "1623235023",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc90"
+  },
+  "clubID": "1562080774814037",
+  "clubName": "Club zur Vahr",
+  "city": "Bremen",
+  "state": "",
+  "country": "Germany",
+  "address": "Bürgermeister-Spitta-Allee 34",
+  "timestampUpdated": "1623227086",
+  "courses": [
+    {
+      "courseID": "0121562080774809961",
+      "courseName": "Vahr",
+      "numHoles": 18,
+      "timestampUpdated": "1623227086",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc91"
+  },
+  "clubID": "1191486617962",
+  "clubName": "Club zur Vahr Garlstedt",
+  "city": "Osterholz",
+  "state": "HB",
+  "country": "Germany",
+  "address": "Am Golfplatz 10",
+  "timestampUpdated": "1633742444",
+  "courses": [
+    {
+      "courseID": "0121191486617962",
+      "courseName": "Garlstedter Heide",
+      "numHoles": 18,
+      "timestampUpdated": "1633742444",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc92"
+  },
+  "clubID": "1305190309569",
+  "clubName": "D-7711   GC Freudenstadt",
+  "city": "Freudenstadt",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Ziegelwäldle 3",
+  "timestampUpdated": "1623231821",
+  "courses": [
+    {
+      "courseID": "0121305190309449",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623231821",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc93"
+  },
+  "clubID": "1189709150762",
+  "clubName": "Dachau",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623262325",
+  "courses": [
+    {
+      "courseID": "0121189709150762",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623262325",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc94"
+  },
+  "clubID": "1357814480528294",
+  "clubName": "Deggendorfer Golfclub e.V.",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623263483",
+  "courses": [
+    {
+      "courseID": "0121357814480521798",
+      "courseName": "Rusel",
+      "numHoles": 18,
+      "timestampUpdated": "1623263483",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc95"
+  },
+  "clubID": "1316463649688",
+  "clubName": "Der golfclub am obinger see",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "Obing",
+  "timestampUpdated": "1623239538",
+  "courses": [
+    {
+      "courseID": "0111316460770258",
+      "courseName": "obing",
+      "numHoles": 9,
+      "timestampUpdated": "1623239538",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc96"
+  },
+  "clubID": "1127901259938",
+  "clubName": "Dirk Steinhoff Golf GmbH",
+  "city": "38324 Kissenbrück",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623412031",
+  "courses": [
+    {
+      "courseID": "0121127901259938",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623412031",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc97"
+  },
+  "clubID": "1201521660629",
+  "clubName": "Domtal Mommenheim",
+  "city": "Mommenheim",
+  "state": "",
+  "country": "Germany",
+  "address": "Am Golfplatz 1",
+  "timestampUpdated": "1637494749",
+  "courses": [
+    {
+      "courseID": "0121201521660629",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1637494749",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc98"
+  },
+  "clubID": "1208371467631",
+  "clubName": "Donau Golfclub Passau-Raßbach",
+  "city": "Thyrnau",
+  "state": "BAYERN",
+  "country": "Germany",
+  "address": "Raßbach 8",
+  "timestampUpdated": "1623305537",
+  "courses": [
+    {
+      "courseID": "0121208371467631",
+      "courseName": "18-Loch Platz",
+      "numHoles": 18,
+      "timestampUpdated": "1623303020",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111426970111901380",
+      "courseName": "6-Loch Platz",
+      "numHoles": 9,
+      "timestampUpdated": "1623305537",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc99"
+  },
+  "clubID": "1122565241590",
+  "clubName": "Dortmund-Brakel",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417129",
+  "courses": [
+    {
+      "courseID": "0121122565241590",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417129",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9a"
+  },
+  "clubID": "1402082749142059",
+  "clubName": "Dr.Velte",
+  "city": "Cologne",
+  "state": "",
+  "country": "Germany",
+  "address": "Urbanusstrasse",
+  "timestampUpdated": "1639649124",
+  "courses": [
+    {
+      "courseID": "0121402080603668",
+      "courseName": "St.Urbanus",
+      "numHoles": 18,
+      "timestampUpdated": "1639649124",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9b"
+  },
+  "clubID": "1207570315293",
+  "clubName": "Drei Thermen Quellenhof",
+  "city": "Bad Bellingen",
+  "state": "BW",
+  "country": "Germany",
+  "address": "am Golfplatz 3",
+  "timestampUpdated": "1687161282",
+  "courses": [
+    {
+      "courseID": "0121207570315293",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1687161282",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9c"
+  },
+  "clubID": "1321167743494476",
+  "clubName": "Dreifelden",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417144",
+  "courses": [
+    {
+      "courseID": "0121316791405052",
+      "courseName": "Dreifelden",
+      "numHoles": 18,
+      "timestampUpdated": "1618417144",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9d"
+  },
+  "clubID": "1212951804572",
+  "clubName": "Dusseldorf",
+  "city": "Dusseldorf",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417134",
+  "courses": [
+    {
+      "courseID": "0121212951804572",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417134",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9e"
+  },
+  "clubID": "1446494925279250",
+  "clubName": "Düsseldorf Golf-Club e. V.",
+  "city": "Ratingen",
+  "state": "",
+  "country": "Germany",
+  "address": "Rommeljansweg 12",
+  "timestampUpdated": "1623318252",
+  "courses": [
+    {
+      "courseID": "0121446494925273152",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623318252",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dc9f"
+  },
+  "clubID": "1303987760667",
+  "clubName": "Eberle Golfpark Johanneskirchen",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417141",
+  "courses": [
+    {
+      "courseID": "0121303987760548",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417141",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca0"
+  },
+  "clubID": "1207428558723",
+  "clubName": "Ebersberg",
+  "city": "Steinhöring",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Zaißling 6",
+  "timestampUpdated": "1623613858",
+  "courses": [
+    {
+      "courseID": "0111246306219170",
+      "courseName": "9-Loch Platz",
+      "numHoles": 9,
+      "timestampUpdated": "1623613858",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121157053875756",
+      "courseName": "GC Ebersberg - Championship Course",
+      "numHoles": 18,
+      "timestampUpdated": "1623322101",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca1"
+  },
+  "clubID": "1687018702656872",
+  "clubName": "Eichenried  BMW Int.Open Altern. 9 Löcher",
+  "city": "Eichenried",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1687019139",
+  "courses": [
+    {
+      "courseID": "0111687019139144593",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1687019139",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca2"
+  },
+  "clubID": "1154611747446",
+  "clubName": "Elfrather Muehle",
+  "city": "Krefeld",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "An der Elfrather Mühle 145",
+  "timestampUpdated": "1629037483",
+  "courses": [
+    {
+      "courseID": "0111537509616907975",
+      "courseName": "AA 1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1629037483",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121154611747446",
+      "courseName": "AB 1-18 ",
+      "numHoles": 18,
+      "timestampUpdated": "1628687533",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111537509210413554",
+      "courseName": "BB 10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1629034038",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca3"
+  },
+  "clubID": "1341156562544140",
+  "clubName": "Elkofen Grafing",
+  "city": "Grafing",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623403760",
+  "courses": [
+    {
+      "courseID": "0121341156562537108",
+      "courseName": "Elkofen Grafing",
+      "numHoles": 18,
+      "timestampUpdated": "1623403760",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca4"
+  },
+  "clubID": "1402319445573063",
+  "clubName": "Erster Golfclub Westpfalz",
+  "city": "Rieschweiler-Mühlbach",
+  "state": "",
+  "country": "Germany",
+  "address": "Hitscherhof",
+  "timestampUpdated": "1665471621",
+  "courses": [
+    {
+      "courseID": "0121402319445566337",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1665471621",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca5"
+  },
+  "clubID": "1249901809452",
+  "clubName": "Escheburg",
+  "city": "Escheburg",
+  "state": "",
+  "country": "Germany",
+  "address": "Am Soll 3",
+  "timestampUpdated": "1623408280",
+  "courses": [
+    {
+      "courseID": "0121249901809452",
+      "courseName": "18 hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623408280",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111537181347956202",
+      "courseName": "6 hole north course",
+      "numHoles": 9,
+      "timestampUpdated": "1618417206",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca6"
+  },
+  "clubID": "1151046056279",
+  "clubName": "Eschenhof",
+  "city": "München",
+  "state": "BAV",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623411232",
+  "courses": [
+    {
+      "courseID": "0121151046056279",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623411232",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca7"
+  },
+  "clubID": "1248900626487",
+  "clubName": "Essener Golfclub Haus Oefte",
+  "city": "Essen",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623672231",
+  "courses": [
+    {
+      "courseID": "0121248900626487",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623672231",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca8"
+  },
+  "clubID": "1250942446656",
+  "clubName": "Europäischer Golfclub Elmpter Wald e.V.",
+  "city": "Niederkrüchten",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Roermonder Straße (ehemaliger Flughafen Elmpt) Javeline Kaserne",
+  "timestampUpdated": "1647207132",
+  "courses": [
+    {
+      "courseID": "0121250942446656",
+      "courseName": "Europäischer Golfclub Elmpter Wald e.V.",
+      "numHoles": 18,
+      "timestampUpdated": "1647207132",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dca9"
+  },
+  "clubID": "1382898147109559",
+  "clubName": "Europapark GC Breisgau",
+  "city": "Herbolzheim-Tutschfelden",
+  "state": "BAW",
+  "country": "Germany",
+  "address": "Am Golfpark 1",
+  "timestampUpdated": "1644952907",
+  "courses": [
+    {
+      "courseID": "0111376852274015",
+      "courseName": "1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1623419055",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111376850971965",
+      "courseName": "10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1618417152",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0111353006635340728",
+      "courseName": "Heckenrose",
+      "numHoles": 9,
+      "timestampUpdated": "1623483226",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121403284885108753",
+      "courseName": "Rebland",
+      "numHoles": 18,
+      "timestampUpdated": "1644952907",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcaa"
+  },
+  "clubID": "1257627433802",
+  "clubName": "faf",
+  "city": "Germering",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417139",
+  "courses": [
+    {
+      "courseID": "0121257627433802",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417139",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcab"
+  },
+  "clubID": "1215203182767",
+  "clubName": "Felderbach",
+  "city": "Sprockhövel",
+  "state": "WUP",
+  "country": "Germany",
+  "address": "Frielinghausen 1",
+  "timestampUpdated": "1644768234",
+  "courses": [
+    {
+      "courseID": "0121215203182767",
+      "courseName": "Felderbach",
+      "numHoles": 18,
+      "timestampUpdated": "1644768234",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcac"
+  },
+  "clubID": "1214577178869",
+  "clubName": "Fleesensee",
+  "city": "Göhren-Lebbin",
+  "state": "MV",
+  "country": "Germany",
+  "address": "Tannenweg 1",
+  "timestampUpdated": "1661697295",
+  "courses": [
+    {
+      "courseID": "0121154193136444",
+      "courseName": "B2B",
+      "numHoles": 18,
+      "timestampUpdated": "1661697295",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121154808859094",
+      "courseName": "Engel & Völkers",
+      "numHoles": 18,
+      "timestampUpdated": "1644764122",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121154855942003",
+      "courseName": "Schloss",
+      "numHoles": 18,
+      "timestampUpdated": "1661062533",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111185394466000",
+      "courseName": "Synchron aka Coca-Cola",
+      "numHoles": 9,
+      "timestampUpdated": "1623498555",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcad"
+  },
+  "clubID": "1181765852290",
+  "clubName": "Foerde-Golf-Club",
+  "city": "Gluecksburg",
+  "state": "SH",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1644764891",
+  "courses": [
+    {
+      "courseID": "0121181765852290",
+      "courseName": "Course 2015",
+      "numHoles": 18,
+      "timestampUpdated": "1644764891",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcae"
+  },
+  "clubID": "1215461928712",
+  "clubName": "Ford Club Köln",
+  "city": "Cologne",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Parallelweg 1",
+  "timestampUpdated": "1623502053",
+  "courses": [
+    {
+      "courseID": "0121215440450195",
+      "courseName": "Erster",
+      "numHoles": 18,
+      "timestampUpdated": "1623502053",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcaf"
+  },
+  "clubID": "1181849710073",
+  "clubName": "Förde-Golf-Club",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623503213",
+  "courses": [
+    {
+      "courseID": "0121181849710073",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623503213",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111529239060816259",
+      "courseName": "Course 9 OUT",
+      "numHoles": 9,
+      "timestampUpdated": "1618417205",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb0"
+  },
+  "clubID": "1212497270932",
+  "clubName": "Frankfurter Golf Club e.V.",
+  "city": "Frankfurt am Main",
+  "state": "",
+  "country": "Germany",
+  "address": "Golfstrasse 41",
+  "timestampUpdated": "1623508180",
+  "courses": [
+    {
+      "courseID": "0121212497270932",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623508180",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb1"
+  },
+  "clubID": "1383321382922449",
+  "clubName": "Freiburger Golf Club",
+  "city": "Kirchzarten",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Krüttweg 1",
+  "timestampUpdated": "1655995192",
+  "courses": [
+    {
+      "courseID": "0121213560475259",
+      "courseName": "Loch 1 - 18",
+      "numHoles": 18,
+      "timestampUpdated": "1654169113",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121383321382915011",
+      "courseName": "to be deleted / old course before renovation",
+      "numHoles": 18,
+      "timestampUpdated": "1655995192",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb2"
+  },
+  "clubID": "1157876229144",
+  "clubName": "Friedberg",
+  "city": "Friedberg",
+  "state": "HE",
+  "country": "Germany",
+  "address": "Am Golfplatz",
+  "timestampUpdated": "1624452467",
+  "courses": [
+    {
+      "courseID": "0121157876229144",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623654006",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111245076544729",
+      "courseName": "9 Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1624452467",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb3"
+  },
+  "clubID": "1157523743876",
+  "clubName": "Fürstlicher Golfclub Bad Waldsee",
+  "city": "Bad Waldsee",
+  "state": "BW",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623663898",
+  "courses": [
+    {
+      "courseID": "0121157523743876",
+      "courseName": "Bad Waldsee - New Course, Fürstl. Golfclub",
+      "numHoles": 18,
+      "timestampUpdated": "1623663898",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb4"
+  },
+  "clubID": "1146342093141",
+  "clubName": "G+M",
+  "city": "Duisburg",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417140",
+  "courses": [
+    {
+      "courseID": "0121146341253028",
+      "courseName": "Nord",
+      "numHoles": 18,
+      "timestampUpdated": "1618417140",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0121146342093141",
+      "courseName": "Sued",
+      "numHoles": 18,
+      "timestampUpdated": "1618417140",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb5"
+  },
+  "clubID": "1305812258134",
+  "clubName": "GC Altenhof e.V.",
+  "city": "Altenhof",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623669082",
+  "courses": [
+    {
+      "courseID": "0121305812258014",
+      "courseName": "GC Altenhof",
+      "numHoles": 18,
+      "timestampUpdated": "1623669082",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb6"
+  },
+  "clubID": "1249143834290",
+  "clubName": "GC am Deister",
+  "city": "Bad Münder",
+  "state": "Nds",
+  "country": "Germany",
+  "address": "Osterberg 2",
+  "timestampUpdated": "1623670690",
+  "courses": [
+    {
+      "courseID": "0121249143834290",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623670690",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb7"
+  },
+  "clubID": "1362649915213692",
+  "clubName": "Gc am Harrl",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623935921",
+  "courses": [
+    {
+      "courseID": "0111362649784360",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1623935921",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb8"
+  },
+  "clubID": "1211646280636",
+  "clubName": "GC am Sachsenwald",
+  "city": "Dassendorf",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Am Riesenbett",
+  "timestampUpdated": "1644767154",
+  "courses": [
+    {
+      "courseID": "0121211646280636",
+      "courseName": "18 hole Championship course",
+      "numHoles": 18,
+      "timestampUpdated": "1644767154",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111537249055959669",
+      "courseName": "6 hole shortcourse",
+      "numHoles": 9,
+      "timestampUpdated": "1623675380",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcb9"
+  },
+  "clubID": "1184171746580",
+  "clubName": "GC an der Schlei",
+  "city": "Güby",
+  "state": "SH",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623913198",
+  "courses": [
+    {
+      "courseID": "0121183454068347",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623913198",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcba"
+  },
+  "clubID": "1214911200311",
+  "clubName": "GC Anthal-Waginger See",
+  "city": "Fridolfing",
+  "state": "Bay",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1627122314",
+  "courses": [
+    {
+      "courseID": "0111214911200311",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1627122314",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcbb"
+  },
+  "clubID": "1319453911104308",
+  "clubName": "GC Bad Herrenalb-Bernbach",
+  "city": "Bad Herrenalb",
+  "state": "",
+  "country": "Germany",
+  "address": "Bernbacher Strasse",
+  "timestampUpdated": "1627122441",
+  "courses": [
+    {
+      "courseID": "0111319292166223",
+      "courseName": "Bad Herrenalb",
+      "numHoles": 9,
+      "timestampUpdated": "1627122441",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcbc"
+  },
+  "clubID": "1330589787808537",
+  "clubName": "GC Bad Mergentheim",
+  "city": "Igersheim",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Erlenbachtalstr. 36",
+  "timestampUpdated": "1629552060",
+  "courses": [
+    {
+      "courseID": "0111330589787801921",
+      "courseName": "9 Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1629552060",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcbd"
+  },
+  "clubID": "1242031298130",
+  "clubName": "GC Bad Rappenau - D7746",
+  "city": "Bad Rappenau",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Ehrenbergstr.25 A",
+  "timestampUpdated": "1623748686",
+  "courses": [
+    {
+      "courseID": "0121242031298130",
+      "courseName": "1-18",
+      "numHoles": 18,
+      "timestampUpdated": "1623746111",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111469989749414466",
+      "courseName": "1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1623746481",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111469989982240992",
+      "courseName": "10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1623748686",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcbe"
+  },
+  "clubID": "1209679557659",
+  "clubName": "GC Bad Segeberg",
+  "city": "Bad Segeberg",
+  "state": "SH",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623942501",
+  "courses": [
+    {
+      "courseID": "0121209679557659",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623942501",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcbf"
+  },
+  "clubID": "1131199093351",
+  "clubName": "GC Bensheim",
+  "city": "Bensheim",
+  "state": "HE",
+  "country": "Germany",
+  "address": "Außerhalb 56",
+  "timestampUpdated": "1623755421",
+  "courses": [
+    {
+      "courseID": "0121131199093351",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623755421",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc0"
+  },
+  "clubID": "1087600341531",
+  "clubName": "GC Beuerberg",
+  "city": "Beuerberg",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1644757343",
+  "courses": [
+    {
+      "courseID": "0121087600341531",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1644757343",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc1"
+  },
+  "clubID": "1222110322723",
+  "clubName": "GC Bonn",
+  "city": "Sankt Augustin",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623759736",
+  "courses": [
+    {
+      "courseID": "0121222110322723",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623759736",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc2"
+  },
+  "clubID": "1206116606960",
+  "clubName": "GC Brodauer Mühle",
+  "city": "Schashagen",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Baumallee 14",
+  "timestampUpdated": "1623764111",
+  "courses": [
+    {
+      "courseID": "0121206116606960",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1623764111",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc3"
+  },
+  "clubID": "1312479481386",
+  "clubName": "GC Bruckmannshof",
+  "city": "Hünxe-Bruckhausen",
+  "state": "",
+  "country": "Germany",
+  "address": "An den Höfen 7",
+  "timestampUpdated": "1623764506",
+  "courses": [
+    {
+      "courseID": "0111427210481962587",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1623764506",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc4"
+  },
+  "clubID": "1275432102499",
+  "clubName": "GC Buchholz / Nordheide",
+  "city": "Buchholz",
+  "state": "",
+  "country": "Germany",
+  "address": "An der Rehm 25",
+  "timestampUpdated": "1644946531",
+  "courses": [
+    {
+      "courseID": "0121275432102412",
+      "courseName": "GC-Buchholz",
+      "numHoles": 18,
+      "timestampUpdated": "1644946531",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc5"
+  },
+  "clubID": "1119079497734",
+  "clubName": "GC Burg Zievel",
+  "city": "Mechernich",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Burg Zievel",
+  "timestampUpdated": "1624001982",
+  "courses": [
+    {
+      "courseID": "0121119079497734",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1624001982",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc6"
+  },
+  "clubID": "1209282526884",
+  "clubName": "GC Burghausen",
+  "city": "Haiming",
+  "state": "",
+  "country": "Germany",
+  "address": "Piesing 4",
+  "timestampUpdated": "1624003464",
+  "courses": [
+    {
+      "courseID": "0121209282526884",
+      "courseName": "Piesing",
+      "numHoles": 18,
+      "timestampUpdated": "1624003464",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc7"
+  },
+  "clubID": "1120174692012",
+  "clubName": "GC Buxtehude",
+  "city": "Buxtehude",
+  "state": "NS",
+  "country": "Germany",
+  "address": "Zum Lehmfeld 1",
+  "timestampUpdated": "1624003905",
+  "courses": [
+    {
+      "courseID": "0111439192630810390",
+      "courseName": "1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1623828084",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111439193307976711",
+      "courseName": "10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1623831660",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121120174692012",
+      "courseName": "Damen, Herren 1-18",
+      "numHoles": 18,
+      "timestampUpdated": "1624003905",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc8"
+  },
+  "clubID": "1246894398530",
+  "clubName": "GC Castrop-Rauxel",
+  "city": "Castrop-Rauxel",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Dortmunder Str. 222",
+  "timestampUpdated": "1655674605",
+  "courses": [
+    {
+      "courseID": "0111370380042771975",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121370380042771975",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131370380042771975",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221370380042771975",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231370380042771975",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331370380042771975",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1655674605",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcc9"
+  },
+  "clubID": "1126997110582",
+  "clubName": "GC Darmstadt Traisa",
+  "city": "Mühltal",
+  "state": "Hes",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1625161736",
+  "courses": [
+    {
+      "courseID": "0121126997110582",
+      "courseName": "9 Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1625161736",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcca"
+  },
+  "clubID": "1407488385205012",
+  "clubName": "GC Deichgrafenhof",
+  "city": "Tating",
+  "state": "",
+  "country": "Germany",
+  "address": "Esing 7",
+  "timestampUpdated": "1623851203",
+  "courses": [
+    {
+      "courseID": "0111407488385198512",
+      "courseName": "Open County",
+      "numHoles": 9,
+      "timestampUpdated": "1623851203",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dccb"
+  },
+  "clubID": "1179298404325",
+  "clubName": "GC Dillingen-Nusseralm",
+  "city": "Dillingen",
+  "state": "Bay",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1624010537",
+  "courses": [
+    {
+      "courseID": "0111179298404325",
+      "courseName": "GC Dillingen",
+      "numHoles": 9,
+      "timestampUpdated": "1624010537",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dccc"
+  },
+  "clubID": "1096655410843",
+  "clubName": "GC Dithmarschen",
+  "city": "Warwerort",
+  "state": "SH",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1623922740",
+  "courses": [
+    {
+      "courseID": "0121096655410843",
+      "courseName": "18-Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1623912722",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "011137382007146234",
+      "courseName": "Loch 1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1623914938",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "011137381948783523",
+      "courseName": "Loch 10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1623922740",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dccd"
+  },
+  "clubID": "1190040386250",
+  "clubName": "GC Domaene Niederreutin",
+  "city": "Bondorf",
+  "state": "BW",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1644955827",
+  "courses": [
+    {
+      "courseID": "0111191233479109",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121191233479109",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131191233479109",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221191233479109",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231191233479109",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331191233479109",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644955827",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121579762079493604",
+      "courseName": "Aramis Platz",
+      "numHoles": 18,
+      "timestampUpdated": "1625210587",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcce"
+  },
+  "clubID": "1349199799457457",
+  "clubName": "GC Donau-Riss",
+  "city": "Ehingen-Rißtissen",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Herrschaftslüssen 1",
+  "timestampUpdated": "1624012765",
+  "courses": [
+    {
+      "courseID": "0121349199797960344",
+      "courseName": "GC Donau-Riss",
+      "numHoles": 18,
+      "timestampUpdated": "1624012576",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111535103015597493",
+      "courseName": "Kurzplatz",
+      "numHoles": 9,
+      "timestampUpdated": "1624012765",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dccf"
+  },
+  "clubID": "1126696090805",
+  "clubName": "GC Donauwörth Lederstatt",
+  "city": "Donauwörth",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Lederstadt",
+  "timestampUpdated": "1644763254",
+  "courses": [
+    {
+      "courseID": "0111555503077469304",
+      "courseName": "1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1623928150",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121126696090805",
+      "courseName": "18 Holes",
+      "numHoles": 18,
+      "timestampUpdated": "1644763254",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd0"
+  },
+  "clubID": "1312899707467",
+  "clubName": "GC Dortmunder Golfclub e.V.",
+  "city": "Dortmund",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Reichsmarkstr. 12",
+  "timestampUpdated": "1624519289",
+  "courses": [
+    {
+      "courseID": "0121312899707465",
+      "courseName": "Meisterschaftsplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1624519289",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd1"
+  },
+  "clubID": "1183024936371",
+  "clubName": "GC Drei Gleichen Mühlberg",
+  "city": "Mühlberg",
+  "state": "TH",
+  "country": "Germany",
+  "address": "Gut Ringhofen",
+  "timestampUpdated": "1644765127",
+  "courses": [
+    {
+      "courseID": "0121183024936371",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1644765127",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd2"
+  },
+  "clubID": "1337374352716255",
+  "clubName": "GC Düren",
+  "city": "Düren",
+  "state": "",
+  "country": "Germany",
+  "address": "Am Golfplatz 2",
+  "timestampUpdated": "1633018323",
+  "courses": [
+    {
+      "courseID": "0121337374303521",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1633014126",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111633015987593971",
+      "courseName": "Back 9, Tee Green",
+      "numHoles": 9,
+      "timestampUpdated": "1633015987",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0111633018323534441",
+      "courseName": "Front 9, Tee Green",
+      "numHoles": 9,
+      "timestampUpdated": "1633018323",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd3"
+  },
+  "clubID": "1371299566118543",
+  "clubName": "GC Fulda Rhön",
+  "city": "Fulda",
+  "state": "HESSEN",
+  "country": "Germany",
+  "address": "Postfach 1403 ",
+  "timestampUpdated": "1625058677",
+  "courses": [
+    {
+      "courseID": "0121371299091515",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625058677",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd4"
+  },
+  "clubID": "1502274853402604",
+  "clubName": "GC Furth im Wald e. V.",
+  "city": "Furth im Wald",
+  "state": "",
+  "country": "Germany",
+  "address": "Voitenberg 3",
+  "timestampUpdated": "1625036709",
+  "courses": [
+    {
+      "courseID": "0121502274853399572",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625036709",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd5"
+  },
+  "clubID": "1177262425757",
+  "clubName": "GC Gatow",
+  "city": "Berlin",
+  "state": "BB",
+  "country": "Germany",
+  "address": "Sparnecker Weg 100",
+  "timestampUpdated": "1624535430",
+  "courses": [
+    {
+      "courseID": "0121177262425757",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1624535430",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd6"
+  },
+  "clubID": "1125646385844",
+  "clubName": "GC Gäuboden",
+  "city": "Aiterhofen",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Fruhstorf 6",
+  "timestampUpdated": "1644949280",
+  "courses": [
+    {
+      "courseID": "0121125646385844",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1624538415",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "012137940938818919",
+      "courseName": "Pay and Play",
+      "numHoles": 18,
+      "timestampUpdated": "1644949280",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd7"
+  },
+  "clubID": "1369932490451958",
+  "clubName": "GC Geierstal",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1627145055",
+  "courses": [
+    {
+      "courseID": "0111369932245649",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1627145055",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd8"
+  },
+  "clubID": "1379572140571830",
+  "clubName": "GC Gelstern Lüdenscheid Schalksmühle",
+  "city": "Schalksmühle",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Gelstern 2",
+  "timestampUpdated": "1625038675",
+  "courses": [
+    {
+      "courseID": "0121379571610679",
+      "courseName": "Schalksmühle",
+      "numHoles": 18,
+      "timestampUpdated": "1625038675",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcd9"
+  },
+  "clubID": "1468969474203097",
+  "clubName": "GC Gernsheim",
+  "city": "Gernsheim-Allmendfeld",
+  "state": "",
+  "country": "Germany",
+  "address": "Golfparkallee 1",
+  "timestampUpdated": "1644953358",
+  "courses": [
+    {
+      "courseID": "0121468969474202376",
+      "courseName": "Lufthansa Cource",
+      "numHoles": 18,
+      "timestampUpdated": "1644953358",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcda"
+  },
+  "clubID": "1204999112618",
+  "clubName": "GC Gernsheim Hof Gräbenbruch",
+  "city": "Gernsheim-Allmendfeld",
+  "state": "Hes",
+  "country": "Germany",
+  "address": "Golfparkallee 1",
+  "timestampUpdated": "1644962950",
+  "courses": [
+    {
+      "courseID": "0121630736825231411",
+      "courseName": "Lufthansa course ",
+      "numHoles": 18,
+      "timestampUpdated": "1630738483",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121204999112618",
+      "courseName": "Parklandplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1644962950",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcdb"
+  },
+  "clubID": "1250963187124",
+  "clubName": "GC Gimborner Land",
+  "city": "Gummersbach-Berghausen",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Kreutzstraße 10",
+  "timestampUpdated": "1627378596",
+  "courses": [
+    {
+      "courseID": "0111250963187124",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1627378596",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcdc"
+  },
+  "clubID": "1345980583612805",
+  "clubName": "GC Glashofen Neusaß e.V.",
+  "city": "Walldürn-Neusaß",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Mühlweg 7",
+  "timestampUpdated": "1644787823",
+  "courses": [
+    {
+      "courseID": "0111345387485303756",
+      "courseName": "9-Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1627553848",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121242769156324",
+      "courseName": "Meisterschaftsplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1644787823",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcdd"
+  },
+  "clubID": "1257288358814",
+  "clubName": "GC Goeppingen",
+  "city": "Goeppingen",
+  "state": "",
+  "country": "Germany",
+  "address": "Fraunhoferstraße 2",
+  "timestampUpdated": "1627554545",
+  "courses": [
+    {
+      "courseID": "0111257288358814",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1627554545",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcde"
+  },
+  "clubID": "1147379205218",
+  "clubName": "GC Grafenberg-Düsseldorf e.V.",
+  "city": "Düsseldorf",
+  "state": "",
+  "country": "Germany",
+  "address": "Rennbahnstr. 24 - 26",
+  "timestampUpdated": "1624614680",
+  "courses": [
+    {
+      "courseID": "0121147379205218",
+      "courseName": "Golfclub Düsseldorf-Grafenberg",
+      "numHoles": 18,
+      "timestampUpdated": "1624614680",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcdf"
+  },
+  "clubID": "1205685657512",
+  "clubName": "GC Grömitz",
+  "city": "Grömitz",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Am Schoor 46",
+  "timestampUpdated": "1625103696",
+  "courses": [
+    {
+      "courseID": "0121205685657512",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625103696",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce0"
+  },
+  "clubID": "1273402081014",
+  "clubName": "GC Großensee",
+  "city": "Großensee",
+  "state": "",
+  "country": "Germany",
+  "address": "Hamburger Str. 29",
+  "timestampUpdated": "1659775842",
+  "courses": [
+    {
+      "courseID": "0121273402080930",
+      "courseName": "GC Großensee",
+      "numHoles": 18,
+      "timestampUpdated": "1659594791",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111659775557608311",
+      "courseName": "GC Großensee Kurzplatz",
+      "numHoles": 9,
+      "timestampUpdated": "1659775842",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce1"
+  },
+  "clubID": "1120213930452",
+  "clubName": "GC Gut Deinster Geest",
+  "city": "Deinste",
+  "state": "N",
+  "country": "Germany",
+  "address": "Im Mühlenfeld 30",
+  "timestampUpdated": "1624623397",
+  "courses": [
+    {
+      "courseID": "0121120213930452",
+      "courseName": "1-18",
+      "numHoles": 18,
+      "timestampUpdated": "1624623397",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111597993095984559",
+      "courseName": "1-9",
+      "numHoles": 9,
+      "timestampUpdated": "1618417212",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111598000833660800",
+      "courseName": "10-18",
+      "numHoles": 9,
+      "timestampUpdated": "1618417212",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce2"
+  },
+  "clubID": "1119799739755",
+  "clubName": "GC Gut Kaden",
+  "city": "Alveslohe",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Kadener Str. 9",
+  "timestampUpdated": "1667812967",
+  "courses": [
+    {
+      "courseID": "0111119799739755",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121119799739755",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131119799739755",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221119799739755",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231119799739755",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331119799739755",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1667812967",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce3"
+  },
+  "clubID": "1218625067930",
+  "clubName": "GC Gut Lärchenhof",
+  "city": "Pullheim-Stommeln",
+  "state": "",
+  "country": "Germany",
+  "address": "Hahnenstraße",
+  "timestampUpdated": "1625727977",
+  "courses": [
+    {
+      "courseID": "0121218625067930",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625727977",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce4"
+  },
+  "clubID": "1207757249208",
+  "clubName": "GC Gut Neuenhof",
+  "city": "Fröndenberg",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Eulenstr. 58",
+  "timestampUpdated": "1625114257",
+  "courses": [
+    {
+      "courseID": "0121207757249208",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625114257",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce5"
+  },
+  "clubID": "1332787498654160",
+  "clubName": "GC Gut Wissmannshof",
+  "city": "Staufenberg",
+  "state": "",
+  "country": "Germany",
+  "address": "Wissmannshof 1",
+  "timestampUpdated": "1644950882",
+  "courses": [
+    {
+      "courseID": "012156278549080859",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1644950882",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce6"
+  },
+  "clubID": "1410623717761631",
+  "clubName": "GC Gütermann Gutach e.V.",
+  "city": "Gutach",
+  "state": "",
+  "country": "Germany",
+  "address": "Golfstrasse 16/1",
+  "timestampUpdated": "1627972043",
+  "courses": [
+    {
+      "courseID": "0111410623717755226",
+      "courseName": "Guetermann",
+      "numHoles": 9,
+      "timestampUpdated": "1627972043",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce7"
+  },
+  "clubID": "1321113698853482",
+  "clubName": "GC Hamburg-Holm",
+  "city": "Holm",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Haverkamp 1",
+  "timestampUpdated": "1644951077",
+  "courses": [
+    {
+      "courseID": "0111321113698846675",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0121321113698846675",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0131321113698846675",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0221321113698846675",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0231321113698846675",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0331321113698846675",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644951077",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce8"
+  },
+  "clubID": "1149973152817",
+  "clubName": "GC Hamm - Gut Drechen",
+  "city": "Hamm",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Gobel von Drechen Str. 8a",
+  "timestampUpdated": "1626096412",
+  "courses": [
+    {
+      "courseID": "0121149973152817",
+      "courseName": "Meisterschaftsplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1626096412",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dce9"
+  },
+  "clubID": "1217834709238",
+  "clubName": "GC Hanau-Wilhelmsbad",
+  "city": "Hanau",
+  "state": "Hes",
+  "country": "Germany",
+  "address": "Franz-Ludwig-von-Cancrin-Weg 1",
+  "timestampUpdated": "1626096767",
+  "courses": [
+    {
+      "courseID": "0121217834709238",
+      "courseName": "GC Hanau-Wilhelmsbad",
+      "numHoles": 18,
+      "timestampUpdated": "1626096767",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcea"
+  },
+  "clubID": "1236024368792",
+  "clubName": "GC Hardenberg Niedersachsen",
+  "city": "Hardenberg",
+  "state": "Nds",
+  "country": "Germany",
+  "address": "Gut Levershagen",
+  "timestampUpdated": "1626097398",
+  "courses": [
+    {
+      "courseID": "0121089982892335",
+      "courseName": "Göttingen",
+      "numHoles": 18,
+      "timestampUpdated": "1626097398",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111445371278471743",
+      "courseName": "Göttingen 1 - 9",
+      "numHoles": 9,
+      "timestampUpdated": "1623074080",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111445371620184338",
+      "courseName": "Göttingen 10 - 18",
+      "numHoles": 9,
+      "timestampUpdated": "1625238342",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121236024368792",
+      "courseName": "Niedersachsen",
+      "numHoles": 18,
+      "timestampUpdated": "1624707968",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111445423160945348",
+      "courseName": "Niedersachsen 1 - 9",
+      "numHoles": 9,
+      "timestampUpdated": "1618417197",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111445423721878456",
+      "courseName": "Niedersachsen 10 - 18",
+      "numHoles": 9,
+      "timestampUpdated": "1618417197",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dceb"
+  },
+  "clubID": "1252668277392",
+  "clubName": "GC Haus Kambach",
+  "city": "Eschweiler",
+  "state": "",
+  "country": "Germany",
+  "address": "Kambacher Str. 9 - 13",
+  "timestampUpdated": "1661950962",
+  "courses": [
+    {
+      "courseID": "0121252668277392",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1661950962",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcec"
+  },
+  "clubID": "1151472858086",
+  "clubName": "GC Heddesheim - Gut Neuzenhof",
+  "city": "Viernheim",
+  "state": "BW",
+  "country": "Germany",
+  "address": "GUT NEUZENHOF",
+  "timestampUpdated": "1626098965",
+  "courses": [
+    {
+      "courseID": "0121151472858086",
+      "courseName": "Gut Neutenhof",
+      "numHoles": 18,
+      "timestampUpdated": "1626098965",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dced"
+  },
+  "clubID": "1315296506090",
+  "clubName": "GC Heerhof",
+  "city": "Herford",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Finnebachstr. 31",
+  "timestampUpdated": "1628959209",
+  "courses": [
+    {
+      "courseID": "0111315296506088",
+      "courseName": "Heerhof",
+      "numHoles": 9,
+      "timestampUpdated": "1628959209",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcee"
+  },
+  "clubID": "1221510107985",
+  "clubName": "GC Heilbronn-Hohenlohe e.V.",
+  "city": "Friedrichsruhe",
+  "state": "",
+  "country": "Germany",
+  "address": "Neuer Garten 2",
+  "timestampUpdated": "1628210730",
+  "courses": [
+    {
+      "courseID": "01114919356974",
+      "courseName": "Limes + Limes",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "01214919356974",
+      "courseName": "Limes + Friedrichsruhe",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "01314919356974",
+      "courseName": "Limes + Schlosspark",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "02214919356974",
+      "courseName": "Friedrichsruhe + Friedrichsruhe",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "02314919356974",
+      "courseName": "Friedrichsruhe + Schlosspark",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "03314919356974",
+      "courseName": "Schlosspark + Schlosspark",
+      "numHoles": 18,
+      "timestampUpdated": "1628210730",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcef"
+  },
+  "clubID": "1579531275379123",
+  "clubName": "GC Herford",
+  "city": "Vlotho",
+  "state": "",
+  "country": "Germany",
+  "address": "Heideholz 8",
+  "timestampUpdated": "1628240574",
+  "courses": [
+    {
+      "courseID": "0121628144973179857",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628240574",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111579531275379123",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1628017006",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf0"
+  },
+  "clubID": "1189939143948",
+  "clubName": "GC Herzogenaurach",
+  "city": "Herzogenaurach/Burgstall",
+  "state": "",
+  "country": "Germany",
+  "address": "Burgstall 1",
+  "timestampUpdated": "1626970918",
+  "courses": [
+    {
+      "courseID": "0121189939143948",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626970918",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf1"
+  },
+  "clubID": "1253824640850",
+  "clubName": "GC Hetzenhof",
+  "city": "Lorch",
+  "state": "BW",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1644765419",
+  "courses": [
+    {
+      "courseID": "0111184941339637",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121184941339637",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131184941339637",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221184941339637",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231184941339637",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331184941339637",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1644765419",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111253824640850",
+      "courseName": "Kurzplatz",
+      "numHoles": 9,
+      "timestampUpdated": "1626163582",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf2"
+  },
+  "clubID": "1152703489884",
+  "clubName": "GC Hilzhofen",
+  "city": "Velburg",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1626169584",
+  "courses": [
+    {
+      "courseID": "0121152703489884",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626169584",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf3"
+  },
+  "clubID": "1317719627563813",
+  "clubName": "GC Hohenstaufen",
+  "city": "Donzdorf",
+  "state": "",
+  "country": "Germany",
+  "address": "Unter dem Ramsberg",
+  "timestampUpdated": "1626169901",
+  "courses": [
+    {
+      "courseID": "0121317719627556765",
+      "courseName": "18 Loch",
+      "numHoles": 18,
+      "timestampUpdated": "1626169901",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf4"
+  },
+  "clubID": "1441737058608528",
+  "clubName": "GC Homburg/Saar Websweiler Hof",
+  "city": "Homburg/Saar",
+  "state": "",
+  "country": "Germany",
+  "address": "Websweiler Hof",
+  "timestampUpdated": "1626208587",
+  "courses": [
+    {
+      "courseID": "0121441737058603017",
+      "courseName": "18-holes",
+      "numHoles": 18,
+      "timestampUpdated": "1626208587",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111492689510625196",
+      "courseName": "Public Course",
+      "numHoles": 9,
+      "timestampUpdated": "1618417212",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf5"
+  },
+  "clubID": "1091039761490",
+  "clubName": "GC Höslwang im Chiemgau",
+  "city": "Höslwang",
+  "state": "Ba",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1626172380",
+  "courses": [
+    {
+      "courseID": "0121091039761490",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626172380",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf6"
+  },
+  "clubID": "1397304188981868",
+  "clubName": "GC Husumer Bucht",
+  "city": "Schwesing",
+  "state": "",
+  "country": "Germany",
+  "address": "Hohlacker",
+  "timestampUpdated": "1625058087",
+  "courses": [
+    {
+      "courseID": "0121397304188975201",
+      "courseName": "Golf Club Husumer Bucht",
+      "numHoles": 18,
+      "timestampUpdated": "1625058087",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf7"
+  },
+  "clubID": "1346863763746102",
+  "clubName": "GC Ingolstadt",
+  "city": "Ingolstadt",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1655757880",
+  "courses": [
+    {
+      "courseID": "0121346863763711331",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1655757880",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf8"
+  },
+  "clubID": "1378387804515501",
+  "clubName": "GC Isarwinkel e.V.",
+  "city": "Bad Tölz",
+  "state": "BAY",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1625118073",
+  "courses": [
+    {
+      "courseID": "0111378387310288",
+      "courseName": "Isarwinkel-Kurs",
+      "numHoles": 9,
+      "timestampUpdated": "1625118073",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcf9"
+  },
+  "clubID": "1202595427258",
+  "clubName": "GC Isernhagen e.V.",
+  "city": "Isernhagen",
+  "state": "NDS",
+  "country": "Germany",
+  "address": "Gut Lohne 22",
+  "timestampUpdated": "1626173542",
+  "courses": [
+    {
+      "courseID": "0121202595427258",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626173542",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcfa"
+  },
+  "clubID": "1219514246239",
+  "clubName": "GC Jakobsberg",
+  "city": "Boppard / Rhens",
+  "state": "RP",
+  "country": "Germany",
+  "address": "Im Tal der Loreley",
+  "timestampUpdated": "1626173684",
+  "courses": [
+    {
+      "courseID": "0121203705745973",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626173684",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcfb"
+  },
+  "clubID": "1224698809461",
+  "clubName": "GC Kirchheim-Wendlingen",
+  "city": "Kirchheim unter Teck",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Schulerberg 1",
+  "timestampUpdated": "1626248635",
+  "courses": [
+    {
+      "courseID": "0121224698809461",
+      "courseName": "GCKW",
+      "numHoles": 18,
+      "timestampUpdated": "1626248635",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcfc"
+  },
+  "clubID": "1463248158204429",
+  "clubName": "GC Koenigsbrunn Sued",
+  "city": "Koenigsbrunn",
+  "state": "Bayern",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1625127097",
+  "courses": [
+    {
+      "courseID": "0111463253381635585",
+      "courseName": "9 Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1625127097",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcfd"
+  },
+  "clubID": "1122063432331",
+  "clubName": "GC Konstanz e.V.",
+  "city": "Allensbach-Langenrain",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Hofgut Kargegg",
+  "timestampUpdated": "1626249529",
+  "courses": [
+    {
+      "courseID": "0121122063432331",
+      "courseName": "GC Konstanz",
+      "numHoles": 18,
+      "timestampUpdated": "1626249529",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcfe"
+  },
+  "clubID": "1394266677314200",
+  "clubName": "GC Kronach e.V. Gut Nagel",
+  "city": "Küps Oberlangenstadt",
+  "state": "",
+  "country": "Germany",
+  "address": "Postfach 11 13 - Gut Nagel",
+  "timestampUpdated": "1626249996",
+  "courses": [
+    {
+      "courseID": "0121394266677307364",
+      "courseName": "18-Loch Gut Nagel",
+      "numHoles": 18,
+      "timestampUpdated": "1626249996",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dcff"
+  },
+  "clubID": "1270279523142",
+  "clubName": "GC Landshut",
+  "city": "Furth bei Landshut",
+  "state": "BAYERN",
+  "country": "Germany",
+  "address": "Oberlippach 2",
+  "timestampUpdated": "1626250337",
+  "courses": [
+    {
+      "courseID": "0121239522520368",
+      "courseName": "Golf Landshut",
+      "numHoles": 18,
+      "timestampUpdated": "1626250337",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd00"
+  },
+  "clubID": "138035786362653",
+  "clubName": "GC Langenhagen",
+  "city": "Langenhagen",
+  "state": "",
+  "country": "Germany",
+  "address": "Hainhaus 22",
+  "timestampUpdated": "1668427897",
+  "courses": [
+    {
+      "courseID": "011166842779810921",
+      "courseName": "Nord 9 Löcher",
+      "numHoles": 9,
+      "timestampUpdated": "1668427897",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0111380439809859300",
+      "courseName": "Ost + Ost",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0121380439809859300",
+      "courseName": "Ost + West",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0131380439809859300",
+      "courseName": "Ost + Nord",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0221380439809859300",
+      "courseName": "West + West",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0231380439809859300",
+      "courseName": "West + Nord",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    },
+    {
+      "courseID": "0331380439809859300",
+      "courseName": "Nord + Nord",
+      "numHoles": 18,
+      "timestampUpdated": "1668423803",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd01"
+  },
+  "clubID": "16594355181926",
+  "clubName": "GC Lechfeld",
+  "city": "Königsbrunn",
+  "state": "",
+  "country": "Germany",
+  "address": "Föllstr. 32 a ",
+  "timestampUpdated": "1659435924",
+  "courses": [
+    {
+      "courseID": "0111659435668675715",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1659435924",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd02"
+  },
+  "clubID": "1213087264637",
+  "clubName": "GC Leverkusen e.V.",
+  "city": "Köln",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Am Hirschfuß 2-4",
+  "timestampUpdated": "1626251112",
+  "courses": [
+    {
+      "courseID": "0121213087264637",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626251112",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd03"
+  },
+  "clubID": "1340744618894555",
+  "clubName": "GC Mangfalltal",
+  "city": "Feldkirchen-Westerham",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Oed 1",
+  "timestampUpdated": "1634825639",
+  "courses": [
+    {
+      "courseID": "0121340744618887997",
+      "courseName": "GC Mangfalltal",
+      "numHoles": 18,
+      "timestampUpdated": "1634825639",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd04"
+  },
+  "clubID": "1351085211687085",
+  "clubName": "GC Mannheim-Viernheim",
+  "city": "Viernheim",
+  "state": "HE",
+  "country": "Germany",
+  "address": "Alte Mannheimer Str.5",
+  "timestampUpdated": "1626253881",
+  "courses": [
+    {
+      "courseID": "0121351085211680412",
+      "courseName": "Mannheim-Viernheim",
+      "numHoles": 18,
+      "timestampUpdated": "1626253881",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd05"
+  },
+  "clubID": "1344239425348977",
+  "clubName": "GC Maria Bildhausen",
+  "city": "Münnerstadt",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Rindhof 1",
+  "timestampUpdated": "1644952155",
+  "courses": [
+    {
+      "courseID": "0121344239425342213",
+      "courseName": "18 holes",
+      "numHoles": 18,
+      "timestampUpdated": "1644952155",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111412566530395839",
+      "courseName": "6Loch",
+      "numHoles": 9,
+      "timestampUpdated": "1625221314",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd06"
+  },
+  "clubID": "1272889127940",
+  "clubName": "GC Marienfeld",
+  "city": "Marienfeld",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Remse 27",
+  "timestampUpdated": "1626255147",
+  "courses": [
+    {
+      "courseID": "0121272889127850",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626255147",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd07"
+  },
+  "clubID": "1122809017421",
+  "clubName": "GC Memmingen - Gut Westerhart",
+  "city": "Memmingen",
+  "state": "Bay",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1635970504",
+  "courses": [
+    {
+      "courseID": "0121122809017421",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1635970504",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111562104718959050",
+      "courseName": "Akademieplatz",
+      "numHoles": 9,
+      "timestampUpdated": "1625225656",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd08"
+  },
+  "clubID": "1431767710216275",
+  "clubName": "GC Mettmann",
+  "city": "Mettmann",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Oberschwarzbach 4a",
+  "timestampUpdated": "1625227803",
+  "courses": [
+    {
+      "courseID": "0121176664605715",
+      "courseName": "Mettmann",
+      "numHoles": 18,
+      "timestampUpdated": "1625227803",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd09"
+  },
+  "clubID": "141798459045330",
+  "clubName": "GC München",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1618417195",
+  "courses": [
+    {
+      "courseID": "012141798459039814",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1618417195",
+      "hasGPS": 0
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0a"
+  },
+  "clubID": "1435921847839405",
+  "clubName": "GC München-Riedhof e.V.",
+  "city": "Egling",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Riedhof 16",
+  "timestampUpdated": "1626256777",
+  "courses": [
+    {
+      "courseID": "0121435921847833609",
+      "courseName": "18-Loch-Meisterschaftsplatz",
+      "numHoles": 18,
+      "timestampUpdated": "1626256777",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0b"
+  },
+  "clubID": "146092281865732",
+  "clubName": "GC Münsterland",
+  "city": "Steinfurt",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Hollich 156A",
+  "timestampUpdated": "1626257153",
+  "courses": [
+    {
+      "courseID": "011146092281860278",
+      "courseName": "GC Münsterland ",
+      "numHoles": 9,
+      "timestampUpdated": "1626257153",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0c"
+  },
+  "clubID": "1151047721364",
+  "clubName": "GC Nahetal",
+  "city": "Bad Muenster am Stein-Ebernbur",
+  "state": "RP",
+  "country": "Germany",
+  "address": "Drei Buchen",
+  "timestampUpdated": "1629892976",
+  "courses": [
+    {
+      "courseID": "0121185628884190",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1629892976",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0d"
+  },
+  "clubID": "1381833611917665",
+  "clubName": "GC Neckartal",
+  "city": "Kornwestheim",
+  "state": "BADEN-WüRTTEMBERG",
+  "country": "Germany",
+  "address": "Aldinger Str. 975",
+  "timestampUpdated": "1644948972",
+  "courses": [
+    {
+      "courseID": "0121381833330634",
+      "courseName": "18 Hole Course",
+      "numHoles": 18,
+      "timestampUpdated": "1644948972",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0e"
+  },
+  "clubID": "1213198507410",
+  "clubName": "GC Neuhof e.V.",
+  "city": "Dreieich",
+  "state": "HES",
+  "country": "Germany",
+  "address": "Hofgut Neuhof",
+  "timestampUpdated": "1688128495",
+  "courses": [
+    {
+      "courseID": "0121213198507410",
+      "courseName": "Parkland",
+      "numHoles": 18,
+      "timestampUpdated": "1644767215",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111282734180250",
+      "courseName": "Skyline",
+      "numHoles": 9,
+      "timestampUpdated": "1688128495",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd0f"
+  },
+  "clubID": "1553931084508226",
+  "clubName": "GC Oberhausen",
+  "city": "Oberhausen",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Jacobistrasse 35",
+  "timestampUpdated": "1650911759",
+  "courses": [
+    {
+      "courseID": "0111314640177053",
+      "courseName": "9-Hole",
+      "numHoles": 9,
+      "timestampUpdated": "1650911759",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111124108430615",
+      "courseName": "Jacobi 9 Hole",
+      "numHoles": 9,
+      "timestampUpdated": "1618417210",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd10"
+  },
+  "clubID": "1164360627265",
+  "clubName": "GC Oberneuland",
+  "city": "Bremen",
+  "state": "HB",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1644764504",
+  "courses": [
+    {
+      "courseID": "0121164360627265",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1644764504",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd11"
+  },
+  "clubID": "1182151731625",
+  "clubName": "GC Oberschwaben",
+  "city": "Bad Waldsee",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628245084",
+  "courses": [
+    {
+      "courseID": "0121628075965555876",
+      "courseName": "New course",
+      "numHoles": 18,
+      "timestampUpdated": "1628244335",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121182151731625",
+      "courseName": "Old Course",
+      "numHoles": 18,
+      "timestampUpdated": "1628244492",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111628244891371493",
+      "courseName": "Short Course",
+      "numHoles": 9,
+      "timestampUpdated": "1628245084",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd12"
+  },
+  "clubID": "1340859431510809",
+  "clubName": "GC Ortenau e.V.",
+  "city": "Lahr-Reichenbach",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Im Gereut 9.1",
+  "timestampUpdated": "1626275197",
+  "courses": [
+    {
+      "courseID": "0121340852165553",
+      "courseName": "GC Ortenau",
+      "numHoles": 18,
+      "timestampUpdated": "1626275197",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd13"
+  },
+  "clubID": "1337371440519648",
+  "clubName": "GC Ostseebad Grömitz",
+  "city": "Grömitz",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628246721",
+  "courses": [
+    {
+      "courseID": "012162807002037397",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628220815",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0111337371116699",
+      "courseName": "Strandidyll",
+      "numHoles": 9,
+      "timestampUpdated": "1628246721",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd14"
+  },
+  "clubID": "1459702426408120",
+  "clubName": "GC Paderborner Land",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628255957",
+  "courses": [
+    {
+      "courseID": "0111458731168758",
+      "courseName": "Grün + Grün",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121458731168758",
+      "courseName": "Grün + Gelb",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131458731168758",
+      "courseName": "Grün + Rot",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221458731168758",
+      "courseName": "Gelb + Gelb",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231458731168758",
+      "courseName": "Gelb + Rot",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331458731168758",
+      "courseName": "Rot + Rot",
+      "numHoles": 18,
+      "timestampUpdated": "1628255957",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd15"
+  },
+  "clubID": "1312546629567",
+  "clubName": "GC Pfälzerwald",
+  "city": "Waldfischbach-Burgalben",
+  "state": "RP",
+  "country": "Germany",
+  "address": "Auf den Aspen 60",
+  "timestampUpdated": "1626329118",
+  "courses": [
+    {
+      "courseID": "0121312545143944",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626329118",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd16"
+  },
+  "clubID": "1119277728328",
+  "clubName": "GC Pforzheim",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1626356632",
+  "courses": [
+    {
+      "courseID": "0121119277728328",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1626356632",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd18"
+  },
+  "clubID": "1377155386691467",
+  "clubName": "GC Prien",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1626359764",
+  "courses": [
+    {
+      "courseID": "0121377155386684641",
+      "courseName": "Prien",
+      "numHoles": 18,
+      "timestampUpdated": "1626359764",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd19"
+  },
+  "clubID": "1150964654651",
+  "clubName": "GC Reit im Winkl",
+  "city": "",
+  "state": "BA",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628139327",
+  "courses": [
+    {
+      "courseID": "0121150964654651",
+      "courseName": "golf club Reit im Winkl",
+      "numHoles": 18,
+      "timestampUpdated": "1628139327",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1a"
+  },
+  "clubID": "1312479544211",
+  "clubName": "GC Reken",
+  "city": "",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628140681",
+  "courses": [
+    {
+      "courseID": "0121312479544209",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628140681",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1b"
+  },
+  "clubID": "1112708790830",
+  "clubName": "GC Rheinblick",
+  "city": "Lottstetten-Nack",
+  "state": "BW",
+  "country": "Germany",
+  "address": "Rheinstr. 4",
+  "timestampUpdated": "1628115704",
+  "courses": [
+    {
+      "courseID": "0121214732939444",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628115704",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1c"
+  },
+  "clubID": "1218137280462",
+  "clubName": "GC Rheinhessen",
+  "city": "St. Johann",
+  "state": "RP",
+  "country": "Germany",
+  "address": "Hofgut Wißberg",
+  "timestampUpdated": "1629887808",
+  "courses": [
+    {
+      "courseID": "0121218137280462",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1629887808",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1d"
+  },
+  "clubID": "1222476969693",
+  "clubName": "GC Rittergut Rothenberger Haus e.V.",
+  "city": "Duderstadt",
+  "state": "NDS",
+  "country": "Germany",
+  "address": "Rothenbergshaus 1",
+  "timestampUpdated": "1628148854",
+  "courses": [
+    {
+      "courseID": "0121222476969693",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628148854",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1e"
+  },
+  "clubID": "1264682157142",
+  "clubName": "GC Rothenbach",
+  "city": "Wassenberg",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628124048",
+  "courses": [
+    {
+      "courseID": "0111264682157057",
+      "courseName": "9-hole course",
+      "numHoles": 9,
+      "timestampUpdated": "1628124048",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd1f"
+  },
+  "clubID": "1339327920945632",
+  "clubName": "GC Sauerland e.V.",
+  "city": "Arnsberg",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Am Golfplatz 19",
+  "timestampUpdated": "1628151064",
+  "courses": [
+    {
+      "courseID": "0121339327920938892",
+      "courseName": "GC Sauerland e.V.",
+      "numHoles": 18,
+      "timestampUpdated": "1628151064",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd20"
+  },
+  "clubID": "1337937822692113",
+  "clubName": "GC Schloß Breitenburg",
+  "city": "Breitenburg",
+  "state": "SH",
+  "country": "Germany",
+  "address": "Osterholz 3",
+  "timestampUpdated": "1628257582",
+  "courses": [
+    {
+      "courseID": "0111120163563202",
+      "courseName": "A + A",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121120163563202",
+      "courseName": "A + B",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0131120163563202",
+      "courseName": "A + C",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0221120163563202",
+      "courseName": "B + B",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0231120163563202",
+      "courseName": "B + C",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0331120163563202",
+      "courseName": "C + C",
+      "numHoles": 18,
+      "timestampUpdated": "1628257582",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd21"
+  },
+  "clubID": "1151482684312",
+  "clubName": "GC Schloss Egmating",
+  "city": "Egmating/München",
+  "state": "BY",
+  "country": "Germany",
+  "address": "Schlossstraße 15",
+  "timestampUpdated": "1644955515",
+  "courses": [
+    {
+      "courseID": "0111419361811834968",
+      "courseName": "Arabella Course",
+      "numHoles": 9,
+      "timestampUpdated": "1628136574",
+      "hasGPS": 1
+    },
+    {
+      "courseID": "0121151482684312",
+      "courseName": "Championship Course",
+      "numHoles": 18,
+      "timestampUpdated": "1644955515",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd22"
+  },
+  "clubID": "1212597083072",
+  "clubName": "GC Schloss Georghausen",
+  "city": "Lindlar-Hommerich",
+  "state": "",
+  "country": "Germany",
+  "address": "Georghausen 8",
+  "timestampUpdated": "1628162429",
+  "courses": [
+    {
+      "courseID": "0121321144064893",
+      "courseName": "Schloß Georghausen",
+      "numHoles": 18,
+      "timestampUpdated": "1628162429",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd23"
+  },
+  "clubID": "1236152002628",
+  "clubName": "GC Schloss Haag",
+  "city": "Geldern",
+  "state": "NRW",
+  "country": "Germany",
+  "address": "Bartelter Weg 8",
+  "timestampUpdated": "1625647043",
+  "courses": [
+    {
+      "courseID": "0121236152002628",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1625647043",
+      "hasGPS": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2cbe1009d90387b24dd24"
+  },
+  "clubID": "1087128076515",
+  "clubName": "GC Schloß Klingenburg",
+  "city": "Schönenberg",
+  "state": "",
+  "country": "Germany",
+  "address": "",
+  "timestampUpdated": "1628163586",
+  "courses": [
+    {
+      "courseID": "0121087128076515",
+      "courseName": "18-hole course",
+      "numHoles": 18,
+      "timestampUpdated": "1628163586",
+      "hasGPS": 1
+    }
+  ]
+}]

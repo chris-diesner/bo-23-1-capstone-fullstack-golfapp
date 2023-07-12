@@ -173,3 +173,31 @@
     overflow-y: auto;
     max-height: 90vh;
 }
+.AppButton {
+    color: white;
+    background-color: #6bb3dc !important;
+    border-color: floralwhite !important;
+    height: 40px;
+    width: 100%;
+    font-size: 16px !important;
+    box-shadow: none;
+    margin-top: 5px;
+}
+.form.group {
+    width: 90vh;
+    min-width: 90%;
+}
+.ButtonGroup {
+    width: 100%;
+    justify-content: space-around;
+}
+.HomeButton {
+    color: white;
+    background-color: #6bb3dc !important;
+    border-color: floralwhite !important;
+    height: 40px;
+    width: 100%;
+    font-size: 16px !important;
+    box-shadow: none;
+    margin-top: 5px;
+}

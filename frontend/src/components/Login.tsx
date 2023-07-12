@@ -83,7 +83,7 @@ function Login(props: Props) {
                                     <Form.Control type="password" onChange={onChangeHandlerPassword}
                                                   placeholder="Password"/>
                                 </Form.Group>
-                                <Button className="AppButton" type="submit">
+                                <Button className="btn btn-secondary" type="submit">
                                     Login
                                 </Button>
                             </Form>

@@ -122,7 +122,7 @@
 }
 .map-container {
     height: 40vh;
-    width: 30vh;
+    width: 80vw;
     position: relative;
 }
 .combobox-input {

@@ -3,6 +3,7 @@ import { GoogleMap } from "@react-google-maps/api";
 import Tee from "../../media/tee.png";
 import { useSelector } from "react-redux";
 import { Coordinates } from "../../models/CourseCoordinates";
+import '../../styles/App.css'
 
 type CourseMap = google.maps.Map;
 type LatLngLiteral = google.maps.LatLngLiteral;
@@ -220,14 +221,11 @@ export default function GolfCourseMap(props: Props) {
                 <GoogleMap
                     options={options}
                     onLoad={onLoad}
-                    mapContainerStyle={{ height: "450px", width: "220px" }}
+                    mapContainerStyle={{ height: "450px", width: "100vw" }}
                 />
-            </div>
-            <div className="test-distance">
-                <br />
-                <p>
-                    Distance: {distance ? `${distance} m` : ""}
-                </p>
+                <div className="CourseDistance">
+                        Distance: {distance ? `${distance} m` : ""}
+                </div>
             </div>
         </div>
     );

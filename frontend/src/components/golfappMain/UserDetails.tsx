@@ -163,7 +163,7 @@ function UserDetails(props: Props) {
                                     Update your personal information
                                 </Form.Text>
                             </Form.Group>
-                            <Button className="saveButton" type="submit">
+                            <Button className="btn btn-secondary" type="submit">
                                 Save
                             </Button>
                         </Form>

@@ -19,8 +19,8 @@ function Home() {
                         <p>Let's get started.</p>
                     </div>
                     <div className="btn-group">
-                        <a href="/register" className="btn btn-primary">Sign Up</a>
-                        <a href="/login" className="btn btn-primary">Login</a>
+                        <a href="/register" className="btn btn-secondary">Sign Up</a>
+                        <a href="/login" className="btn btn-secondary">Login</a>
                     </div>
                 </Container>
             </div>

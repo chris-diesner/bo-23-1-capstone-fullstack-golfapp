@@ -73,7 +73,7 @@ function EvaluationCard(props: Props) {
                     </div>
                 </div>
                 <div className="EvaluationButtons">
-                    <Button variant="primary" onClick={handleSaveScorecard}>
+                    <Button variant="secondary" onClick={handleSaveScorecard}>
                         Save Scorecard
                     </Button>
                 </div>

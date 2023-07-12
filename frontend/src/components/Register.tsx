@@ -101,7 +101,7 @@ function Register(props: Props) {
                                         Your password must be 6-20 characters long.
                                     </Form.Text>
                                 </Form.Group>
-                                <Button className="registerButton" type="submit">
+                                <Button className="btn btn-secondary" type="submit">
                                     Sign Up
                                 </Button>
                             </Form>

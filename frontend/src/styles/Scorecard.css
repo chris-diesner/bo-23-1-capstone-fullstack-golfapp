@@ -60,3 +60,9 @@
 .ScorecardSpacer {
     height: 8px;
 }
+.CourseDistance {
+    z-index: 2;
+}
+.CourseMap {
+    z-index: 1;
+}

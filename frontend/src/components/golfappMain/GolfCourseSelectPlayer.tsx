@@ -130,7 +130,7 @@ function GolfCourseSelectPlayer(props:Props) {
                             <path
                                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
-                        <h6>Select Players</h6>
+                        <h6>Choose Flight Partners</h6>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              className="bi bi-box-arrow-right" viewBox="0 0 16 16" onClick={onClickLogout}>
                             <path d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
@@ -165,7 +165,10 @@ function GolfCourseSelectPlayer(props:Props) {
                                 </label>
                             </div>
                         )}
-                        <Button onClick={onClickStartRound}>Start Round</Button>
+                        <br/>
+                        <p>
+                        </p>
+                        <Button className="btn btn-secondary" onClick={onClickStartRound}>Start Round</Button>
                     </div>
                 </div>
             </Container>

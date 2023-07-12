@@ -5,8 +5,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    padding-top: 30px;
     overflow: hidden;
+    margin-top: 15px;
 }
 .App-Page {
     display: flex;
@@ -21,7 +21,7 @@
 .AppContainer {
     display: flex;
     background: floralwhite;
-    width: 80vw;
+    width: 90vw;
     height: 100%;
     flex-direction: column;
     justify-content: flex-start;
@@ -122,7 +122,7 @@
 }
 .map-container {
     height: 40vh;
-    width: 30vh;
+    width: 80vw;
     position: relative;
 }
 .combobox-input {
@@ -131,4 +131,72 @@
 }
 .ProfilPicture {
     border-radius: 50%;
+}
+.MapContainer {
+    position: relative;
+}
+.HoleHeader {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 5px;
+    padding: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    color: black;
+    background-color: floralwhite;
+    opacity: 80%;
+    border-radius: 2px;
+}
+.CourseInfo {
+    margin: 5px;
+}
+.CourseDistance {
+    background-color: floralwhite;
+}
+.HoleForm {
+    display: flex;
+    background: floralwhite;
+    width: 90vw;
+    height: 100%;
+    margin-top: 5px;
+    padding-left: 5px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+.AppButton {
+    color: white;
+    background-color: #6bb3dc !important;
+    border-color: floralwhite !important;
+    height: 40px;
+    width: 100%;
+    font-size: 16px !important;
+    box-shadow: none;
+    margin-top: 5px;
+}
+.form.group {
+    width: 90vh;
+    min-width: 90%;
+}
+.ButtonGroup {
+    width: 100%;
+    justify-content: space-around;
+}
+.HomeButton {
+    color: white;
+    background-color: #6bb3dc !important;
+    border-color: floralwhite !important;
+    height: 40px;
+    width: 100%;
+    font-size: 16px !important;
+    box-shadow: none;
+    margin-top: 5px;
 }

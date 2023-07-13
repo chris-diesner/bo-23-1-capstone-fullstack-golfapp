@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import Home from "./Home";
 import ProtectedRoutes from "./ProtectedRoutes";
 import UserMainPage from "./golfappMain/UserMainPage";

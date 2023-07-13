@@ -221,7 +221,7 @@ export default function GolfCourseMap(props: Props) {
                 <GoogleMap
                     options={options}
                     onLoad={onLoad}
-                    mapContainerStyle={{ height: "450px", width: "100vw" }}
+                    mapContainerStyle={{ height: "50vh", width: "90vw" }}
                 />
                 <div className="CourseDistance">
                         Distance: {distance ? `${distance} m` : ""}

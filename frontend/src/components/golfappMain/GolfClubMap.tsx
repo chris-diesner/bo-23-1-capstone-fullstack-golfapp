@@ -112,7 +112,7 @@ export default function GolfClubMap({golfClubs}: Props) {
                 {directions && <Distance leg={directions.routes[0].legs[0]}/>}
             </div>
             <div className="Map">
-                <GoogleMap zoom={8} center={center !== null ? center : defaultCenter} mapContainerClassName="map-container" options={options}
+                <GoogleMap zoom={10} center={center !== null ? center : defaultCenter} mapContainerClassName="map-container" options={options}
                            onLoad={onLoad}>
                     <>
                         {directions && <DirectionsRenderer directions={directions} options={

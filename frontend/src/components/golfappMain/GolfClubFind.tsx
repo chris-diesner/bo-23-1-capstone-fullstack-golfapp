@@ -5,6 +5,7 @@ import {GolfClub} from "../../models/GolfClub";
 import axios from "axios";
 import '../../styles/App.css'
 import MapContainer from "./MapContainer";
+import {motion} from "framer-motion";
 
 type Props = {
     logout: () => Promise<void>
@@ -66,7 +67,7 @@ function GolfClubFind(props: Props) {
     }
 
     return (
-        <div className="AppContainer">
+        <motion.div className="AppContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="AppContent">
                     <div className="AppHeader">
@@ -89,7 +90,7 @@ function GolfClubFind(props: Props) {
                     <MapContainer golfClubs={golfClubs} showClubMap={true} holeNumber={holeNumber}/>
                 </div>
             </Container>
-        </div>
+        </motion.div>
     );
 }
 

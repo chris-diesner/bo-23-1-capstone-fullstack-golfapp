@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import userImage from '../../media/user.png'
 import {useSelector} from "react-redux";
+import {motion} from "framer-motion";
 
 type Props = {
     logout: () => Promise<void>
@@ -28,7 +29,7 @@ function UserMainPage(props: Props) {
     }
 
     return (
-        <div className="App-Page">
+        <motion.div className="App-Page" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <header className="App-Header">
                 <img src={userDetails?.profilePicture || userImage} className="ProfilPicture" width={150} height={150}
                      alt="User Details" onClick={userDetailsOnClick}/></header>
@@ -96,7 +97,7 @@ function UserMainPage(props: Props) {
                     </div>
                 </Container>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

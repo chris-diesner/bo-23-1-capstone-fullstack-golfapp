@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {GolfTee} from "../../models/GolfCourse";
 import '../../styles/App.css'
 import {setGolfTee} from "../../Actions/GolfAppActions";
+import {motion} from "framer-motion";
 
 type Props = {
     logout: () => Promise<void>
@@ -27,7 +28,7 @@ function GolfCourseSelectTee(props: Props) {
     }
 
     return (
-        <div className="AppContainer">
+        <motion.div className="AppContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="AppContent">
                     <div className="AppHeader">
@@ -81,7 +82,7 @@ function GolfCourseSelectTee(props: Props) {
                     </div>
                 </div>
             </Container>
-        </div>
+        </motion.div>
     );
 }
 

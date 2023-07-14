@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/App.css';
 import {Container} from "react-bootstrap";
 import Logo from "../media/easySwing_logo.png"
+import {motion} from "framer-motion";
 
 function Home() {
     return (
-        <div className="App-Page">
+        <motion.div className="App-Page" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <header className="App-Header">
                 <img src={Logo} alt="Logo"></img>
             </header>
@@ -24,7 +25,7 @@ function Home() {
                     </div>
                 </Container>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -7,6 +7,7 @@ import MapContainer from "./MapContainer";
 import {useNavigate} from "react-router-dom";
 import '../../styles/App.css'
 import ScorecardHook from "../hooks/ScorecardHook";
+import {motion} from "framer-motion";
 
 type Props = {
     score: Score;
@@ -117,7 +118,7 @@ function HoleCard(props: Props) {
     }
 
     return (
-        <div className="HoleContainer">
+        <motion.div className="HoleContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="AppContent">
                     <div className="MapContainer" style={{position: "relative"}}>
@@ -227,7 +228,7 @@ function HoleCard(props: Props) {
                     </div>
                 </div>
             </Container>
-        </div>
+        </motion.div>
     );
 }
 

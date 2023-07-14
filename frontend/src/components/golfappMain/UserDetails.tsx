@@ -6,6 +6,7 @@ import validator from "validator";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {setUserDetails} from "../../Actions/GolfAppActions";
+import {motion} from "framer-motion";
 
 type Props = {
     editUserDetails: (id: string, golfUser: GolfUser) => Promise<void>;
@@ -108,7 +109,7 @@ function UserDetails(props: Props) {
     }
 
     return (
-        <div className="AppContainer">
+        <motion.div className="AppContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="AppContent">
                     <div className="AppHeader">
@@ -186,7 +187,7 @@ function UserDetails(props: Props) {
                     <Toast.Body>Something went wrong - try again later</Toast.Body>
                 </Toast>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

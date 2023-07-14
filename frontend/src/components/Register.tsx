@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import '../styles/App.css';
 import {Button, Container, Form, Toast} from 'react-bootstrap';
 import Logo from "../media/easySwing_logo.png";
+import {motion} from "framer-motion";
 
 type Props = {
     register: (username: string, password: string) => Promise<void>;
@@ -65,7 +66,7 @@ function Register(props: Props) {
     }
 
     return (
-        <div className="App-Page">
+        <motion.div className="App-Page"  initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <header className="App-Header">
                 <img src={Logo} alt="Logo"></img>
             </header>
@@ -125,7 +126,7 @@ function Register(props: Props) {
                     </Toast>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -6,6 +6,7 @@ import TableBackNine from "./TableBackNine";
 import { Button, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import '../../styles/EvaluationCard.css'
+import { motion } from "framer-motion";
 
 type Props = {
     logout: () => Promise<void>;
@@ -49,7 +50,7 @@ function ScorecardById(props: Props) {
     }
 
     return (
-        <div className="EvaluationContainer">
+        <motion.div className="EvaluationContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="EvaluationContent">
                     <div className="EvaluationHeader">
@@ -75,7 +76,7 @@ function ScorecardById(props: Props) {
                     </Button>
                 </div>
             </Container>
-        </div>
+        </motion.div>
     );
 }
 

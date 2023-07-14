@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import useScorecardHook from "../hooks/ScorecardHook";
 import {setScorecard} from "../../Actions/GolfAppActions";
 import '../../styles/App.css'
+import {motion} from "framer-motion";
 
 type Props = {
     logout: () => Promise<void>
@@ -120,7 +121,7 @@ function GolfCourseSelectPlayer(props:Props) {
     }
 
     return (
-        <div className="AppContainer">
+        <motion.div className="AppContainer" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <Container className="d-flex flex-column justify-content-center">
                 <div className="AppContent">
                     <div className="AppHeader">
@@ -172,7 +173,7 @@ function GolfCourseSelectPlayer(props:Props) {
                     </div>
                 </div>
             </Container>
-        </div>
+        </motion.div>
     );
 }
 

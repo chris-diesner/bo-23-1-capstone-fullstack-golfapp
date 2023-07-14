@@ -7,6 +7,7 @@ import {setUserDetails} from "../Actions/GolfAppActions";
 import axios from "axios";
 import {GolfUser} from "../models/GolfUser";
 import Logo from "../media/easySwing_logo.png";
+import {motion} from "framer-motion";
 
 type Props = {
     login: (username: string, password: string) => Promise<void>
@@ -55,7 +56,7 @@ function Login(props: Props) {
     }
 
     return (
-        <div className="App-Page">
+        <motion.div className="App-Page" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
             <header className="App-Header">
                 <img src={Logo} alt="Logo"></img>
             </header>
@@ -107,7 +108,7 @@ function Login(props: Props) {
                     </Toast>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -27,6 +27,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     position: relative;
+    margin-top: 30px;
     padding-bottom: 10px;
     padding-top: 10px;
     box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);

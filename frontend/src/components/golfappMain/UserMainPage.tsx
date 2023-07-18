@@ -47,15 +47,7 @@ function UserMainPage(props: Props) {
                             </svg>
                         </div>
                         <br/>
-                        <h5>What' new:</h5>
-                        <ul>
-                            <li>Added a Register Page</li>
-                            <li>Email & Password Validation</li>
-                            <li>Added a Login Page</li>
-                            <li>Added a User Details Page</li>
-                            <li>Profile can be updated</li>
-                            <li>Added a Golf Club Overview Page</li>
-                        </ul>
+                        <h5 className="AppText">Welcome {userDetails?.firstName} {userDetails?.lastName}</h5>
                         <div className="AppList">
                             <div className="AppListItem" onClick={() => navigate("/golfapp/clubs")}>
                                 <div className="ItemHeader">
